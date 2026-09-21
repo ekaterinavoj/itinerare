@@ -325,7 +325,7 @@
 
   // ---------- auto map (extracts places from the itinerary's own map links, geocodes via OSM Nominatim, renders with Leaflet) ----------
   var mapInstance = null;
-  var GEOCODE_CACHE_KEY = 'geocode-cache-v2';
+  var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
   var COUNTRY_HINTS = {
     'usa': 'us', 'united states': 'us',
     'norsko': 'no', 'norway': 'no',
@@ -349,17 +349,23 @@
   }
 
   function extractMapPlaces(html){
+    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
+    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
     try {
       var doc = new DOMParser().parseFromString(html, 'text/html');
       var links = doc.querySelectorAll('a.maplink');
       var seen = {}, out = [];
       links.forEach(function(a){
         var text = (a.textContent || '').trim();
-        // generic button labels ("Mapa" next to a named card) carry no place info — use the link's own query instead
-        var name = (!text || /^mapa$/i.test(text)) ? nameFromMapHref(a.getAttribute('href') || '') : text;
-        if (!name || seen[name]) return;
-        seen[name] = true;
-        out.push(name);
+        var hrefName = nameFromMapHref(a.getAttribute('href') || '');
+        var isGeneric = !text || /^mapa$/i.test(text);
+        var label = isGeneric ? (hrefName || text) : text;
+        var query = hrefName || text;
+        if (!label || !query) return;
+        var key = query.toLowerCase();
+        if (seen[key]) return;
+        seen[key] = true;
+        out.push({label: label, query: query});
       });
       return out;
     } catch(e){ return []; }
@@ -373,12 +379,17 @@
   }
 
   function geocodeOne(name, countryCode){
+    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
+    // from a genuine "this place has no OSM entry" — those must never be cached the same way
     var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name);
     if (countryCode) url += '&countrycodes=' + countryCode;
-    return fetch(url).then(function(r){ return r.ok ? r.json() : []; }).then(function(rows){
+    return fetch(url).then(function(r){
+      if (!r.ok) { throw new Error('http ' + r.status); }
+      return r.json();
+    }).then(function(rows){
       if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
       return null;
-    }).catch(function(){ return null; });
+    });
   }
 
   var mapRenderToken = 0;
@@ -390,8 +401,8 @@
     container.innerHTML = '';
     if (!window.L){ statusEl.textContent = 'Mapová knihovna se nenačetla (zkontrolujte připojení).'; return; }
     if (!trip.content){ statusEl.textContent = ''; return; }
-    var names = extractMapPlaces(trip.content);
-    if (!names.length){ statusEl.textContent = 'Pro tuhle cestu nemám žádná místa na mapu.'; return; }
+    var places = extractMapPlaces(trip.content);
+    if (!places.length){ statusEl.textContent = 'Pro tuhle cestu nemám žádná místa na mapu.'; return; }
 
     var countryCode = guessCountryCode(trip.title);
     var cache = loadGeocodeCache();
@@ -420,26 +431,31 @@
 
     // pins appear on the map one by one as each place resolves, instead of a blank map until everything is done —
     // geocoding ~30-50 places at the OSM-required 1 request/sec makes the old "wait then reveal" approach look broken
-    for (var i=0; i<names.length; i++){
+    for (var i=0; i<places.length; i++){
       if (myToken !== mapRenderToken) return; // user switched to another trip meanwhile
-      var name = names[i];
-      var cacheKey = cacheKeyPrefix + name;
+      var place = places[i];
+      var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
       var cached = cache[cacheKey];
       if (cached === undefined){
-        statusEl.textContent = resolved + ' / ' + names.length + ' míst na mapě — načítám dál…';
-        cached = await geocodeOne(name, countryCode);
-        cache[cacheKey] = cached || 'FAIL';
-        saveGeocodeCache(cache);
+        statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
+        try {
+          cached = await geocodeOne(place.query, countryCode);
+          cache[cacheKey] = cached || 'FAIL';
+          saveGeocodeCache(cache);
+        } catch(e){
+          statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          return;
+        }
       }
       if (myToken !== mapRenderToken) return;
       if (cached && cached !== 'FAIL'){
-        addPoint(name, cached);
+        addPoint(place.label, cached);
         resolved++;
       }
       var done = i + 1;
-      statusEl.textContent = resolved + ' / ' + names.length + ' míst na mapě' +
-        (done < names.length ? ' — načítám dál…' : ' · najetím/klikem zjistíte název');
-      if (done < names.length) await new Promise(function(res){ setTimeout(res, 1100); });
+      statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' +
+        (done < places.length ? ' — načítám dál…' : ' · najetím/klikem zjistíte název');
+      if (done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
   }

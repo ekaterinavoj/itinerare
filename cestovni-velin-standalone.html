@@ -221,6 +221,15 @@
 (function(){
   "use strict";
 
+  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
+  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
+  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
+  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
+  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  if (window.L) {
+    L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
+  }
+
   var STORAGE_KEY = 'cestovni-velin-trips-v1';
   var SEED_FILES = [
     {file:'madeira-itinerar.html', title:'Madeira', emoji:'🌋', color:'#9E4229'},

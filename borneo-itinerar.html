@@ -534,6 +534,14 @@
 <script>
 (function(){
   "use strict";
+  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
+  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
+  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
+  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
+  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  if (window.L) {
+    L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
+  }
   var COUNTRY_CODE = 'my,sg';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 

@@ -6,6 +6,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <style>
   :root{
     --ground:#F6F1E4;
@@ -124,6 +126,15 @@
   }
   .maplink::before{content:"↗"; font-size:13px;}
 
+  .map-section{margin:32px 0 8px;}
+  .map-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px; flex-wrap:wrap;}
+  .map-head h3{font-size:15px; font-family:'Fraunces', Georgia, serif;}
+  .map-status{font-size:11.5px; color:var(--ink-faint); font-family:'Space Mono',monospace;}
+  .map-container{height:380px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--surface-2);}
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip{background:var(--surface); color:var(--ink);}
+  .leaflet-tooltip.place-label{background:var(--surface); color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:2px 7px; font-family:'Work Sans',sans-serif; font-size:11.5px; font-weight:600; box-shadow:none; white-space:nowrap;}
+  .leaflet-tooltip.place-label::before{display:none;}
+
   .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
   .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
   .note b{color:var(--ink);}
@@ -161,7 +172,7 @@
 
 <header class="hero">
   <a class="backlink" href="index.html">← Zpět na přehled</a>
-  <div class="eyebrow">Borneo (Sabah) + Singapur · 23. 4. – 12. 5. 2026 · 20 dní</div>
+  <div class="eyebrow">Borneo (Sabah) + Singapur · 20 dní</div>
   <h1>Borneo</h1>
   <p>Kota Kinabalu → ostrov Mantanani → NP Kinabalu → prales u Kinabatanganu → potápěčský ráj Mabul/Semporna → Singapur. Deštný prales, orangutani, safari na řece a korálové ostrovy — vedeno průvodcem, doprava zajištěná, tempo klidné.</p>
 </header>
@@ -505,10 +516,113 @@
     </div>
   </section>
 
+  <div class="map-section">
+    <div class="map-head">
+      <h3>Mapa itineráře</h3>
+      <span class="map-status" id="mapStatus"></span>
+    </div>
+    <div class="map-container" id="mapContainer"></div>
+  </div>
+
   <footer>
     Sestaveno z vašeho itineráře „Zelené Borneo s prodloužením v Singapuru" (23. 4. – 12. 5. 2026) — vedená skupinová cesta s dopravou a průvodcem zajištěnými, doplněno jen o Google Maps odkazy a rozřazení do dní. Singapur (dny 17–20) je ve zdrojovém itineráři označen jako volitelné prodloužení.
   </footer>
 
 </div>
+<script>
+(function(){
+  "use strict";
+  var COUNTRY_CODE = 'my,sg';
+  var GEOCODE_CACHE_KEY = 'geocode-cache-v2';
+
+  function nameFromMapHref(href){
+    try {
+      var q = new URL(href, location.href).searchParams.get('query');
+      if (!q) return null;
+      return decodeURIComponent(q.replace(/\+/g, ' ')).trim();
+    } catch(e){ return null; }
+  }
+  function extractMapPlaces(){
+    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
+    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    var links = document.querySelectorAll('a.maplink');
+    var seen = {}, out = [];
+    links.forEach(function(a){
+      var text = (a.textContent || '').trim();
+      var hrefName = nameFromMapHref(a.getAttribute('href') || '');
+      var isGeneric = !text || /^mapa$/i.test(text);
+      var label = isGeneric ? (hrefName || text) : text;
+      var query = hrefName || text;
+      if (!label || !query) return;
+      var key = query.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      out.push({label: label, query: query});
+    });
+    return out;
+  }
+  function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
+  function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
+  function geocodeOne(name){
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    return fetch(url).then(function(r){ return r.ok ? r.json() : []; }).then(function(rows){
+      if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
+      return null;
+    }).catch(function(){ return null; });
+  }
+
+  async function renderMap(){
+    var statusEl = document.getElementById('mapStatus');
+    var container = document.getElementById('mapContainer');
+    if (!statusEl || !container) return;
+    if (!window.L){ statusEl.textContent = 'Mapová knihovna se nenačetla.'; return; }
+    var places = extractMapPlaces();
+    if (!places.length){ statusEl.textContent = 'Pro tuhle cestu nejsou na stránce žádná místa.'; return; }
+
+    var cache = loadCache();
+    var cacheKeyPrefix = COUNTRY_CODE + ':';
+    var bounds = [];
+    var map = null;
+    var resolved = 0;
+
+    function ensureMap(){
+      if (map) return;
+      map = L.map(container, {scrollWheelZoom:false});
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+    }
+    function addPoint(name, coord){
+      ensureMap();
+      var m = L.marker([coord.lat, coord.lng]).addTo(map);
+      m.bindTooltip(name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
+      m.bindPopup(name);
+      bounds.push([coord.lat, coord.lng]);
+      if (bounds.length === 1) map.setView(bounds[0], 11);
+      else map.fitBounds(bounds, {padding:[28,28]});
+    }
+
+    for (var i=0; i<places.length; i++){
+      var place = places[i];
+      var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
+      var cached = cache[cacheKey];
+      if (cached === undefined){
+        statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
+        cached = await geocodeOne(place.query);
+        cache[cacheKey] = cached || 'FAIL';
+        saveCache(cache);
+      }
+      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached); resolved++; }
+      var done = i + 1;
+      statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
+      if (done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
+    }
+    if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);
+  else renderMap();
+})();
+</script>
 </body>
 </html>

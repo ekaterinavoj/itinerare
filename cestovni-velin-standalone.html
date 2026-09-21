@@ -451,12 +451,14 @@
       var place = places[i];
       var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
       var cached = cache[cacheKey];
+      var madeLiveRequest = false;
       if (cached === undefined){
         statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
         try {
           cached = await geocodeOne(place.query, countryCode);
           cache[cacheKey] = cached || 'FAIL';
           saveGeocodeCache(cache);
+          madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
           return;
@@ -470,7 +472,9 @@
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' +
         (done < places.length ? ' — načítám dál…' : ' · klikem otevřete odkaz na Google Maps');
-      if (done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
+      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
+      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
   }

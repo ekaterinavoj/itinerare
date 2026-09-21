@@ -570,6 +570,10 @@
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
   var COUNTRY_CODE = 'pt';
+  // Portugal spans several island groups with duplicate place names (e.g. "Pico do Areeiro" also
+  // exists in the Azores) — countrycodes=pt alone isn't enough, so pin the search to Madeira's own
+  // bounding box too (left,top,right,bottom = lon,lat,lon,lat)
+  var VIEWBOX = '-17.3,32.9,-16.6,32.6';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){
@@ -603,7 +607,7 @@
   function geocodeOne(name){
     // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
     // from a genuine "this place has no OSM entry" — those must never be cached the same way
-    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + '&viewbox=' + VIEWBOX + '&bounded=1';
     return fetch(url).then(function(r){
       if (!r.ok) { throw new Error('http ' + r.status); }
       return r.json();
@@ -662,12 +666,14 @@
       var place = places[i];
       var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
       var cached = cache[cacheKey];
+      var madeLiveRequest = false;
       if (cached === undefined){
         statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
         try {
           cached = await geocodeOne(place.query);
           cache[cacheKey] = cached || 'FAIL';
           saveCache(cache);
+          madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
           return;
@@ -677,7 +683,9 @@
       if (blocked) return;
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
-      if (done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
+      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
+      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
   }

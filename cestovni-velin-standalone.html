@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Itineráře</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<style>
+  :root{
+    --ground:#F3EEE1; --surface:#FFFEFB; --surface-2:#EAE2CC; --ink:#241F17; --ink-soft:#5B5344; --ink-faint:#938971;
+    --border:#E2D8BC; --accent:#1E2A4A; --accent-ink:#F0F2F7; --gold:#B8923F; --gold-ink:#2A2005;
+    --danger:#A0432A; --danger-ink:#FBEEE8;
+    --shadow: 0 1px 2px rgba(30,22,10,.07), 0 8px 24px -12px rgba(30,22,10,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#151310; --surface:#201C16; --surface-2:#2A251C; --ink:#EFE8D8; --ink-soft:#B8AD97; --ink-faint:#7C7261;
+      --border:#393225; --accent:#7C8FC2; --accent-ink:#111629; --gold:#D9B268; --gold-ink:#2A2005;
+      --danger:#E08A6A; --danger-ink:#2A1409;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#151310; --surface:#201C16; --surface-2:#2A251C; --ink:#EFE8D8; --ink-soft:#B8AD97; --ink-faint:#7C7261;
+    --border:#393225; --accent:#7C8FC2; --accent-ink:#111629; --gold:#D9B268; --gold-ink:#2A2005;
+    --danger:#E08A6A; --danger-ink:#2A1409;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+  [hidden]{display:none!important;}
+  .wrap{max-width:960px; margin:0 auto; padding:24px 18px 64px;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:28px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{font-size:30px; line-height:1;}
+  .brand h1{font-size:28px; font-weight:700;}
+  .brand .sub{display:block; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-top:3px;}
+  .topbtns{display:flex; gap:8px; flex-wrap:wrap;}
+  .btn{font-family:'Work Sans'; font-size:14px; font-weight:600; border-radius:999px; padding:10px 18px; border:1px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;}
+  .btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .btn--primary{background:var(--accent); color:var(--accent-ink);}
+  .btn--primary:disabled{opacity:.5; cursor:not-allowed;}
+  .btn--ghost{background:var(--surface); color:var(--ink); border-color:var(--border);}
+  .btn--sm{padding:7px 13px; font-size:13px;}
+  .icon-btn{background:transparent; border:1px solid var(--border); color:var(--ink-soft); border-radius:8px; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; font-size:14px;}
+  .icon-btn:hover{color:var(--danger); border-color:var(--danger);}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:16px;}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 16px 14px; box-shadow:var(--shadow); border-top:4px solid var(--accent-c, var(--accent)); display:flex; flex-direction:column; gap:10px; transition:transform .15s, box-shadow .15s;}
+  .card:hover{transform:translateY(-2px); box-shadow:0 4px 8px rgba(30,22,10,.1), 0 14px 28px -14px rgba(30,22,10,.3);}
+  .card-top{display:flex; align-items:flex-start; justify-content:space-between;}
+  .card-emoji{font-size:24px; line-height:1; width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:color-mix(in srgb, var(--accent-c, var(--accent)) 16%, var(--surface-2));}
+  .card-move{display:flex; flex-direction:column; gap:2px;}
+  .move-btn{background:transparent; border:none; color:var(--ink-faint); cursor:pointer; font-size:11px; padding:1px 4px; border-radius:4px;}
+  .move-btn:hover{color:var(--ink); background:var(--surface-2);}
+  .move-btn:disabled{opacity:.25; cursor:default;}
+  .card-title{font-size:19px; font-weight:600; line-height:1.2;}
+  .card-meta{display:flex; flex-direction:column; gap:4px;}
+  .meta-row{font-size:13px; color:var(--ink-soft); line-height:1.4; display:flex; gap:6px;}
+  .meta-row.empty{color:var(--ink-faint); font-style:italic;}
+  .card-actions{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .card-actions .btn{flex:1;}
+  .empty{text-align:center; padding:60px 20px; color:var(--ink-soft); border:1px dashed var(--border); border-radius:16px;}
+  .empty .em{font-size:40px; display:block; margin-bottom:12px;}
+  .banner{background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--danger); border-radius:10px; padding:12px 14px; margin-bottom:18px; font-size:13.5px; color:var(--ink-soft);}
+  .modal-backdrop{position:fixed; inset:0; background:rgba(20,16,8,.45); display:flex; align-items:flex-end; justify-content:center; z-index:100; padding:0;}
+  @media (min-width:640px){ .modal-backdrop{ align-items:center; padding:20px; } }
+  .modal{background:var(--surface); width:100%; max-width:480px; max-height:92vh; overflow-y:auto; border-radius:18px 18px 0 0; padding:22px 20px 24px; box-shadow:var(--shadow);}
+  @media (min-width:640px){ .modal{ border-radius:18px; } }
+  .modal--wide{max-width:640px;}
+  .modal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .modal h2{font-size:22px; margin-bottom:14px;}
+  .modal-head h2{margin-bottom:0;}
+  .field{display:block; margin-bottom:14px;}
+  .field span{display:block; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px;}
+  .field input[type=text], .field input[type=date], .field input[type=time]{width:100%; padding:9px 11px; border-radius:8px; border:1px solid var(--border); background:var(--ground); color:var(--ink); font-family:'Work Sans'; font-size:14px;}
+  .field input:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .checkbox-row{display:flex; align-items:center; gap:8px; font-size:14px; margin-bottom:14px;}
+  .dropzone{border:2px dashed var(--border); border-radius:12px; padding:26px 16px; text-align:center; cursor:pointer; color:var(--ink-soft); font-size:13.5px; margin-bottom:16px; transition:border-color .15s, background .15s;}
+  .dropzone.drag{border-color:var(--accent); background:var(--surface-2);}
+  .dropzone .fname{color:var(--ink); font-weight:600; margin-top:6px;}
+  .dropzone .dz-icon{font-size:26px; display:block; margin-bottom:6px;}
+  .swatches, .emojis{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
+  .swatch{width:28px; height:28px; border-radius:50%; cursor:pointer; border:2px solid transparent;}
+  .swatch.sel{border-color:var(--ink);}
+  .emoji-opt{width:36px; height:36px; border-radius:8px; border:1px solid var(--border); background:var(--ground); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .emoji-opt.sel{border-color:var(--accent); background:var(--surface-2);}
+  .modal-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:6px;}
+  .flight-pair{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:16px;}
+  @media (min-width:560px){ .flight-pair{grid-template-columns:1fr 1fr;} }
+  .flight-card, .rental-card{background:var(--surface-2); border-radius:12px; padding:14px; border:1px solid var(--border);}
+  .flight-card h4, .rental-card h4{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 10px;}
+  .flight-card .field, .rental-card .field{margin-bottom:10px;}
+  .flight-card .field:last-child, .rental-card .field:last-child{margin-bottom:0;}
+  .flight-row{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .rental-card{margin-bottom:16px;}
+  .save-row{display:flex; align-items:center; gap:10px; margin-bottom:20px;}
+  .save-status{font-size:12.5px; color:var(--gold); font-family:'Space Mono',monospace;}
+  .preview-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px; flex-wrap:wrap;}
+  .preview-head h3{font-size:15px;}
+  .preview-frame{border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--surface); min-height:200px; display:flex; align-items:center; justify-content:center;}
+  .preview-frame iframe{width:100%; height:64vh; border:0; display:block;}
+  .preview-loading{color:var(--ink-faint); font-size:13px; padding:30px;}
+  .map-head{display:flex; align-items:center; justify-content:space-between; margin:18px 0 8px; gap:10px; flex-wrap:wrap;}
+  .map-head h3{font-size:15px;}
+  .map-status{font-size:11.5px; color:var(--ink-faint); font-family:'Space Mono',monospace;}
+  .map-container{height:320px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--surface-2);}
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip{background:var(--surface); color:var(--ink);}
+  footer{margin-top:32px; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--ink-faint); line-height:1.6; text-align:center;}
+  footer a{color:var(--accent); font-weight:600;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <span class="brand-mark">🗺️</span>
+      <div>
+        <h1>Itineráře</h1>
+        <span class="sub" id="tripCount">Cesty</span>
+      </div>
+    </div>
+    <div class="topbtns">
+      <button class="btn btn--ghost btn--sm" id="exportBtn">⬇ Export</button>
+      <button class="btn btn--ghost btn--sm" id="importBtn">⬆ Import</button>
+      <button class="btn btn--primary" id="addBtn">+ Přidat cestu</button>
+    </div>
+    <input type="file" id="importFile" accept="application/json" hidden>
+  </div>
+
+  <div id="statusBanner" class="banner" hidden></div>
+  <div id="grid" class="grid"></div>
+  <div id="emptyState" class="empty" hidden>
+    <span class="em">🗺️</span>
+    Zatím tu nejsou žádné cesty.<br>Nahrajte první itinerář tlačítkem nahoře.
+  </div>
+
+  <footer>
+    Samostatná verze appky — data se ukládají přímo v tomto prohlížeči (localStorage), ne u Claude. Funguje na jakémkoliv webserveru, i offline po prvním načtení. Plná online verze se sdílením: <a href="https://claude.ai/code/artifact/491f2537-ae00-4962-a3f7-28a5d31d0edc" target="_blank" rel="noopener">claude.ai</a>.
+  </footer>
+</div>
+
+<!-- Add modal -->
+<div class="modal-backdrop" id="addModal" hidden>
+  <div class="modal">
+    <h2>Přidat cestu</h2>
+    <div class="dropzone" id="dropzone">
+      <span class="dz-icon">📄</span>
+      <span id="dzText">Přetáhněte sem HTML soubor s itinerářem, nebo klikněte a vyberte</span>
+      <div class="fname" id="dzFilename" hidden></div>
+    </div>
+    <input type="file" id="fileInput" accept=".html,text/html" hidden>
+    <label class="field"><span>Název cesty</span><input type="text" id="tripTitle" placeholder="např. Madeira"></label>
+    <label class="field"><span>Barva</span><div class="swatches" id="swatches"></div></label>
+    <label class="field"><span>Ikonka</span><div class="emojis" id="emojiPicker"></div></label>
+    <div class="modal-actions">
+      <button class="btn btn--ghost" data-close>Zrušit</button>
+      <button class="btn btn--primary" id="saveTripBtn" disabled>Přidat cestu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Detail modal -->
+<div class="modal-backdrop" id="detailModal" hidden>
+  <div class="modal modal--wide">
+    <div class="modal-head">
+      <h2 id="detailTitle"></h2>
+      <button class="icon-btn" data-close>✕</button>
+    </div>
+    <div class="flight-pair">
+      <div class="flight-card" data-leg="out">
+        <h4>✈️ Tam</h4>
+        <label class="field"><span>Letiště (odkud → kam)</span><input type="text" data-f="route" placeholder="PRG → OSL"></label>
+      </div>
+      <div class="flight-card" data-leg="back">
+        <h4>✈️ Zpět</h4>
+        <label class="field"><span>Letiště (odkud → kam)</span><input type="text" data-f="route" placeholder="OSL → PRG"></label>
+      </div>
+    </div>
+    <div class="rental-card">
+      <h4>🚐 Půjčovna / auto</h4>
+      <div class="flight-row">
+        <label class="field"><span>Půjčovna</span><input type="text" id="rentalCompany"></label>
+        <label class="field"><span>Místo vyzvednutí</span><input type="text" id="rentalCity"></label>
+      </div>
+      <label class="checkbox-row"><input type="checkbox" id="rentalOneWay"> Jednosměrný pronájem</label>
+      <label class="field"><span>Poznámka / odkaz</span><input type="text" id="rentalNotes"></label>
+    </div>
+    <div class="save-row">
+      <button class="btn btn--primary" id="saveDetailBtn">Uložit</button>
+      <span class="save-status" id="saveStatus"></span>
+    </div>
+    <div class="preview-head">
+      <h3>Itinerář</h3>
+      <button class="btn btn--ghost btn--sm" id="openNewTabBtn">Otevřít v novém okně ↗</button>
+    </div>
+    <div class="preview-frame" id="previewContainer">
+      <div class="preview-loading">Načítám náhled…</div>
+    </div>
+
+    <div class="map-head">
+      <h3>Mapa itineráře</h3>
+      <span class="map-status" id="mapStatus"></span>
+    </div>
+    <div class="map-container" id="mapContainer"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var STORAGE_KEY = 'cestovni-velin-trips-v1';
+  var SEED_FILES = [
+    {file:'madeira-itinerar.html', title:'Madeira', emoji:'🌋', color:'#9E4229'},
+    {file:'norsko-itinerar.html', title:'Norsko', emoji:'🏔️', color:'#1E6F5C'},
+    {file:'usa-itinerar.html', title:'USA', emoji:'🦬', color:'#AD7E1E'},
+    {file:'japonsko-itinerar.html', title:'Japonsko', emoji:'🗻', color:'#C1443B'},
+    {file:'borneo-itinerar.html', title:'Borneo', emoji:'🦧', color:'#B8721E'}
+  ];
+
+  var COLORS = ['#9E4229','#1E6F5C','#AD7E1E','#2C4A6B','#6B4C7A','#B8721E','#A34D5C','#4A5568','#C1443B'];
+  var EMOJIS = ['🌋','🏔️','🦬','🏝️','🗺️','⛺','🚐','✈️','🏖️','🌲','🏜️','🧭','🗻','🦧'];
+
+  var trips = [];
+  var pendingFile = null, pendingContent = null;
+  var pendingColor = COLORS[0];
+  var pendingEmoji = EMOJIS[0];
+  var currentDetailId = null;
+
+  var $ = function(sel){ return document.querySelector(sel); };
+  var $$ = function(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); };
+
+  function escapeHtml(s){
+    return (s||'').replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function showBanner(msg){ var b=$('#statusBanner'); b.textContent=msg; b.hidden=false; }
+  function uid(){ return 't' + Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
+
+  // ---------- storage ----------
+  function loadTrips(){
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e){ return null; }
+  }
+  function saveTrips(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(trips)); }
+    catch(e){ showBanner('Uložení se nepovedlo — prohlížeč možná odmítl localStorage (soukromé okno?).'); }
+  }
+
+  async function seedFromSiblingFiles(){
+    var loaded = [];
+    for (var i=0; i<SEED_FILES.length; i++){
+      var s = SEED_FILES[i];
+      try {
+        var res = await fetch(s.file);
+        if (!res.ok) continue;
+        var text = await res.text();
+        loaded.push({
+          id: uid(), title: s.title, emoji: s.emoji, color: s.color,
+          content: text, order: i,
+          flightOut: {}, flightBack: {}, rental: {}, createdAt: new Date().toISOString()
+        });
+      } catch(e){ /* sibling file not present — skip silently */ }
+    }
+    return loaded;
+  }
+
+  // ---------- render ----------
+  function renderGrid(){
+    var grid = $('#grid'), empty = $('#emptyState');
+    $('#tripCount').textContent = trips.length + (trips.length === 1 ? ' cesta' : (trips.length >=2 && trips.length<=4 ? ' cesty' : ' cest'));
+    if (!trips.length){ grid.innerHTML=''; empty.hidden=false; return; }
+    empty.hidden = true;
+    grid.innerHTML = trips.map(function(t, i){
+      var flightOut = t.flightOut || {}, rental = t.rental || {};
+      var flightSummary = flightOut.route ? escapeHtml(flightOut.route) : null;
+      var rentalSummary = rental.company ? escapeHtml(rental.company) + (rental.city?' · '+escapeHtml(rental.city):'') : null;
+      return '' +
+      '<article class="card" style="--accent-c:'+escapeHtml(t.color||'#1E2A4A')+'" data-id="'+t.id+'">' +
+        '<div class="card-top"><span class="card-emoji">'+(t.emoji||'🗺️')+'</span>' +
+          '<div class="card-move">' +
+            '<button class="move-btn" data-move="up" data-id="'+t.id+'" '+(i===0?'disabled':'')+'>▲</button>' +
+            '<button class="move-btn" data-move="down" data-id="'+t.id+'" '+(i===trips.length-1?'disabled':'')+'>▼</button>' +
+          '</div></div>' +
+        '<div class="card-title">'+escapeHtml(t.title||'Bez názvu')+'</div>' +
+        '<div class="card-meta">' +
+          '<div class="meta-row'+(flightSummary?'':' empty')+'">✈️ '+(flightSummary||'Letenky: doplnit')+'</div>' +
+          '<div class="meta-row'+(rentalSummary?'':' empty')+'">🚐 '+(rentalSummary||'Půjčovna: doplnit')+'</div>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          '<button class="btn btn--primary btn--sm" data-action="open" data-id="'+t.id+'">Otevřít</button>' +
+          '<button class="btn btn--ghost btn--sm" data-action="edit" data-id="'+t.id+'">Upravit</button>' +
+          '<button class="icon-btn" data-action="delete" data-id="'+t.id+'" title="Smazat">🗑</button>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function openInNewTab(trip){
+    if (!trip.content) return;
+    var blob = new Blob([trip.content], {type:'text/html'});
+    var url = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+  }
+  function renderPreview(trip){
+    var container = $('#previewContainer');
+    if (!trip.content){ container.innerHTML = '<div class="preview-loading">Tato cesta nemá nahraný itinerář.</div>'; return; }
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('sandbox', 'allow-popups allow-popups-to-escape-sandbox');
+    iframe.srcdoc = trip.content;
+    container.innerHTML = '';
+    container.appendChild(iframe);
+  }
+
+  // ---------- auto map (extracts places from the itinerary's own map links, geocodes via OSM Nominatim, renders with Leaflet) ----------
+  var mapInstance = null;
+  var GEOCODE_CACHE_KEY = 'geocode-cache-v2';
+  var COUNTRY_HINTS = {
+    'usa': 'us', 'united states': 'us',
+    'norsko': 'no', 'norway': 'no',
+    'japonsko': 'jp', 'japan': 'jp',
+    'madeira': 'pt',
+    'borneo': 'my,sg'
+  };
+
+  function guessCountryCode(title){
+    var t = (title || '').toLowerCase();
+    for (var k in COUNTRY_HINTS){ if (t.indexOf(k) !== -1) return COUNTRY_HINTS[k]; }
+    return null;
+  }
+
+  function nameFromMapHref(href){
+    try {
+      var q = new URL(href, location.href).searchParams.get('query');
+      if (!q) return null;
+      return decodeURIComponent(q.replace(/\+/g, ' ')).trim();
+    } catch(e){ return null; }
+  }
+
+  function extractMapPlaces(html){
+    try {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var links = doc.querySelectorAll('a.maplink');
+      var seen = {}, out = [];
+      links.forEach(function(a){
+        var text = (a.textContent || '').trim();
+        // generic button labels ("Mapa" next to a named card) carry no place info — use the link's own query instead
+        var name = (!text || /^mapa$/i.test(text)) ? nameFromMapHref(a.getAttribute('href') || '') : text;
+        if (!name || seen[name]) return;
+        seen[name] = true;
+        out.push(name);
+      });
+      return out;
+    } catch(e){ return []; }
+  }
+
+  function loadGeocodeCache(){
+    try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; }
+  }
+  function saveGeocodeCache(cache){
+    try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(cache)); } catch(e){}
+  }
+
+  function geocodeOne(name, countryCode){
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name);
+    if (countryCode) url += '&countrycodes=' + countryCode;
+    return fetch(url).then(function(r){ return r.ok ? r.json() : []; }).then(function(rows){
+      if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
+      return null;
+    }).catch(function(){ return null; });
+  }
+
+  var mapRenderToken = 0;
+  async function renderMap(trip){
+    var myToken = ++mapRenderToken;
+    var statusEl = $('#mapStatus');
+    var container = $('#mapContainer');
+    if (mapInstance){ mapInstance.remove(); mapInstance = null; }
+    container.innerHTML = '';
+    if (!window.L){ statusEl.textContent = 'Mapová knihovna se nenačetla (zkontrolujte připojení).'; return; }
+    if (!trip.content){ statusEl.textContent = ''; return; }
+    var names = extractMapPlaces(trip.content);
+    if (!names.length){ statusEl.textContent = 'Pro tuhle cestu nemám žádná místa na mapu.'; return; }
+
+    var countryCode = guessCountryCode(trip.title);
+    var cache = loadGeocodeCache();
+    var cacheKeyPrefix = (countryCode || 'any') + ':';
+    var bounds = [];
+    var localMap = null;
+    var resolved = 0;
+
+    function ensureMap(){
+      if (localMap) return;
+      localMap = L.map(container, {scrollWheelZoom:false});
+      mapInstance = localMap;
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(localMap);
+    }
+    function addPoint(name, coord){
+      ensureMap();
+      var m = L.marker([coord.lat, coord.lng]).addTo(localMap);
+      m.bindTooltip(name);
+      m.bindPopup(name);
+      bounds.push([coord.lat, coord.lng]);
+      if (bounds.length === 1) localMap.setView(bounds[0], 11);
+      else localMap.fitBounds(bounds, {padding: [24,24]});
+    }
+
+    // pins appear on the map one by one as each place resolves, instead of a blank map until everything is done —
+    // geocoding ~30-50 places at the OSM-required 1 request/sec makes the old "wait then reveal" approach look broken
+    for (var i=0; i<names.length; i++){
+      if (myToken !== mapRenderToken) return; // user switched to another trip meanwhile
+      var name = names[i];
+      var cacheKey = cacheKeyPrefix + name;
+      var cached = cache[cacheKey];
+      if (cached === undefined){
+        statusEl.textContent = resolved + ' / ' + names.length + ' míst na mapě — načítám dál…';
+        cached = await geocodeOne(name, countryCode);
+        cache[cacheKey] = cached || 'FAIL';
+        saveGeocodeCache(cache);
+      }
+      if (myToken !== mapRenderToken) return;
+      if (cached && cached !== 'FAIL'){
+        addPoint(name, cached);
+        resolved++;
+      }
+      var done = i + 1;
+      statusEl.textContent = resolved + ' / ' + names.length + ' míst na mapě' +
+        (done < names.length ? ' — načítám dál…' : ' · najetím/klikem zjistíte název');
+      if (done < names.length) await new Promise(function(res){ setTimeout(res, 1100); });
+    }
+    if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+  }
+
+  // ---------- add modal ----------
+  function buildPickers(){
+    var sw = $('#swatches');
+    sw.innerHTML = COLORS.map(function(c){ return '<span class="swatch" data-color="'+c+'" style="background:'+c+'"></span>'; }).join('');
+    sw.querySelectorAll('.swatch').forEach(function(el){
+      el.addEventListener('click', function(){
+        pendingColor = el.getAttribute('data-color');
+        sw.querySelectorAll('.swatch').forEach(function(s){ s.classList.remove('sel'); });
+        el.classList.add('sel');
+      });
+    });
+    sw.querySelector('.swatch').classList.add('sel');
+    var ep = $('#emojiPicker');
+    ep.innerHTML = EMOJIS.map(function(e){ return '<span class="emoji-opt" data-emoji="'+e+'">'+e+'</span>'; }).join('');
+    ep.querySelectorAll('.emoji-opt').forEach(function(el){
+      el.addEventListener('click', function(){
+        pendingEmoji = el.getAttribute('data-emoji');
+        ep.querySelectorAll('.emoji-opt').forEach(function(s){ s.classList.remove('sel'); });
+        el.classList.add('sel');
+      });
+    });
+    ep.querySelector('.emoji-opt').classList.add('sel');
+  }
+  function resetAddModal(){
+    pendingFile = null; pendingContent = null;
+    pendingColor = COLORS[0]; pendingEmoji = EMOJIS[0];
+    $('#tripTitle').value = '';
+    $('#dzText').hidden = false; $('#dzFilename').hidden = true; $('#dzFilename').textContent='';
+    $('#saveTripBtn').disabled = true;
+    buildPickers();
+  }
+  function handleFile(file){
+    if (!file) return;
+    pendingFile = file;
+    var reader = new FileReader();
+    reader.onload = function(){ pendingContent = reader.result; };
+    reader.readAsText(file);
+    $('#dzText').hidden = true;
+    var fn = $('#dzFilename'); fn.hidden=false; fn.textContent='📄 '+file.name;
+    if (!$('#tripTitle').value){
+      var base = file.name.replace(/\.html?$/i,'').replace(/[-_]+/g,' ');
+      $('#tripTitle').value = base.charAt(0).toUpperCase()+base.slice(1);
+    }
+    $('#saveTripBtn').disabled = !$('#tripTitle').value.trim();
+  }
+  function openAddModal(){ resetAddModal(); $('#addModal').hidden = false; }
+  function saveNewTrip(){
+    var title = $('#tripTitle').value.trim();
+    if (!title || !pendingContent) return;
+    var maxOrder = trips.reduce(function(m,t){ return Math.max(m, typeof t.order==='number'?t.order:0); }, -1);
+    trips.push({
+      id: uid(), title: title, color: pendingColor, emoji: pendingEmoji,
+      content: pendingContent, order: maxOrder+1,
+      flightOut:{}, flightBack:{}, rental:{}, createdAt: new Date().toISOString()
+    });
+    saveTrips(); sortTrips(); renderGrid();
+    $('#addModal').hidden = true;
+  }
+
+  // ---------- detail modal ----------
+  function findTrip(id){ for (var i=0;i<trips.length;i++) if (trips[i].id===id) return trips[i]; return null; }
+  function fillLeg(card, leg){ card.querySelectorAll('[data-f]').forEach(function(inp){ var k=inp.getAttribute('data-f'); inp.value=(leg&&leg[k])||''; }); }
+  function readLeg(card){ var out={}; card.querySelectorAll('[data-f]').forEach(function(inp){ out[inp.getAttribute('data-f')]=inp.value.trim(); }); return out; }
+  function openDetailModal(id){
+    var trip = findTrip(id); if (!trip) return;
+    currentDetailId = id;
+    $('#detailTitle').textContent = (trip.emoji||'')+' '+trip.title;
+    fillLeg($('.flight-card[data-leg="out"]'), trip.flightOut);
+    fillLeg($('.flight-card[data-leg="back"]'), trip.flightBack);
+    var rental = trip.rental||{};
+    $('#rentalCompany').value = rental.company||''; $('#rentalCity').value = rental.city||'';
+    $('#rentalOneWay').checked = !!rental.oneWay; $('#rentalNotes').value = rental.notes||'';
+    $('#saveStatus').textContent = '';
+    $('#detailModal').hidden = false;
+    renderPreview(trip);
+    renderMap(trip);
+  }
+  function saveDetail(){
+    var trip = findTrip(currentDetailId); if (!trip) return;
+    trip.flightOut = readLeg($('.flight-card[data-leg="out"]'));
+    trip.flightBack = readLeg($('.flight-card[data-leg="back"]'));
+    trip.rental = {
+      company: $('#rentalCompany').value.trim(), city: $('#rentalCity').value.trim(),
+      oneWay: $('#rentalOneWay').checked, notes: $('#rentalNotes').value.trim()
+    };
+    saveTrips(); renderGrid();
+    var status = $('#saveStatus'); status.textContent='Uloženo ✓';
+    setTimeout(function(){ status.textContent=''; }, 2000);
+  }
+
+  // ---------- reorder / delete ----------
+  function moveTrip(id, dir){
+    var idx = trips.findIndex(function(t){ return t.id===id; }); if (idx<0) return;
+    var swapIdx = dir==='up' ? idx-1 : idx+1;
+    if (swapIdx<0 || swapIdx>=trips.length) return;
+    var a=trips[idx], b=trips[swapIdx], ao=a.order, bo=b.order;
+    a.order=bo; b.order=ao;
+    saveTrips(); sortTrips(); renderGrid();
+  }
+  function deleteTrip(id){
+    var trip = findTrip(id); if (!trip) return;
+    if (!confirm('Smazat cestu „'+trip.title+'"? Tohle nejde vrátit zpět.')) return;
+    trips = trips.filter(function(t){ return t.id!==id; });
+    saveTrips(); renderGrid();
+  }
+
+  // ---------- export / import ----------
+  function exportTrips(){
+    var blob = new Blob([JSON.stringify(trips, null, 2)], {type:'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'cestovni-velin-export.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  }
+  function importTrips(file){
+    var reader = new FileReader();
+    reader.onload = function(){
+      try {
+        var data = JSON.parse(reader.result);
+        if (!Array.isArray(data)) throw new Error('bad format');
+        trips = data;
+        saveTrips(); sortTrips(); renderGrid();
+        showBanner('Import proběhl — načteno '+trips.length+' cest.');
+      } catch(e){ showBanner('Import se nepovedl — soubor nevypadá jako platný export z týhle appky.'); }
+    };
+    reader.readAsText(file);
+  }
+
+  // ---------- wiring ----------
+  function closeModals(){ $('#addModal').hidden=true; $('#detailModal').hidden=true; currentDetailId=null; }
+  function wireEvents(){
+    $('#addBtn').addEventListener('click', openAddModal);
+    $('#exportBtn').addEventListener('click', exportTrips);
+    $('#importBtn').addEventListener('click', function(){ $('#importFile').click(); });
+    $('#importFile').addEventListener('change', function(){ if (this.files[0]) importTrips(this.files[0]); this.value=''; });
+
+    $$('.modal-backdrop').forEach(function(bd){ bd.addEventListener('click', function(e){ if (e.target===bd) closeModals(); }); });
+    $$('[data-close]').forEach(function(el){ el.addEventListener('click', closeModals); });
+
+    var dz=$('#dropzone'), fi=$('#fileInput');
+    dz.addEventListener('click', function(){ fi.click(); });
+    fi.addEventListener('change', function(){ handleFile(fi.files[0]); });
+    dz.addEventListener('dragover', function(e){ e.preventDefault(); dz.classList.add('drag'); });
+    dz.addEventListener('dragleave', function(){ dz.classList.remove('drag'); });
+    dz.addEventListener('drop', function(e){
+      e.preventDefault(); dz.classList.remove('drag');
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+    $('#tripTitle').addEventListener('input', function(){ $('#saveTripBtn').disabled = !($('#tripTitle').value.trim() && pendingContent); });
+    $('#saveTripBtn').addEventListener('click', saveNewTrip);
+
+    $('#saveDetailBtn').addEventListener('click', saveDetail);
+    $('#openNewTabBtn').addEventListener('click', function(){ var t=findTrip(currentDetailId); if (t) openInNewTab(t); });
+
+    $('#grid').addEventListener('click', function(e){
+      var actionBtn = e.target.closest('[data-action]');
+      if (actionBtn){
+        var id=actionBtn.getAttribute('data-id'), action=actionBtn.getAttribute('data-action'), trip=findTrip(id);
+        if (action==='open' && trip) openInNewTab(trip);
+        if (action==='edit') openDetailModal(id);
+        if (action==='delete') deleteTrip(id);
+        return;
+      }
+      var moveBtn = e.target.closest('[data-move]');
+      if (moveBtn) moveTrip(moveBtn.getAttribute('data-id'), moveBtn.getAttribute('data-move'));
+    });
+    document.addEventListener('keydown', function(e){ if (e.key==='Escape') closeModals(); });
+  }
+
+  function sortTrips(){ trips.sort(function(a,b){ return (a.order||0)-(b.order||0); }); }
+
+  async function boot(){
+    wireEvents();
+    buildPickers();
+    var stored = loadTrips();
+    if (stored && stored.length){
+      trips = stored;
+    } else {
+      trips = await seedFromSiblingFiles();
+      if (trips.length) saveTrips();
+    }
+    sortTrips();
+    renderGrid();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+</body>
+</html>

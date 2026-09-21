@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Borneo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F6F1E4;
+    --surface:#FFFEFB;
+    --surface-2:#EFE6CF;
+    --ink:#28210F;
+    --ink-soft:#5E5439;
+    --ink-faint:#94886A;
+    --border:#E3D6B4;
+    --sun:#B8721E;
+    --sun-ink:#FBF0E1;
+    --reef:#1F7A5C;
+    --reef-ink:#E9F7F0;
+    --coral:#C1573D;
+    --coral-ink:#FBEBE6;
+    --danger:#A5432A;
+    --shadow: 0 1px 2px rgba(32,26,10,.07), 0 6px 18px -10px rgba(32,26,10,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#1B1710;
+      --surface:#241F17;
+      --surface-2:#2E2819;
+      --ink:#F0E9D6;
+      --ink-soft:#C2B696;
+      --ink-faint:#8A7E60;
+      --border:#3D3524;
+      --sun:#E6A855;
+      --sun-ink:#2A1B05;
+      --reef:#6FCFA8;
+      --reef-ink:#0F251C;
+      --coral:#E68A6A;
+      --coral-ink:#2A140D;
+      --danger:#E08361;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#1B1710;
+    --surface:#241F17;
+    --surface-2:#2E2819;
+    --ink:#F0E9D6;
+    --ink-soft:#C2B696;
+    --ink-faint:#8A7E60;
+    --border:#3D3524;
+    --sun:#E6A855;
+    --sun-ink:#2A1B05;
+    --reef:#6FCFA8;
+    --reef-ink:#0F251C;
+    --coral:#E68A6A;
+    --coral-ink:#2A140D;
+    --danger:#E08361;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+
+  .hero{padding:38px 18px 22px;}
+  .backlink{display:inline-flex; align-items:center; gap:5px; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; margin-bottom:16px;}
+  .backlink:hover{color:var(--ink);}
+  .hero .eyebrow{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--sun); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--sun);}
+  .hero h1{font-size:44px; font-weight:700; line-height:1.02;}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:48ch; line-height:1.5;}
+
+  .daynav{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--border); padding:10px 0;}
+  .daynav-scroll{display:flex; gap:8px; overflow-x:auto; padding:0 18px; max-width:640px; margin:0 auto; scrollbar-width:none;}
+  .daynav-scroll::-webkit-scrollbar{display:none;}
+  .daynav a{
+    flex:0 0 auto; font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:7px 12px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .daynav a b{color:var(--ink); font-weight:700;}
+
+  .tip{
+    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--sun);
+    border-radius:10px; padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--sun); display:block; margin-bottom:5px;}
+  .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .tip p + p{margin-top:8px;}
+  .tip strong{color:var(--ink); font-weight:600;}
+
+  .day{padding:34px 0 6px; border-top:1px solid var(--border);}
+  .day:first-of-type{border-top:none;}
+  .day-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; scroll-margin-top:64px; flex-wrap:wrap;}
+  .day-date{font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint); letter-spacing:.03em;}
+  .badges{display:flex; gap:6px; flex-wrap:wrap;}
+  .badge{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap;
+  }
+  .badge--travel{background:var(--coral); color:var(--coral-ink);}
+  .badge--water{background:var(--reef); color:var(--reef-ink);}
+  .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+
+  .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
+
+  .activity{padding:14px 0; border-top:1px solid var(--border);}
+  .activity:first-of-type{border-top:none; padding-top:16px;}
+  .activity p{font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:0 0 8px;}
+  .activity p:last-of-type{margin-bottom:0;}
+
+  .maplink{
+    display:inline-flex; align-items:center; gap:6px; font-family:'Work Sans'; font-size:13px; font-weight:600;
+    color:var(--sun); text-decoration:none; border:1px solid var(--border); border-radius:999px;
+    padding:6px 12px 6px 10px; background:var(--surface); margin:2px 6px 2px 0;
+  }
+  .maplink::before{content:"↗"; font-size:13px;}
+
+  .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
+  .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
+  .note b{color:var(--ink);}
+
+  .stay{
+    display:flex; gap:12px; align-items:flex-start; margin-top:16px; padding:12px 14px;
+    background:var(--surface-2); border-radius:10px;
+  }
+  .stay-icon{
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--sun); color:var(--sun-ink);
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .stay-body{flex:1;}
+  .stay-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:2px;}
+  .stay-name{font-weight:600; font-size:14.5px;}
+  .stay-note{font-size:13px; color:var(--ink-soft); margin-top:3px; line-height:1.5;}
+
+  .pass{display:flex; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin:16px 0 6px;}
+  .pass-main{flex:1; padding:16px 16px;}
+  .pass-route{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .pass-route .code{font-family:'Space Mono',monospace; font-weight:700; font-size:20px;}
+  .pass-route .arrow{color:var(--ink-faint); font-size:14px;}
+  .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
+  .pass-note{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
+  .pass-stub{
+    flex:0 0 64px; background:var(--coral); color:var(--coral-ink); display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; writing-mode:vertical-rl; text-transform:uppercase;
+    font-weight:700; border-left:1px dashed rgba(0,0,0,.15);
+  }
+
+  footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="backlink" href="index.html">← Zpět na přehled</a>
+  <div class="eyebrow">Borneo (Sabah) + Singapur · 23. 4. – 12. 5. 2026 · 20 dní</div>
+  <h1>Borneo</h1>
+  <p>Kota Kinabalu → ostrov Mantanani → NP Kinabalu → prales u Kinabatanganu → potápěčský ráj Mabul/Semporna → Singapur. Deštný prales, orangutani, safari na řece a korálové ostrovy — vedeno průvodcem, doprava zajištěná, tempo klidné.</p>
+</header>
+
+<nav class="daynav">
+  <div class="daynav-scroll">
+    <a href="#d1"><b>1</b> Odlet</a>
+    <a href="#d2"><b>2</b> K. Kinabalu</a>
+    <a href="#d4"><b>4</b> Mantanani</a>
+    <a href="#d6"><b>6</b> Kinabalu NP</a>
+    <a href="#d8"><b>8</b> Sepilok</a>
+    <a href="#d10"><b>10</b> Kinabatangan</a>
+    <a href="#d12"><b>12</b> Gomantong</a>
+    <a href="#d13"><b>13</b> Mabul</a>
+    <a href="#d16"><b>16</b> Tun Sakaran</a>
+    <a href="#d17"><b>17</b> → Singapur</a>
+    <a href="#d18"><b>18</b> Singapur</a>
+    <a href="#d20"><b>20</b> Přílet</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="tip">
+    <span class="tip-label">Než vyrazíte</span>
+    <p><strong>🐘 Bornejská pětka:</strong> orangutan, nosatá opice (kahau), pygmejský slon bornejský, medvěd malajský a nosorožec dvourohý/zoborožec — celý itinerář je poskládaný tak, aby dal reálnou šanci vidět většinu z nich (Sepilok, Labuk Bay, safari na Kinabatanganu).</p>
+    <p><strong>🚶 Tempo:</strong> jde o vedenou skupinovou cestu s dopravou zajištěnou dodávkami/čluny — treky jsou všechny popsané jako lehké a nepovinné (procházky po upravených stezkách, výšlapy na vyhlídky), v souladu s klidným tempem do 13 km/den.</p>
+    <p><strong>💉 Očkování a malárie:</strong> pro Sabah se obvykle doporučuje profylaxe proti malárii (hlavně kvůli večerům u řeky Kinabatangan) a přeočkování proti tetanu/hepatitidě — probrat s cestovní ambulancí min. 4–6 týdnů předem.</p>
+    <p><strong>🌧️ Počasí:</strong> duben–květen je přechodné období mezi sezónami — tropické přeháňky odpoledne jsou běžné, ale krátké. Lehká nepromokavá bunda a rychleschnoucí oblečení se hodí každý den.</p>
+    <p><strong>🤿 Sipadan:</strong> vstup je limitovaný povolením (permit systém), v hlavní sezóně se vyplatí zajistit přes potápěčský klub v Semporně/Mabulu s předstihem — bez toho se dá potápět/šnorchlovat i kolem Mabulu a Kapalai.</p>
+    <p><strong>🛂 Singapur:</strong> poslední dva dny jsou volitelné prodloužení — pokud by nevyšlo, cesta funguje i jako 17denní jen po Borneu s odletem přímo z Tawau.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <section class="day day--travel" id="d1">
+    <div class="day-head">
+      <span class="day-date">DEN 01</span>
+      <span class="badge badge--travel">Odlet</span>
+    </div>
+    <h2>Odlet z Prahy</h2>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">BKI</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+        <div class="pass-note">Večerní odlet, noční přelet s přestupem, přílet do Kota Kinabalu druhý den.</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="d2">
+    <div class="day-head"><span class="day-date">DEN 02</span></div>
+    <h2>Přílet do Kota Kinabalu</h2>
+    <div class="activity">
+      <p>Přílet do provinčního hlavního města státu Sabah. Večer bohaté noční trhy a stánky s jídlem přímo u moře.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+Night+Market" target="_blank" rel="noopener">Kota Kinabalu Night Market</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 2–3)</span>
+        <div class="stay-name">Kota Kinabalu</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head"><span class="day-date">DEN 03</span></div>
+    <h2>Prohlídka Kota Kinabalu</h2>
+    <div class="activity">
+      <p>Filipínská tržnice s kuriozitami z Indonésie a Filipín, plovoucí (vodní) mešita, kulturní vesnice Mari Mari — skanzen tradičních kmenových domů s bohatým obědem. Večer opět kulinářská tržnice.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Filipino+Market+Kota+Kinabalu" target="_blank" rel="noopener">Filipínská tržnice</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+City+Mosque" target="_blank" rel="noopener">Plovoucí mešita</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mari+Mari+Cultural+Village" target="_blank" rel="noopener">Mari Mari Cultural Village</a>
+    </div>
+  </section>
+
+  <!-- DAY 4-5 -->
+  <section class="day" id="d4">
+    <div class="day-head">
+      <span class="day-date">DEN 04–05</span>
+      <span class="badges"><span class="badge badge--water">Ostrov</span></span>
+    </div>
+    <h2>Ostrov Mantanani Besar</h2>
+    <div class="activity">
+      <p>Přesun autobusem a rychlou lodí na ostrov s bělostnými plážemi. Relax, šnorchlování, večer svítící plankton. Možnost kulturního představení, kajaků, kroužku místní batikové techniky a nočního pozorování ptactva s průvodcem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Besar" target="_blank" rel="noopener">Mantanani Besar</a>
+    </div>
+    <div class="activity">
+      <p><b>🧭 Fakultativně:</b> výlet na vedlejší ostrov Mantanani Kecil, nebo potápění.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Kecil" target="_blank" rel="noopener">Mantanani Kecil</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏝️</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 4–5)</span>
+        <div class="stay-name">Mantanani Besar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
+    <div class="day-head">
+      <span class="day-date">DEN 06</span>
+      <span class="badge badge--travel">Přesun</span>
+    </div>
+    <h2>Návrat na pevninu → Kundasang (NP Kinabalu)</h2>
+    <div class="activity">
+      <p>Rychlou lodí zpět na pevninu, odpoledne přesun dodávkou do NP Kinabalu (UNESCO) — ubytování na dvě noci v městečku Kundasang přímo vedle parku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinabalu+National+Park" target="_blank" rel="noopener">NP Kinabalu</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 6–7)</span>
+        <div class="stay-name">Kundasang</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">DEN 07</span>
+      <span class="badge badge--light">Lehký trek</span>
+    </div>
+    <h2>NP Kinabalu — prales a vyhlídky</h2>
+    <div class="activity">
+      <p>Zelená bujná příroda nížinného deštného lesa s 4 500 druhy fauny a flóry. Lehký treking po dobře upravených stezkách v okolí nejvyšší hory Bornea s výhledy na vrcholek Mt. Kinabalu. Návštěva místní botanické zahrady, výstup na kopec Sosondikon s výhledy na horské štíty, tržnice v Kundasang a památník obětí 2. světové války.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Kinabalu" target="_blank" rel="noopener">Mt. Kinabalu</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang+War+Memorial" target="_blank" rel="noopener">Kundasang War Memorial</a>
+    </div>
+  </section>
+
+  <!-- DAY 8 -->
+  <section class="day" id="d8">
+    <div class="day-head">
+      <span class="day-date">DEN 08</span>
+      <span class="badge badge--travel">Přesun</span>
+    </div>
+    <h2>Do Sepiloku (u Sandakanu)</h2>
+    <div class="activity">
+      <p>Celodenní přejezd dodávkou se zastávkami. Horké prameny Poring — možnost koupání, pavilon orchidejí, procházka lanovým parkem v korunách stromů, zahrada Rafflesia s největší květinou na světě. Cestou návštěva organických čajových zahrad Sabah Tea.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Hot+Springs" target="_blank" rel="noopener">Poring Hot Springs</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Canopy+Walkway" target="_blank" rel="noopener">Canopy Walkway</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Rafflesia+Forest+Reserve+Poring" target="_blank" rel="noopener">Rafflesia Forest Reserve</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sabah+Tea+Garden" target="_blank" rel="noopener">Sabah Tea Garden</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 8–9)</span>
+        <div class="stay-name">Sepilok</div>
+        <div class="stay-note">U proslulého rehabilitačního centra pro orangutany.</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sepilok" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 9 -->
+  <section class="day" id="d9">
+    <div class="day-head"><span class="day-date">DEN 09</span></div>
+    <h2>Orangutani a nosaté opice</h2>
+    <div class="activity">
+      <p>Ranní krmení orangutanů v Sepiloku a návštěva přírodní rezervace Labuk Bay na pozorování opic kahau nosatých. Odpoledne volitelně druhé krmení orangutanů a návštěva města Sandakan — čínský chrám Puu Jih Syh, večeře v rybí restauraci nad mořem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sepilok+Orangutan+Rehabilitation+Centre" target="_blank" rel="noopener">Sepilok Orangutan Centre</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Labuk+Bay+Proboscis+Monkey+Sanctuary" target="_blank" rel="noopener">Labuk Bay (kahau)</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Puu+Jih+Syh+Temple+Sandakan" target="_blank" rel="noopener">Puu Jih Syh Temple</a>
+      <div class="note">Volitelně: noční pozorování zvěře z lanového parku vysoko v korunách stromů (Rainforest Discovery Centre).</div>
+    </div>
+  </section>
+
+  <!-- DAY 10 -->
+  <section class="day" id="d10">
+    <div class="day-head">
+      <span class="day-date">DEN 10</span>
+      <span class="badge badge--travel">Přesun</span>
+    </div>
+    <h2>Medvědi malajští → řeka Kinabatangan</h2>
+    <div class="activity">
+      <p>Ranní návštěva záchranného centra medvěda malajského v sousedství. Brzké odpolední odjezd autobusem na safari k řece Kinabatangan, ubytování v chatkách přímo u řeky. Večer noční safari na člunu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bornean+Sun+Bear+Conservation+Centre" target="_blank" rel="noopener">Sun Bear Conservation Centre</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinabatangan+River" target="_blank" rel="noopener">Řeka Kinabatangan</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏕️</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 10–11)</span>
+        <div class="stay-name">Chatky u řeky Kinabatangan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 11 -->
+  <section class="day" id="d11">
+    <div class="day-head"><span class="day-date">DEN 11</span></div>
+    <h2>Safari na řece Kinabatangan</h2>
+    <div class="activity">
+      <p>Pozorování hojné fauny a bujné flóry v přirozeném prostředí z pohodlí člunu — ranní i odpolední plavba. Primáti, rozmanité ptactvo, krokodýli. Šance spatřit nejmenšího slona na světě (pygmejský slon bornejský).</p>
+      <div class="note">Volitelně: denní nebo noční trek v rámci programu (cca 1–1,5 h, lehký).</div>
+    </div>
+  </section>
+
+  <!-- DAY 12 -->
+  <section class="day" id="d12">
+    <div class="day-head">
+      <span class="day-date">DEN 12</span>
+      <span class="badge badge--travel">Přesun</span>
+    </div>
+    <h2>Černá jeskyně Gomantong → Semporna</h2>
+    <div class="activity">
+      <p>Ráno přesun soukromými dodávkami do Semporny. Cestou zastávka v Černé jeskyni Gomantong, proslulé svojí krásou, mračny netopýrů a hemžícím se hmyzem — poslední zastávka v deštném lese před pobřežím.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gomantong+Caves" target="_blank" rel="noopener">Gomantong Caves</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování</span>
+        <div class="stay-name">Semporna</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Semporna" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 13-14 -->
+  <section class="day" id="d13">
+    <div class="day-head">
+      <span class="day-date">DEN 13–14</span>
+      <span class="badge badge--water">Ostrov</span>
+    </div>
+    <h2>Ostrov Mabul</h2>
+    <div class="activity">
+      <p>Rychlou lodí na ostrov Mabul, ubytování v hotelu na kůlech přímo nad vodou. Lodní výlety, koupání a šnorchlování kolem Mabulu i ostrova Kapalai — podmořský ráj.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mabul+Island" target="_blank" rel="noopener">Mabul Island</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kapalai+Island" target="_blank" rel="noopener">Kapalai Island</a>
+      <div class="note">Pro potápěče: možnost domluvit výlet na světově proslulý ostrov Sipadan — mezi top 5 potápěčskými destinacemi na světě (vyžaduje permit, viz tip výše).</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sipadan+Island" target="_blank" rel="noopener">Sipadan Island</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏝️</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 13–14)</span>
+        <div class="stay-name">Mabul — hotel na kůlech nad vodou</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 15 -->
+  <section class="day" id="d15">
+    <div class="day-head">
+      <span class="day-date">DEN 15</span>
+      <span class="badge badge--travel">Přesun</span>
+    </div>
+    <h2>Návrat do Semporny</h2>
+    <div class="activity">
+      <p>Návrat do přístavního rybářského města Semporna, poznamenaného kulturou mořských nomádů (Bajau). Vhodný čas na spa nebo fakultativní výlet na nedaleký zelený kopec Tengkorak s lehkým trekingem a výhledy. Večeře v blízké rybí restauraci v přístavu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tengkorak+Hill+Semporna" target="_blank" rel="noopener">Tengkorak Hill</a>
+    </div>
+  </section>
+
+  <!-- DAY 16 -->
+  <section class="day" id="d16">
+    <div class="day-head">
+      <span class="day-date">DEN 16</span>
+      <span class="badge badge--water">Lodní výlet</span>
+    </div>
+    <h2>Mořský park Tun Sakaran</h2>
+    <div class="activity">
+      <p>Lodní výlet do azurového mořského parku Tun Sakaran. Malebné ostrovy, kopec s vyhlídkou do širého okolí, pláže a šnorchlování.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tun+Sakaran+Marine+Park" target="_blank" rel="noopener">Tun Sakaran Marine Park</a>
+    </div>
+  </section>
+
+  <!-- DAY 17 -->
+  <section class="day day--travel" id="d17">
+    <div class="day-head">
+      <span class="day-date">DEN 17</span>
+      <span class="badge badge--travel">Přelet</span>
+    </div>
+    <h2>Tawau → Singapur</h2>
+    <div class="activity">
+      <p>Poslední nákupy, dopolední odlet z nedalekého Tawau do Singapuru.</p>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">TWU</span><span class="arrow">✈</span><span class="code">SIN</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+      </div>
+      <div class="pass-stub">PŘELET</div>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 17–19)</span>
+        <div class="stay-name">Singapur</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Singapore" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 18-19 -->
+  <section class="day" id="d18">
+    <div class="day-head">
+      <span class="day-date">DEN 18–19</span>
+      <span class="badge badge--travel">Volitelné prodloužení</span>
+    </div>
+    <h2>Singapur</h2>
+    <div class="activity">
+      <p>Prohlídka dynamického města, kde se moderní futuristická architektura snoubí s tradicí a tropickou přírodou. Ikonická Marina Bay s Gardens by the Bay — obří skleník a elektronické stromy (Supertree Grove).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Marina+Bay+Singapore" target="_blank" rel="noopener">Marina Bay</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gardens+by+the+Bay+Singapore" target="_blank" rel="noopener">Gardens by the Bay</a>
+    </div>
+    <div class="activity">
+      <p>Koloniální, indická i čínská čtvrť — rozličné chrámy a svatostánky včetně slavné relikvie Buddhova zubu. Pestré kulinářské rozpětí ve vysoké kvalitě. Noční odlet domů před půlnocí (den 19).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Buddha+Tooth+Relic+Temple+Singapore" target="_blank" rel="noopener">Buddha Tooth Relic Temple</a>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">SIN</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+        <div class="pass-note">Noční odlet z Singapuru, den 19.</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <!-- DAY 20 -->
+  <section class="day day--travel" id="d20">
+    <div class="day-head">
+      <span class="day-date">DEN 20</span>
+      <span class="badge badge--travel">Přílet</span>
+    </div>
+    <h2>Přílet do Prahy</h2>
+    <div class="activity">
+      <p>Přílet zpět do Prahy v ranních hodinách.</p>
+    </div>
+  </section>
+
+  <footer>
+    Sestaveno z vašeho itineráře „Zelené Borneo s prodloužením v Singapuru" (23. 4. – 12. 5. 2026) — vedená skupinová cesta s dopravou a průvodcem zajištěnými, doplněno jen o Google Maps odkazy a rozřazení do dní. Singapur (dny 17–20) je ve zdrojovém itineráři označen jako volitelné prodloužení.
+  </footer>
+
+</div>
+</body>
+</html>

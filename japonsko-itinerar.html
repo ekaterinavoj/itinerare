@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Japonsko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F7F1EC;
+    --surface:#FFFFFC;
+    --surface-2:#EFE3DC;
+    --ink:#241A17;
+    --ink-soft:#5C4A44;
+    --ink-faint:#96827A;
+    --border:#E5D5CC;
+    --shu:#C1443B;
+    --shu-ink:#FBEBE8;
+    --ai:#2E4A6B;
+    --ai-ink:#E8EEF5;
+    --matcha:#6B7A4A;
+    --matcha-ink:#F3F5EC;
+    --danger:#A0432A;
+    --shadow: 0 1px 2px rgba(36,26,23,.07), 0 6px 18px -10px rgba(36,26,23,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#1B1512;
+      --surface:#241C18;
+      --surface-2:#2E241F;
+      --ink:#F0E4DC;
+      --ink-soft:#C2AFA6;
+      --ink-faint:#8A7770;
+      --border:#3D2F28;
+      --shu:#E8776D;
+      --shu-ink:#2A0E0A;
+      --ai:#8FADD4;
+      --ai-ink:#101E30;
+      --matcha:#A3B37D;
+      --matcha-ink:#1E2412;
+      --danger:#E08361;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#1B1512;
+    --surface:#241C18;
+    --surface-2:#2E241F;
+    --ink:#F0E4DC;
+    --ink-soft:#C2AFA6;
+    --ink-faint:#8A7770;
+    --border:#3D2F28;
+    --shu:#E8776D;
+    --shu-ink:#2A0E0A;
+    --ai:#8FADD4;
+    --ai-ink:#101E30;
+    --matcha:#A3B37D;
+    --matcha-ink:#1E2412;
+    --danger:#E08361;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+
+  .hero{padding:38px 18px 22px;}
+  .backlink{display:inline-flex; align-items:center; gap:5px; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; margin-bottom:16px;}
+  .backlink:hover{color:var(--ink);}
+  .hero .eyebrow{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--shu); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--shu);}
+  .hero h1{font-size:44px; font-weight:700; line-height:1.02;}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:48ch; line-height:1.5;}
+
+  .daynav{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--border); padding:10px 0;}
+  .daynav-scroll{display:flex; gap:8px; overflow-x:auto; padding:0 18px; max-width:640px; margin:0 auto; scrollbar-width:none;}
+  .daynav-scroll::-webkit-scrollbar{display:none;}
+  .daynav a{
+    flex:0 0 auto; font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:7px 12px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .daynav a b{color:var(--ink); font-weight:700;}
+
+  .tip{
+    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--shu);
+    border-radius:10px; padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--shu); display:block; margin-bottom:5px;}
+  .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .tip p + p{margin-top:8px;}
+  .tip strong{color:var(--ink); font-weight:600;}
+
+  .region{
+    margin:14px 0 8px; background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:12px 16px; box-shadow:var(--shadow); display:flex; align-items:center; gap:10px;
+  }
+  .region .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin:0;}
+  .region b{font-size:14.5px;}
+
+  .day{padding:34px 0 6px; border-top:1px solid var(--border);}
+  .day:first-of-type{border-top:none;}
+  .day-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; scroll-margin-top:64px; flex-wrap:wrap;}
+  .day-date{font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint); letter-spacing:.03em;}
+  .badges{display:flex; gap:6px; flex-wrap:wrap;}
+  .badge{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap;
+  }
+  .badge--travel{background:var(--ai); color:var(--ai-ink);}
+  .badge--km{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+  .badge--km.warn{color:var(--danger); border-color:var(--danger);}
+
+  .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
+
+  .activity{padding:14px 0; border-top:1px solid var(--border);}
+  .activity:first-of-type{border-top:none; padding-top:16px;}
+  .activity p{font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:0 0 8px;}
+  .activity p:last-of-type{margin-bottom:0;}
+
+  .maplink{
+    display:inline-flex; align-items:center; gap:6px; font-family:'Work Sans'; font-size:13px; font-weight:600;
+    color:var(--shu); text-decoration:none; border:1px solid var(--border); border-radius:999px;
+    padding:6px 12px 6px 10px; background:var(--surface); margin:2px 6px 2px 0;
+  }
+  .maplink::before{content:"↗"; font-size:13px;}
+
+  .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
+  .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
+  .note b{color:var(--ink);}
+
+  .stay{
+    display:flex; gap:12px; align-items:flex-start; margin-top:16px; padding:12px 14px;
+    background:var(--surface-2); border-radius:10px;
+  }
+  .stay-icon{
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--shu); color:var(--shu-ink);
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .stay-body{flex:1;}
+  .stay-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:2px;}
+  .stay-name{font-weight:600; font-size:14.5px;}
+  .stay-note{font-size:13px; color:var(--ink-soft); margin-top:3px; line-height:1.5;}
+
+  .pass{display:flex; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin:16px 0 6px;}
+  .pass-main{flex:1; padding:16px 16px;}
+  .pass-route{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .pass-route .code{font-family:'Space Mono',monospace; font-weight:700; font-size:20px;}
+  .pass-route .arrow{color:var(--ink-faint); font-size:14px;}
+  .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
+  .pass-note{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
+  .pass-stub{
+    flex:0 0 64px; background:var(--ai); color:var(--ai-ink); display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; writing-mode:vertical-rl; text-transform:uppercase;
+    font-weight:700; border-left:1px dashed rgba(0,0,0,.15);
+  }
+
+  footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="backlink" href="index.html">← Zpět na přehled</a>
+  <div class="eyebrow">Japonsko · 21 dní</div>
+  <h1>Japonsko</h1>
+  <p>Osaka → Kjóto/Nara/Kobe → Fuji → Nagano → Hakodate → Sapporo → Tokio. Výběr toho nejlepšího z vašich poznámek, rozvržený na 3 týdny, tempo max. 13 km chůze denně.</p>
+</header>
+
+<nav class="daynav">
+  <div class="daynav-scroll">
+    <a href="#d1"><b>1</b> Osaka</a>
+    <a href="#d3"><b>3</b> Kjóto</a>
+    <a href="#d4"><b>4</b> Nara</a>
+    <a href="#d5"><b>5</b> Kobe</a>
+    <a href="#d7"><b>7</b> Fuji</a>
+    <a href="#d10"><b>10</b> Nagano</a>
+    <a href="#d11"><b>11</b> Opice</a>
+    <a href="#d13"><b>13</b> Hakodate</a>
+    <a href="#d16"><b>16</b> Sapporo</a>
+    <a href="#d19"><b>19</b> Tokio</a>
+    <a href="#d20"><b>20</b> Kamakura</a>
+    <a href="#d21"><b>21</b> Odlet</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="tip">
+    <span class="tip-label">Než vyrazíte</span>
+    <p><strong>🚶 Tempo:</strong> celý itinerář je navržený na max. 13 km chůze denně. Dva dny (Kjóto den 3, jezero Tanuki den 8) se pohybují na horní hranici — zbytek je klidnější.</p>
+    <p><strong>🎫 Doprava — ICOCA vs. JR Pass:</strong> dny 1–5 (Kansai: Osaka/Kjóto/Nara/Kobe) vystačí s ICOCA/Suica kartou. Od dne 6 (přesun na Fuji) se vyplatí aktivovat 21denní JR Pass — pokryje zbytek cesty včetně shinkansenů.</p>
+    <p><strong>✈️ Sapporo → Tokio:</strong> JR Pass tuhle trasu nepokrývá — mezi Hokkaidem a Tokiem zatím není přímé rychlé spojení. Počítejte s vnitrostátním letem (New Chitose → Haneda/Narita), ne s vlakem.</p>
+    <p><strong>🧳 Kufry mezi městy:</strong> využijte takkyubin (donášková služba zavazadel) — kufr pošlete rovnou do dalšího hotelu a cestujete jen s příručním. Dá se zařídit na recepci nebo v konbini.</p>
+    <p><strong>🌸 Sezóna:</strong> konec března–duben je sakura sezóna — nejhezčí, ale i nejrušnější a nejdražší období. Ubytování rezervovat s velkým předstihem.</p>
+    <p><strong>♨️ Onsen etiketa:</strong> myje se před vstupem do lázně (vsedě, sprchou), do vody se vstupuje čistý a beze plavek; viditelná tetování jsou v části onsenů problém — ověřte předem u ryokanu.</p>
+    <p><strong>⏱️ Časový posun:</strong> Japonsko je +7/+8 h před Prahou (podle letního času), dlouhý let — první den počítejte s únavou.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <section class="day day--travel" id="d1">
+    <div class="day-head">
+      <span class="day-date">DEN 01</span>
+      <div class="badges"><span class="badge badge--travel">Přílet</span><span class="badge badge--km">🚶 7 km</span></div>
+    </div>
+    <h2>Přílet do Osaky</h2>
+
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">KIX</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+        <div class="pass-note">Nankai Airport Express z Kansai (KIX) do centra (~970 ¥/os.). Ubytování: Naniwa Ward, Osaka (základna pro dny 1–5).</div>
+      </div>
+      <div class="pass-stub">PŘÍLET</div>
+    </div>
+
+    <div class="activity">
+      <p>Oběd/svačina Kuromon Ichiba Market (takoyaki, wagyu, sushi), pak večer Dōtonbori — okonomiyaki nebo kushikatsu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market" target="_blank" rel="noopener">Kuromon Ichiba Market</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka" target="_blank" rel="noopener">Dōtonbori</a>
+    </div>
+
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 1–5)</span>
+        <div class="stay-name">Naniwa Ward, Osaka</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Naniwa+Ward+Osaka" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="d2">
+    <div class="day-head">
+      <span class="day-date">DEN 02</span>
+      <span class="badge badge--km">🚶 12 km</span>
+    </div>
+    <h2>Osaka — hrad a západ slunce</h2>
+    <div class="activity">
+      <p>Osaka Castle + park (zvenku stačí, vstup do hradu 600 ¥ volitelně). Odpoledne Shinsaibashi/Namba — street food, nákupy. Podvečer Umeda Sky Building na západ slunce (cca 2 000 ¥).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle" target="_blank" rel="noopener">Osaka Castle</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+Osaka" target="_blank" rel="noopener">Shinsaibashi</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Umeda+Sky+Building" target="_blank" rel="noopener">Umeda Sky Building</a>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head">
+      <span class="day-date">DEN 03</span>
+      <div class="badges"><span class="badge badge--km warn">🚶 13 km</span></div>
+    </div>
+    <h2>Kjóto — torii brány a bambusový les</h2>
+    <div class="activity">
+      <p>Brzy ráno (než dorazí davy): Fushimi Inari Taisha — stovky torii bran, spodní okruh stačí na tu pravou atmosféru. Pak Arashiyama Bamboo Grove (vstup zdarma). Kinkaku-ji (Zlatý pavilon, 500 ¥). Odpoledne Gion/Higashiyama — tradiční uličky, matcha snack.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha" target="_blank" rel="noopener">Fushimi Inari Taisha</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove" target="_blank" rel="noopener">Arashiyama Bamboo Grove</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinkaku-ji" target="_blank" rel="noopener">Kinkaku-ji</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto" target="_blank" rel="noopener">Gion</a>
+      <div class="note warn"><b>Nejnabitější den itineráře</b> — na horní hranici 13 km. Pokud je to na vás moc, vynechte Kinkaku-ji (je nejdál od zbytku) a nahraďte ho klidnější procházkou Higashiyamou.</div>
+    </div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day" id="d4">
+    <div class="day-head">
+      <span class="day-date">DEN 04</span>
+      <span class="badge badge--km">🚶 10 km</span>
+    </div>
+    <h2>Nara — jeleni a klid</h2>
+    <div class="activity">
+      <p>Nara Park — volně pobíhající jeleni, procházka k jezeru Sarusawa, klidné tempo. Zahrada Isuien (900 ¥) na kávu/matcha.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nara+Park" target="_blank" rel="noopener">Nara Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Isuien+Garden" target="_blank" rel="noopener">Isuien Garden</a>
+    </div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
+    <div class="day-head">
+      <span class="day-date">DEN 05</span>
+      <span class="badge badge--km">🚶 11 km</span>
+    </div>
+    <h2>Kobe</h2>
+    <div class="activity">
+      <p>Nankin-machi (čínská čtvrť) k obědu, wagyu/Kobe beef, Meriken Park a přístav. Večer návrat do Osaky.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nankinmachi+Kobe" target="_blank" rel="noopener">Nankin-machi</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Meriken+Park+Kobe" target="_blank" rel="noopener">Meriken Park</a>
+    </div>
+  </section>
+
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
+    <div class="day-head">
+      <span class="day-date">DEN 06</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--km">🚶 5 km</span></div>
+    </div>
+    <h2>Osaka → Fuji (Fujinomiya)</h2>
+    <div class="activity">
+      <p>Shin-Osaka → Shin-Fuji → Fujinomiya (JR). Lehký den — jen procházka okolím ryokanu. Večer kaiseki večeře a první onsen.</p>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 6–9)</span>
+        <div class="stay-name">Kappō Ryokan Ogawaso, Fujinomiya</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kappo+Ryokan+Ogawaso+Fujinomiya" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">DEN 07</span>
+      <span class="badge badge--km">🚶 11 km</span>
+    </div>
+    <h2>Fujinomiya Sengen Taisha a Shiraito Falls</h2>
+    <div class="activity">
+      <p>Fujinomiya Sengen Taisha (svatyně, zdarma), oběd Fujinomiya Yakisoba. Autobusem k vodopádům Shiraito Falls (~45 Kč vstup). Večer onsen.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fujinomiya+Sengen+Taisha" target="_blank" rel="noopener">Sengen Taisha</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Shiraito+Falls" target="_blank" rel="noopener">Shiraito Falls</a>
+    </div>
+  </section>
+
+  <!-- DAY 8 -->
+  <section class="day" id="d8">
+    <div class="day-head">
+      <span class="day-date">DEN 08</span>
+      <div class="badges"><span class="badge badge--km warn">🚶 13 km</span></div>
+    </div>
+    <h2>Lake Tanuki — výhledový den</h2>
+    <div class="activity">
+      <p>Ráno sledujte počasí — na jasno vyrazit autobusem k jezeru Tanuki. Klidný okruh kolem jezera, zrcadlení hory Fuji na hladině (pokud je jasno). Večer dlouhý onsen.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lake+Tanuki+Fujinomiya" target="_blank" rel="noopener">Lake Tanuki</a>
+      <div class="note">Pokud je zataženo, tenhle den prohoďte s dnem 9 (Taiseki-ji) — na výhled na Fuji je potřeba jasná obloha.</div>
+    </div>
+  </section>
+
+  <!-- DAY 9 -->
+  <section class="day" id="d9">
+    <div class="day-head">
+      <span class="day-date">DEN 09</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--km">🚶 9 km</span></div>
+    </div>
+    <h2>Taiseki-ji a přesun do Nagana</h2>
+    <div class="activity">
+      <p>Ráno Taiseki-ji Temple — klidná, duchovní atmosféra (zdarma). Odpoledne přesun vlakem (JR Pass) do Nagana.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Taiseki-ji+Temple" target="_blank" rel="noopener">Taiseki-ji Temple</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 9–12)</span>
+        <div class="stay-name">Smile Hotel Nagano</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Smile+Hotel+Nagano" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 10 -->
+  <section class="day" id="d10">
+    <div class="day-head">
+      <span class="day-date">DEN 10</span>
+      <span class="badge badge--km">🚶 9 km</span>
+    </div>
+    <h2>Nagano — Zenko-ji</h2>
+    <div class="activity">
+      <p>Zenko-ji — jedno z nejdůležitějších buddhistických míst v Japonsku, historická ulice Nakamise, kadidlo a lampiony. Hlavní jídlo: nagano soba nudle.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Zenko-ji+Nagano" target="_blank" rel="noopener">Zenko-ji</a>
+    </div>
+  </section>
+
+  <!-- DAY 11 -->
+  <section class="day" id="d11">
+    <div class="day-head">
+      <span class="day-date">DEN 11</span>
+      <span class="badge badge--km">🚶 11 km</span>
+    </div>
+    <h2>Sněžné opice — Jigokudani</h2>
+    <div class="activity">
+      <p>Nagano → Yudanaka (JR + Nagano Dentetsu, cca 1 h), pak autobus k parku. Lesní cesta k opicím (1,6 km tam, 1,6 km zpět), pozorování divokých makaků v horkých pramenech (~270 Kč vstup). Oběd v Yudanace (soba/ramen).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jigokudani+Snow+Monkey+Park" target="_blank" rel="noopener">Jigokudani Snow Monkey Park</a>
+    </div>
+  </section>
+
+  <!-- DAY 12 -->
+  <section class="day" id="d12">
+    <div class="day-head">
+      <span class="day-date">DEN 12</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--km">🚶 9 km</span></div>
+    </div>
+    <h2>Obuse a přesun do Hakodate</h2>
+    <div class="activity">
+      <p>Ráno Obuse — malé městečko známé kaštany, kavárnami a galeriemi, soba nudle k obědu. Odpoledne Shinkansen do Hakodate (JR Pass).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Obuse+Nagano" target="_blank" rel="noopener">Obuse</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 12–15)</span>
+        <div class="stay-name">Hotel Enoe Hakodate</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hotel+Enoe+Hakodate" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 13 -->
+  <section class="day" id="d13">
+    <div class="day-head">
+      <span class="day-date">DEN 13</span>
+      <span class="badge badge--km">🚶 8 km</span>
+    </div>
+    <h2>Hakodate — rybí trh a staré město</h2>
+    <div class="activity">
+      <p>Hakodate Morning Market — kaisendon (miska s čerstvými rybami) k snídani/obědu. Motomachi, historická čtvrť se západním vlivem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hakodate+Morning+Market" target="_blank" rel="noopener">Hakodate Morning Market</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Motomachi+Hakodate" target="_blank" rel="noopener">Motomachi</a>
+    </div>
+  </section>
+
+  <!-- DAY 14 -->
+  <section class="day" id="d14">
+    <div class="day-head">
+      <span class="day-date">DEN 14</span>
+      <span class="badge badge--km">🚶 9 km</span>
+    </div>
+    <h2>Goryokaku a noční výhled</h2>
+    <div class="activity">
+      <p>Goryokaku Park — pevnost ve tvaru hvězdy, sakury na jaře. Podvečer lanovka na Mount Hakodate — západ slunce a pak noční výhled (jeden z nejlepších na světě), cca 350 Kč.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Goryokaku+Park" target="_blank" rel="noopener">Goryokaku Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Hakodate+Ropeway" target="_blank" rel="noopener">Mount Hakodate</a>
+    </div>
+  </section>
+
+  <!-- DAY 15 -->
+  <section class="day" id="d15">
+    <div class="day-head">
+      <span class="day-date">DEN 15</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--km">🚶 9 km</span></div>
+    </div>
+    <h2>Hakodate → Sapporo</h2>
+    <div class="activity">
+      <p>Přejezd JR Passem. Odori Park (zelený bulvár, první nadechnutí Hokkaida). Večer Susukino — ramen alley, izakaya, volitelně karaoke.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Odori+Park+Sapporo" target="_blank" rel="noopener">Odori Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Susukino+Sapporo" target="_blank" rel="noopener">Susukino</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 15–18)</span>
+        <div class="stay-name">Lamp Light Books Hotel Sapporo</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lamp+Light+Books+Hotel+Sapporo" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 16 -->
+  <section class="day" id="d16">
+    <div class="day-head">
+      <span class="day-date">DEN 16</span>
+      <span class="badge badge--km">🚶 10 km</span>
+    </div>
+    <h2>Sapporo — Buddha a hory</h2>
+    <div class="activity">
+      <p>Hill of the Buddha — tunelový vstup, minimalistická architektura, meditativní atmosféra. Odpoledne Mount Moiwa lanovkou, pak Tanukikoji Street (lokální vibe).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hill+of+the+Buddha+Sapporo" target="_blank" rel="noopener">Hill of the Buddha</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Moiwa+Sapporo" target="_blank" rel="noopener">Mount Moiwa</a>
+    </div>
+  </section>
+
+  <!-- DAY 17 -->
+  <section class="day" id="d17">
+    <div class="day-head">
+      <span class="day-date">DEN 17</span>
+      <span class="badge badge--km">🚶 9 km</span>
+    </div>
+    <h2>Otaru</h2>
+    <div class="activity">
+      <p>Vlak cca 40 min. Kanál, historické sklady, mořský vzduch, kavárny. Sushi/seafood k obědu — Otaru je na to proslulé.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Otaru+Canal" target="_blank" rel="noopener">Otaru Canal</a>
+      <div class="note">Tip na Sapporo, co jinam nezapadlo: curry soup (Sama Curry and Cafe), prohlídka pivovaru Sapporo Beer (zdarma).</div>
+    </div>
+  </section>
+
+  <!-- DAY 18 -->
+  <section class="day" id="d18">
+    <div class="day-head">
+      <span class="day-date">DEN 18</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--km">🚶 5 km</span></div>
+    </div>
+    <h2>Sapporo → Tokio</h2>
+    <div class="activity">
+      <p>Vnitrostátní let New Chitose → Haneda/Narita (JR Pass tuhle trasu nepokrývá). Lehký den po přeletu.</p>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 18–21)</span>
+        <div class="stay-name">Taitō (oblast Ueno), Tokio</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Taito+Ueno+Tokyo" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 19 -->
+  <section class="day" id="d19">
+    <div class="day-head">
+      <span class="day-date">DEN 19</span>
+      <span class="badge badge--km">🚶 11 km</span>
+    </div>
+    <h2>Asakusa a Skytree</h2>
+    <div class="activity">
+      <p>Senso-ji — nejtradičnější Tokio, ulice Nakamise. Procházka podél řeky Sumida s výhledem na Tokyo Skytree.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Senso-ji+Asakusa" target="_blank" rel="noopener">Senso-ji</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree" target="_blank" rel="noopener">Tokyo Skytree</a>
+    </div>
+    <div class="activity">
+      <p><b>🧭 Pokud zbyde čas navíc:</b> Ueno Park a Akihabara (elektronika, retro hry) jsou kousek od ubytování.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ueno+Park+Tokyo" target="_blank" rel="noopener">Ueno Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Akihabara+Tokyo" target="_blank" rel="noopener">Akihabara</a>
+    </div>
+  </section>
+
+  <!-- DAY 20 -->
+  <section class="day" id="d20">
+    <div class="day-head">
+      <span class="day-date">DEN 20</span>
+      <span class="badge badge--km">🚶 12 km</span>
+    </div>
+    <h2>Kamakura — bambusový les a Velký Buddha</h2>
+    <div class="activity">
+      <p>Tokio → Kamakura (JR, cca 1 h). Hōkoku-ji Bamboo Grove (mystická atmosféra, čajovna, ~300 ¥), slavná bronzová socha Kotoku-in Great Buddha, procházka po pláži Yuigahama.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hokoku-ji+Bamboo+Grove" target="_blank" rel="noopener">Hōkoku-ji Bamboo Grove</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kotoku-in+Great+Buddha" target="_blank" rel="noopener">Kotoku-in Great Buddha</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Yuigahama+Beach" target="_blank" rel="noopener">Yuigahama Beach</a>
+    </div>
+  </section>
+
+  <!-- DAY 21 -->
+  <section class="day day--travel" id="d21">
+    <div class="day-head">
+      <span class="day-date">DEN 21</span>
+      <div class="badges"><span class="badge badge--travel">Odlet</span><span class="badge badge--km">🚶 7 km</span></div>
+    </div>
+    <h2>Shinjuku, Shibuya — a odlet</h2>
+    <div class="activity">
+      <p>Shinjuku — Metropolitan Government Building, výhled na město zdarma. Shibuya Crossing a socha Hachiko. Lehké dopoledne, odpoledne směr letiště.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Shinjuku+Tokyo" target="_blank" rel="noopener">Shinjuku</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Crossing" target="_blank" rel="noopener">Shibuya Crossing</a>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">HND</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <footer>
+    Sestaveno z vašich poznámek (Korea, japonsko itinerář) — vybráno to nejlepší z japonské části a rozvrženo na 21 dní s tempem do 13 km/den. Korejská část (Soul) ve zdrojovém souboru zůstala stranou — dejte vědět, pokud ji chcete taky rozpracovat, ať už samostatně nebo napojenou na tuhle cestu.
+  </footer>
+
+</div>
+</body>
+</html>

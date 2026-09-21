@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Norsko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F5F1E6;
+    --surface:#FFFFFC;
+    --surface-2:#EBE3CF;
+    --ink:#28251E;
+    --ink-soft:#5D5747;
+    --ink-faint:#948C77;
+    --border:#E1D6BC;
+    --fjord:#3B6FA0;
+    --fjord-ink:#EFF5FA;
+    --midnight:#C1652F;
+    --midnight-ink:#FBEEE4;
+    --route:#B9852A;
+    --route-ink:#2A1D08;
+    --danger:#A0432A;
+    --shadow: 0 1px 2px rgba(30,25,15,.07), 0 6px 18px -10px rgba(30,25,15,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#1B2431;
+      --surface:#232E3D;
+      --surface-2:#2C384A;
+      --ink:#EDEAE0;
+      --ink-soft:#B6B1A0;
+      --ink-faint:#7C7869;
+      --border:#3B4A5D;
+      --fjord:#8FBEE6;
+      --fjord-ink:#0F2436;
+      --midnight:#E69361;
+      --midnight-ink:#2A1409;
+      --route:#E6B45F;
+      --route-ink:#2A1D08;
+      --danger:#E08361;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#1B2431;
+    --surface:#232E3D;
+    --surface-2:#2C384A;
+    --ink:#EDEAE0;
+    --ink-soft:#B6B1A0;
+    --ink-faint:#7C7869;
+    --border:#3B4A5D;
+    --fjord:#8FBEE6;
+    --fjord-ink:#0F2436;
+    --midnight:#E69361;
+    --midnight-ink:#2A1409;
+    --route:#E6B45F;
+    --route-ink:#2A1D08;
+    --danger:#E08361;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+
+  .hero{padding:38px 18px 22px;}
+  .backlink{display:inline-flex; align-items:center; gap:5px; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; margin-bottom:16px;}
+  .backlink:hover{color:var(--ink);}
+  .hero .eyebrow{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--fjord); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--fjord);}
+  .hero h1{font-size:44px; font-weight:700; line-height:1.02;}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:48ch; line-height:1.5;}
+
+  .daynav{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--border); padding:10px 0;}
+  .daynav-scroll{display:flex; gap:8px; overflow-x:auto; padding:0 18px; max-width:640px; margin:0 auto; scrollbar-width:none;}
+  .daynav-scroll::-webkit-scrollbar{display:none;}
+  .daynav a{
+    flex:0 0 auto; font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:7px 12px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .daynav a b{color:var(--ink); font-weight:700;}
+  .daynav a.ext{border-style:dashed; color:var(--route);}
+  .daynav a.ext b{color:var(--route);}
+
+  .tip{
+    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--fjord);
+    border-radius:10px; padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--fjord); display:block; margin-bottom:5px;}
+  .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .tip p + p{margin-top:8px;}
+  .tip strong{color:var(--ink); font-weight:600;}
+  .tip a{color:var(--fjord); font-weight:600; text-decoration:underline;}
+
+  .summary{
+    margin:14px 0 8px; background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .summary .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .summary ul{margin:0; padding-left:18px;}
+  .summary li{font-size:14px; line-height:1.6; color:var(--ink-soft); margin-bottom:4px;}
+  .summary li b{color:var(--ink);}
+
+  .day{padding:34px 0 6px; border-top:1px solid var(--border);}
+  .day:first-of-type{border-top:none;}
+  .day-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; scroll-margin-top:64px;}
+  .day-date{font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint); letter-spacing:.03em;}
+  .badge{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap;
+  }
+  .badge--travel{background:var(--midnight); color:var(--midnight-ink);}
+  .badge--ferry{background:var(--midnight); color:var(--midnight-ink);}
+  .badge--route{background:var(--route); color:var(--route-ink);}
+  .badge--ext{background:transparent; color:var(--route); border:1px dashed var(--route);}
+
+  .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
+
+  .activity{padding:14px 0; border-top:1px solid var(--border);}
+  .activity:first-of-type{border-top:none; padding-top:16px;}
+  .activity p{font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:0 0 8px;}
+  .activity p:last-of-type{margin-bottom:0;}
+
+  .maplink{
+    display:inline-flex; align-items:center; gap:6px; font-family:'Work Sans'; font-size:13px; font-weight:600;
+    color:var(--fjord); text-decoration:none; border:1px solid var(--border); border-radius:999px;
+    padding:6px 12px 6px 10px; background:var(--surface); margin:2px 6px 2px 0;
+  }
+  .maplink::before{content:"↗"; font-size:13px;}
+
+  .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
+  .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
+  .note b{color:var(--ink);}
+
+  .camp{
+    display:flex; gap:12px; align-items:flex-start; margin-top:16px; padding:12px 14px;
+    background:var(--surface-2); border-radius:10px;
+  }
+  .camp-icon{
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--fjord); color:var(--fjord-ink);
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .camp-body{flex:1;}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:2px;}
+  .camp-name{font-weight:600; font-size:14.5px;}
+  .camp-note{font-size:13px; color:var(--ink-soft); margin-top:3px; line-height:1.5;}
+
+  .pass{display:flex; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin:16px 0 6px;}
+  .pass-main{flex:1; padding:16px 16px;}
+  .pass-route{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .pass-route .code{font-family:'Space Mono',monospace; font-weight:700; font-size:20px;}
+  .pass-route .arrow{color:var(--ink-faint); font-size:14px;}
+  .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
+  .pass-note{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
+  .pass-stub{
+    flex:0 0 64px; background:var(--midnight); color:var(--midnight-ink); display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; writing-mode:vertical-rl; text-transform:uppercase;
+    font-weight:700; border-left:1px dashed rgba(0,0,0,.15);
+  }
+
+  footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="backlink" href="index.html">← Zpět na přehled</a>
+  <div class="eyebrow">Norsko · karavan</div>
+  <h1>Norsko</h1>
+  <p>Oslo → fjordy → Lofoty (volitelně dál na Senju a do Tromsø). Jádro na 19 dní, dole návod jak zkrátit na 14 nebo prodloužit na 3 týdny.</p>
+</header>
+
+<nav class="daynav">
+  <div class="daynav-scroll">
+    <a href="#d1"><b>1</b> Oslo</a>
+    <a href="#d3"><b>3</b> Hardangervidda</a>
+    <a href="#d5"><b>5</b> Bergen</a>
+    <a href="#d6"><b>6</b> Flåm</a>
+    <a href="#d8"><b>8</b> Geiranger</a>
+    <a href="#d9"><b>9</b> Ålesund</a>
+    <a href="#d11"><b>11</b> Trondheim</a>
+    <a href="#d13"><b>13</b> Polár. kruh</a>
+    <a href="#d15"><b>15</b> Trajekt</a>
+    <a href="#d16"><b>16</b> Reine</a>
+    <a href="#d18"><b>18</b> Henningsvær</a>
+    <a class="ext" href="#d20"><b>20</b> Senja</a>
+    <a class="ext" href="#d21"><b>21</b> Tromsø</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="tip">
+    <span class="tip-label">Než vyrazíte</span>
+    <p><strong>Sezóna:</strong> horské silnice (Trollstigen, Sognefjellsvegen) a kempy fungují naplno zhruba polovina června – polovina září. Na půlnoční slunce na Lofotech cílit konec května – polovina července.</p>
+    <p><strong>Letiště v Oslu:</strong> při koupi letenek pozor, ať jde o Oslo Gardemoen (OSL), ne Oslo Sandefjord Torp (TRF) — Torp je oblíbený u nízkonákladovek, ale je to cca 2 h vlakem od centra Osla, kde se vyzvedává karavan.</p>
+    <p><strong>Jednosměrný pronájem:</strong> vrátit karavan zpátky v Oslu by stálo několik dní jízdy navíc. Vyplatí se <strong>Oslo → Tromsø jednosměrně</strong> (poplatek za přesun) a let zpět ze severu.</p>
+    <p><strong>🚐 Půjčovna karavanu:</strong> nejlépe hodnocené s jednosměrným pronájmem Oslo → Tromsø jsou <a href="https://www.norwaycampers.no/oneway/" target="_blank" rel="noopener">Norway Campers</a> (od 860 NOK/den, nové rodinné karavany s pevnou postelí, neomezené km) a <a href="https://arcticcampers.no/one-way-offers" target="_blank" rel="noopener">Arctic Campers</a> (pobočky Oslo + Tromsø, automat, možnost 4×4). <a href="https://anywherecampers.com/norway-one-way/" target="_blank" rel="noopener">Anywhere Campers</a> naváží kdekoliv po trase, hodí se pokud nechcete jezdit přímo na pobočku, a malá <a href="https://vanjoy.no/" target="_blank" rel="noopener">Vanjoy</a> má bezchybné 5,0★ hodnocení (menší vozy, spíš pro dva).</p>
+    <p><strong>Mýtné a trajekty se strhávají samy:</strong> automatický systém AutoPASS jen vyfotí SPZ, nikde se nezastavuje. U půjčeného karavanu to řeší půjčovna — naúčtuje se na kartu při vrácení, není potřeba se sami registrovat.</p>
+    <p><strong>Tempo:</strong> mimo obec 80 km/h, v obci 50 km/h, přísně kontrolováno radary. 200 km kvůli horám, tunelům a trajektům klidně zabere celý den — plánujte podle času, ne podle vzdálenosti na mapě.</p>
+    <p><strong>Palivo:</strong> cca 18–24 NOK/l, na severu dráž než na jihu — při délce trasy počítat jako s významnou položkou rozpočtu.</p>
+    <p><strong>Allemannsretten:</strong> přespání s karavanem i mimo kempy je v Norsku legální (150 m od obydlí, ne na obdělávané půdě, max. 2 noci na místě). Na Lofotech v posledních letech přibylo míst se zákazem přespání přímo na pláži/parkovišti přes noc — proto má tenhle itinerář na každou noc tam rovnou placený kemp.</p>
+    <p><strong>Trajekt Bodø–Moskenes</strong> (den 15) se s vozidlem v létě plní — rezervovat předem.</p>
+  </div>
+
+  <div class="summary">
+    <span class="tip-label">Jak zkrátit na 14 dní</span>
+    <ul>
+      <li>Vynechat <b>den 7</b> (Sognefjellsvegen) — z Flåmu rovnou na Trollstigen/Geiranger.</li>
+      <li>Vynechat nebo spojit <b>den 10</b> (Atlanterhavsvegen) s přejezdem do Trondheimu.</li>
+      <li>Na Kystriksveien vybrat jen 2–3 zastávky (Torghatten, polární kruh), zbytek po rychlejší E6.</li>
+      <li>Jižní a střední Lofoty spojit do dvou dní místo čtyř (dny 15–18 → Reine/Hamnøy + Henningsvær).</li>
+    </ul>
+  </div>
+
+  <!-- DAY 1 -->
+  <section class="day day--travel" id="d1">
+    <div class="day-head">
+      <span class="day-date">DEN 01</span>
+      <span class="badge badge--travel">Přílet</span>
+    </div>
+    <h2>Oslo — vyzvednutí karavanu</h2>
+
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">OSL</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+        <div class="pass-note">Vyzvednutí karavanu na letišti/v Oslu, první nákup (plyn, voda). Večer klidně jen usadit a projít okolí.</div>
+      </div>
+      <div class="pass-stub">PŘÍLET</div>
+    </div>
+
+    <div class="camp">
+      <div class="camp-icon">⛺</div>
+      <div class="camp-body">
+        <span class="camp-label">Kemp</span>
+        <div class="camp-name">Bogstad Camping</div>
+        <div class="camp-note">U jezera Bogstadvannet, 20 min od centra — jeden z mála kempů přímo v Oslu.</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bogstad+Camping+Oslo" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="d2">
+    <div class="day-head"><span class="day-date">DEN 02</span></div>
+    <h2>Oslo</h2>
+    <div class="activity">
+      <p>Vigelandsparken (sochařský park), Opera House se střechou k projití, pevnost Akershus, promenáda Aker Brygge. Na výhled na celý Oslofjord zajet na skokanský můstek Holmenkollen.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Vigelandsparken+Oslo" target="_blank" rel="noopener">Vigelandsparken</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Oslo+Opera+House" target="_blank" rel="noopener">Opera House</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Holmenkollen+Ski+Jump" target="_blank" rel="noopener">Holmenkollen</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Bogstad Camping</div><div class="camp-note">Stejný jako den 1.</div></div></div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head"><span class="day-date">DEN 03</span></div>
+    <h2>Hardangervidda a Vøringsfossen</h2>
+    <div class="activity">
+      <p>Přejezd z Osla na západ přes náhorní plošinu Hardangervidda (Rv7) — největší horská plošina v Evropě, časté stádo sobů. Zastávka u vodopádu Vøringsfossen s vyhlídkovou lávkou nad propastí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hardangervidda" target="_blank" rel="noopener">Hardangervidda</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=V%C3%B8ringsfossen" target="_blank" rel="noopener">Vøringsfossen</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Vøringsfoss Camping / Sæbø Camping</div><div class="camp-note">Eidfjord, přímo na Hardangerfjordu.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=V%C3%B8ringsfoss+Camping+Eidfjord" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day" id="d4">
+    <div class="day-head"><span class="day-date">DEN 04</span></div>
+    <h2>Hardangerfjord → Bergen</h2>
+    <div class="activity">
+      <p>Kdo je zdatný a má den navíc: celodenní treking na Trolltunga (10–12 h, jen pro fyzicky připravené). Jinak kratší zastávka u vodopádu Latefossen u Odda — dvojitý vodopád přímo u silnice, bez náročného výšlapu — a přejezd přes most Hardangerbru do Bergenu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trolltunga" target="_blank" rel="noopener">Trolltunga (volitelně)</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Latefossen" target="_blank" rel="noopener">Latefossen</a>
+      <div class="note warn"><b>Trolltunga je cca 27 km tam a zpět</b> — daleko přes doporučený denní limit (13 km), navíc prodlužuje trasu o den navíc. Doporučení: vynechat, Latefossen dá podobný zážitek bez velkého treku.</div>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Lone Camping</div><div class="camp-note">U jezera, 25 min od centra Bergenu.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lone+Camping+Bergen" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
+    <div class="day-head"><span class="day-date">DEN 05</span></div>
+    <h2>Bergen</h2>
+    <div class="activity">
+      <p>Hanzovní čtvrť Bryggen (UNESCO), rybí trh Fisketorget, lanovka Fløibanen na vyhlídku nad městem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bryggen+Bergen" target="_blank" rel="noopener">Bryggen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%B8ibanen+Bergen" target="_blank" rel="noopener">Fløibanen</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Lone Camping</div><div class="camp-note">Stejný jako den 4.</div></div></div>
+  </section>
+
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
+    <div class="day-head"><span class="day-date">DEN 06</span></div>
+    <h2>Sognefjord a Flåm</h2>
+    <div class="activity">
+      <p>Cestou volitelně Borgund stavkirke — nejlépe dochovaný dřevěný kostel v Norsku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Borgund+Stave+Church" target="_blank" rel="noopener">Borgund stavkirke</a>
+    </div>
+    <div class="activity">
+      <p>Nærøyfjord — nejužší fjord v Evropě (UNESCO). Vyhlídka Stegastein, 30 m plošina vysoko nad fjordem. Ve Flåmu volitelně horská železnice Flåmsbana, jedna z nejkrásnějších tratí světa.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=N%C3%A6r%C3%B8yfjord" target="_blank" rel="noopener">Nærøyfjord</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Stegastein+Viewpoint" target="_blank" rel="noopener">Stegastein</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%A5msbana" target="_blank" rel="noopener">Flåmsbana</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Flåm Camping</div><div class="camp-note">Přímo u fjordu.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%A5m+Camping" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">DEN 07</span>
+      <span class="badge badge--route">Turistická silnice</span>
+    </div>
+    <h2>Sognefjellsvegen</h2>
+    <div class="activity">
+      <p>Nejvyšší horská silnice severní Evropy (přes 1 400 m n. m., úsek Turtagrø–Lom), vede národním parkem Jotunheimen s výhledy na ledovce a nejvyšší norské vrcholy.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jotunheimen+National+Park" target="_blank" rel="noopener">Jotunheimen</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Sognefjell Camping</div><div class="camp-note">Nebo okolí Lomu.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sognefjell+Camping" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 8 -->
+  <section class="day" id="d8">
+    <div class="day-head">
+      <span class="day-date">DEN 08</span>
+      <span class="badge badge--route">Turistická silnice</span>
+    </div>
+    <h2>Trollstigen → Geiranger</h2>
+    <div class="activity">
+      <p>Trollstigen — 11 serpentin do sklonu 12 %, vodopád Stigfossen přímo u silnice. Odpoledne dojezd ke Geirangerfjordu (UNESCO), cestou vodopády Sedm sester a Nápadník.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trollstigen" target="_blank" rel="noopener">Trollstigen</a>
+      <div class="note warn"><b>Velmi úzké serpentiny.</b> S velkým/těžkým karavanem počítat s pomalou, opatrnou jízdou a čekáním na výhybnách na protijedoucí autobusy.</div>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Geirangerfjorden Feriesenter</div><div class="camp-note">Nejlépe hodnocený kemp v okolí, přímo u fjordu, 2 km od centra.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Geirangerfjorden+Feriesenter" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 9 -->
+  <section class="day" id="d9">
+    <div class="day-head"><span class="day-date">DEN 09</span></div>
+    <h2>Geiranger → Ålesund</h2>
+    <div class="activity">
+      <p>Dopoledne fjord z vodní hladiny (trajekt/výletní loď proplouvá pod vodopády). Odpoledne secesní Ålesund — vyhlídka Aksla, 418 schodů, výhled na město mezi fjordy.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85lesund" target="_blank" rel="noopener">Ålesund</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Aksla+Viewpoint+%C3%85lesund" target="_blank" rel="noopener">Aksla</a>
+    </div>
+    <div class="activity">
+      <p><b>🧭 Pokud zbyde čas navíc:</b> ostrov Runde — jedna z největších ptačích kolonií v Norsku (papuchalci), cca hodinu od Ålesundu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Runde+Norway" target="_blank" rel="noopener">Runde</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Volsdalen Camping</div><div class="camp-note">Jediný kemp přímo v centru Ålesundu, u vody.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Volsdalen+Camping+%C3%85lesund" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 10 -->
+  <section class="day" id="d10">
+    <div class="day-head">
+      <span class="day-date">DEN 10</span>
+      <span class="badge badge--route">Turistická silnice</span>
+    </div>
+    <h2>Atlanterhavsvegen</h2>
+    <div class="activity">
+      <p>Atlantická silnice — 8 km nad otevřeným oceánem, most Storseisundet vypadá jako rampa do prázdna. Norové ji zvolili „stavbou století".</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Atlanterhavsvegen+Atlantic+Road" target="_blank" rel="noopener">Atlantická silnice</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Budu / Kristiansundu</div></div></div>
+  </section>
+
+  <!-- DAY 11 -->
+  <section class="day" id="d11">
+    <div class="day-head"><span class="day-date">DEN 11</span></div>
+    <h2>Trondheim</h2>
+    <div class="activity">
+      <p>Katedrála Nidarosdomen (největší středověká stavba Skandinávie), barevná čtvrť Bakklandet podél řeky.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nidaros+Cathedral+Trondheim" target="_blank" rel="noopener">Nidarosdomen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bakklandet+Trondheim" target="_blank" rel="noopener">Bakklandet</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Sandmoen Camping</div><div class="camp-note">Jižně od města.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sandmoen+Camping+Trondheim" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 12 -->
+  <section class="day" id="d12">
+    <div class="day-head">
+      <span class="day-date">DEN 12</span>
+      <span class="badge badge--route">Turistická silnice</span>
+    </div>
+    <h2>Start Kystriksveien</h2>
+    <div class="activity">
+      <p>Vjezd na Kystriksveien (Fv17) — 650 km pobřežní silnice s řadou trajektů, National Geographic ji řadí mezi nejkrásnější cesty světa.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kystriksveien+Fv17" target="_blank" rel="noopener">Kystriksveien</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Rørviku / Brønnøysundu</div></div></div>
+  </section>
+
+  <!-- DAY 13 -->
+  <section class="day" id="d13">
+    <div class="day-head"><span class="day-date">DEN 13</span></div>
+    <h2>Torghatten, Sedm sester, polární kruh</h2>
+    <div class="activity">
+      <p>Hora s dírou skrz vrchol Torghatten (krátká procházka až do díry). Horský hřeben De syv søstre (Sedm sester) u Sandnessjøenu. Odpoledne symbolické překročení polárního kruhu na Polarsirkelsenteret.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Torghatten" target="_blank" rel="noopener">Torghatten</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Polarsirkelsenteret+Arctic+Circle+Centre" target="_blank" rel="noopener">Polarsirkelsenteret</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Mo i Rana</div></div></div>
+  </section>
+
+  <!-- DAY 14 -->
+  <section class="day" id="d14">
+    <div class="day-head"><span class="day-date">DEN 14</span></div>
+    <h2>Saltstraumen → Bodø</h2>
+    <div class="activity">
+      <p>Saltstraumen — nejsilnější mořský vír na světě, nejlepší podívaná kolem přílivu/odlivu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Saltstraumen" target="_blank" rel="noopener">Saltstraumen</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Pluscamp Saltstraumen Camping</div><div class="camp-note">Kousek od víru — lepší volba než kemp přímo v Bodø (Bodøsjøen Camping má slabší hodnocení).</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Pluscamp+Saltstraumen+Camping" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 15 -->
+  <section class="day" id="d15">
+    <div class="day-head">
+      <span class="day-date">DEN 15</span>
+      <span class="badge badge--ferry">Trajekt</span>
+    </div>
+    <h2>Bodø → Moskenes (Lofoty)</h2>
+    <div class="activity">
+      <p>Trajekt Bodø → Moskenes, cca 3,5 h, scénická plavba otevřeným mořem. Po vylodění krátká jízda do Reine.</p>
+      <div class="note warn"><b>V létě s vozidlem rezervovat předem</b> — bývá vyprodáno.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Reine+Lofoten" target="_blank" rel="noopener">Reine</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Oblast Ramberg / Reine</div></div></div>
+  </section>
+
+  <!-- DAY 16 -->
+  <section class="day" id="d16">
+    <div class="day-head"><span class="day-date">DEN 16</span></div>
+    <h2>Jižní Lofoty</h2>
+    <div class="activity">
+      <p>Reine a rybářská vesnička Hamnøy — nejfotografovanější místo Norska, Å i Lofoten na konci silnice E10.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hamn%C3%B8y+Lofoten" target="_blank" rel="noopener">Hamnøy</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85+i+Lofoten" target="_blank" rel="noopener">Å i Lofoten</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Lofoten Beach Camp (Ramberg)</div><div class="camp-note">300 m od pláže Skagsanden, sauna — jedno z nejlépe hodnocených míst na Lofotech.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lofoten+Beach+Camp+Ramberg" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 17 -->
+  <section class="day" id="d17">
+    <div class="day-head"><span class="day-date">DEN 17</span></div>
+    <h2>Pláže a Nusfjord</h2>
+    <div class="activity">
+      <p>Arktické pláže s tyrkysovou vodou Uttakleiv a Haukland. Historická rybářská vesnice Nusfjord, jedna z nejlépe dochovaných v Norsku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uttakleiv+Beach" target="_blank" rel="noopener">Uttakleiv</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haukland+Beach" target="_blank" rel="noopener">Haukland</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nusfjord" target="_blank" rel="noopener">Nusfjord</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Vestvågøy / Uttakleiv</div></div></div>
+  </section>
+
+  <!-- DAY 18 -->
+  <section class="day" id="d18">
+    <div class="day-head"><span class="day-date">DEN 18</span></div>
+    <h2>Henningsvær a Kabelvåg</h2>
+    <div class="activity">
+      <p>Henningsvær — „Benátky Lofot", malebné uličky a kavárny na skalách. Svolvær.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Henningsv%C3%A6r" target="_blank" rel="noopener">Henningsvær</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Svolv%C3%A6r" target="_blank" rel="noopener">Svolvær</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Kabelvåg Feriehus & Camping</div><div class="camp-note">V recenzích „pravděpodobně nejlepší kemp v Norsku".</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kabelv%C3%A5g+Feriehus+og+Camping" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 19 -->
+  <section class="day day--travel" id="d19">
+    <div class="day-head">
+      <span class="day-date">DEN 19</span>
+      <span class="badge badge--travel">Konec 19denní varianty</span>
+    </div>
+    <h2>Odevzdání karavanu</h2>
+    <div class="activity">
+      <p>Přejezd na odevzdání karavanu (Tromsø / Harstad / Narvik dle půjčovny) a let zpět.</p>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">TOS</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <!-- DAY 20 -->
+  <section class="day" id="d20">
+    <div class="day-head">
+      <span class="day-date">DEN 20</span>
+      <span class="badge badge--ext">Prodloužení</span>
+    </div>
+    <h2>Senja</h2>
+    <div class="activity">
+      <p>Ostrov s dramatickými štíty — vyhlídka Tungeneset (Ďáblovy zuby) a hora Segla (cca 6 km tam a zpět, ale strmé, výstup cca 3,5 h — spíš o převýšení než o vzdálenosti).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tungeneset+Senja" target="_blank" rel="noopener">Tungeneset</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Segla+Senja" target="_blank" rel="noopener">Segla</a>
+    </div>
+    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Senja Camping (Silsand)</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Senja+Camping+Silsand" target="_blank" rel="noopener">Mapa</a>
+    </div></div>
+  </section>
+
+  <!-- DAY 21 -->
+  <section class="day day--travel" id="d21">
+    <div class="day-head">
+      <span class="day-date">DEN 21</span>
+      <span class="badge badge--ext">Prodloužení</span>
+    </div>
+    <h2>Tromsø — konec cesty</h2>
+    <div class="activity">
+      <p>Arktická katedrála Ishavskatedralen, lanovka Fjellheisen nad polární kruh s výhledem na fjordy. Odevzdání karavanu v Tromsø.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ishavskatedralen+Arctic+Cathedral+Troms%C3%B8" target="_blank" rel="noopener">Ishavskatedralen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fjellheisen+Troms%C3%B8" target="_blank" rel="noopener">Fjellheisen</a>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">TOS</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <footer>
+    Hodnocení kempů vychází z recenzí na Tripadvisoru/Google v době přípravy plánu — před cestou je dobré je ještě proklepnout a v hlavní sezóně (červenec) oblíbenější místa rezervovat předem. Plná verze s odkazy: Google Doc „Norsko".
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Madeira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F6F3EA;
+    --surface:#FFFEFA;
+    --surface-2:#EFEADB;
+    --ink:#20281F;
+    --ink-soft:#54614F;
+    --ink-faint:#8A9583;
+    --border:#E1D9C2;
+    --ember:#9E4229;
+    --ember-ink:#FBF0EC;
+    --terracotta:#BD5D2C;
+    --terracotta-ink:#FBF1E8;
+    --trail:#DE9A2C;
+    --trail-ink:#2A2013;
+    --danger:#A5432A;
+    --shadow: 0 1px 2px rgba(32,40,31,.06), 0 6px 18px -10px rgba(32,40,31,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#161B15;
+      --surface:#1E251D;
+      --surface-2:#262F23;
+      --ink:#EAE6D9;
+      --ink-soft:#AEB8A5;
+      --ink-faint:#71806B;
+      --border:#333E2F;
+      --ember:#E68A6A;
+      --ember-ink:#2A140D;
+      --terracotta:#E68F5C;
+      --terracotta-ink:#2A1B10;
+      --trail:#E2A33B;
+      --trail-ink:#2A2013;
+      --danger:#E0805F;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#161B15;
+    --surface:#1E251D;
+    --surface-2:#262F23;
+    --ink:#EAE6D9;
+    --ink-soft:#AEB8A5;
+    --ink-faint:#71806B;
+    --border:#333E2F;
+    --ember:#E68A6A;
+    --ember-ink:#2A140D;
+    --terracotta:#E68F5C;
+    --terracotta-ink:#2A1B10;
+    --trail:#E2A33B;
+    --trail-ink:#2A2013;
+    --danger:#E0805F;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:'Work Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
+
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+
+  a{color:inherit;}
+
+  /* ---- Hero ---- */
+  .hero{padding:38px 18px 22px; text-align:left;}
+  .backlink{display:inline-flex; align-items:center; gap:5px; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; margin-bottom:16px;}
+  .backlink:hover{color:var(--ink);}
+  .hero .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ember);
+    display:flex; align-items:center; gap:8px;
+    margin-bottom:10px;
+  }
+  .hero .eyebrow::before{
+    content:"";
+    width:16px; height:1px; background:var(--ember);
+  }
+  .hero h1{font-size:44px; font-weight:700; line-height:1.02; color:var(--ink);}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:46ch; line-height:1.5;}
+
+  /* ---- sticky day nav ---- */
+  .daynav{
+    position:sticky; top:0; z-index:20;
+    background:var(--ground);
+    border-bottom:1px solid var(--border);
+    padding:10px 0;
+  }
+  .daynav-scroll{
+    display:flex; gap:8px; overflow-x:auto;
+    padding:0 18px; max-width:640px; margin:0 auto;
+    scrollbar-width:none;
+  }
+  .daynav-scroll::-webkit-scrollbar{display:none;}
+  .daynav a{
+    flex:0 0 auto;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:7px 12px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .daynav a b{color:var(--ink); font-weight:700;}
+
+  /* ---- tip banner ---- */
+  .tip{
+    margin:22px 0 8px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:3px solid var(--ember);
+    border-radius:10px;
+    padding:14px 16px;
+    box-shadow:var(--shadow);
+  }
+  .tip .tip-label{
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ember); display:block; margin-bottom:5px;
+  }
+  .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .tip p + p{margin-top:8px;}
+  .tip strong{color:var(--ink); font-weight:600;}
+
+  /* ---- day section ---- */
+  .day{padding:34px 0 6px; border-top:1px solid var(--border);}
+  .day:first-of-type{border-top:none;}
+  .day-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; scroll-margin-top:64px;}
+  .day-date{
+    font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint);
+    letter-spacing:.03em;
+  }
+  .badge{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; padding:4px 9px; border-radius:999px; font-weight:700;
+    white-space:nowrap;
+  }
+  .badge--fixed{background:var(--ember); color:var(--ember-ink);}
+  .badge--travel{background:var(--terracotta); color:var(--terracotta-ink);}
+  .badge--open{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+
+  .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
+
+  /* trail marker */
+  .trail{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; margin-right:8px;
+    background:var(--trail); color:var(--trail-ink);
+    transform:rotate(45deg);
+    border-radius:5px;
+    font-family:'Space Mono',monospace; font-weight:700; font-size:10.5px;
+    flex:0 0 auto;
+  }
+  .trail span{transform:rotate(-45deg);}
+
+  .lead{display:flex; align-items:center; margin:14px 0 4px;}
+  .lead-text{font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .lead-text b{color:var(--ink); font-weight:600;}
+
+  /* activity block */
+  .activity{
+    display:grid; grid-template-columns:64px 1fr; gap:12px;
+    padding:14px 0; border-top:1px solid var(--border);
+  }
+  .activity:first-of-type{border-top:none; padding-top:16px;}
+  .time{
+    font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint);
+    padding-top:2px;
+  }
+  .activity h3{font-size:16.5px; font-weight:600; margin-bottom:5px; line-height:1.3;}
+  .activity p{font-size:14.5px; line-height:1.58; color:var(--ink-soft); margin:0 0 10px;}
+  .activity p:last-of-type{margin-bottom:0;}
+
+  .maplink{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'Work Sans'; font-size:13px; font-weight:600;
+    color:var(--ember); text-decoration:none;
+    border:1px solid var(--border); border-radius:999px;
+    padding:6px 12px 6px 10px;
+    background:var(--surface);
+    margin-top:2px;
+  }
+  .maplink::before{content:"↗"; font-size:13px;}
+
+  .note{
+    background:var(--surface-2); border-radius:8px; padding:10px 12px;
+    font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;
+  }
+  .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
+  .note b{color:var(--ink);}
+
+  .suggest{
+    margin-top:6px; padding-top:6px;
+  }
+  .suggest-label{
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;
+  }
+  .suggest ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .suggest li{font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .suggest li b{color:var(--ink); font-weight:600;}
+
+  .dropped{
+    margin-top:14px; font-size:13px; color:var(--ink-faint); line-height:1.5;
+    text-decoration:line-through; text-decoration-color:var(--border);
+  }
+  .dropped-note{
+    text-decoration:none; display:block; margin-top:3px; font-size:12.5px; color:var(--ink-faint);
+  }
+
+  /* boarding pass */
+  .pass{
+    display:flex; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin:16px 0 6px;
+  }
+  .pass-main{flex:1; padding:16px 16px;}
+  .pass-route{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .pass-route .code{font-family:'Space Mono',monospace; font-weight:700; font-size:20px;}
+  .pass-route .arrow{color:var(--ink-faint); font-size:14px;}
+  .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
+  .pass-times{display:flex; gap:18px; margin-top:10px;}
+  .pass-times div{display:flex; flex-direction:column;}
+  .pass-times span:first-child{font-family:'Space Mono',monospace; font-size:18px; font-weight:700;}
+  .pass-times span:last-child{font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; margin-top:2px;}
+  .pass-stub{
+    flex:0 0 64px; background:var(--terracotta); color:var(--terracotta-ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em;
+    writing-mode:vertical-rl; text-transform:uppercase; font-weight:700;
+    border-left:1px dashed rgba(0,0,0,.15);
+  }
+
+  footer{
+    margin-top:40px; padding-top:22px; border-top:1px solid var(--border);
+    font-size:12.5px; color:var(--ink-faint); line-height:1.6;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="backlink" href="index.html">← Zpět na přehled</a>
+  <div class="eyebrow">Ostrov Madeira · 26. 9. – 4. 10. 2026</div>
+  <h1>Madeira</h1>
+  <p>Devět dní, čtyři značené horské trasy (PR), dvě pobřeží a jeden jednosměrný sestup z Pico Ruivo. Klepnutím na datum dole skočíte na daný den.</p>
+</header>
+
+<nav class="daynav">
+  <div class="daynav-scroll">
+    <a href="#d1"><b>26.9</b> Přílet</a>
+    <a href="#d2"><b>27.9</b> PR13</a>
+    <a href="#d3"><b>28.9</b> PR8</a>
+    <a href="#d4"><b>29.9</b> Velryby</a>
+    <a href="#d5"><b>30.9</b> PR1</a>
+    <a href="#d6"><b>1.10</b> Levady</a>
+    <a href="#d7"><b>2.10</b> PR9</a>
+    <a href="#d8"><b>3.10</b> Jih</a>
+    <a href="#d9"><b>4.10</b> Odlet</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="tip">
+    <span class="tip-label">Než vyrazíte</span>
+    <p><strong>Signál v horách a na severu ostrova (Fanal, Queimadas, Pico Ruivo) bývá slabý nebo žádný.</strong> V appce Google Maps si doma stáhněte offline mapu oblasti Madeira (Nabídka → Offline mapy), ať fungují i pěší trasy bez dat.</p>
+    <p>Tuto stránku si po otevření na mobilu můžete přidat na plochu (v Chromu: nabídka ⋮ → Přidat na plochu) — otevře se pak jako appka na jedno klepnutí.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <section class="day day--travel" id="d1">
+    <div class="day-head">
+      <span class="day-date">SO · 26. ZÁŘÍ</span>
+      <span class="badge badge--travel">Přílet</span>
+    </div>
+    <h2>Přílet na Madeiru</h2>
+
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route">
+          <span class="code">PRG</span><span class="arrow">✈ přímý let</span><span class="code">FNC</span>
+        </div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+      </div>
+      <div class="pass-stub">PŘÍLET</div>
+    </div>
+
+    <div class="note">Po příletu: vyzvednout auto a ubytovat se. Pokud zbyde čas a energie, večer k západu slunce na blízkou vyhlídku, nebo procházka po Funchalu.</div>
+
+    <div class="suggest">
+      <span class="suggest-label">Volitelně večer</span>
+      <ul>
+        <li><a class="maplink" href="https://maps.app.goo.gl/Ys8sG2tdzKEZsRX57" target="_blank" rel="noopener">Miradouro do Cristo Rei — vyhlídka na západ slunce</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="d2">
+    <div class="day-head">
+      <span class="day-date">NE · 27. ZÁŘÍ</span>
+      <span class="badge badge--fixed">Pevný den</span>
+    </div>
+    <h2>Túra — Vereda do Fanal</h2>
+
+    <div class="activity">
+      <div class="time">10:00<br>–14:00</div>
+      <div>
+        <div class="lead"><span class="trail"><span>PR13</span></span><h3 style="margin:0;">Vereda do Fanal</h3></div>
+        <p>Cca 7 km, pohodová.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/Nd2jvprodtFbpkAy6" target="_blank" rel="noopener">Otevřít trasu v Mapách</a>
+      </div>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Zbytek dne — sever/západ pobřeží</span>
+      <ul>
+        <li><b>Praia da Ribeira da Janela</b> — oblázková pláž s ikonickými skalními útvary v moři, kousek od Fanalu. <a class="maplink" href="https://maps.app.goo.gl/gNxT4jywaRxUiNS18" target="_blank" rel="noopener">Mapa</a></li>
+        <li><b>Seixal</b> (Praia do Porto do Seixal) — pláž s černým vulkanickým pískem pod zelenými útesy a vodopády. <a class="maplink" href="https://maps.app.goo.gl/ieDUaSsbisGVs1ep7" target="_blank" rel="noopener">Mapa</a></li>
+        <li><b>Porto Moniz</b> — oběd a koupání v lávových přírodních bazénech.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head">
+      <span class="day-date">PO · 28. ZÁŘÍ</span>
+      <span class="badge badge--fixed">Pevný den</span>
+    </div>
+    <h2>Túra — Ponta de São Lourenço</h2>
+
+    <div class="activity">
+      <div class="time">10:00</div>
+      <div>
+        <div class="lead"><span class="trail"><span>PR8</span></span><h3 style="margin:0;">Vereda da Ponta de São Lourenço</h3></div>
+        <p>Cca 8 km tam a zpět.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/C6QbRvvzYMMA3fcN6" target="_blank" rel="noopener">Otevřít trasu v Mapách</a>
+        <div class="note warn"><b>Bez stínu.</b> Východní cíp ostrova — vyprahlá, větrná krajina zcela bez stromů. Opalovací krém a dostatek vody nutností.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day" id="d4">
+    <div class="day-head">
+      <span class="day-date">ÚT · 29. ZÁŘÍ</span>
+      <span class="badge badge--fixed">Pevný den</span>
+    </div>
+    <h2>Delfíni a velryby</h2>
+
+    <div class="activity">
+      <div class="time">10:00<br>–13:00</div>
+      <div>
+        <h3>Ekologické pozorování z katamaránu</h3>
+        <p>Rezervace přes Viator, vyplouvá se z Funchalu.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/fuqQD6DzBjY7zFW19" target="_blank" rel="noopener">Odkaz / mapa</a>
+      </div>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Odpoledne ve Funchalu (po 13:00)</span>
+      <ul>
+        <li>Historické centrum a ulice <b>Rua de Santa Maria</b> s pomalovanými dveřmi.</li>
+        <li>Lanovka na <b>Monte</b> + zahrady <b>Monte Palace Tropical Garden</b>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
+    <div class="day-head">
+      <span class="day-date">ST · 30. ZÁŘÍ</span>
+      <span class="badge badge--fixed">Pevný den</span>
+    </div>
+    <h2>Královská túra</h2>
+
+    <div class="activity">
+      <div class="time">09:00</div>
+      <div>
+        <div class="lead"><span class="trail"><span>PR1</span></span><h3 style="margin:0;">Areeiro – Pico Ruivo</h3></div>
+        <p>Jednosměrná trasa, cca 8 km.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/mUzzq2T8wxG1CscE7" target="_blank" rel="noopener">Otevřít trasu v Mapách</a>
+        <div class="note warn"><b>Od 2026 přísně jednosměrná</b> za Pedra Rija (směr Areeiro → Ruivo). Ze závěru trasy je nutné sejít na parkoviště Achada do Teixeira a odtud si zajistit odvoz (taxi/transfer) zpět k autu na Pico do Areeiro.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
+    <div class="day-head">
+      <span class="day-date">ČT · 1. ŘÍJNA</span>
+      <span class="badge badge--open">Volný den</span>
+    </div>
+    <h2>Vyhlídky a levada — Paul da Serra</h2>
+    <p class="lead-text" style="margin-top:8px;">Den je celý přesměrovaný na středozápadní plošinu Paul da Serra a okolí Calhety.</p>
+
+    <div class="activity">
+      <div class="time">09:00</div>
+      <div>
+        <h3>Bica da Cana</h3>
+        <p>Vyhlídka na vrcholu — dobrý start dne, mraky se zde často líně převalují pod vámi.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/j5FRTmvkDECvhxe4A" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="time">dopol.</div>
+      <div>
+        <h3>Fonte do Bispo + Levada Velha do Rabaçal</h3>
+        <p>Malebné lesní prostranství na plošině, poté příjemná a stinná levada.</p>
+        <a class="maplink" href="https://mapy.com/en/?source=osm&amp;id=6712203" target="_blank" rel="noopener">Fonte do Bispo (Mapy.com)</a>
+        <a class="maplink" href="https://maps.app.goo.gl/FLDzBsUK9a4RNwEs6" target="_blank" rel="noopener">Levada Velha do Rabaçal</a>
+      </div>
+    </div>
+
+    <div class="dropped">
+      Miradouro Pico da Murta a Praia da Ribeira da Janela — zvažovány pro tento den
+      <span class="dropped-note">V dokumentu jsou u tohoto dne označené jako vyškrtnuté a přesunuté kvůli logistice. Pico da Murta je proto níže zařazená na 2. října, kam ji dokument sám přesouvá.</span>
+    </div>
+  </section>
+
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">PÁ · 2. ŘÍJNA</span>
+      <span class="badge badge--fixed">Pevný den</span>
+    </div>
+    <h2>Túra — Caldeirão Verde</h2>
+
+    <div class="activity">
+      <div class="time">9:00<br>–10:00</div>
+      <div>
+        <div class="lead"><span class="trail"><span>PR9</span></span><h3 style="margin:0;">Levada do Caldeirão Verde</h3></div>
+        <p>Vstup z Parque Florestal das Queimadas. <b>Cca 13 km tam a zpět</b> — na horní hranici pohodového denního limitu, počítejte s tím v tempu.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/TSBiyvTq438JQRi66" target="_blank" rel="noopener">Otevřít trasu v Mapách</a>
+        <div class="note warn"><b>Nutná čelovka/baterka</b> — trasa prochází několika dlouhými zcela temnými tunely. Na konci 100metrový vodopád.</div>
+      </div>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Zbytek dne — Santana</span>
+      <ul>
+        <li>Tradiční <b>slaměné domečky v Santana</b>.</li>
+        <li><b>Miradouro Pico da Murta</b> — přesunuto sem z 1. října, geograficky sedí k severovýchodu. <a class="maplink" href="https://maps.app.goo.gl/RaYghmP8DTCVqbHj7" target="_blank" rel="noopener">Mapa</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DAY 8 -->
+  <section class="day" id="d8">
+    <div class="day-head">
+      <span class="day-date">SO · 3. ŘÍJNA</span>
+      <span class="badge badge--open">Volný den</span>
+    </div>
+    <h2>Relax a jižní pobřeží</h2>
+    <p class="lead-text" style="margin-top:8px;">V původním itineráři chyběl — vzniká zde prostor na odpočinek a přesunuté body.</p>
+
+    <div class="activity">
+      <div class="time">dopol.</div>
+      <div>
+        <h3>Levada do Moinho <span style="font-weight:400; color:var(--ink-faint); font-size:13px;">(pokud otevřená)</span></h3>
+        <p>Nebo sousední Levada Nova u Ponta do Sol — procházka pod skalním převisem s vodopádem.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/GWWvWT8X5tvH6WgAA" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="time">odpol.</div>
+      <div>
+        <h3>Ponta do Sol / Madalena do Mar</h3>
+        <p>Espaço Infinito a odpočinek v městečku, nebo na pláži v Madalena do Mar. Cestou lze projet slavný průjezd pod vodopádem Cascata dos Anjos.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/fupuHdgwjmAjvugJ8" target="_blank" rel="noopener">Espaço Infinito</a>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="time">–</div>
+      <div>
+        <h3>Cabo Girão Skywalk</h3>
+        <p>Jeden z nejvyšších útesů v Evropě (580 m nad mořem), vyhlídková plošina se prosklenou podlahou. Vstup cca €3.</p>
+        <a class="maplink" href="https://maps.app.goo.gl/KnT1U6apwnbXMkAD7" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="time">–</div>
+      <div>
+        <h3>Câmara de Lobos</h3>
+        <p>Malebné rybářské městečko s barevnými loďkami, proslavené Winstonem Churchillem. Ideální místo na drink Poncha (rum z cukrové třtiny, med, citron/marakuja).</p>
+        <a class="maplink" href="https://maps.app.goo.gl/Eue8v114CretDu1P9" target="_blank" rel="noopener">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 9 -->
+  <section class="day day--travel" id="d9">
+    <div class="day-head">
+      <span class="day-date">NE · 4. ŘÍJNA</span>
+      <span class="badge badge--travel">Odlet</span>
+    </div>
+    <h2>Odlet z Madeiry</h2>
+
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route">
+          <span class="code">FNC</span><span class="arrow">✈ přímý let</span><span class="code">PRG</span>
+        </div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+
+    <div class="note">Celé dopoledne volné. Suvenýry (madeirské víno, koláč Bolo de Mel) na tržnici Mercado dos Lavradores ve Funchalu, poté cesta na letiště.</div>
+  </section>
+
+  <footer>
+    Sestaveno z dokumentu „Madeira" (Google Docs). Zdroj zůstává v Google Drive — zde je jen přehledná verze pro cesty.
+  </footer>
+
+</div>
+</body>
+</html>

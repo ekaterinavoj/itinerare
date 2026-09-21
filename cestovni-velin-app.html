@@ -1,0 +1,722 @@
+<title>Itineráře</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F3EEE1;
+    --surface:#FFFEFB;
+    --surface-2:#EAE2CC;
+    --ink:#241F17;
+    --ink-soft:#5B5344;
+    --ink-faint:#938971;
+    --border:#E2D8BC;
+    --accent:#1E2A4A;
+    --accent-ink:#F0F2F7;
+    --gold:#B8923F;
+    --gold-ink:#2A2005;
+    --danger:#A0432A;
+    --danger-ink:#FBEEE8;
+    --shadow: 0 1px 2px rgba(30,22,10,.07), 0 8px 24px -12px rgba(30,22,10,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#151310;
+      --surface:#201C16;
+      --surface-2:#2A251C;
+      --ink:#EFE8D8;
+      --ink-soft:#B8AD97;
+      --ink-faint:#7C7261;
+      --border:#393225;
+      --accent:#7C8FC2;
+      --accent-ink:#111629;
+      --gold:#D9B268;
+      --gold-ink:#2A2005;
+      --danger:#E08A6A;
+      --danger-ink:#2A1409;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#151310;
+    --surface:#201C16;
+    --surface-2:#2A251C;
+    --ink:#EFE8D8;
+    --ink-soft:#B8AD97;
+    --ink-faint:#7C7261;
+    --border:#393225;
+    --accent:#7C8FC2;
+    --accent-ink:#111629;
+    --gold:#D9B268;
+    --gold-ink:#2A2005;
+    --danger:#E08A6A;
+    --danger-ink:#2A1409;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+  [hidden]{display:none!important;}
+
+  .wrap{max-width:960px; margin:0 auto; padding:24px 18px 64px;}
+
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:28px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{font-size:30px; line-height:1;}
+  .brand h1{font-size:28px; font-weight:700;}
+  .brand .sub{display:block; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-top:3px;}
+
+  .btn{
+    font-family:'Work Sans'; font-size:14px; font-weight:600; border-radius:999px; padding:10px 18px;
+    border:1px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .btn--primary{background:var(--accent); color:var(--accent-ink);}
+  .btn--primary:disabled{opacity:.5; cursor:not-allowed;}
+  .btn--ghost{background:var(--surface); color:var(--ink); border-color:var(--border);}
+  .btn--danger{background:var(--surface); color:var(--danger); border-color:var(--border);}
+  .btn--sm{padding:7px 13px; font-size:13px;}
+  .icon-btn{
+    background:transparent; border:1px solid var(--border); color:var(--ink-soft); border-radius:8px;
+    width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; font-size:14px;
+  }
+  .icon-btn:hover{color:var(--danger); border-color:var(--danger);}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:16px;}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 16px 14px;
+    box-shadow:var(--shadow); border-top:4px solid var(--accent-c, var(--accent)); display:flex; flex-direction:column; gap:10px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-2px); box-shadow:0 4px 8px rgba(30,22,10,.1), 0 14px 28px -14px rgba(30,22,10,.3);}
+  .card-top{display:flex; align-items:flex-start; justify-content:space-between;}
+  .card-emoji{font-size:24px; line-height:1; width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:color-mix(in srgb, var(--accent-c, var(--accent)) 16%, var(--surface-2));}
+  .card-move{display:flex; flex-direction:column; gap:2px;}
+  .move-btn{
+    background:transparent; border:none; color:var(--ink-faint); cursor:pointer; font-size:11px; padding:1px 4px; border-radius:4px;
+  }
+  .move-btn:hover{color:var(--ink); background:var(--surface-2);}
+  .move-btn:disabled{opacity:.25; cursor:default;}
+  .card-title{font-size:19px; font-weight:600; line-height:1.2;}
+  .card-meta{display:flex; flex-direction:column; gap:4px;}
+  .meta-row{font-size:13px; color:var(--ink-soft); line-height:1.4; display:flex; gap:6px;}
+  .meta-row.empty{color:var(--ink-faint); font-style:italic;}
+  .card-actions{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .card-actions .btn{flex:1;}
+
+  .empty{
+    text-align:center; padding:60px 20px; color:var(--ink-soft); border:1px dashed var(--border); border-radius:16px;
+  }
+  .empty .em{font-size:40px; display:block; margin-bottom:12px;}
+
+  .banner{
+    background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--danger); border-radius:10px;
+    padding:12px 14px; margin-bottom:18px; font-size:13.5px; color:var(--ink-soft);
+  }
+
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(20,16,8,.45); display:flex; align-items:flex-end; justify-content:center;
+    z-index:100; padding:0;
+  }
+  @media (min-width:640px){ .modal-backdrop{ align-items:center; padding:20px; } }
+  .modal{
+    background:var(--surface); width:100%; max-width:480px; max-height:92vh; overflow-y:auto;
+    border-radius:18px 18px 0 0; padding:22px 20px 24px; box-shadow:var(--shadow);
+  }
+  @media (min-width:640px){ .modal{ border-radius:18px; } }
+  .modal--wide{max-width:640px;}
+  .modal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .modal h2{font-size:22px; margin-bottom:14px;}
+  .modal-head h2{margin-bottom:0;}
+
+  .field{display:block; margin-bottom:14px;}
+  .field span{display:block; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px;}
+  .field input[type=text], .field input[type=date], .field input[type=time], .field input[type=url]{
+    width:100%; padding:9px 11px; border-radius:8px; border:1px solid var(--border); background:var(--ground); color:var(--ink);
+    font-family:'Work Sans'; font-size:14px;
+  }
+  .field input:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .checkbox-row{display:flex; align-items:center; gap:8px; font-size:14px; margin-bottom:14px;}
+
+  .dropzone{
+    border:2px dashed var(--border); border-radius:12px; padding:26px 16px; text-align:center; cursor:pointer;
+    color:var(--ink-soft); font-size:13.5px; margin-bottom:16px; transition:border-color .15s, background .15s;
+  }
+  .dropzone.drag{border-color:var(--accent); background:var(--surface-2);}
+  .dropzone .fname{color:var(--ink); font-weight:600; margin-top:6px;}
+  .dropzone .dz-icon{font-size:26px; display:block; margin-bottom:6px;}
+
+  .swatches, .emojis{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
+  .swatch{width:28px; height:28px; border-radius:50%; cursor:pointer; border:2px solid transparent;}
+  .swatch.sel{border-color:var(--ink);}
+  .emoji-opt{
+    width:36px; height:36px; border-radius:8px; border:1px solid var(--border); background:var(--ground);
+    font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .emoji-opt.sel{border-color:var(--accent); background:var(--surface-2);}
+
+  .modal-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:6px;}
+
+  .flight-pair{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:16px;}
+  @media (min-width:560px){ .flight-pair{grid-template-columns:1fr 1fr;} }
+  .flight-card, .rental-card{
+    background:var(--surface-2); border-radius:12px; padding:14px; border:1px solid var(--border);
+  }
+  .flight-card h4, .rental-card h4{
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint);
+    margin:0 0 10px;
+  }
+  .flight-card .field, .rental-card .field{margin-bottom:10px;}
+  .flight-card .field:last-child, .rental-card .field:last-child{margin-bottom:0;}
+  .flight-row{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .rental-card{margin-bottom:16px;}
+
+  .save-row{display:flex; align-items:center; gap:10px; margin-bottom:20px;}
+  .save-status{font-size:12.5px; color:var(--gold); font-family:'Space Mono',monospace;}
+
+  .preview-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px; flex-wrap:wrap;}
+  .preview-head h3{font-size:15px;}
+  .preview-frame{border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--surface); min-height:200px; display:flex; align-items:center; justify-content:center;}
+  .preview-frame iframe{width:100%; height:64vh; border:0; display:block;}
+  .preview-loading{color:var(--ink-faint); font-size:13px; padding:30px;}
+  .map-head{margin:18px 0 8px;}
+  .map-head h3{font-size:15px;}
+  .map-note{font-size:13px; color:var(--ink-soft); background:var(--surface-2); border-radius:10px; padding:12px 14px; line-height:1.5;}
+
+  footer{margin-top:32px; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--ink-faint); line-height:1.6; text-align:center;}
+</style>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <span class="brand-mark">🗺️</span>
+      <div>
+        <h1>Itineráře</h1>
+        <span class="sub" id="tripCount">Cesty</span>
+      </div>
+    </div>
+    <button class="btn btn--primary" id="addBtn">+ Přidat cestu</button>
+  </div>
+
+  <div id="statusBanner" class="banner" hidden></div>
+  <div id="loadingState" class="empty">
+    <span class="em">⏳</span>
+    Načítám cesty…
+  </div>
+  <div id="grid" class="grid" hidden></div>
+  <div id="emptyState" class="empty" hidden>
+    <span class="em">🗺️</span>
+    Zatím tu nejsou žádné cesty.<br>Nahrajte první itinerář tlačítkem nahoře.
+  </div>
+
+  <footer>Soukromé — vidíte to jen vy (a kdokoliv, komu tuto stránku sdílíte ve vaší organizaci).</footer>
+</div>
+
+<!-- Add modal -->
+<div class="modal-backdrop" id="addModal" hidden>
+  <div class="modal">
+    <h2>Přidat cestu</h2>
+
+    <div class="dropzone" id="dropzone">
+      <span class="dz-icon">📄</span>
+      <span id="dzText">Přetáhněte sem HTML soubor s itinerářem, nebo klikněte a vyberte</span>
+      <div class="fname" id="dzFilename" hidden></div>
+    </div>
+    <input type="file" id="fileInput" accept=".html,text/html" hidden>
+
+    <label class="field">
+      <span>Název cesty</span>
+      <input type="text" id="tripTitle" placeholder="např. Madeira">
+    </label>
+
+    <label class="field">
+      <span>Barva</span>
+      <div class="swatches" id="swatches"></div>
+    </label>
+
+    <label class="field">
+      <span>Ikonka</span>
+      <div class="emojis" id="emojiPicker"></div>
+    </label>
+
+    <div class="modal-actions">
+      <button class="btn btn--ghost" data-close>Zrušit</button>
+      <button class="btn btn--primary" id="saveTripBtn" disabled>Přidat cestu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Detail modal -->
+<div class="modal-backdrop" id="detailModal" hidden>
+  <div class="modal modal--wide">
+    <div class="modal-head">
+      <h2 id="detailTitle"></h2>
+      <button class="icon-btn" data-close>✕</button>
+    </div>
+
+    <div class="flight-pair">
+      <div class="flight-card" data-leg="out">
+        <h4>✈️ Tam</h4>
+        <label class="field"><span>Letiště (odkud → kam)</span><input type="text" data-f="route" placeholder="PRG → OSL"></label>
+      </div>
+      <div class="flight-card" data-leg="back">
+        <h4>✈️ Zpět</h4>
+        <label class="field"><span>Letiště (odkud → kam)</span><input type="text" data-f="route" placeholder="OSL → PRG"></label>
+      </div>
+    </div>
+
+    <div class="rental-card">
+      <h4>🚐 Půjčovna / auto</h4>
+      <div class="flight-row">
+        <label class="field"><span>Půjčovna</span><input type="text" id="rentalCompany" placeholder="Indie Campers Denver"></label>
+        <label class="field"><span>Místo vyzvednutí</span><input type="text" id="rentalCity" placeholder="Denver"></label>
+      </div>
+      <label class="checkbox-row"><input type="checkbox" id="rentalOneWay"> Jednosměrný pronájem</label>
+      <label class="field"><span>Poznámka / odkaz</span><input type="text" id="rentalNotes" placeholder="volitelné"></label>
+    </div>
+
+    <div class="save-row">
+      <button class="btn btn--primary" id="saveDetailBtn">Uložit</button>
+      <span class="save-status" id="saveStatus"></span>
+    </div>
+
+    <div class="preview-head">
+      <h3>Itinerář</h3>
+      <button class="btn btn--ghost btn--sm" id="openNewTabBtn">Otevřít v novém okně ↗</button>
+    </div>
+    <div class="preview-frame" id="previewContainer">
+      <div class="preview-loading">Načítám náhled…</div>
+    </div>
+
+    <div class="map-head">
+      <h3>Mapa itineráře</h3>
+    </div>
+    <div class="map-note">🗺️ Interaktivní mapa s místy z itineráře je dostupná v samostatné (self-hosted) verzi appky — tady ji kvůli technickému omezení Claude prohlížeče nejde spustit.</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var COLORS = ['#BD5D2C','#1E6F5C','#AD7E1E','#2C4A6B','#6B4C7A','#33604F','#A34D5C','#4A5568'];
+  var EMOJIS = ['🌋','🏔️','🦬','🏝️','🗺️','⛺','🚐','✈️','🏖️','🌲','🏜️','🧭'];
+
+  var db = null, assets = null, canWrite = false;
+  var trips = [];
+  var pendingFile = null;
+  var pendingColor = COLORS[0];
+  var pendingEmoji = EMOJIS[0];
+  var currentDetailId = null;
+
+  var $ = function(sel){ return document.querySelector(sel); };
+  var $$ = function(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); };
+
+  function escapeHtml(s){
+    return (s||'').replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function showBanner(msg){
+    var b = $('#statusBanner');
+    b.textContent = msg;
+    b.hidden = false;
+  }
+
+  // ---------- render dashboard ----------
+  function renderGrid(){
+    var grid = $('#grid');
+    var empty = $('#emptyState');
+    var loading = $('#loadingState');
+    loading.hidden = true;
+    grid.hidden = false;
+    $('#tripCount').textContent = trips.length + (trips.length === 1 ? ' cesta' : (trips.length >=2 && trips.length<=4 ? ' cesty' : ' cest'));
+
+    if (!trips.length){
+      grid.innerHTML = '';
+      empty.hidden = false;
+      return;
+    }
+    empty.hidden = true;
+
+    grid.innerHTML = trips.map(function(t, i){
+      var flightOut = t.flightOut || {};
+      var rental = t.rental || {};
+      var flightSummary = flightOut.route ? escapeHtml(flightOut.route) : null;
+      var rentalSummary = rental.company
+        ? escapeHtml(rental.company) + (rental.city ? ' · ' + escapeHtml(rental.city) : '')
+        : null;
+
+      return '' +
+      '<article class="card" style="--accent-c:' + escapeHtml(t.color || '#1E2A4A') + '" data-id="' + t.id + '">' +
+        '<div class="card-top">' +
+          '<span class="card-emoji">' + (t.emoji || '🗺️') + '</span>' +
+          '<div class="card-move">' +
+            '<button class="move-btn" data-move="up" data-id="' + t.id + '" ' + (i===0?'disabled':'') + '>▲</button>' +
+            '<button class="move-btn" data-move="down" data-id="' + t.id + '" ' + (i===trips.length-1?'disabled':'') + '>▼</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="card-title">' + escapeHtml(t.title || 'Bez názvu') + '</div>' +
+        '<div class="card-meta">' +
+          '<div class="meta-row' + (flightSummary?'':' empty') + '">✈️ ' + (flightSummary || 'Letenky: doplnit') + '</div>' +
+          '<div class="meta-row' + (rentalSummary?'':' empty') + '">🚐 ' + (rentalSummary || 'Půjčovna: doplnit') + '</div>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          '<button class="btn btn--primary btn--sm" data-action="open" data-id="' + t.id + '">Otevřít</button>' +
+          '<button class="btn btn--ghost btn--sm" data-action="edit" data-id="' + t.id + '">Upravit</button>' +
+          '<button class="icon-btn" data-action="delete" data-id="' + t.id + '" title="Smazat">🗑</button>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  // ---------- asset text fetch + preview ----------
+  function fetchWithTimeout(url, ms){
+    var controller = new AbortController();
+    var timer = setTimeout(function(){ controller.abort(); }, ms);
+    return fetch(url, {signal: controller.signal}).finally(function(){ clearTimeout(timer); });
+  }
+
+  function fetchAssetText(assetId, isRetry){
+    return fetchWithTimeout('/_blob/' + assetId, 8000).then(function(r){
+      if (!r.ok) throw new Error('fetch failed');
+      return r.text();
+    }).catch(function(err){
+      if (!isRetry) return fetchAssetText(assetId, true); // one retry — helps on flaky mobile signal
+      throw err;
+    });
+  }
+
+  function openInNewTab(trip){
+    if (!trip.assetId) return;
+    fetchAssetText(trip.assetId).then(function(text){
+      var blob = new Blob([text], {type:'text/html'});
+      var url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    }).catch(function(){
+      showBanner('Nepodařilo se otevřít itinerář.');
+    });
+  }
+
+  function renderPreview(trip){
+    var container = $('#previewContainer');
+    container.innerHTML = '<div class="preview-loading">Načítám náhled…</div>';
+    if (!trip.assetId) {
+      container.innerHTML = '<div class="preview-loading">Tato cesta nemá nahraný itinerář.</div>';
+      return;
+    }
+    fetchAssetText(trip.assetId).then(function(text){
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('sandbox', 'allow-popups allow-popups-to-escape-sandbox');
+      iframe.srcdoc = text;
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    }).catch(function(){
+      container.innerHTML = '<div class="preview-loading">Náhled se nepodařilo načíst.</div>';
+    });
+  }
+
+  // ---------- add trip modal ----------
+  function buildPickers(){
+    var sw = $('#swatches');
+    sw.innerHTML = COLORS.map(function(c){
+      return '<span class="swatch" data-color="' + c + '" style="background:' + c + '"></span>';
+    }).join('');
+    sw.querySelectorAll('.swatch').forEach(function(el){
+      el.addEventListener('click', function(){
+        pendingColor = el.getAttribute('data-color');
+        sw.querySelectorAll('.swatch').forEach(function(s){ s.classList.remove('sel'); });
+        el.classList.add('sel');
+      });
+    });
+    sw.querySelector('.swatch').classList.add('sel');
+
+    var ep = $('#emojiPicker');
+    ep.innerHTML = EMOJIS.map(function(e){
+      return '<span class="emoji-opt" data-emoji="' + e + '">' + e + '</span>';
+    }).join('');
+    ep.querySelectorAll('.emoji-opt').forEach(function(el){
+      el.addEventListener('click', function(){
+        pendingEmoji = el.getAttribute('data-emoji');
+        ep.querySelectorAll('.emoji-opt').forEach(function(s){ s.classList.remove('sel'); });
+        el.classList.add('sel');
+      });
+    });
+    ep.querySelector('.emoji-opt').classList.add('sel');
+  }
+
+  function resetAddModal(){
+    pendingFile = null;
+    pendingColor = COLORS[0];
+    pendingEmoji = EMOJIS[0];
+    $('#tripTitle').value = '';
+    $('#dzText').hidden = false;
+    $('#dzFilename').hidden = true;
+    $('#dzFilename').textContent = '';
+    $('#saveTripBtn').disabled = true;
+    buildPickers();
+  }
+
+  function handleFile(file){
+    if (!file) return;
+    pendingFile = file;
+    $('#dzText').hidden = true;
+    var fn = $('#dzFilename');
+    fn.hidden = false;
+    fn.textContent = '📄 ' + file.name;
+    if (!$('#tripTitle').value){
+      var base = file.name.replace(/\.html?$/i, '').replace(/[-_]+/g,' ');
+      $('#tripTitle').value = base.charAt(0).toUpperCase() + base.slice(1);
+    }
+    $('#saveTripBtn').disabled = !$('#tripTitle').value.trim();
+  }
+
+  function openAddModal(){
+    if (!assets || !db){
+      showBanner('Přidávání vyžaduje přihlášení a práva k úpravě této stránky.');
+      return;
+    }
+    resetAddModal();
+    $('#addModal').hidden = false;
+  }
+
+  async function saveNewTrip(){
+    var title = $('#tripTitle').value.trim();
+    if (!title || !pendingFile || !assets || !db) return;
+    var btn = $('#saveTripBtn');
+    btn.disabled = true;
+    btn.textContent = 'Nahrávám…';
+    try {
+      var uploadRes = await assets.upload(pendingFile, {type:'text/plain'});
+      var maxOrder = trips.reduce(function(m,t){ return Math.max(m, typeof t.order === 'number' ? t.order : 0); }, -1);
+      await db.collection('trips').add({
+        title: title,
+        color: pendingColor,
+        emoji: pendingEmoji,
+        assetId: uploadRes.id,
+        assetFilename: pendingFile.name,
+        order: maxOrder + 1,
+        flightOut: {}, flightBack: {}, rental: {},
+        createdAt: new Date().toISOString()
+      });
+      $('#addModal').hidden = true;
+    } catch(e){
+      showBanner('Nahrání se nepovedlo: ' + (e && e.message ? e.message : 'zkuste to prosím znovu.'));
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Přidat cestu';
+    }
+  }
+
+  // ---------- detail modal ----------
+  function findTrip(id){
+    for (var i=0;i<trips.length;i++) if (trips[i].id === id) return trips[i];
+    return null;
+  }
+
+  function fillLeg(card, leg){
+    card.querySelectorAll('[data-f]').forEach(function(inp){
+      var key = inp.getAttribute('data-f');
+      inp.value = (leg && leg[key]) || '';
+    });
+  }
+
+  function readLeg(card){
+    var out = {};
+    card.querySelectorAll('[data-f]').forEach(function(inp){
+      out[inp.getAttribute('data-f')] = inp.value.trim();
+    });
+    return out;
+  }
+
+  function openDetailModal(id){
+    var trip = findTrip(id);
+    if (!trip) return;
+    currentDetailId = id;
+    $('#detailTitle').textContent = (trip.emoji||'') + ' ' + trip.title;
+    fillLeg($('.flight-card[data-leg="out"]'), trip.flightOut);
+    fillLeg($('.flight-card[data-leg="back"]'), trip.flightBack);
+    var rental = trip.rental || {};
+    $('#rentalCompany').value = rental.company || '';
+    $('#rentalCity').value = rental.city || '';
+    $('#rentalOneWay').checked = !!rental.oneWay;
+    $('#rentalNotes').value = rental.notes || '';
+    $('#saveStatus').textContent = '';
+    $('#detailModal').hidden = false;
+    renderPreview(trip);
+  }
+
+  async function saveDetail(){
+    var trip = findTrip(currentDetailId);
+    if (!trip || !db) return;
+    var status = $('#saveStatus');
+    status.textContent = 'Ukládám…';
+    try {
+      await db.doc('trips/' + trip.id).update({
+        flightOut: readLeg($('.flight-card[data-leg="out"]')),
+        flightBack: readLeg($('.flight-card[data-leg="back"]')),
+        rental: {
+          company: $('#rentalCompany').value.trim(),
+          city: $('#rentalCity').value.trim(),
+          oneWay: $('#rentalOneWay').checked,
+          notes: $('#rentalNotes').value.trim()
+        }
+      });
+      status.textContent = 'Uloženo ✓';
+      setTimeout(function(){ status.textContent = ''; }, 2000);
+    } catch(e){
+      status.textContent = 'Uložení se nepovedlo.';
+    }
+  }
+
+  // ---------- reorder / delete ----------
+  async function moveTrip(id, dir){
+    if (!db) return;
+    var idx = trips.findIndex(function(t){ return t.id === id; });
+    if (idx < 0) return;
+    var swapIdx = dir === 'up' ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= trips.length) return;
+    var a = trips[idx], b = trips[swapIdx];
+    var aOrder = a.order, bOrder = b.order;
+    try {
+      await db.doc('trips/' + a.id).update({order: bOrder});
+      await db.doc('trips/' + b.id).update({order: aOrder});
+    } catch(e){
+      showBanner('Přesun se nepovedl.');
+    }
+  }
+
+  async function deleteTrip(id){
+    var trip = findTrip(id);
+    if (!trip || !db) return;
+    if (!confirm('Smazat cestu „' + trip.title + '“? Tohle nejde vrátit zpět.')) return;
+    try {
+      await db.doc('trips/' + id).delete();
+      if (trip.assetId && assets) {
+        try { await assets.delete(trip.assetId); } catch(e){}
+      }
+    } catch(e){
+      showBanner('Smazání se nepovedlo.');
+    }
+  }
+
+  // ---------- wiring ----------
+  function closeModals(){
+    $('#addModal').hidden = true;
+    $('#detailModal').hidden = true;
+    currentDetailId = null;
+  }
+
+  function wireEvents(){
+    $('#addBtn').addEventListener('click', openAddModal);
+
+    $$('.modal-backdrop').forEach(function(bd){
+      bd.addEventListener('click', function(e){ if (e.target === bd) closeModals(); });
+    });
+    $$('[data-close]').forEach(function(el){ el.addEventListener('click', closeModals); });
+
+    var dz = $('#dropzone');
+    var fi = $('#fileInput');
+    dz.addEventListener('click', function(){ fi.click(); });
+    fi.addEventListener('change', function(){ handleFile(fi.files[0]); });
+    dz.addEventListener('dragover', function(e){ e.preventDefault(); dz.classList.add('drag'); });
+    dz.addEventListener('dragleave', function(){ dz.classList.remove('drag'); });
+    dz.addEventListener('drop', function(e){
+      e.preventDefault(); dz.classList.remove('drag');
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+    $('#tripTitle').addEventListener('input', function(){
+      $('#saveTripBtn').disabled = !($('#tripTitle').value.trim() && pendingFile);
+    });
+    $('#saveTripBtn').addEventListener('click', saveNewTrip);
+
+    $('#saveDetailBtn').addEventListener('click', saveDetail);
+    $('#openNewTabBtn').addEventListener('click', function(){
+      var trip = findTrip(currentDetailId);
+      if (trip) openInNewTab(trip);
+    });
+
+    $('#grid').addEventListener('click', function(e){
+      var actionBtn = e.target.closest('[data-action]');
+      if (actionBtn){
+        var id = actionBtn.getAttribute('data-id');
+        var action = actionBtn.getAttribute('data-action');
+        var trip = findTrip(id);
+        if (action === 'open' && trip) openInNewTab(trip);
+        if (action === 'edit') openDetailModal(id);
+        if (action === 'delete') deleteTrip(id);
+        return;
+      }
+      var moveBtn = e.target.closest('[data-move]');
+      if (moveBtn){
+        moveTrip(moveBtn.getAttribute('data-id'), moveBtn.getAttribute('data-move'));
+      }
+    });
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closeModals();
+    });
+  }
+
+  // ---------- boot ----------
+  function sortTrips(){
+    trips.sort(function(a,b){ return (a.order||0) - (b.order||0); });
+  }
+
+  async function boot(){
+    wireEvents();
+    buildPickers();
+
+    if (!window.claude || !window.claude.use){
+      showBanner('Tahle stránka běží mimo Claude prohlížeč, takže se neuloží žádná data.');
+      $('#loadingState').hidden = true;
+      return;
+    }
+
+    // reassure on slow/weak connections instead of leaving a silent blank screen
+    var slowHint = setTimeout(function(){
+      var ls = $('#loadingState');
+      if (!ls.hidden) ls.innerHTML = '<span class="em">📶</span>Načítání trvá déle — zkontrolujte signál. Appka to zkouší dál…';
+    }, 5000);
+
+    db = await window.claude.use('db');
+    assets = await window.claude.use('assets');
+    clearTimeout(slowHint);
+
+    if (!db){
+      $('#loadingState').hidden = true;
+      showBanner('Databáze není pro tohle zobrazení dostupná (možná slabý signál nebo nejste přihlášeni). Zkuste stránku znovu načíst.');
+      return;
+    }
+    canWrite = !!assets;
+    if (!canWrite){
+      $('#addBtn').disabled = true;
+      $('#addBtn').title = 'Přidávání vyžaduje práva k úpravě';
+    }
+
+    db.collection('trips').orderBy('order','asc').onSnapshot(function(snap){
+      trips = snap.docs.map(function(d){
+        var data = d.data() || {};
+        data.id = d.id;
+        return data;
+      });
+      sortTrips();
+      renderGrid();
+    }, function(err){
+      $('#loadingState').hidden = true;
+      showBanner('Nepodařilo se načíst cesty (' + (err && err.code) + '). Zkuste stránku znovu načíst.');
+    });
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
+</script>

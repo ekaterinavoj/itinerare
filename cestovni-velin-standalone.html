@@ -116,6 +116,10 @@
   .leaflet-tooltip.place-label::before{display:none;}
   .pin-popup{font-size:13px; line-height:1.5;}
   .pin-popup a{font-size:12px; color:#0078a8;}
+  /* pins are numbered in the order they appear in the itinerary (top to bottom = chronological),
+     so the map reads as a rough visiting order at a glance, not just an unordered cluster of places.
+     Background color is set inline per marker (the open trip's own accent color), not via this class. */
+  .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
   footer{margin-top:32px; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--ink-faint); line-height:1.6; text-align:center;}
   footer a{color:var(--accent); font-weight:600;}
 </style>
@@ -432,16 +436,23 @@
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(localMap);
     }
+    var pinColor = trip.color || '#1E2A4A';
     function addPoint(name, coord, href){
       ensureMap();
-      var m = L.marker([coord.lat, coord.lng]).addTo(localMap);
-      m.bindTooltip(name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + name + '</b>' +
+      var order = bounds.length + 1;
+      var icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin" style="background:' + escapeHtml(pinColor) + '">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      var m = L.marker([coord.lat, coord.lng], {icon: icon}).addTo(localMap);
+      m.bindTooltip(order + '. ' + name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
+      var popupHtml = '<div class="pin-popup"><b>' + order + '. ' + name + '</b>' +
         (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
       m.bindPopup(popupHtml);
       bounds.push([coord.lat, coord.lng]);
-      if (bounds.length === 1) localMap.setView(bounds[0], 11);
-      else localMap.fitBounds(bounds, {padding: [24,24]});
+      // animate:false is load-bearing: when several places resolve from cache in the same tick
+      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
+      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
+      // early, too-small bounding box — later pins then render outside the visible map area
+      if (bounds.length === 1) localMap.setView(bounds[0], 11, {animate:false});
+      else localMap.fitBounds(bounds, {padding: [24,24], animate:false});
     }
 
     // pins appear on the map one by one as each place resolves, instead of a blank map until everything is done —

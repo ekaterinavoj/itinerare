@@ -143,6 +143,9 @@
   .leaflet-tooltip.place-label::before{display:none;}
   .pin-popup{font-size:13px; line-height:1.5;}
   .pin-popup a{font-size:12px; color:#0078a8;}
+  /* pins are numbered in the order they appear in the itinerary (top to bottom = chronological),
+     so the map reads as a rough visiting order at a glance, not just an unordered cluster of places */
+  .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--shu); color:var(--shu-ink); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
 
   .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
   .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
@@ -681,14 +684,20 @@
     function addPoint(name, coord, href){
       ensureMap();
       if (blocked || !map) return;
-      var m = L.marker([coord.lat, coord.lng]).addTo(map);
-      m.bindTooltip(name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + name + '</b>' +
+      var order = bounds.length + 1;
+      var icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      var m = L.marker([coord.lat, coord.lng], {icon: icon}).addTo(map);
+      m.bindTooltip(order + '. ' + name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
+      var popupHtml = '<div class="pin-popup"><b>' + order + '. ' + name + '</b>' +
         (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
       m.bindPopup(popupHtml);
       bounds.push([coord.lat, coord.lng]);
-      if (bounds.length === 1) map.setView(bounds[0], 11);
-      else map.fitBounds(bounds, {padding:[28,28]});
+      // animate:false is load-bearing: when several places resolve from cache in the same tick
+      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
+      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
+      // early, too-small bounding box — later pins then render outside the visible map area
+      if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
+      else map.fitBounds(bounds, {padding:[28,28], animate:false});
     }
 
     for (var i=0; i<places.length; i++){

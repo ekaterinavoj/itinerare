@@ -102,9 +102,6 @@
   .move-btn:hover{color:var(--ink); background:var(--surface-2);}
   .move-btn:disabled{opacity:.25; cursor:default;}
   .card-title{font-size:19px; font-weight:600; line-height:1.2;}
-  .card-meta{display:flex; flex-direction:column; gap:4px;}
-  .meta-row{font-size:13px; color:var(--ink-soft); line-height:1.4; display:flex; gap:6px;}
-  .meta-row.empty{color:var(--ink-faint); font-style:italic;}
   .card-actions{display:flex; align-items:center; gap:8px; margin-top:4px;}
   .card-actions .btn{flex:1;}
 
@@ -140,7 +137,6 @@
     font-family:'Work Sans'; font-size:14px;
   }
   .field input:focus{outline:2px solid var(--accent); outline-offset:1px;}
-  .checkbox-row{display:flex; align-items:center; gap:8px; font-size:14px; margin-bottom:14px;}
 
   .dropzone{
     border:2px dashed var(--border); border-radius:12px; padding:26px 16px; text-align:center; cursor:pointer;
@@ -160,23 +156,6 @@
   .emoji-opt.sel{border-color:var(--accent); background:var(--surface-2);}
 
   .modal-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:6px;}
-
-  .flight-pair{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:16px;}
-  @media (min-width:560px){ .flight-pair{grid-template-columns:1fr 1fr;} }
-  .flight-card, .rental-card{
-    background:var(--surface-2); border-radius:12px; padding:14px; border:1px solid var(--border);
-  }
-  .flight-card h4, .rental-card h4{
-    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint);
-    margin:0 0 10px;
-  }
-  .flight-card .field, .rental-card .field{margin-bottom:10px;}
-  .flight-card .field:last-child, .rental-card .field:last-child{margin-bottom:0;}
-  .flight-row{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
-  .rental-card{margin-bottom:16px;}
-
-  .save-row{display:flex; align-items:center; gap:10px; margin-bottom:20px;}
-  .save-status{font-size:12.5px; color:var(--gold); font-family:'Space Mono',monospace;}
 
   .preview-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px; flex-wrap:wrap;}
   .preview-head h3{font-size:15px;}
@@ -258,32 +237,6 @@
       <button class="icon-btn" data-close>✕</button>
     </div>
 
-    <div class="flight-pair">
-      <div class="flight-card" data-leg="out">
-        <h4>✈️ Tam</h4>
-        <label class="field"><span>Letiště (odkud → kam)</span><input type="text" data-f="route" placeholder="PRG → OSL"></label>
-      </div>
-      <div class="flight-card" data-leg="back">
-        <h4>✈️ Zpět</h4>
-        <label class="field"><span>Letiště (odkud → kam)</span><input type="text" data-f="route" placeholder="OSL → PRG"></label>
-      </div>
-    </div>
-
-    <div class="rental-card">
-      <h4>🚐 Půjčovna / auto</h4>
-      <div class="flight-row">
-        <label class="field"><span>Půjčovna</span><input type="text" id="rentalCompany" placeholder="Indie Campers Denver"></label>
-        <label class="field"><span>Místo vyzvednutí</span><input type="text" id="rentalCity" placeholder="Denver"></label>
-      </div>
-      <label class="checkbox-row"><input type="checkbox" id="rentalOneWay"> Jednosměrný pronájem</label>
-      <label class="field"><span>Poznámka / odkaz</span><input type="text" id="rentalNotes" placeholder="volitelné"></label>
-    </div>
-
-    <div class="save-row">
-      <button class="btn btn--primary" id="saveDetailBtn">Uložit</button>
-      <span class="save-status" id="saveStatus"></span>
-    </div>
-
     <div class="preview-head">
       <h3>Itinerář</h3>
       <button class="btn btn--ghost btn--sm" id="openNewTabBtn">Otevřít v novém okně ↗</button>
@@ -345,13 +298,6 @@
     empty.hidden = true;
 
     grid.innerHTML = trips.map(function(t, i){
-      var flightOut = t.flightOut || {};
-      var rental = t.rental || {};
-      var flightSummary = flightOut.route ? escapeHtml(flightOut.route) : null;
-      var rentalSummary = rental.company
-        ? escapeHtml(rental.company) + (rental.city ? ' · ' + escapeHtml(rental.city) : '')
-        : null;
-
       return '' +
       '<article class="card" style="--accent-c:' + escapeHtml(t.color || '#1E2A4A') + '" data-id="' + t.id + '">' +
         '<div class="card-top">' +
@@ -362,13 +308,9 @@
           '</div>' +
         '</div>' +
         '<div class="card-title">' + escapeHtml(t.title || 'Bez názvu') + '</div>' +
-        '<div class="card-meta">' +
-          '<div class="meta-row' + (flightSummary?'':' empty') + '">✈️ ' + (flightSummary || 'Letenky: doplnit') + '</div>' +
-          '<div class="meta-row' + (rentalSummary?'':' empty') + '">🚐 ' + (rentalSummary || 'Půjčovna: doplnit') + '</div>' +
-        '</div>' +
         '<div class="card-actions">' +
           '<button class="btn btn--primary btn--sm" data-action="open" data-id="' + t.id + '">Otevřít</button>' +
-          '<button class="btn btn--ghost btn--sm" data-action="edit" data-id="' + t.id + '">Upravit</button>' +
+          '<button class="btn btn--ghost btn--sm" data-action="edit" data-id="' + t.id + '">Náhled</button>' +
           '<button class="icon-btn" data-action="delete" data-id="' + t.id + '" title="Smazat">🗑</button>' +
         '</div>' +
       '</article>';
@@ -501,7 +443,6 @@
         assetId: uploadRes.id,
         assetFilename: pendingFile.name,
         order: maxOrder + 1,
-        flightOut: {}, flightBack: {}, rental: {},
         createdAt: new Date().toISOString()
       });
       $('#addModal').hidden = true;
@@ -513,25 +454,10 @@
     }
   }
 
-  // ---------- detail modal ----------
+  // ---------- detail modal (preview only) ----------
   function findTrip(id){
     for (var i=0;i<trips.length;i++) if (trips[i].id === id) return trips[i];
     return null;
-  }
-
-  function fillLeg(card, leg){
-    card.querySelectorAll('[data-f]').forEach(function(inp){
-      var key = inp.getAttribute('data-f');
-      inp.value = (leg && leg[key]) || '';
-    });
-  }
-
-  function readLeg(card){
-    var out = {};
-    card.querySelectorAll('[data-f]').forEach(function(inp){
-      out[inp.getAttribute('data-f')] = inp.value.trim();
-    });
-    return out;
   }
 
   function openDetailModal(id){
@@ -539,39 +465,8 @@
     if (!trip) return;
     currentDetailId = id;
     $('#detailTitle').textContent = (trip.emoji||'') + ' ' + trip.title;
-    fillLeg($('.flight-card[data-leg="out"]'), trip.flightOut);
-    fillLeg($('.flight-card[data-leg="back"]'), trip.flightBack);
-    var rental = trip.rental || {};
-    $('#rentalCompany').value = rental.company || '';
-    $('#rentalCity').value = rental.city || '';
-    $('#rentalOneWay').checked = !!rental.oneWay;
-    $('#rentalNotes').value = rental.notes || '';
-    $('#saveStatus').textContent = '';
     $('#detailModal').hidden = false;
     renderPreview(trip);
-  }
-
-  async function saveDetail(){
-    var trip = findTrip(currentDetailId);
-    if (!trip || !db) return;
-    var status = $('#saveStatus');
-    status.textContent = 'Ukládám…';
-    try {
-      await db.doc('trips/' + trip.id).update({
-        flightOut: readLeg($('.flight-card[data-leg="out"]')),
-        flightBack: readLeg($('.flight-card[data-leg="back"]')),
-        rental: {
-          company: $('#rentalCompany').value.trim(),
-          city: $('#rentalCity').value.trim(),
-          oneWay: $('#rentalOneWay').checked,
-          notes: $('#rentalNotes').value.trim()
-        }
-      });
-      status.textContent = 'Uloženo ✓';
-      setTimeout(function(){ status.textContent = ''; }, 2000);
-    } catch(e){
-      status.textContent = 'Uložení se nepovedlo.';
-    }
   }
 
   // ---------- reorder / delete ----------
@@ -635,7 +530,6 @@
     });
     $('#saveTripBtn').addEventListener('click', saveNewTrip);
 
-    $('#saveDetailBtn').addEventListener('click', saveDetail);
     $('#openNewTabBtn').addEventListener('click', function(){
       var trip = findTrip(currentDetailId);
       if (trip) openInNewTab(trip);

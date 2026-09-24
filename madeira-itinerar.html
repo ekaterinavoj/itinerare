@@ -226,6 +226,9 @@
   .rating small{font-size:10.5px; font-weight:400; color:var(--ink-faint);}
   .price{font-family:'Space Mono',monospace; font-size:11.5px; color:var(--ink-faint); white-space:nowrap;}
   .suggest li .maplink{margin-top:6px;}
+  .extlink{color:var(--ember); font-weight:600; text-decoration:underline; word-break:break-word; font-size:13px;}
+  .tip--reserve{border-left-color:var(--danger);}
+  .tip--reserve .tip-label{color:var(--danger);}
   .extras .suggest + .suggest{margin-top:22px;}
 
   .note{
@@ -280,6 +283,32 @@
     margin-top:40px; padding-top:22px; border-top:1px solid var(--border);
     font-size:12.5px; color:var(--ink-faint); line-height:1.6;
   }
+
+  /* itin-common */
+  .tip + .tip{margin-top:14px;}
+  .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .camp-item{padding:10px 0; border-top:1px solid var(--border);}
+  .camp-item:first-of-type{border-top:0; padding-top:2px;}
+  .camp-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .camp-name{font-weight:600; font-size:14.5px; color:var(--ink);}
+  .camp-rate{font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .camp-rate i{font-style:normal; color:var(--ink-faint);}
+  .amen{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .am{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:2px 8px 2px 6px;}
+  .am-i{font-size:13px; line-height:1;}
+  .amen-none{font-size:12px; color:var(--ink-faint); font-style:italic;}
+  .camp-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .camp-item a.maplink, .camp-item .maplink-plain{display:inline-block; margin-top:6px; font-size:12.5px;}
+  .maplink-plain{color:var(--ink-soft); text-decoration:underline;}
+  .camp-foot{font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5;}
+  .camp-pin{display:flex; align-items:center; justify-content:center; width:20px; height:20px; font-size:13px; line-height:1; background:var(--surface,#fff); border:1.5px solid var(--ink-soft,#666); border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .daybtn{display:inline-block; margin-top:14px; padding:8px 14px; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; box-shadow:var(--shadow, none);}
+  .daybtn:hover{border-color:var(--ink-soft);}
+  .linklist{list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; font-size:13.5px; line-height:1.5;}
+  .linklist span{color:var(--ink-soft);}
+  .tip--links a{font-weight:600; text-decoration:underline;}
+  .map-legend label.lg{cursor:pointer;}
 </style>
 </head>
 <body>
@@ -312,6 +341,15 @@
     <span class="tip-label">Než vyrazíte</span>
     <p><strong>Signál v horách a na severu ostrova (Fanal, Queimadas, Pico Ruivo) bývá slabý nebo žádný.</strong> V appce Google Maps si doma stáhněte offline mapu oblasti Madeira (Nabídka → Offline mapy), ať fungují i pěší trasy bez dat.</p>
     <p>Tuto stránku si po otevření na mobilu můžete přidat na plochu (v Chromu: nabídka ⋮ → Přidat na plochu) — otevře se pak jako appka na jedno klepnutí.</p>
+  </div>
+
+  <div class="tip tip--reserve" id="rezervace">
+    <span class="tip-label">Povinná rezervace pěších tras (SIMplifica)</span>
+    <p><strong>Všechny „PR" trasy v plánu (PR1, PR6, PR8, PR9, PR13 i Levada Velha do Rabaçal PR6.4) jsou klasifikované stezky spravované institutem IFCN — vstoupit se dá jen s předem zarezervovaným časovým oknem a zaplacenou taxou.</strong> Rezervace jde <b>výhradně online</b> na portálu <a class="extlink" href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">SIMplifica ↗</a> (registrace je povinná i pro ty, kdo platit nemusí); na místě ani na úřadě se nekupuje.</p>
+    <p><b>Jak to funguje:</b> každý den je rozdělený na vstupní sloty — vyberete okno, ve kterém na trasu vstoupíte (tolerance je zhruba ±15 minut, o trochu víc při navazujících trasách). Po naplnění kapacity se slot automaticky zablokuje, populární trasy proto rezervujte s předstihem; jde ale rezervovat i na stejný nebo následující den, podle dostupnosti.</p>
+    <p><b>Ceny 2026:</b> 4,50 € za trasu (děti do 12 let zdarma, ale musí být zaregistrované). <b>PR1 celá</b> (Pico do Areeiro → Pico Ruivo, jen jednosměrně) <b>10,50 €</b>; PR1 jen po vyhlídku Pedra Rija (obousměrně) 4,50 €. Při dvou a více trasách za den (bez PR1) systém automaticky účtuje výhodnější denní taxu <b>9 €</b> — i tak je ale nutná samostatná rezervace každé trasy.</p>
+    <p><b>Storno:</b> po zaplacení nejde termín změnit ani vrátit peníze z vlastního důvodu (počasí, nemoc, zrušený let) — platba propadá. Změna nebo vratka je možná jen tehdy, když trasu oficiálně uzavře IFCN; žádost se podává do 10 pracovních dní od rezervace na <b>helpdesk.ifcn@madeira.gov.pt</b>. Stav tras před cestou zkontrolujte na oficiálních stránkách IFCN.</p>
+    <p><b>Pomoc:</b> kontaktní centrum SIMplifica (kontakty jsou na oficiálním portálu SIMplifica). Oficiální <a class="extlink" href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados/faq-s-taxas-percursos-pedestres-classificados/frequently-asked-questions-fees-classified-walking-routes.html" target="_blank" rel="noopener">FAQ k taxám a rezervacím (EN) ↗</a>.</p>
   </div>
 
   <!-- DAY 1 -->
@@ -354,7 +392,7 @@
       <div class="time">9:30<br>–10:00</div>
       <div>
         <div class="lead"><span class="trail"><span>PR13</span></span><h3 style="margin:0;">Vereda do Fanal</h3></div>
-        <p>Cca 7 km, pohodová. Sraz na startu trasy — počítejte s návratem k autu kolem 14:00.</p>
+        <p>Cca 7 km, pohodová. Sraz na startu trasy — počítejte s návratem k autu kolem 14:00. <b>Rezervace na SIMplifica je povinná</b> (4,50 €, viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
         <a class="maplink" href="https://maps.app.goo.gl/Nd2jvprodtFbpkAy6" target="_blank" rel="noopener">Vereda do Fanal</a>
       </div>
     </div>
@@ -381,7 +419,7 @@
       <div class="time">9:30<br>–10:00</div>
       <div>
         <div class="lead"><span class="trail"><span>PR8</span></span><h3 style="margin:0;">Vereda da Ponta de São Lourenço</h3></div>
-        <p>Cca 8 km tam a zpět. Sraz na startu trasy.</p>
+        <p>Podle oficiálního popisu 4 km jedním směrem (8 km tam a zpět), cca 2,5 h, start u Baía d'Abra / Casa do Sardinha. Sraz na startu trasy. Jde o chráněnou přírodní rezervaci. <b>Rezervace na SIMplifica je povinná</b> (4,50 €, viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
         <a class="maplink" href="https://maps.app.goo.gl/C6QbRvvzYMMA3fcN6" target="_blank" rel="noopener">Ponta de São Lourenço</a>
         <div class="note warn"><b>Bez stínu.</b> Východní cíp ostrova — vyprahlá, větrná krajina zcela bez stromů. Opalovací krém a dostatek vody nutností.</div>
       </div>
@@ -426,9 +464,9 @@
       <div class="time">09:00</div>
       <div>
         <div class="lead"><span class="trail"><span>PR1</span></span><h3 style="margin:0;">Areeiro – Pico Ruivo</h3></div>
-        <p>Jednosměrná trasa, cca 8 km.</p>
+        <p>Oficiálně 6,1 km, cca 3 h; jednosměrně od vyhlídky Pedra Rija. <b>Celá trasa PR1 (do Pico Ruivo) stojí 10,50 €</b> a rezervace na SIMplifica je povinná (viz <a class="extlink" href="#rezervace">podmínky nahoře</a>). Celá trasa začíná u Pico do Areeiro (ne u brány Pedra Rija) — vstupte v rezervovaném slotu.</p>
         <a class="maplink" href="https://maps.app.goo.gl/mUzzq2T8wxG1CscE7" target="_blank" rel="noopener">Pico do Areeiro</a>
-        <div class="note warn"><b>Od 2026 přísně jednosměrná</b> za Pedra Rija (směr Areeiro → Ruivo). Ze závěru trasy je nutné sejít na parkoviště Achada do Teixeira a odtud si zajistit odvoz (taxi/transfer) zpět k autu na Pico do Areeiro.</div>
+        <div class="note warn"><b>Od 2026 přísně jednosměrná</b> za Pedra Rija (směr Areeiro → Ruivo). Z Pico Ruivo se sestupuje jen přes PR1.2 (Achada do Teixeira) nebo PR1.1 (Ilha). IFCN návrat na Pico do Areeiro nezajišťuje — odvoz (taxi/transfer) zpět k autu si zajistěte předem sami.</div>
       </div>
     </div>
   </section>
@@ -455,9 +493,20 @@
       <div class="time">dopol.</div>
       <div>
         <h3>Fonte do Bispo + Levada Velha do Rabaçal</h3>
-        <p>Malebné lesní prostranství na plošině, poté příjemná a stinná levada.</p>
+        <p>Malebné lesní prostranství na plošině, poté příjemná a stinná levada (PR6.4). <b>Levada Velha do Rabaçal je klasifikovaná trasa — rezervace na SIMplifica je povinná</b> (viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
         <a class="maplink" href="https://mapy.com/en/?source=osm&amp;id=6712203" target="_blank" rel="noopener">Fonte do Bispo</a>
         <a class="maplink" href="https://maps.app.goo.gl/FLDzBsUK9a4RNwEs6" target="_blank" rel="noopener">Levada Velha do Rabaçal</a>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="time">odpol.</div>
+      <div>
+        <div class="lead"><span class="trail"><span>PR6</span></span><h3 style="margin:0;">Levada das 25 Fontes</h3></div>
+        <p>Nejznámější levada ostrova: 4,3 km jedním směrem (8,6 km tam a zpět), cca 3 h, střední náročnost. Vede lauriovým lesem k jezírku Lagoa das 25 Fontes, které napájí 25 pramenů z Paul da Serra; zpět stejnou cestou (výškový rozdíl 1 288 → 964 m, tedy zpátky do kopce). Start v Rabaçalu u silnice ER 105. <b>Rezervace na SIMplifica je povinná</b> (4,50 € za PR6; s další trasou v ten den, např. PR6.4 výše, se automaticky účtuje denní taxa 9 €) — populární trasa, rezervujte s předstihem.</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=32.755044,-17.133991" target="_blank" rel="noopener" data-lat="32.755044" data-lng="-17.133991">Rabaçal — start PR6 (25 Fontes)</a>
+        <a class="extlink" href="https://visitmadeira.com/en/what-to-do/nature-seekers/activities/hiking/pr-6-levada-das-25-fontes/" target="_blank" rel="noopener">Oficiální popis PR6 (Visit Madeira) ↗</a>
+        <a class="extlink" href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">Rezervace (SIMplifica) ↗</a>
       </div>
     </div>
 
@@ -479,7 +528,7 @@
       <div class="time">9:30</div>
       <div>
         <div class="lead"><span class="trail"><span>PR9</span></span><h3 style="margin:0;">Levada do Caldeirão Verde</h3></div>
-        <p>Vstup z Parque Florestal das Queimadas. Sraz na startu trasy. <b>Cca 13 km tam a zpět</b> — na horní hranici pohodového denního limitu, počítejte s tím v tempu.</p>
+        <p>Vstup z Parque Florestal das Queimadas (parkování 2 €/h). Sraz na startu trasy. <b>Cca 13 km tam a zpět</b> k vodopádu — na horní hranici pohodového denního limitu, počítejte s tím v tempu (celá PR9 podle oficiální stránky měří 8,7 km jedním směrem). <b>Rezervace na SIMplifica je povinná</b> (4,50 €, viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
         <a class="maplink" href="https://maps.app.goo.gl/TSBiyvTq438JQRi66" target="_blank" rel="noopener">Levada do Caldeirão Verde</a>
         <div class="note warn"><b>Nutná čelovka/baterka</b> — trasa prochází několika dlouhými zcela temnými tunely. Na konci 100metrový vodopád.</div>
       </div>
@@ -635,7 +684,6 @@
     <div class="suggest">
       <span class="suggest-label">Túry — alternativy</span>
       <ul>
-        <li><b>25 Fontes (Rabaçal)</b> — nejznámější levada na ostrově, kolem 25 pramenů, vodopádů a jezírek. Cca 9,2 km, lehká, 3–4 hodiny; začíná v Rabaçalu — ve stejné oblasti jako Levada Velha do Rabaçal z 1. října.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=25+Fontes+Raba%C3%A7al" target="_blank" rel="noopener" data-lat="32.7543" data-lng="-17.1332">25 Fontes</a></li>
         <li><b>Pico Ruivo z Achada do Teixeira</b> — nejkratší a nejsnazší cesta na nejvyšší horu ostrova (1 862 m): 2,8 km jedním směrem po dlážděném chodníku se schody (cca 1–2 hodiny tam a zpět). Záloha k PR1 z 30. září, kdyby nešla celá trasa. Odpoledne bývá vrchol v mlze.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Achada+do+Teixeira+Pico+Ruivo" target="_blank" rel="noopener" data-lat="32.765326" data-lng="-16.920852">Achada do Teixeira</a></li>
       </ul>
       <div class="note warn">Z brožury jsem vynechal trasu <b>Pináculos</b> (17 km, těžká, 4–7 hodin) — výrazně přes limit 13 km na den.</div>
@@ -662,19 +710,16 @@
 <script>
 (function(){
   "use strict";
-  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
-  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
-  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
-  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
-  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  // Leaflet's CSS is inlined (not linked), so its default marker icon can't auto-detect where marker-icon.png etc. live
+  // and would look for them relative to this page (404) — point it at the CDN. imagePath must carry the full CDN base.
   if (window.L) {
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
   var COUNTRY_CODE = 'pt';
-  // Portugal spans several island groups with duplicate place names (e.g. "Pico do Areeiro" also
-  // exists in the Azores) — countrycodes=pt alone isn't enough, so pin the search to Madeira's own
-  // bounding box too (left,top,right,bottom = lon,lat,lon,lat)
-  var VIEWBOX = '-17.3,32.9,-16.6,32.6';
+  var VIEWBOX = '-17.3,32.9,-16.6,32.6';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
+  var PERMANENT_LABELS = true;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = false;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#9E4229';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){
@@ -685,43 +730,64 @@
     } catch(e){ return null; }
   }
   function extractMapPlaces(){
-    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
-    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    // the href's query param is usually more specific than the short visible link text — geocode with the fuller
+    // string, label with the short one. Links flagged .camp are campgrounds: a separate, switchable pin layer.
     var links = document.querySelectorAll('a.maplink');
     var seen = {}, out = [];
     links.forEach(function(a){
       var text = (a.textContent || '').trim();
       var hrefName = nameFromMapHref(a.getAttribute('href') || '');
-      var isGeneric = !text || /^mapa$/i.test(text);
-      var label = isGeneric ? (hrefName || text) : text;
+      var isGeneric = !text || /^mapa$/i.test(text) || /google/i.test(text);
+      var label = a.getAttribute('data-name') || (isGeneric ? (hrefName || text) : text);
       var query = hrefName || text;
       if (!label || !query) return;
       var key = query.toLowerCase();
-      if (seen[key]) return;
-      seen[key] = true;
-      // data-lat/data-lng = coordinates already known (from Google Maps / OSM) → pin is placed instantly,
-      // no Nominatim lookup and no 1 req/s wait; links without them still get geocoded as before
+      if (seen[key]) { a._place = seen[key]; return; }
+      // data-lat/data-lng = coordinates already known → pin appears instantly, no Nominatim wait
       var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
-      out.push({
+      var p = {
         label: label, query: query, href: a.getAttribute('href'),
         coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
-        extra: !!a.closest('[data-extra]')
-      });
+        extra: !!a.closest('[data-extra]'), camp: a.classList.contains('camp'),
+        rating: a.getAttribute('data-rating') || ''
+      };
+      seen[key] = p; a._place = p;
+      out.push(p);
     });
     return out;
   }
   function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
   function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
   function geocodeOne(name){
-    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
-    // from a genuine "this place has no OSM entry" — those must never be cached the same way
-    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + '&viewbox=' + VIEWBOX + '&bounded=1';
+    // throws on a failed/blocked request (e.g. 429) so the caller can tell that apart from a genuine "no OSM entry"
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + (VIEWBOX ? '&viewbox=' + VIEWBOX + '&bounded=1' : '');
     return fetch(url).then(function(r){
       if (!r.ok) { throw new Error('http ' + r.status); }
       return r.json();
     }).then(function(rows){
       if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
       return null;
+    });
+  }
+  function fmt(c){ return c.lat.toFixed(5) + ',' + c.lng.toFixed(5); }
+
+  // per-day "open this day's route in Google Maps" button (directions URL — needs no API key; max 9 waypoints)
+  function addDayRouteButtons(){
+    document.querySelectorAll('section.day').forEach(function(sec){
+      if (sec.hasAttribute('data-extra') || sec.querySelector('.daybtn')) return;
+      var pts = [], seenK = {};
+      sec.querySelectorAll('a.maplink').forEach(function(a){
+        var p = a._place; if (!p || p.camp || !p.resolved) return;
+        var k = fmt(p.resolved); if (seenK[k]) return; seenK[k] = 1; pts.push(p.resolved);
+      });
+      if (pts.length < 2) return;
+      if (pts.length > 11) pts = pts.slice(0, 11);
+      var u = 'https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=' + fmt(pts[0]) + '&destination=' + fmt(pts[pts.length-1]);
+      if (pts.length > 2) u += '&waypoints=' + pts.slice(1, -1).map(fmt).join('%7C');
+      var a = document.createElement('a');
+      a.className = 'daybtn'; a.href = u; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🧭 Trasa dne v Google Maps (' + pts.length + ' zastávek)';
+      sec.appendChild(a);
     });
   }
 
@@ -736,16 +802,22 @@
     var cache = loadCache();
     var cacheKeyPrefix = COUNTRY_CODE + ':';
     var bounds = [];
-    var mainCount = 0;
-    var map = null;
+    var mainCount = 0, campCount = 0;
+    var routePts = [], routeLine = null;
+    var map = null, campLayer = null;
     var resolved = 0;
     var blocked = false;
+    var toggle = document.getElementById('toggleCamps');
 
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
-      // if the container gets its final size only after the map was created (fonts/layout still settling),
-      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      campLayer = L.layerGroup();
+      if (toggle) toggle.addEventListener('change', function(){
+        if (!map) return;
+        if (toggle.checked) campLayer.addTo(map); else map.removeLayer(campLayer);
+      });
+      // the container may get its final size only after the map was created — re-measure and re-fit on resize
       if (window.ResizeObserver) {
         new ResizeObserver(function(){
           if (!map) return;
@@ -756,8 +828,7 @@
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);
-      // this itinerary page can also load inside the claude.ai artifact preview, whose sandbox
-      // blocks external map-tile images — detect that and show a note instead of a broken gray box
+      // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
         blocked = true;
@@ -767,30 +838,44 @@
         statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
       });
     }
-    function addPoint(name, coord, href, extra){
+    function popup(label, href, coord, extraLine){
+      return '<div class="pin-popup"><b>' + label + '</b>' + (extraLine ? '<br>' + extraLine : '') +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+        '<br><a href="https://mapy.cz/zakladni?x=' + coord.lng.toFixed(6) + '&y=' + coord.lat.toFixed(6) + '&z=15&source=coor&id=' + coord.lng.toFixed(6) + ',' + coord.lat.toFixed(6) + '" target="_blank" rel="noopener">Mapy.cz ↗</a></div>';
+    }
+    function addPoint(p, coord){
       ensureMap();
       if (blocked || !map) return;
-      // plan places: numbered pins with permanent labels; optional places ("Další varianty"): small hollow
-      // rings, label only on hover/tap, drawn underneath — otherwise ~30 always-on labels would bury the map
-      var label = name, icon, zOffset = 0;
-      if (extra) {
+      var label = p.label, icon, zOffset = 0, m;
+      if (p.camp) {
+        campCount++;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="camp-pin">⛺</span>', iconSize:[20,20], iconAnchor:[10,10]});
+        m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: -500});
+        m.bindTooltip(label + (p.rating ? ' · ★ ' + p.rating : ''), {direction:'top', offset:[0,-8], className:'place-label'});
+        m.bindPopup(popup(label, p.href, coord, p.rating ? '★ ' + p.rating + ' (Google)' : ''));
+        campLayer.addLayer(m);
+        var cnt = document.getElementById('campCnt'); if (cnt) cnt.textContent = campCount;
+        return;
+      }
+      if (p.extra) {
         icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
         zOffset = -1000;
       } else {
         var order = ++mainCount;
-        label = order + '. ' + name;
+        label = order + '. ' + p.label;
         icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
       }
-      var m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
-      m.bindTooltip(label, {permanent: !extra, direction:'top', offset:[0, extra ? -6 : -8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + label + '</b>' +
-        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
-      m.bindPopup(popupHtml);
+      m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
+      m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      // animate:false is load-bearing: when several places resolve from cache in the same tick
-      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
-      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
-      // early, too-small bounding box — later pins then render outside the visible map area
+      if (!p.extra && ROUTE_LINE) {
+        routePts.push([coord.lat, coord.lng]);
+        if (routeLine) routeLine.setLatLngs(routePts);
+        else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+      }
+      // animate:false is load-bearing: rapid-fire animated fitBounds calls (cache hits resolve in the same tick)
+      // interrupt each other and the view silently gets stuck on an early, too-small bounding box
       if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
       else map.fitBounds(bounds, {padding:[28,28], animate:false});
     }
@@ -809,18 +894,18 @@
           madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          addDayRouteButtons();
           return;
         }
       }
-      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href, place.extra); resolved++; }
-      if (blocked) return;
+      if (cached && cached !== 'FAIL'){ place.resolved = cached; addPoint(place, cached); resolved++; }
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
-      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
-      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      // only the Nominatim usage policy (~1 req/s) requires this pause — cache hits made no request and don't wait
       if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+    addDayRouteButtons();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);

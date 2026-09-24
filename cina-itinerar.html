@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>Borneo</title>
+<title>Čína</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -10,56 +10,62 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <style>
   :root{
-    --ground:#F6F1E4;
-    --surface:#FFFEFB;
-    --surface-2:#EFE6CF;
-    --ink:#28210F;
-    --ink-soft:#5E5439;
-    --ink-faint:#94886A;
-    --border:#E3D6B4;
-    --sun:#B8721E;
-    --sun-ink:#FBF0E1;
-    --reef:#1F7A5C;
-    --reef-ink:#E9F7F0;
-    --coral:#C1573D;
-    --coral-ink:#FBEBE6;
-    --danger:#A5432A;
-    --shadow: 0 1px 2px rgba(32,26,10,.07), 0 6px 18px -10px rgba(32,26,10,.22);
+    --ground:#F8F1F4;
+    --surface:#FFFEFF;
+    --surface-2:#F0E4EA;
+    --ink:#2B1B23;
+    --ink-soft:#66505B;
+    --ink-faint:#9D8791;
+    --border:#E8D6DE;
+    --peony:#B03A6E;
+    --peony-ink:#FDF0F5;
+    --jade:#2E7D6B;
+    --jade-ink:#E9F7F3;
+    --lantern:#D0552B;
+    --lantern-ink:#FFF0E9;
+    --gold:#B58620;
+    --gold-ink:#2A1D05;
+    --danger:#A3432A;
+    --shadow: 0 1px 2px rgba(43,27,35,.07), 0 6px 18px -10px rgba(43,27,35,.22);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ground:#1B1710;
-      --surface:#241F17;
-      --surface-2:#2E2819;
-      --ink:#F0E9D6;
-      --ink-soft:#C2B696;
-      --ink-faint:#8A7E60;
-      --border:#3D3524;
-      --sun:#E6A855;
-      --sun-ink:#2A1B05;
-      --reef:#6FCFA8;
-      --reef-ink:#0F251C;
-      --coral:#E68A6A;
-      --coral-ink:#2A140D;
-      --danger:#E08361;
+      --ground:#1B1216;
+      --surface:#261A20;
+      --surface-2:#31232B;
+      --ink:#F3E9EE;
+      --ink-soft:#C6B1BB;
+      --ink-faint:#8C7581;
+      --border:#43303A;
+      --peony:#EE8DB6;
+      --peony-ink:#2A0C19;
+      --jade:#7CCDB8;
+      --jade-ink:#0C2A22;
+      --lantern:#F0906A;
+      --lantern-ink:#2A130A;
+      --gold:#E3B04E;
+      --gold-ink:#2A1D05;
+      --danger:#E58A6A;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
     }
   }
   :root[data-theme="dark"]{
-    --ground:#1B1710;
-    --surface:#241F17;
-    --surface-2:#2E2819;
-    --ink:#F0E9D6;
-    --ink-soft:#C2B696;
-    --ink-faint:#8A7E60;
-    --border:#3D3524;
-    --sun:#E6A855;
-    --sun-ink:#2A1B05;
-    --reef:#6FCFA8;
-    --reef-ink:#0F251C;
-    --coral:#E68A6A;
-    --coral-ink:#2A140D;
-    --danger:#E08361;
+    --ground:#1B1216;
+    --surface:#261A20;
+    --surface-2:#31232B;
+    --ink:#F3E9EE;
+    --ink-soft:#C6B1BB;
+    --ink-faint:#8C7581;
+    --border:#43303A;
+    --peony:#EE8DB6;
+    --peony-ink:#2A0C19;
+    --jade:#7CCDB8;
+    --jade-ink:#0C2A22;
+    --lantern:#F0906A;
+    --lantern-ink:#2A130A;
+    --gold:#E3B04E;
+    --gold-ink:#2A1D05;
+    --danger:#E58A6A;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
   }
 
@@ -74,9 +80,9 @@
   .backlink:hover{color:var(--ink);}
   .hero .eyebrow{
     font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--sun); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+    color:var(--peony); display:flex; align-items:center; gap:8px; margin-bottom:10px;
   }
-  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--sun);}
+  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--peony);}
   .hero h1{font-size:44px; font-weight:700; line-height:1.02;}
   .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:48ch; line-height:1.5;}
 
@@ -91,10 +97,10 @@
   .daynav a b{color:var(--ink); font-weight:700;}
 
   .tip{
-    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--sun);
+    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--peony);
     border-radius:10px; padding:14px 16px; box-shadow:var(--shadow);
   }
-  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--sun); display:block; margin-bottom:5px;}
+  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--peony); display:block; margin-bottom:5px;}
   .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
   .tip p + p{margin-top:8px;}
   .tip strong{color:var(--ink); font-weight:600;}
@@ -108,8 +114,8 @@
     font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
     padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap;
   }
-  .badge--travel{background:var(--coral); color:var(--coral-ink);}
-  .badge--water{background:var(--reef); color:var(--reef-ink);}
+  .badge--travel{background:var(--lantern); color:var(--lantern-ink);}
+  .badge--water{background:var(--jade); color:var(--jade-ink);}
   .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
 
   .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
@@ -121,7 +127,7 @@
 
   .maplink{
     display:inline-flex; align-items:center; gap:6px; font-family:'Work Sans'; font-size:13px; font-weight:600;
-    color:var(--sun); text-decoration:none; border:1px solid var(--border); border-radius:999px;
+    color:var(--peony); text-decoration:none; border:1px solid var(--border); border-radius:999px;
     padding:6px 12px 6px 10px; background:var(--surface); margin:2px 6px 2px 0;
   }
   .maplink::before{content:"↗"; font-size:13px;}
@@ -138,7 +144,7 @@
   .pin-popup a{font-size:12px; color:#0078a8;}
   /* pins are numbered in the order they appear in the itinerary (top to bottom = chronological),
      so the map reads as a rough visiting order at a glance, not just an unordered cluster of places */
-  .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--sun); color:var(--sun-ink); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
+  .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--peony); color:var(--peony-ink); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
 
   .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
   .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
@@ -149,7 +155,7 @@
     background:var(--surface-2); border-radius:10px;
   }
   .stay-icon{
-    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--sun); color:var(--sun-ink);
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--peony); color:var(--peony-ink);
     display:flex; align-items:center; justify-content:center; font-size:15px;
   }
   .stay-body{flex:1;}
@@ -165,7 +171,7 @@
   .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
   .pass-note{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
   .pass-stub{
-    flex:0 0 64px; background:var(--coral); color:var(--coral-ink); display:flex; align-items:center; justify-content:center;
+    flex:0 0 64px; background:var(--lantern); color:var(--lantern-ink); display:flex; align-items:center; justify-content:center;
     font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; writing-mode:vertical-rl; text-transform:uppercase;
     font-weight:700; border-left:1px dashed rgba(0,0,0,.15);
   }
@@ -197,113 +203,183 @@
   .linklist span{color:var(--ink-soft);}
   .tip--links a{font-weight:600; text-decoration:underline;}
   .map-legend label.lg{cursor:pointer;}
+
+  .badge--nature{background:var(--jade); color:var(--jade-ink);}
+  .badge--trek{background:var(--gold); color:var(--gold-ink);}
+  .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+  .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--peony); box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .map-container{height:520px;}
+  .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
+  .map-legend .lg{display:inline-flex; align-items:center; gap:7px;}
+  .map-legend .num-pin{width:18px; height:18px; font-size:10px;}
+  .map-legend .num-pin--extra{width:12px; height:12px;}
+  .lead-text{font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .suggest{margin-top:6px; padding-top:6px;}
+  .suggest-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .suggest ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .suggest li{font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .suggest li b{color:var(--ink); font-weight:600;}
+  .extras .suggest + .suggest, .sources .suggest + .suggest{margin-top:22px;}
+  .rating{display:inline-flex; align-items:center; gap:4px; font-family:'Space Mono',monospace; font-size:11.5px; font-weight:700; color:var(--ink); background:var(--surface-2); border-radius:999px; padding:2px 9px; white-space:nowrap; vertical-align:middle;}
+  .rating i{font-style:normal; color:var(--gold);}
+  .rating small{font-size:10.5px; font-weight:400; color:var(--ink-faint);}
+  .extlink{color:var(--peony); font-weight:600; text-decoration:underline; word-break:break-word;}
+  .tip b{color:var(--ink);}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <a class="backlink" href="index.html">← Zpět na přehled</a>
-  <div class="eyebrow">Borneo (Sabah) + Singapur · 20 dní</div>
-  <h1>Borneo</h1>
-  <p>Kota Kinabalu → ostrov Mantanani → NP Kinabalu → prales u Kinabatanganu → potápěčský ráj Mabul/Semporna → Singapur. Deštný prales, orangutani, safari na řece a korálové ostrovy — vedeno průvodcem, doprava zajištěná, tempo klidné.</p>
+  <div class="eyebrow">Čína · Hongkong → Hunan · cca 16 dní</div>
+  <h1>Čína</h1>
+  <p>Hongkong, Šen-čen a provincie Hunan — Changsha, Yueyang a národní parky u Zhangjiajie. Trasa poskládaná z míst, která sis uložila do mapy, a doplněná o základní informace pro první návštěvu Číny. Cestuje se hlavně vysokorychlostními vlaky.</p>
 </header>
 
 <nav class="daynav">
   <div class="daynav-scroll">
-    <a href="#d1"><b>1</b> Odlet</a>
-    <a href="#d2"><b>2</b> K. Kinabalu</a>
-    <a href="#d4"><b>4</b> Mantanani</a>
-    <a href="#d6"><b>6</b> Kinabalu NP</a>
-    <a href="#d8"><b>8</b> Sepilok</a>
-    <a href="#d10"><b>10</b> Kinabatangan</a>
-    <a href="#d12"><b>12</b> Gomantong</a>
-    <a href="#d13"><b>13</b> Mabul</a>
-    <a href="#d16"><b>16</b> Tun Sakaran</a>
-    <a href="#d17"><b>17</b> → Singapur</a>
-    <a href="#d18"><b>18</b> Singapur</a>
-    <a href="#d20"><b>20</b> Přílet</a>
+    <a href="#d1"><b>1</b> Hongkong</a>
+    <a href="#d3"><b>3</b> Lantau</a>
+    <a href="#d4"><b>4</b> Sai Kung</a>
+    <a href="#d5"><b>5</b> Šen-čen</a>
+    <a href="#d6"><b>6</b> Changsha</a>
+    <a href="#d9"><b>9</b> Yueyang</a>
+    <a href="#d10"><b>10</b> Zhangjiajie</a>
+    <a href="#d11"><b>11</b> Tianmen</a>
+    <a href="#d12"><b>12</b> Avatar</a>
+    <a href="#d15"><b>15</b> Zpět do HK</a>
+    <a href="#d16"><b>16</b> Odlet</a>
+    <a href="#extra"><b>+</b> Varianty</a>
+    <a href="#zdroje"><b>i</b> Zdroje</a>
   </div>
 </nav>
 
 <div class="wrap">
 
   <div class="tip">
-    <span class="tip-label">Než vyrazíte</span>
-    <p><strong>🐘 Bornejská pětka:</strong> orangutan, nosatá opice (kahau), pygmejský slon bornejský, medvěd malajský a nosorožec dvourohý/zoborožec — celý itinerář je poskládaný tak, aby dal reálnou šanci vidět většinu z nich (Sepilok, Labuk Bay, safari na Kinabatanganu).</p>
-    <p><strong>🚶 Tempo:</strong> jde o vedenou skupinovou cestu s dopravou zajištěnou dodávkami/čluny — treky jsou všechny popsané jako lehké a nepovinné (procházky po upravených stezkách, výšlapy na vyhlídky), v souladu s klidným tempem do 13 km/den.</p>
-    <p><strong>💉 Očkování a malárie:</strong> pro Sabah se obvykle doporučuje profylaxe proti malárii (hlavně kvůli večerům u řeky Kinabatangan) a přeočkování proti tetanu/hepatitidě — probrat s cestovní ambulancí min. 4–6 týdnů předem.</p>
-    <p><strong>🌧️ Počasí:</strong> duben–květen je přechodné období mezi sezónami — tropické přeháňky odpoledne jsou běžné, ale krátké. Lehká nepromokavá bunda a rychleschnoucí oblečení se hodí každý den.</p>
-    <p><strong>🤿 Sipadan:</strong> vstup je limitovaný povolením (permit systém), v hlavní sezóně se vyplatí zajistit přes potápěčský klub v Semporně/Mabulu s předstihem — bez toho se dá potápět/šnorchlovat i kolem Mabulu a Kapalai.</p>
-    <p><strong>🛂 Singapur:</strong> poslední dva dny jsou volitelné prodloužení — pokud by nevyšlo, cesta funguje i jako 17denní jen po Borneu s odletem přímo z Tawau.</p>
+    <span class="tip-label">Než vyrazíte — základy pro první návštěvu</span>
+    <p><strong>🛂 Vízum:</strong> Češi <b>do pevninské Číny potřebují vízum</b> (turistické vízum L) — bezvízový vstup na 30 dní se na Česko podle oficiálních seznamů (čínská ambasáda, imigrační správa NIA) <b>nevztahuje</b> — Česko na nich není. Aktuální stav si ověřte přímo: <a class="extlink" href="https://gb.china-embassy.gov.cn/eng/lqfw/202512/t20251201_11764210.htm" target="_blank" rel="noopener">oficiální oznámení čínské ambasády</a>, <a class="extlink" href="https://en.nia.gov.cn/n147418/n147463/c183390/content.html" target="_blank" rel="noopener">Národní imigrační správa NIA</a> a Velvyslanectví Číny v Praze (dotaz e-mailem/telefonem). Výjimka je jen 10denní (240 h) bezvízový tranzit při cestě do třetí země. <b>Hongkong</b> je pro Čechy bez víza. Vízum vyřizujte s předstihem přes čínské vízové centrum a před podáním si ověřte aktuální podmínky.</p>
+    <p><strong>💳 Platby:</strong> Čína je téměř bezhotovostní — platí se QR kódem přes <b>Alipay</b> nebo <b>WeChat Pay</b>. Zahraniční karty Visa/Mastercard se do nich dají propojit; aplikace si nainstalujte a nastavte doma. Poplatek 3 % se podle zdrojů platí jen u plateb nad 200 ¥ (cca 30 USD). Vezměte malou hotovost (200–1 000 ¥) a kartu jako zálohu — fyzické karty berou hlavně větší hotely.</p>
+    <p><strong>🌐 Internet:</strong> v Číně nefunguje Google (mapy, vyhledávání, Gmail, YouTube), WhatsApp, Instagram ani X. Řešení: cestovní <b>eSIM</b> (často s vestavěnou VPN — musí se stáhnout ještě před příjezdem) nebo VPN nainstalovaná doma. Navigace: Apple Maps nebo Baidu/Amap; taxi: <b>DiDi</b>; překlad: WeChat.</p>
+    <p><strong>🚄 Vlaky:</strong> vysokorychlostní vlaky (řady G a D) jsou pohodlné a levné. Jízdenky se prodávají cca 15 dní předem; kupte je v aplikaci <b>Trip.com</b> (platí i zahraniční karty) nebo v <b>12306</b> (registrace pasem, platba jen přes Alipay/WeChat). K nástupu je nutný <b>fyzický pas</b>; přijďte alespoň 30–60 minut předem. Nádraží bývají na okraji měst — počítejte s dojezdem.</p>
+    <p><strong>🗣️ Jazyk:</strong> angličtina moc nepomůže mimo velká turistická místa. Názvy nádraží a hotelů mějte uložené čínsky a ukazujte je taxikářům.</p>
+    <p><strong>🕒 Čas a další drobnosti:</strong> časový posun +6 hodin v létě a +7 hodin v zimě oproti Česku. Měna: čínský jüan (CNY, ¥), v Hongkongu hongkongský dolar (HKD). V hotelech se registruje pas. Ceny vstupného a jízdních řádů v této cestě jsou orientační podle použitých zdrojů.</p>
   </div>
 
   <!-- DAY 1 -->
-  <section class="day day--travel" id="d1">
+  <section class="day" id="d1">
     <div class="day-head">
       <span class="day-date">DEN 01</span>
-      <span class="badge badge--travel">Odlet</span>
+      <div class="badges"><span class="badge badge--travel">Přílet</span></div>
     </div>
-    <h2>Odlet z Prahy</h2>
+    <h2>Přílet do Hongkongu</h2>
     <div class="pass">
       <div class="pass-main">
-        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">BKI</span></div>
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">HKG</span></div>
         <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
-        <div class="pass-note">Večerní odlet, noční přelet s přestupem, přílet do Kota Kinabalu druhý den.</div>
       </div>
-      <div class="pass-stub">ODLET</div>
+      <div class="pass-stub">PŘÍLET</div>
+    </div>
+    <div class="activity">
+      <p>Po příletu do centra vlakem Airport Express nebo metrem (MTR). Na večer klidná procházka podél Victoria Harbour v Tsim Sha Tsui a jízda Star Ferry — nejlevnější a nejhezčí vyhlídka na panorama mrakodrapů.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Star+Ferry+Pier+Tsim+Sha+Tsui" target="_blank" rel="noopener" data-lat="22.29354" data-lng="114.16799">Star Ferry (Tsim Sha Tsui)</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Tsim Sha Tsui / Yau Ma Tei (Kowloon)</div>
+        <div class="stay-note">Poblíž metra i nádraží West Kowloon, odkud jede vlak do Číny.</div>
+      </div>
     </div>
   </section>
 
   <!-- DAY 2 -->
   <section class="day" id="d2">
-    <div class="day-head"><span class="day-date">DEN 02</span></div>
-    <h2>Přílet do Kota Kinabalu</h2>
+    <div class="day-head">
+      <span class="day-date">DEN 02</span>
+      <div class="badges"><span class="badge badge--light">Město</span></div>
+    </div>
+    <h2>Hongkong — Victoria Peak a trhy</h2>
     <div class="activity">
-      <p>Přílet do provinčního hlavního města státu Sabah. Večer bohaté noční trhy a stánky s jídlem přímo u moře.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+Night+Market" target="_blank" rel="noopener">Kota Kinabalu Night Market</a>
+      <p><b>Victoria Peak</b> — nejznámější vyhlídka na Hongkong z kopce nad městem (nahoru se jezdí historickou tramvají Peak Tram nebo autobusem/taxi).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Victoria+Peak+Hong+Kong" target="_blank" rel="noopener" data-lat="22.27604" data-lng="114.14546">Victoria Peak</a>
     </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 2–3)</span>
-        <div class="stay-name">Kota Kinabalu</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu" target="_blank" rel="noopener">Mapa</a>
-      </div>
+    <div class="activity">
+      <p><b>Temple Street Night Market</b> — večerní trh s jídlem a suvenýry v Yau Ma Tei; snadno se dá spojit s večeří v okolí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Temple+Street+Night+Market+Yau+Ma+Tei" target="_blank" rel="noopener" data-lat="22.3064" data-lng="114.16997">Temple Street Night Market</a>
     </div>
+    <div class="note">V Hongkongu se platí hongkongským dolarem (HKD) a hodí se karta Octopus na metro a tramvaje. Mobilní internet a Google fungují bez omezení — velká omezení začínají až za hranicí v pevninské Číně.</div>
   </section>
 
   <!-- DAY 3 -->
   <section class="day" id="d3">
-    <div class="day-head"><span class="day-date">DEN 03</span></div>
-    <h2>Prohlídka Kota Kinabalu</h2>
+    <div class="day-head">
+      <span class="day-date">DEN 03</span>
+      <div class="badges"><span class="badge badge--nature">Příroda</span></div>
+    </div>
+    <h2>Lantau — Big Buddha a Tai O</h2>
     <div class="activity">
-      <p>Filipínská tržnice s kuriozitami z Indonésie a Filipín, plovoucí (vodní) mešita, kulturní vesnice Mari Mari — skanzen tradičních kmenových domů s bohatým obědem. Večer opět kulinářská tržnice.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Filipino+Market+Kota+Kinabalu" target="_blank" rel="noopener">Filipínská tržnice</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+City+Mosque" target="_blank" rel="noopener">Plovoucí mešita</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mari+Mari+Cultural+Village" target="_blank" rel="noopener">Mari Mari Cultural Village</a>
+      <p><b>Tian Tan Buddha</b> (Big Buddha) <span class="rating"><i>★</i> 4,6 <small>(19 675)</small></span> — obří bronzová socha Buddhy na ostrově Lantau u kláštera Po Lin. Nahoru vede 268 schodů; na místo se dostanete lanovkou Ngong Ping 360 nebo autobusem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tian+Tan+Buddha+Hong+Kong" target="_blank" rel="noopener" data-lat="22.2539847" data-lng="113.904984">Tian Tan Buddha</a>
+    </div>
+    <div class="activity">
+      <p><b>Tai O</b> — rybářská vesnička na západě Lantau s domky na kůlech a trhem se sušenými mořskými plody; příjemný večer na konec dne.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tai+O+Lantau+Hong+Kong" target="_blank" rel="noopener" data-lat="22.25346" data-lng="113.86309">Tai O</a>
     </div>
   </section>
 
-  <!-- DAY 4-5 -->
+  <!-- DAY 4 -->
   <section class="day" id="d4">
     <div class="day-head">
-      <span class="day-date">DEN 04–05</span>
-      <span class="badges"><span class="badge badge--water">Ostrov</span></span>
+      <span class="day-date">DEN 04</span>
+      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--nature">Příroda</span></div>
     </div>
-    <h2>Ostrov Mantanani Besar</h2>
+    <h2>Sai Kung — Geopark a vyhlídky</h2>
     <div class="activity">
-      <p>Přesun autobusem a rychlou lodí na ostrov s bělostnými plážemi. Relax, šnorchlování, večer svítící plankton. Možnost kulturního představení, kajaků, kroužku místní batikové techniky a nočního pozorování ptactva s průvodcem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Besar" target="_blank" rel="noopener">Mantanani Besar</a>
+      <p>Den v přírodě na východě Hongkongu, kde jsou tvoje uložená místa. <b>Sai Kung East Country Park</b> <span class="rating"><i>★</i> 4,5 <small>(2 192)</small></span> — přes 3 000 hektarů hor, pláží a úseků turistické stezky MacLehose. <b>UNESCO Global Geopark</b> <span class="rating"><i>★</i> 4,6 <small>(357)</small></span> — sopečná oblast s obřími šestibokými kamennými sloupy (nejlépe vidět u hráze High Island Reservoir a na pláži Long Ke).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sai+Kung+East+Country+Park+Hong+Kong" target="_blank" rel="noopener" data-lat="22.4084695" data-lng="114.3435211">Sai Kung East Country Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hong+Kong+UNESCO+Global+Geopark+Sai+Kung" target="_blank" rel="noopener" data-lat="22.3645432" data-lng="114.3755648">UNESCO Global Geopark</a>
     </div>
     <div class="activity">
-      <p><b>🧭 Fakultativně:</b> výlet na vedlejší ostrov Mantanani Kecil, nebo potápění.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Kecil" target="_blank" rel="noopener">Mantanani Kecil</a>
+      <p>Vyhlídky a pláž z tvojí mapy: <b>Tai Tun</b> <span class="rating"><i>★</i> 4,3 <small>(261)</small></span> (vyhlídka), <b>Cheung Tsui</b> <span class="rating"><i>★</i> 4,7 <small>(89)</small></span> (vyhlídka) a <b>Ma Tau Wan</b> <span class="rating"><i>★</i> 4,6 <small>(55)</small></span> (bílá písečná pláž). Vybírejte jen jedno až dvě místa — jde o terénní stezky.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tai+Tun+Sai+Kung+Hong+Kong" target="_blank" rel="noopener" data-lat="22.3990329" data-lng="114.3117288">Tai Tun</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Cheung+Tsui+Sai+Kung+Hong+Kong" target="_blank" rel="noopener" data-lat="22.412644" data-lng="114.4038099">Cheung Tsui</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Ma+Tau+Wan+Sai+Kung+Hong+Kong" target="_blank" rel="noopener" data-lat="22.3419385" data-lng="114.3543433">Ma Tau Wan</a>
+    </div>
+    <div class="note warn">Stezky v Sai Kung jsou místy hrubé (schody, kameny), stín je vzácný — vezměte hodně vody a nezačínejte pozdě odpoledne. Po tvojí mapě je jedno místo, Mai Fan Tsui, které Google označuje jako neexistující, takže jsem ho do plánu nedal. Cesta z Sai Kung Town k východním zálivům se dělá taxi nebo minibusem/lodí — spojení si ověřte den předem.</div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Hongkong</div>
+        <div class="stay-note">Návrat do města, zítra přejezd přes hranici.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
+    <div class="day-head">
+      <span class="day-date">DEN 05</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Hongkong → Šen-čen</h2>
+    <div class="activity">
+      <p>Přejezd vlakem/metrem přes hranici do <b>Šen-čenu</b>. Od tohoto dne jste v pevninské Číně — pas mějte u sebe pořád, vízum je nutné (viz „Než vyrazíte"). Šen-čen je moderní velkoměsto (dřív rybářská vesnice) a technologické centrum.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Shenzhen+China" target="_blank" rel="noopener" data-lat="22.5428599" data-lng="114.05956">Šen-čen</a>
+    </div>
+    <div class="activity">
+      <p><b>Dafen Oil Painting Village</b> — čtvrť malířských ateliérů, kde se malují a prodávají kopie slavných obrazů. <b>Shenzhen Bay Park</b> — dlouhá pobřežní promenáda s výhledem na Hongkong.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dafen+Oil+Painting+Village+Shenzhen" target="_blank" rel="noopener" data-lat="22.6125" data-lng="114.13191">Dafen Oil Painting Village</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Shenzhen+Bay+Park" target="_blank" rel="noopener" data-lat="22.52442" data-lng="113.98803">Shenzhen Bay Park</a>
     </div>
     <div class="stay">
-      <div class="stay-icon">🏝️</div>
+      <div class="stay-icon">🏨</div>
       <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 4–5)</span>
-        <div class="stay-name">Mantanani Besar</div>
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Šen-čen</div>
+        <div class="stay-note">Blízko nádraží Shenzhen North, odkud odjíždí dálkové vlaky.</div>
       </div>
     </div>
   </section>
@@ -312,19 +388,22 @@
   <section class="day" id="d6">
     <div class="day-head">
       <span class="day-date">DEN 06</span>
-      <span class="badge badge--travel">Přesun</span>
+      <div class="badges"><span class="badge badge--travel">Vlak</span></div>
     </div>
-    <h2>Návrat na pevninu → Kundasang (NP Kinabalu)</h2>
+    <h2>Šen-čen → Changsha</h2>
     <div class="activity">
-      <p>Rychlou lodí zpět na pevninu, odpoledne přesun dodávkou do NP Kinabalu (UNESCO) — ubytování na dvě noci v městečku Kundasang přímo vedle parku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinabalu+National+Park" target="_blank" rel="noopener">NP Kinabalu</a>
+      <p>Vysokorychlostní vlak (řada G) ze Shenzhen North do Changsha South; cesta zabere několik hodin (ověřte přesný čas a spoj v aplikaci Trip.com). Nádraží leží mimo centrum, počítejte s dojezdem metrem/taxi. Večer první jídlo v centru — <b>Furong District</b>, centrální čtvrť Changsha.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Shenzhen+North+railway+station" target="_blank" rel="noopener" data-lat="22.61204" data-lng="114.02395">Shenzhen North (nádraží)</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Changsha+South+railway+station" target="_blank" rel="noopener" data-lat="28.15008" data-lng="113.05988">Changsha South (nádraží)</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Furong+District+Changsha" target="_blank" rel="noopener" data-lat="28.2027899" data-lng="113.03539">Furong District (Changsha)</a>
     </div>
+    <div class="note">Tip: hunanská kuchyně je výrazně pálivá. Řekněte „bù là" (nepálivé) nebo „wēi là" (mírně pálivé), pokud si nejste jistí.</div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 6–7)</span>
-        <div class="stay-name">Kundasang</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang" target="_blank" rel="noopener">Mapa</a>
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Changsha</div>
+        <div class="stay-note">Centrum nebo okolí Taiping Street a stanice metra.</div>
       </div>
     </div>
   </section>
@@ -333,13 +412,16 @@
   <section class="day" id="d7">
     <div class="day-head">
       <span class="day-date">DEN 07</span>
-      <span class="badge badge--light">Lehký trek</span>
+      <div class="badges"><span class="badge badge--light">Město</span></div>
     </div>
-    <h2>NP Kinabalu — prales a vyhlídky</h2>
+    <h2>Changsha — Orange Isle a Yuelu</h2>
     <div class="activity">
-      <p>Zelená bujná příroda nížinného deštného lesa s 4 500 druhy fauny a flóry. Lehký treking po dobře upravených stezkách v okolí nejvyšší hory Bornea s výhledy na vrcholek Mt. Kinabalu. Návštěva místní botanické zahrady, výstup na kopec Sosondikon s výhledy na horské štíty, tržnice v Kundasang a památník obětí 2. světové války.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Kinabalu" target="_blank" rel="noopener">Mt. Kinabalu</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang+War+Memorial" target="_blank" rel="noopener">Kundasang War Memorial</a>
+      <p><b>Orange Isle (Juzizhou)</b> — dlouhý úzký ostrov (cca 6 km) uprostřed řeky Xiang, přímo v městě.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Orange+Isle+Changsha" target="_blank" rel="noopener" data-lat="28.18968" data-lng="112.95613">Orange Isle</a>
+    </div>
+    <div class="activity">
+      <p><b>Yuelu Academy a hora Yuelu</b> — jedna ze čtyř slavných starých akademií Číny, nejzachovalejší; hora Yuelu je proslulá javory (nejhezčí v druhé polovině listopadu až začátkem prosince).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yuelu+Academy+Changsha" target="_blank" rel="noopener" data-lat="28.18391" data-lng="112.93513">Yuelu Academy</a>
     </div>
   </section>
 
@@ -347,68 +429,74 @@
   <section class="day" id="d8">
     <div class="day-head">
       <span class="day-date">DEN 08</span>
-      <span class="badge badge--travel">Přesun</span>
+      <div class="badges"><span class="badge badge--light">Město</span></div>
     </div>
-    <h2>Do Sepiloku (u Sandakanu)</h2>
+    <h2>Changsha — Hunan Museum a Taiping Street</h2>
     <div class="activity">
-      <p>Celodenní přejezd dodávkou se zastávkami. Horké prameny Poring — možnost koupání, pavilon orchidejí, procházka lanovým parkem v korunách stromů, zahrada Rafflesia s největší květinou na světě. Cestou návštěva organických čajových zahrad Sabah Tea.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Hot+Springs" target="_blank" rel="noopener">Poring Hot Springs</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Canopy+Walkway" target="_blank" rel="noopener">Canopy Walkway</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Rafflesia+Forest+Reserve+Poring" target="_blank" rel="noopener">Rafflesia Forest Reserve</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sabah+Tea+Garden" target="_blank" rel="noopener">Sabah Tea Garden</a>
+      <p><b>Hunan Provincial Museum</b> — artefakty z hrobů Mawangdui (mumie Lady Xin Zhui, hedvábné šaty); vstup bývá zdarma, ale vyžaduje rezervaci předem — ověřte aktuální podmínky.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hunan+Museum+Changsha" target="_blank" rel="noopener" data-lat="28.21539" data-lng="112.98834">Hunan Museum</a>
     </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 8–9)</span>
-        <div class="stay-name">Sepilok</div>
-        <div class="stay-note">U proslulého rehabilitačního centra pro orangutany.</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sepilok" target="_blank" rel="noopener">Mapa</a>
-      </div>
+    <div class="activity">
+      <p><b>Taiping Street</b> — nejstarší část města s dochovaným vzorem úzkých uliček a pouličním jídlem (smrdutý tofu, nudle s rýží).</p>
+
     </div>
   </section>
 
   <!-- DAY 9 -->
   <section class="day" id="d9">
-    <div class="day-head"><span class="day-date">DEN 09</span></div>
-    <h2>Orangutani a nosaté opice</h2>
-    <div class="activity">
-      <p>Ranní krmení orangutanů v Sepiloku a návštěva přírodní rezervace Labuk Bay na pozorování opic kahau nosatých. Odpoledne volitelně druhé krmení orangutanů a návštěva města Sandakan — čínský chrám Puu Jih Syh, večeře v rybí restauraci nad mořem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sepilok+Orangutan+Rehabilitation+Centre" target="_blank" rel="noopener">Sepilok Orangutan Centre</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Labuk+Bay+Proboscis+Monkey+Sanctuary" target="_blank" rel="noopener">Labuk Bay (kahau)</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Puu+Jih+Syh+Temple+Sandakan" target="_blank" rel="noopener">Puu Jih Syh Temple</a>
-      <div class="note">Volitelně: noční pozorování zvěře z lanového parku vysoko v korunách stromů (Rainforest Discovery Centre).</div>
+    <div class="day-head">
+      <span class="day-date">DEN 09</span>
+      <div class="badges"><span class="badge badge--travel">Vlak</span></div>
     </div>
+    <h2>Denní výlet do Yueyangu</h2>
+    <div class="activity">
+      <p>Vlak z Changsha South do Yueyang East (cca 35 minut). <b>Yueyang Tower</b> — třípatrová dřevěná věž, jejíž historie sahá do doby tří království, jedna z nejslavnějších čínských věží (vstupné cca 70 ¥). Poblíž <b>jezero Dongting</b> — druhé největší sladkovodní jezero Číny; lodí se dá na ostrov <b>Junshan</b>.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yueyang+Hunan+China" target="_blank" rel="noopener" data-lat="29.3572799" data-lng="113.12919">Yueyang</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yueyang+Tower" target="_blank" rel="noopener" data-lat="29.38469" data-lng="113.08833">Yueyang Tower</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Junshan+Island+Yueyang" target="_blank" rel="noopener" data-lat="29.35519" data-lng="113.00011">Junshan Island</a>
+    </div>
+    <div class="note">Do Yueyangu se dá jet i na nocleh, ale do Zhangjiajie jsou spoje z Changsha pohodlnější, proto je v plánu návrat.</div>
   </section>
 
   <!-- DAY 10 -->
   <section class="day" id="d10">
     <div class="day-head">
       <span class="day-date">DEN 10</span>
-      <span class="badge badge--travel">Přesun</span>
+      <div class="badges"><span class="badge badge--travel">Vlak</span></div>
     </div>
-    <h2>Medvědi malajští → řeka Kinabatangan</h2>
+    <h2>Changsha → Zhangjiajie</h2>
     <div class="activity">
-      <p>Ranní návštěva záchranného centra medvěda malajského v sousedství. Brzké odpolední odjezd autobusem na safari k řece Kinabatangan, ubytování v chatkách přímo u řeky. Večer noční safari na člunu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bornean+Sun+Bear+Conservation+Centre" target="_blank" rel="noopener">Sun Bear Conservation Centre</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinabatangan+River" target="_blank" rel="noopener">Řeka Kinabatangan</a>
+      <p>Vlak G z Changsha South do Zhangjiajie West (cca 2–3,5 hodiny, denně několik desítek spojů). Nádraží je v Zhangjiajie City, do vesnice Wulingyuan u parků je to ještě kousek autobusem/taxi.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie+West+railway+station" target="_blank" rel="noopener" data-lat="29.17137" data-lng="110.458">Zhangjiajie West (nádraží)</a>
     </div>
     <div class="stay">
-      <div class="stay-icon">🏕️</div>
+      <div class="stay-icon">🏨</div>
       <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 10–11)</span>
-        <div class="stay-name">Chatky u řeky Kinabatangan</div>
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Wulingyuan (vesnice u parku)</div>
+        <div class="stay-note">Doporučení: rozdělit pobyt — Wulingyuan na dny v parku, Zhangjiajie City na den s Tianmen Mountain.</div>
       </div>
     </div>
   </section>
 
   <!-- DAY 11 -->
   <section class="day" id="d11">
-    <div class="day-head"><span class="day-date">DEN 11</span></div>
-    <h2>Safari na řece Kinabatangan</h2>
+    <div class="day-head">
+      <span class="day-date">DEN 11</span>
+      <div class="badges"><span class="badge badge--nature">Příroda</span></div>
+    </div>
+    <h2>Tianmen Mountain</h2>
     <div class="activity">
-      <p>Pozorování hojné fauny a bujné flóry v přirozeném prostředí z pohodlí člunu — ranní i odpolední plavba. Primáti, rozmanité ptactvo, krokodýli. Šance spatřit nejmenšího slona na světě (pygmejský slon bornejský).</p>
-      <div class="note">Volitelně: denní nebo noční trek v rámci programu (cca 1–1,5 h, lehký).</div>
+      <p><b>Tianmen Mountain</b> <span class="rating"><i>★</i> 4,7 <small>(652)</small></span> — hora s nejdelší osobní lanovkou (cca 7,5 km), skleněnými chodníky na útesech a jeskyní <i>Tianmen Cave</i> — přírodní bránou v hoře. Vstupenky jsou na časová okna a na jméno (rezervujte předem, orientačně cca 278 ¥).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tianmen+Mountain+Zhangjiajie" target="_blank" rel="noopener" data-lat="29.067324" data-lng="110.475688">Tianmen Mountain (North Gate)</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Zhangjiajie City</div>
+        <div class="stay-note">Blízko lanovkové stanice.</div>
+      </div>
     </div>
   </section>
 
@@ -416,42 +504,55 @@
   <section class="day" id="d12">
     <div class="day-head">
       <span class="day-date">DEN 12</span>
-      <span class="badge badge--travel">Přesun</span>
+      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--nature">Příroda</span></div>
     </div>
-    <h2>Černá jeskyně Gomantong → Semporna</h2>
+    <h2>Zhangjiajie National Forest Park (Avatar)</h2>
     <div class="activity">
-      <p>Ráno přesun soukromými dodávkami do Semporny. Cestou zastávka v Černé jeskyni Gomantong, proslulé svojí krásou, mračny netopýrů a hemžícím se hmyzem — poslední zastávka v deštném lese před pobřežím.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gomantong+Caves" target="_blank" rel="noopener">Gomantong Caves</a>
+      <p><b>Wulingyuan / Zhangjiajie National Forest Park</b> — pískovcové věže, které inspirovaly krajinu v Avataru. Klasika: Yuanjiajie s <i>Avatar Hallelujah Mountain</i>, výtah Bailong (Bailong Elevator) a hora Tianzi. Vstupné do parku (cca 225 ¥) platí několik dní. V sezóně počítejte s 30–60 minutami čekání na přesuny.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie+National+Forest+Park" target="_blank" rel="noopener" data-lat="29.3555" data-lng="110.53542">Zhangjiajie National Forest Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bailong+Elevator+Zhangjiajie" target="_blank" rel="noopener" data-lat="29.35193" data-lng="110.46256">Bailong Elevator</a>
     </div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
-        <span class="stay-label">Ubytování</span>
-        <div class="stay-name">Semporna</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Semporna" target="_blank" rel="noopener">Mapa</a>
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Wulingyuan</div>
       </div>
     </div>
   </section>
 
-  <!-- DAY 13-14 -->
+  <!-- DAY 13 -->
   <section class="day" id="d13">
     <div class="day-head">
-      <span class="day-date">DEN 13–14</span>
-      <span class="badge badge--water">Ostrov</span>
+      <span class="day-date">DEN 13</span>
+      <div class="badges"><span class="badge badge--nature">Příroda</span></div>
     </div>
-    <h2>Ostrov Mabul</h2>
+    <h2>Skleněný most nebo jezero Baofeng</h2>
     <div class="activity">
-      <p>Rychlou lodí na ostrov Mabul, ubytování v hotelu na kůlech přímo nad vodou. Lodní výlety, koupání a šnorchlování kolem Mabulu i ostrova Kapalai — podmořský ráj.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mabul+Island" target="_blank" rel="noopener">Mabul Island</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kapalai+Island" target="_blank" rel="noopener">Kapalai Island</a>
-      <div class="note">Pro potápěče: možnost domluvit výlet na světově proslulý ostrov Sipadan — mezi top 5 potápěčskými destinacemi na světě (vyžaduje permit, viz tip výše).</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sipadan+Island" target="_blank" rel="noopener">Sipadan Island</a>
+      <p><b>Zhangjiajie Grand Canyon Glass Bridge</b> — 430 m dlouhý skleněný most nad kaňonem (klidně vynechat, pokud nemáte rádi výšky). Alternativa: <b>jezero Baofeng</b> — plavba loďkou mezi skalami, klidnější den.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Baofeng+Lake+Zhangjiajie" target="_blank" rel="noopener" data-lat="29.32576" data-lng="110.54692">Baofeng Lake</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie+Grand+Canyon+Glass+Bridge" target="_blank" rel="noopener">Glass Bridge (Zhangjiajie Grand Canyon)</a>
+    </div>
+    <div class="note">Podle většiny průvodců se na Zhangjiajie počítají 4 dny (2 dny Wulingyuan, 1 den skleněný most, 1 den Tianmen), 3 dny stačí, když jeden z nich vynecháte.</div>
+  </section>
+
+  <!-- DAY 14 -->
+  <section class="day" id="d14">
+    <div class="day-head">
+      <span class="day-date">DEN 14</span>
+      <div class="badges"><span class="badge badge--travel">Vlak</span></div>
+    </div>
+    <h2>Zhangjiajie → Changsha</h2>
+    <div class="activity">
+      <p>Vlak zpět do Changsha (cca 2–3,5 hodiny), odpoledne volno nebo poslední jídlo v Changsha.</p>
+
     </div>
     <div class="stay">
-      <div class="stay-icon">🏝️</div>
+      <div class="stay-icon">🏨</div>
       <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 13–14)</span>
-        <div class="stay-name">Mabul — hotel na kůlech nad vodou</div>
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Changsha</div>
+        <div class="stay-note">Poblíž Changsha South ušetří ráno čas.</div>
       </div>
     </div>
   </section>
@@ -460,12 +561,20 @@
   <section class="day" id="d15">
     <div class="day-head">
       <span class="day-date">DEN 15</span>
-      <span class="badge badge--travel">Přesun</span>
+      <div class="badges"><span class="badge badge--travel">Vlak</span></div>
     </div>
-    <h2>Návrat do Semporny</h2>
+    <h2>Changsha → Hongkong</h2>
     <div class="activity">
-      <p>Návrat do přístavního rybářského města Semporna, poznamenaného kulturou mořských nomádů (Bajau). Vhodný čas na spa nebo fakultativní výlet na nedaleký zelený kopec Tengkorak s lehkým trekingem a výhledy. Večeře v blízké rybí restauraci v přístavu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tengkorak+Hill+Semporna" target="_blank" rel="noopener">Tengkorak Hill</a>
+      <p>Přímý vysokorychlostní vlak z Changsha South do Hong Kong West Kowloon (cca 3–4 hodiny, šest párů spojů denně). Hraniční kontrola je na nádraží West Kowloon, mějte pas a vyplněné papíry po ruce a přijďte cca 2 hodiny předem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hong+Kong+West+Kowloon+railway+station" target="_blank" rel="noopener" data-lat="22.30368" data-lng="114.16493">Hong Kong West Kowloon (nádraží)</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Hongkong</div>
+        <div class="stay-note">Poslední noc před odletem.</div>
+      </div>
     </div>
   </section>
 
@@ -473,77 +582,95 @@
   <section class="day" id="d16">
     <div class="day-head">
       <span class="day-date">DEN 16</span>
-      <span class="badge badge--water">Lodní výlet</span>
+      <div class="badges"><span class="badge badge--travel">Odlet</span></div>
     </div>
-    <h2>Mořský park Tun Sakaran</h2>
+    <h2>Odlet z Hongkongu</h2>
     <div class="activity">
-      <p>Lodní výlet do azurového mořského parku Tun Sakaran. Malebné ostrovy, kopec s vyhlídkou do širého okolí, pláže a šnorchlování.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tun+Sakaran+Marine+Park" target="_blank" rel="noopener">Tun Sakaran Marine Park</a>
-    </div>
-  </section>
+      <p>Přesun na letiště (Airport Express) a odlet domů.</p>
 
-  <!-- DAY 17 -->
-  <section class="day day--travel" id="d17">
-    <div class="day-head">
-      <span class="day-date">DEN 17</span>
-      <span class="badge badge--travel">Přelet</span>
-    </div>
-    <h2>Tawau → Singapur</h2>
-    <div class="activity">
-      <p>Poslední nákupy, dopolední odlet z nedalekého Tawau do Singapuru.</p>
     </div>
     <div class="pass">
       <div class="pass-main">
-        <div class="pass-route"><span class="code">TWU</span><span class="arrow">✈</span><span class="code">SIN</span></div>
+        <div class="pass-route"><span class="code">HKG</span><span class="arrow">✈</span><span class="code">PRG</span></div>
         <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
-      </div>
-      <div class="pass-stub">PŘELET</div>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Ubytování (dny 17–19)</span>
-        <div class="stay-name">Singapur</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Singapore" target="_blank" rel="noopener">Mapa</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- DAY 18-19 -->
-  <section class="day" id="d18">
-    <div class="day-head">
-      <span class="day-date">DEN 18–19</span>
-      <span class="badge badge--travel">Volitelné prodloužení</span>
-    </div>
-    <h2>Singapur</h2>
-    <div class="activity">
-      <p>Prohlídka dynamického města, kde se moderní futuristická architektura snoubí s tradicí a tropickou přírodou. Ikonická Marina Bay s Gardens by the Bay — obří skleník a elektronické stromy (Supertree Grove).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Marina+Bay+Singapore" target="_blank" rel="noopener">Marina Bay</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gardens+by+the+Bay+Singapore" target="_blank" rel="noopener">Gardens by the Bay</a>
-    </div>
-    <div class="activity">
-      <p>Koloniální, indická i čínská čtvrť — rozličné chrámy a svatostánky včetně slavné relikvie Buddhova zubu. Pestré kulinářské rozpětí ve vysoké kvalitě. Noční odlet domů před půlnocí (den 19).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Buddha+Tooth+Relic+Temple+Singapore" target="_blank" rel="noopener">Buddha Tooth Relic Temple</a>
-    </div>
-    <div class="pass">
-      <div class="pass-main">
-        <div class="pass-route"><span class="code">SIN</span><span class="arrow">✈</span><span class="code">PRG</span></div>
-        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
-        <div class="pass-note">Noční odlet z Singapuru, den 19.</div>
       </div>
       <div class="pass-stub">ODLET</div>
     </div>
   </section>
 
-  <!-- DAY 20 -->
-  <section class="day day--travel" id="d20">
+  <!-- EXTRAS -->
+  <section class="day extras" id="extra" data-extra>
     <div class="day-head">
-      <span class="day-date">DEN 20</span>
-      <span class="badge badge--travel">Přílet</span>
+      <span class="day-date">MIMO PLÁN</span>
+      <div class="badges"><span class="badge badge--light">Další varianty</span></div>
     </div>
-    <h2>Přílet do Prahy</h2>
-    <div class="activity">
-      <p>Přílet zpět do Prahy v ranních hodinách.</p>
+    <h2>Další varianty</h2>
+
+    <div class="suggest">
+      <span class="suggest-label">Další místa v okolí</span>
+      <ul>
+        <li><b>Fenghuang — staré město</b> — starobylé městečko na řece na západě Hunanu, dřevěné domy na kůlech; den navíc od Zhangjiajie (spojení a čas si ověřte).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fenghuang+Ancient+Town+Hunan" target="_blank" rel="noopener">Fenghuang Ancient Town</a></li>
+        <li><b>Guilin a Yangshuo</b> — krasové kopce a plavba po řece Li; z Changsha vlakem, jako prodloužení před návratem do Hongkongu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yangshuo+Guilin+Guangxi" target="_blank" rel="noopener">Guilin / Yangshuo</a></li>
+        <li><b>Dragon's Back (Hongkong)</b> — oblíbená hřebenovka nad pobřežím na Hong Kong Island, pokud vám v Hongkongu zbyde půlden.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dragon's+Back+Hong+Kong" target="_blank" rel="noopener">Dragon's Back</a></li>
+        <li><b>Hong Kong Geopark — Northeast New Territories</b> <span class="rating"><i>★</i> 4,3 <small>(11)</small></span> — sedimentární část geoparku na severu, dál od Sai Kung; jen pro zájemce o geologii.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hong+Kong+Geopark+Northeast+New+Territories+Sedimentary+Rock+Region" target="_blank" rel="noopener" data-lat="22.535835" data-lng="114.30127">Hong Kong Geopark (NE New Territories)</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Klasická Čína (jiná cesta)</span>
+      <ul>
+        <li>První návštěvníci Číny často jedou „zlatou trasu" Peking – Xi'an – Šanghaj vysokorychlostními vlaky (Velká zeď, Zakázané město, terakotová armáda). V této cestě není, ale dá se udělat jako samostatná další cesta.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="day sources" id="zdroje">
+    <div class="day-head">
+      <span class="day-date">ODKAZY</span>
+      <div class="badges"><span class="badge badge--light">Zdroje</span></div>
+    </div>
+    <h2>Zdroje a užitečné odkazy</h2>
+    <p class="lead-text" style="margin-top:8px;">Informace v této cestě pocházejí z těchto stránek. Podmínky vstupu, ceny i jízdní řády se mění — před cestou je ověřte u oficiálních zdrojů.</p>
+
+    <div class="suggest">
+      <span class="suggest-label">Víza a vstup</span>
+      <ul>
+        <li><a class="extlink" href="https://gb.china-embassy.gov.cn/eng/lqfw/202512/t20251201_11764210.htm" target="_blank" rel="noopener">OFICIÁLNÍ: čínská ambasáda — oznámení o bezvízovém vstupu (seznam zemí; Česko chybí) ↗</a></li>
+        <li><a class="extlink" href="https://en.nia.gov.cn/n147418/n147463/c183390/content.html" target="_blank" rel="noopener">OFICIÁLNÍ: Národní imigrační správa Číny (NIA) — vízová politika ↗</a></li>
+        <li><a class="extlink" href="https://www.pandatouring.com/china-visa-requirements/czech-republic" target="_blank" rel="noopener">Panda Touring: víza pro Čechy do Číny ↗</a></li>
+        <li><a class="extlink" href="https://www.euronews.com/travel/2026/01/27/planning-a-trip-to-china-visa-free-entry-is-now-available-for-74-nationalities" target="_blank" rel="noopener">Euronews: země s bezvízovým vstupem do Číny ↗</a></li>
+        <li><a class="extlink" href="https://entryconditions.com/czechia/hong-kong" target="_blank" rel="noopener">Entry Conditions: Češi do Hongkongu (bez víza) ↗</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Platby, internet, aplikace</span>
+      <ul>
+        <li><a class="extlink" href="https://thehelpfulpanda.com/how-to-pay-in-china/" target="_blank" rel="noopener">The Helpful Panda: platby Alipay / WeChat Pay pro turisty ↗</a></li>
+        <li><a class="extlink" href="https://esim.holafly.com/travel-tips/china-travel-apps/" target="_blank" rel="noopener">Holafly: aplikace, které v Číně potřebujete ↗</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Vlaky</span>
+      <ul>
+        <li><a class="extlink" href="https://www.trip.com/blog/how-to-buy-china-high-speed-rail-tickets-for-foreigners/" target="_blank" rel="noopener">Trip.com: jak koupit jízdenky na vlak v Číně ↗</a></li>
+        <li><a class="extlink" href="https://www.chinahighlights.com/china-trains/hong-kong-changsha-train.htm" target="_blank" rel="noopener">China Highlights: vlak Hongkong – Changsha ↗</a></li>
+        <li><a class="extlink" href="https://www.travelchinaguide.com/china-trains/changsha-zhangjiajie.htm" target="_blank" rel="noopener">Travel China Guide: vlak Changsha – Zhangjiajie ↗</a></li>
+        <li><a class="extlink" href="https://us.trip.com/trains/china/route/changsha-to-yueyang/" target="_blank" rel="noopener">Trip.com: vlak Changsha – Yueyang ↗</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Místa na trase</span>
+      <ul>
+        <li><a class="extlink" href="https://www.klook.com/blog/zhangjiajie-itinerary/" target="_blank" rel="noopener">Klook: 3denní plán Zhangjiajie ↗</a></li>
+        <li><a class="extlink" href="https://www.asiaodysseytravel.com/zhangjiajie/tianmen-mountain.html" target="_blank" rel="noopener">Asia Odyssey: Tianmen Mountain ↗</a></li>
+        <li><a class="extlink" href="https://www.travelchinaguide.com/cityguides/hunan/top-10-things-to-do-in-changsha.htm" target="_blank" rel="noopener">Travel China Guide: 10 věcí v Changsha ↗</a></li>
+        <li><a class="extlink" href="https://en.wikivoyage.org/wiki/Yueyang" target="_blank" rel="noopener">Wikivoyage: Yueyang ↗</a></li>
+        <li><a class="extlink" href="https://www.geopark.gov.hk/discover/attractions/tai-long-wan" target="_blank" rel="noopener">Hong Kong UNESCO Global Geopark: Tai Long Wan ↗</a></li>
+        <li><a class="extlink" href="https://www.discoverhongkong.com/us/explore/great-outdoor/wellness/high-island-geo-trail.html" target="_blank" rel="noopener">Hong Kong Tourism Board: High Island Geo Trail ↗</a></li>
+      </ul>
     </div>
   </section>
 
@@ -553,10 +680,15 @@
       <span class="map-status" id="mapStatus"></span>
     </div>
     <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
+      <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty</span>
+      <span class="lg">┄┄ pořadí trasy</span>
+    </div>
   </div>
 
   <footer>
-    Sestaveno z vašeho itineráře „Zelené Borneo s prodloužením v Singapuru" (23. 4. – 12. 5. 2026) — vedená skupinová cesta s dopravou a průvodcem zajištěnými, doplněno jen o Google Maps odkazy a rozřazení do dní. Singapur (dny 17–20) je ve zdrojovém itineráři označen jako volitelné prodloužení.
+    Sestaveno z tvojí Google mapy „Čína" (12 uložených míst) a z veřejných cestovních průvodců uvedených v sekci Zdroje.
   </footer>
 
 </div>
@@ -568,11 +700,11 @@
   if (window.L) {
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
-  var COUNTRY_CODE = 'my,sg';
+  var COUNTRY_CODE = 'cn,hk';
   var VIEWBOX = '';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
-  var PERMANENT_LABELS = true;        // always-on labels for plan pins (only sensible with few pins)
-  var ROUTE_LINE = false;              // dashed line through the plan pins in DOM order
-  var ROUTE_COLOR = '#8A6BC4';
+  var PERMANENT_LABELS = false;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = true;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#C0508A';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){

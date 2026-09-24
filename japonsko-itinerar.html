@@ -178,6 +178,32 @@
   }
 
   footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+
+  /* itin-common */
+  .tip + .tip{margin-top:14px;}
+  .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .camp-item{padding:10px 0; border-top:1px solid var(--border);}
+  .camp-item:first-of-type{border-top:0; padding-top:2px;}
+  .camp-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .camp-name{font-weight:600; font-size:14.5px; color:var(--ink);}
+  .camp-rate{font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .camp-rate i{font-style:normal; color:var(--ink-faint);}
+  .amen{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .am{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:2px 8px 2px 6px;}
+  .am-i{font-size:13px; line-height:1;}
+  .amen-none{font-size:12px; color:var(--ink-faint); font-style:italic;}
+  .camp-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .camp-item a.maplink, .camp-item .maplink-plain{display:inline-block; margin-top:6px; font-size:12.5px;}
+  .maplink-plain{color:var(--ink-soft); text-decoration:underline;}
+  .camp-foot{font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5;}
+  .camp-pin{display:flex; align-items:center; justify-content:center; width:20px; height:20px; font-size:13px; line-height:1; background:var(--surface,#fff); border:1.5px solid var(--ink-soft,#666); border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .daybtn{display:inline-block; margin-top:14px; padding:8px 14px; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; box-shadow:var(--shadow, none);}
+  .daybtn:hover{border-color:var(--ink-soft);}
+  .linklist{list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; font-size:13.5px; line-height:1.5;}
+  .linklist span{color:var(--ink-soft);}
+  .tip--links a{font-weight:600; text-decoration:underline;}
+  .map-legend label.lg{cursor:pointer;}
 </style>
 </head>
 <body>
@@ -597,15 +623,16 @@
 <script>
 (function(){
   "use strict";
-  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
-  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
-  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
-  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
-  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  // Leaflet's CSS is inlined (not linked), so its default marker icon can't auto-detect where marker-icon.png etc. live
+  // and would look for them relative to this page (404) — point it at the CDN. imagePath must carry the full CDN base.
   if (window.L) {
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
   var COUNTRY_CODE = 'jp';
+  var VIEWBOX = '';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
+  var PERMANENT_LABELS = true;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = false;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#8A6BC4';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){
@@ -616,36 +643,64 @@
     } catch(e){ return null; }
   }
   function extractMapPlaces(){
-    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
-    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    // the href's query param is usually more specific than the short visible link text — geocode with the fuller
+    // string, label with the short one. Links flagged .camp are campgrounds: a separate, switchable pin layer.
     var links = document.querySelectorAll('a.maplink');
     var seen = {}, out = [];
     links.forEach(function(a){
       var text = (a.textContent || '').trim();
       var hrefName = nameFromMapHref(a.getAttribute('href') || '');
-      var isGeneric = !text || /^mapa$/i.test(text);
-      var label = isGeneric ? (hrefName || text) : text;
+      var isGeneric = !text || /^mapa$/i.test(text) || /google/i.test(text);
+      var label = a.getAttribute('data-name') || (isGeneric ? (hrefName || text) : text);
       var query = hrefName || text;
       if (!label || !query) return;
       var key = query.toLowerCase();
-      if (seen[key]) return;
-      seen[key] = true;
-      out.push({label: label, query: query, href: a.getAttribute('href')});
+      if (seen[key]) { a._place = seen[key]; return; }
+      // data-lat/data-lng = coordinates already known → pin appears instantly, no Nominatim wait
+      var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
+      var p = {
+        label: label, query: query, href: a.getAttribute('href'),
+        coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
+        extra: !!a.closest('[data-extra]'), camp: a.classList.contains('camp'),
+        rating: a.getAttribute('data-rating') || ''
+      };
+      seen[key] = p; a._place = p;
+      out.push(p);
     });
     return out;
   }
   function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
   function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
   function geocodeOne(name){
-    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
-    // from a genuine "this place has no OSM entry" — those must never be cached the same way
-    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    // throws on a failed/blocked request (e.g. 429) so the caller can tell that apart from a genuine "no OSM entry"
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + (VIEWBOX ? '&viewbox=' + VIEWBOX + '&bounded=1' : '');
     return fetch(url).then(function(r){
       if (!r.ok) { throw new Error('http ' + r.status); }
       return r.json();
     }).then(function(rows){
       if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
       return null;
+    });
+  }
+  function fmt(c){ return c.lat.toFixed(5) + ',' + c.lng.toFixed(5); }
+
+  // per-day "open this day's route in Google Maps" button (directions URL — needs no API key; max 9 waypoints)
+  function addDayRouteButtons(){
+    document.querySelectorAll('section.day').forEach(function(sec){
+      if (sec.hasAttribute('data-extra') || sec.querySelector('.daybtn')) return;
+      var pts = [], seenK = {};
+      sec.querySelectorAll('a.maplink').forEach(function(a){
+        var p = a._place; if (!p || p.camp || !p.resolved) return;
+        var k = fmt(p.resolved); if (seenK[k]) return; seenK[k] = 1; pts.push(p.resolved);
+      });
+      if (pts.length < 2) return;
+      if (pts.length > 11) pts = pts.slice(0, 11);
+      var u = 'https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=' + fmt(pts[0]) + '&destination=' + fmt(pts[pts.length-1]);
+      if (pts.length > 2) u += '&waypoints=' + pts.slice(1, -1).map(fmt).join('%7C');
+      var a = document.createElement('a');
+      a.className = 'daybtn'; a.href = u; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🧭 Trasa dne v Google Maps (' + pts.length + ' zastávek)';
+      sec.appendChild(a);
     });
   }
 
@@ -660,15 +715,22 @@
     var cache = loadCache();
     var cacheKeyPrefix = COUNTRY_CODE + ':';
     var bounds = [];
-    var map = null;
+    var mainCount = 0, campCount = 0;
+    var routePts = [], routeLine = null;
+    var map = null, campLayer = null;
     var resolved = 0;
     var blocked = false;
+    var toggle = document.getElementById('toggleCamps');
 
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
-      // if the container gets its final size only after the map was created (fonts/layout still settling),
-      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      campLayer = L.layerGroup();
+      if (toggle) toggle.addEventListener('change', function(){
+        if (!map) return;
+        if (toggle.checked) campLayer.addTo(map); else map.removeLayer(campLayer);
+      });
+      // the container may get its final size only after the map was created — re-measure and re-fit on resize
       if (window.ResizeObserver) {
         new ResizeObserver(function(){
           if (!map) return;
@@ -679,8 +741,7 @@
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);
-      // this itinerary page can also load inside the claude.ai artifact preview, whose sandbox
-      // blocks external map-tile images — detect that and show a note instead of a broken gray box
+      // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
         blocked = true;
@@ -690,21 +751,44 @@
         statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
       });
     }
-    function addPoint(name, coord, href){
+    function popup(label, href, coord, extraLine){
+      return '<div class="pin-popup"><b>' + label + '</b>' + (extraLine ? '<br>' + extraLine : '') +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+        '<br><a href="https://mapy.cz/zakladni?x=' + coord.lng.toFixed(6) + '&y=' + coord.lat.toFixed(6) + '&z=15&source=coor&id=' + coord.lng.toFixed(6) + ',' + coord.lat.toFixed(6) + '" target="_blank" rel="noopener">Mapy.cz ↗</a></div>';
+    }
+    function addPoint(p, coord){
       ensureMap();
       if (blocked || !map) return;
-      var order = bounds.length + 1;
-      var icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
-      var m = L.marker([coord.lat, coord.lng], {icon: icon}).addTo(map);
-      m.bindTooltip(order + '. ' + name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + order + '. ' + name + '</b>' +
-        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
-      m.bindPopup(popupHtml);
+      var label = p.label, icon, zOffset = 0, m;
+      if (p.camp) {
+        campCount++;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="camp-pin">⛺</span>', iconSize:[20,20], iconAnchor:[10,10]});
+        m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: -500});
+        m.bindTooltip(label + (p.rating ? ' · ★ ' + p.rating : ''), {direction:'top', offset:[0,-8], className:'place-label'});
+        m.bindPopup(popup(label, p.href, coord, p.rating ? '★ ' + p.rating + ' (Google)' : ''));
+        campLayer.addLayer(m);
+        var cnt = document.getElementById('campCnt'); if (cnt) cnt.textContent = campCount;
+        return;
+      }
+      if (p.extra) {
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
+        zOffset = -1000;
+      } else {
+        var order = ++mainCount;
+        label = order + '. ' + p.label;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      }
+      m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
+      m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      // animate:false is load-bearing: when several places resolve from cache in the same tick
-      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
-      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
-      // early, too-small bounding box — later pins then render outside the visible map area
+      if (!p.extra && ROUTE_LINE) {
+        routePts.push([coord.lat, coord.lng]);
+        if (routeLine) routeLine.setLatLngs(routePts);
+        else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+      }
+      // animate:false is load-bearing: rapid-fire animated fitBounds calls (cache hits resolve in the same tick)
+      // interrupt each other and the view silently gets stuck on an early, too-small bounding box
       if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
       else map.fitBounds(bounds, {padding:[28,28], animate:false});
     }
@@ -712,7 +796,7 @@
     for (var i=0; i<places.length; i++){
       var place = places[i];
       var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
-      var cached = cache[cacheKey];
+      var cached = place.coord || cache[cacheKey];
       var madeLiveRequest = false;
       if (cached === undefined){
         statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
@@ -723,18 +807,18 @@
           madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          addDayRouteButtons();
           return;
         }
       }
-      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href); resolved++; }
-      if (blocked) return;
+      if (cached && cached !== 'FAIL'){ place.resolved = cached; addPoint(place, cached); resolved++; }
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
-      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
-      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      // only the Nominatim usage policy (~1 req/s) requires this pause — cache hits made no request and don't wait
       if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+    addDayRouteButtons();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);

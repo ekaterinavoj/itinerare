@@ -183,6 +183,35 @@
   }
 
   footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+
+  /* itin-common */
+  .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
+  .map-legend .lg{display:inline-flex; align-items:center; gap:7px;}
+  .map-legend .num-pin{width:18px; height:18px; font-size:10px;}
+  .tip + .tip{margin-top:14px;}
+  .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .camp-item{padding:10px 0; border-top:1px solid var(--border);}
+  .camp-item:first-of-type{border-top:0; padding-top:2px;}
+  .camp-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .camp-name{font-weight:600; font-size:14.5px; color:var(--ink);}
+  .camp-rate{font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .camp-rate i{font-style:normal; color:var(--ink-faint);}
+  .amen{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .am{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:2px 8px 2px 6px;}
+  .am-i{font-size:13px; line-height:1;}
+  .amen-none{font-size:12px; color:var(--ink-faint); font-style:italic;}
+  .camp-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .camp-item a.maplink, .camp-item .maplink-plain{display:inline-block; margin-top:6px; font-size:12.5px;}
+  .maplink-plain{color:var(--ink-soft); text-decoration:underline;}
+  .camp-foot{font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5;}
+  .camp-pin{display:flex; align-items:center; justify-content:center; width:20px; height:20px; font-size:13px; line-height:1; background:var(--surface,#fff); border:1.5px solid var(--ink-soft,#666); border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .daybtn{display:inline-block; margin-top:14px; padding:8px 14px; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; box-shadow:var(--shadow, none);}
+  .daybtn:hover{border-color:var(--ink-soft);}
+  .linklist{list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; font-size:13.5px; line-height:1.5;}
+  .linklist span{color:var(--ink-soft);}
+  .tip--links a{font-weight:600; text-decoration:underline;}
+  .map-legend label.lg{cursor:pointer;}
 </style>
 </head>
 <body>
@@ -227,6 +256,18 @@
     <p><strong>Trajekt Bodø–Moskenes</strong> (den 15) se s vozidlem v létě plní — rezervovat předem.</p>
   </div>
 
+    <div class="tip tip--links"><span class="tip-label">Kde hledat kempy a užitečné informace (Norsko)</span>
+      <ul class="linklist">
+        <li><a href="https://park4night.com/" target="_blank" rel="noopener">park4night ↗</a> <span>— místa pro přespání a kempy s recenzemi a filtry (voda, WC, dump station)</span></li>
+        <li><a href="https://www.campercontact.com/" target="_blank" rel="noopener">Campercontact ↗</a> <span>— kempy a stellplätze pro karavany po celé Evropě</span></li>
+        <li><a href="https://camping.no/en/" target="_blank" rel="noopener">camping.no ↗</a> <span>— norský přehled kempů podle hvězdičkové klasifikace</span></li>
+        <li><a href="https://www.nafcamp.no/en/" target="_blank" rel="noopener">NAF Camp ↗</a> <span>— kempy automobilového klubu NAF (rezervace, sezóny)</span></li>
+        <li><a href="https://campio.no/" target="_blank" rel="noopener">Campio ↗</a> <span>— vyhledávání a rezervace norských kempů</span></li>
+        <li><a href="https://www.norcamp.de/en/norway/" target="_blank" rel="noopener">Norcamp ↗</a> <span>— databáze kempů (recenze, vybavení)</span></li>
+        <li><a href="https://www.visitnorway.com/" target="_blank" rel="noopener">VisitNorway ↗</a> <span>— oficiální turistický portál — trasy, silnice, trajekty</span></li>
+      </ul>
+    </div>
+
   <div class="summary">
     <span class="tip-label">Jak zkrátit na 14 dní</span>
     <ul>
@@ -254,13 +295,13 @@
       <div class="pass-stub">PŘÍLET</div>
     </div>
 
-    <div class="camp">
-      <div class="camp-icon">⛺</div>
-      <div class="camp-body">
-        <span class="camp-label">Kemp</span>
-        <div class="camp-name">Bogstad Camping</div>
-        <div class="camp-note">U jezera Bogstadvannet, 20 min od centra — jeden z mála kempů přímo v Oslu.</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bogstad+Camping+Oslo" target="_blank" rel="noopener">Mapa</a>
+    <div class="campbox">
+      <span class="camp-label">Kemp — první noc</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Topcamp Bogstad (Oslo)</span><span class="camp-rate">★ 3,8 <i>(2 789)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span></div>
+        <div class="camp-note">300 míst s elektřinou, 38 upravených pro karavany; sprchy v ceně; sdílená kuchyně.</div>
+        <a class="maplink camp" data-name="Topcamp Bogstad (Oslo)" data-rating="3,8" data-lat="59.962563" data-lng="10.642312" href="https://www.google.com/maps/search/?api=1&amp;query=Topcamp+Bogstad+Oslo" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -271,11 +312,13 @@
     <h2>Oslo</h2>
     <div class="activity">
       <p>Vigelandsparken (sochařský park), Opera House se střechou k projití, pevnost Akershus, promenáda Aker Brygge. Na výhled na celý Oslofjord zajet na skokanský můstek Holmenkollen.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Vigelandsparken+Oslo" target="_blank" rel="noopener">Vigelandsparken</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Oslo+Opera+House" target="_blank" rel="noopener">Opera House</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Holmenkollen+Ski+Jump" target="_blank" rel="noopener">Holmenkollen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Vigelandsparken+Oslo" target="_blank" rel="noopener" data-lat="59.92659" data-lng="10.701652">Vigelandsparken</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Oslo+Opera+House" target="_blank" rel="noopener" data-lat="59.907524" data-lng="10.752681">Opera House</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Holmenkollen+Ski+Jump" target="_blank" rel="noopener" data-lat="59.9639" data-lng="10.6679">Holmenkollen</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Bogstad Camping</div><div class="camp-note">Stejný jako den 1.</div></div></div>
+
+    <div class="note">Stejný kemp jako den 1 (Topcamp Bogstad).</div>
+
   </section>
 
   <!-- DAY 3 -->
@@ -284,12 +327,20 @@
     <h2>Hardangervidda a Vøringsfossen</h2>
     <div class="activity">
       <p>Přejezd z Osla na západ přes náhorní plošinu Hardangervidda (Rv7) — největší horská plošina v Evropě, časté stádo sobů. Zastávka u vodopádu Vøringsfossen s vyhlídkovou lávkou nad propastí.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hardangervidda" target="_blank" rel="noopener">Hardangervidda</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=V%C3%B8ringsfossen" target="_blank" rel="noopener">Vøringsfossen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hardangervidda" target="_blank" rel="noopener" data-lat="60.133054" data-lng="7.531103">Hardangervidda</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=V%C3%B8ringsfossen" target="_blank" rel="noopener" data-lat="60.427051" data-lng="7.250881">Vøringsfossen</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Vøringsfoss Camping / Sæbø Camping</div><div class="camp-note">Eidfjord, přímo na Hardangerfjordu.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=V%C3%B8ringsfoss+Camping+Eidfjord" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Sæbø Camping (Eidfjord)</span><span class="camp-rate">★ 4,0 <i>(1 127)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">Sprchy na mince (10 NOK / 4 min), elektřina za příplatek, vylévání chemického WC, prádelna.</div>
+        <a class="maplink camp" data-name="Sæbø Camping (Eidfjord)" data-rating="4,0" data-lat="60.425937" data-lng="7.121937" href="https://www.google.com/maps/search/?api=1&amp;query=S%C3%A6b%C3%B8+Camping+Eidfjord" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Původně navržený Vøringsfoss Camping se mi na Google Maps nepodařilo jednoznačně dohledat — Sæbø Camping je ověřený kemp přímo v Eidfjordu, na trase.</div>
+    </div>
   </section>
 
   <!-- DAY 4 -->
@@ -298,13 +349,20 @@
     <h2>Hardangerfjord → Bergen</h2>
     <div class="activity">
       <p>Kdo je zdatný a má den navíc: celodenní treking na Trolltunga (10–12 h, jen pro fyzicky připravené). Jinak kratší zastávka u vodopádu Latefossen u Odda — dvojitý vodopád přímo u silnice, bez náročného výšlapu — a přejezd přes most Hardangerbru do Bergenu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trolltunga" target="_blank" rel="noopener">Trolltunga (volitelně)</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Latefossen" target="_blank" rel="noopener">Latefossen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trolltunga" target="_blank" rel="noopener" data-lat="60.132958" data-lng="6.753998">Trolltunga (volitelně)</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Latefossen" target="_blank" rel="noopener" data-lat="59.947895" data-lng="6.58476">Latefossen</a>
       <div class="note warn"><b>Trolltunga je cca 27 km tam a zpět</b> — daleko přes doporučený denní limit (13 km), navíc prodlužuje trasu o den navíc. Doporučení: vynechat, Latefossen dá podobný zážitek bez velkého treku.</div>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Lone Camping</div><div class="camp-note">U jezera, 25 min od centra Bergenu.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lone+Camping+Bergen" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lone Camping (Bergen)</span><span class="camp-rate">★ 4,0 <i>(1 671)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Sprchy na žetony (4 min), elektřina, dump station a voda pro karavany; benzinka a obchod hned vedle. Sezóna květen–říjen.</div>
+        <a class="maplink camp" data-name="Lone Camping (Bergen)" data-rating="4,0" data-lat="60.373562" data-lng="5.459188" href="https://www.google.com/maps/search/?api=1&amp;query=Lone+Camping+Bergen" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 5 -->
@@ -313,10 +371,12 @@
     <h2>Bergen</h2>
     <div class="activity">
       <p>Hanzovní čtvrť Bryggen (UNESCO), rybí trh Fisketorget, lanovka Fløibanen na vyhlídku nad městem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bryggen+Bergen" target="_blank" rel="noopener">Bryggen</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%B8ibanen+Bergen" target="_blank" rel="noopener">Fløibanen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bryggen+Bergen" target="_blank" rel="noopener" data-lat="60.397726" data-lng="5.322933">Bryggen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%B8ibanen+Bergen" target="_blank" rel="noopener" data-lat="60.39641" data-lng="5.328564">Fløibanen</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Lone Camping</div><div class="camp-note">Stejný jako den 4.</div></div></div>
+
+    <div class="note">Stejný kemp jako den 4 (Lone Camping).</div>
+
   </section>
 
   <!-- DAY 6 -->
@@ -325,17 +385,24 @@
     <h2>Sognefjord a Flåm</h2>
     <div class="activity">
       <p>Cestou volitelně Borgund stavkirke — nejlépe dochovaný dřevěný kostel v Norsku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Borgund+Stave+Church" target="_blank" rel="noopener">Borgund stavkirke</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Borgund+Stave+Church" target="_blank" rel="noopener" data-lat="61.0472" data-lng="7.8156">Borgund stavkirke</a>
     </div>
     <div class="activity">
       <p>Nærøyfjord — nejužší fjord v Evropě (UNESCO). Vyhlídka Stegastein, 30 m plošina vysoko nad fjordem. Ve Flåmu volitelně horská železnice Flåmsbana, jedna z nejkrásnějších tratí světa.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=N%C3%A6r%C3%B8yfjord" target="_blank" rel="noopener">Nærøyfjord</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Stegastein+Viewpoint" target="_blank" rel="noopener">Stegastein</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%A5msbana" target="_blank" rel="noopener">Flåmsbana</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=N%C3%A6r%C3%B8yfjord" target="_blank" rel="noopener" data-lat="60.943925" data-lng="6.939724">Nærøyfjord</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Stegastein+Viewpoint" target="_blank" rel="noopener" data-lat="60.908634" data-lng="7.211773">Stegastein</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%A5msbana" target="_blank" rel="noopener" data-lat="60.863081" data-lng="7.114534">Flåmsbana</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Flåm Camping</div><div class="camp-note">Přímo u fjordu.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%A5m+Camping" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Flåm Camping og Vandrarheim</span><span class="camp-rate">★ 4,3 <i>(2 538)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">Sprchy v ceně, místa s elektřinou i bez, kuchyně, prádelna; servis (šedá/čistá voda) za poplatek.</div>
+        <a class="maplink camp" data-name="Flåm Camping og Vandrarheim" data-rating="4,3" data-lat="60.863063" data-lng="7.109688" href="https://www.google.com/maps/search/?api=1&amp;query=Fl%C3%A5m+Camping+og+Vandrarheim" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 7 -->
@@ -347,11 +414,18 @@
     <h2>Sognefjellsvegen</h2>
     <div class="activity">
       <p>Nejvyšší horská silnice severní Evropy (přes 1 400 m n. m., úsek Turtagrø–Lom), vede národním parkem Jotunheimen s výhledy na ledovce a nejvyšší norské vrcholy.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jotunheimen+National+Park" target="_blank" rel="noopener">Jotunheimen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jotunheimen+National+Park" target="_blank" rel="noopener" data-lat="61.552916" data-lng="8.530709">Jotunheimen</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Sognefjell Camping</div><div class="camp-note">Nebo okolí Lomu.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sognefjell+Camping" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lom Camping</span><span class="camp-rate">★ 3,8 <i>(413)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">30 míst s elektřinou, vylévání chemického WC, kuchyňka, sušička, nabíječka EV, wifi. 300 m od centra Lomu.</div>
+        <a class="maplink camp" data-name="Lom Camping" data-rating="3,8" data-lat="61.833812" data-lng="8.559063" href="https://www.google.com/maps/search/?api=1&amp;query=Lom+Camping+Fossbergom" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 8 -->
@@ -363,12 +437,19 @@
     <h2>Trollstigen → Geiranger</h2>
     <div class="activity">
       <p>Trollstigen — 11 serpentin do sklonu 12 %, vodopád Stigfossen přímo u silnice. Odpoledne dojezd ke Geirangerfjordu (UNESCO), cestou vodopády Sedm sester a Nápadník.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trollstigen" target="_blank" rel="noopener">Trollstigen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trollstigen" target="_blank" rel="noopener" data-lat="62.4548" data-lng="7.6708">Trollstigen</a>
       <div class="note warn"><b>Velmi úzké serpentiny.</b> S velkým/těžkým karavanem počítat s pomalou, opatrnou jízdou a čekáním na výhybnách na protijedoucí autobusy.</div>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Geirangerfjorden Feriesenter</div><div class="camp-note">Nejlépe hodnocený kemp v okolí, přímo u fjordu, 2 km od centra.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Geirangerfjorden+Feriesenter" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Geirangerfjorden Feriesenter</span><span class="camp-rate">★ 4,6 <i>(1 390)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">42 míst (37 s elektřinou), renovované sociální zařízení (2024), kuchyňka, prádelna, wifi; nepřijímá rezervace — příjezd dopoledne.</div>
+        <a class="maplink camp" data-name="Geirangerfjorden Feriesenter" data-rating="4,6" data-lat="62.114563" data-lng="7.185813" href="https://www.google.com/maps/search/?api=1&amp;query=Geirangerfjorden+Feriesenter" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 9 -->
@@ -377,16 +458,24 @@
     <h2>Geiranger → Ålesund</h2>
     <div class="activity">
       <p>Dopoledne fjord z vodní hladiny (trajekt/výletní loď proplouvá pod vodopády). Odpoledne secesní Ålesund — vyhlídka Aksla, 418 schodů, výhled na město mezi fjordy.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85lesund" target="_blank" rel="noopener">Ålesund</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Aksla+Viewpoint+%C3%85lesund" target="_blank" rel="noopener">Aksla</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85lesund" target="_blank" rel="noopener" data-lat="62.480236" data-lng="6.555074">Ålesund</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Aksla+Viewpoint+%C3%85lesund" target="_blank" rel="noopener" data-lat="62.47516" data-lng="6.167823">Aksla</a>
     </div>
     <div class="activity">
       <p><b>🧭 Pokud zbyde čas navíc:</b> ostrov Runde — jedna z největších ptačích kolonií v Norsku (papuchalci), cca hodinu od Ålesundu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Runde+Norway" target="_blank" rel="noopener">Runde</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Runde+Norway" target="_blank" rel="noopener" data-lat="62.398443" data-lng="5.631051">Runde</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Volsdalen Camping</div><div class="camp-note">Jediný kemp přímo v centru Ålesundu, u vody.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Volsdalen+Camping+%C3%85lesund" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Volsdalen Camping (Ålesund)</span><span class="camp-rate">★ 3,3 <i>(942)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Nejslabší hodnocení z celé trasy (fronty na sprchy); bez plné dump station pro karavany.</div>
+        <a class="maplink camp" data-name="Volsdalen Camping (Ålesund)" data-rating="3,3" data-lat="62.469563" data-lng="6.198063" href="https://www.google.com/maps/search/?api=1&amp;query=Volsdalen+Camping+%C3%85lesund" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Volsdalen má nejslabší hodnocení z celé trasy (fronty na sprchy, chybí plná dump station) — je ale jediný kemp přímo v Ålesundu. Alternativy najdete přes park4night / camping.no (odkazy výše).</div>
+    </div>
   </section>
 
   <!-- DAY 10 -->
@@ -398,9 +487,18 @@
     <h2>Atlanterhavsvegen</h2>
     <div class="activity">
       <p>Atlantická silnice — 8 km nad otevřeným oceánem, most Storseisundet vypadá jako rampa do prázdna. Norové ji zvolili „stavbou století".</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Atlanterhavsvegen+Atlantic+Road" target="_blank" rel="noopener">Atlantická silnice</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Atlanterhavsvegen+Atlantic+Road" target="_blank" rel="noopener" data-lat="63.0064" data-lng="7.3452">Atlantická silnice</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Budu / Kristiansundu</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kemp — okolí Bud / Kristiansund</span>
+
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Kempy u Atlanterhavsvegen (výběr)</span></div>
+        <div class="camp-note">Ověřené hodnocení a vybavení jsem tu nedohledal — vyberte přes park4night / camping.no podle volných míst; drží se trasy Atlanterhavsvegen → Kristiansund.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=camping+Atlanterhavsvegen+Kristiansund" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 11 -->
@@ -409,12 +507,19 @@
     <h2>Trondheim</h2>
     <div class="activity">
       <p>Katedrála Nidarosdomen (největší středověká stavba Skandinávie), barevná čtvrť Bakklandet podél řeky.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nidaros+Cathedral+Trondheim" target="_blank" rel="noopener">Nidarosdomen</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bakklandet+Trondheim" target="_blank" rel="noopener">Bakklandet</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nidaros+Cathedral+Trondheim" target="_blank" rel="noopener" data-lat="63.4269" data-lng="10.3969">Nidarosdomen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bakklandet+Trondheim" target="_blank" rel="noopener" data-lat="63.4283" data-lng="10.4033">Bakklandet</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Sandmoen Camping</div><div class="camp-note">Jižně od města.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sandmoen+Camping+Trondheim" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kemp — Trondheim</span>
+
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Sandmoen Camping (jižně od Trondheimu)</span></div>
+        <div class="camp-note">Na Google Maps se mi ho nepodařilo jednoznačně dohledat (bez hodnocení); vybavení ověřte na stránkách kempu.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Sandmoen+Camping+Trondheim" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 12 -->
@@ -426,9 +531,18 @@
     <h2>Start Kystriksveien</h2>
     <div class="activity">
       <p>Vjezd na Kystriksveien (Fv17) — 650 km pobřežní silnice s řadou trajektů, National Geographic ji řadí mezi nejkrásnější cesty světa.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kystriksveien+Fv17" target="_blank" rel="noopener">Kystriksveien</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kystriksveien+Fv17" target="_blank" rel="noopener" data-lat="64.86" data-lng="11.24">Kystriksveien</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Rørviku / Brønnøysundu</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kemp — okolí Brønnøysundu</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Torghatten Camping & Beach Restaurant</span><span class="camp-rate">★ 4,0 <i>(996)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">230 míst, 150 s elektřinou; sprchy, prádelna a wifi v ceně; vyhřívaný bazén s mořskou vodou.</div>
+        <a class="maplink camp" data-name="Torghatten Camping & Beach Restaurant" data-rating="4,0" data-lat="65.393062" data-lng="12.099063" href="https://www.google.com/maps/search/?api=1&amp;query=Torghatten+Camping+Br%C3%B8nn%C3%B8ysund" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 13 -->
@@ -437,10 +551,19 @@
     <h2>Torghatten, Sedm sester, polární kruh</h2>
     <div class="activity">
       <p>Hora s dírou skrz vrchol Torghatten (krátká procházka až do díry). Horský hřeben De syv søstre (Sedm sester) u Sandnessjøenu. Odpoledne symbolické překročení polárního kruhu na Polarsirkelsenteret.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Torghatten" target="_blank" rel="noopener">Torghatten</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Polarsirkelsenteret+Arctic+Circle+Centre" target="_blank" rel="noopener">Polarsirkelsenteret</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Torghatten" target="_blank" rel="noopener" data-lat="65.3987" data-lng="12.0939">Torghatten</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Polarsirkelsenteret+Arctic+Circle+Centre" target="_blank" rel="noopener" data-lat="66.5539" data-lng="15.3208">Polarsirkelsenteret</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Mo i Rana</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kemp — Mo i Rana</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Mo i Rana Camping NAF</span><span class="camp-rate">★ 3,7 <i>(657)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">Sprchy zdarma (6–23 h), voda u místa, elektřina za poplatek, prádelna a kuchyně.</div>
+        <a class="maplink camp" data-name="Mo i Rana Camping NAF" data-rating="3,7" data-lat="66.317188" data-lng="14.180312" href="https://www.google.com/maps/search/?api=1&amp;query=Mo+i+Rana+Camping+NAF" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 14 -->
@@ -449,11 +572,18 @@
     <h2>Saltstraumen → Bodø</h2>
     <div class="activity">
       <p>Saltstraumen — nejsilnější mořský vír na světě, nejlepší podívaná kolem přílivu/odlivu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Saltstraumen" target="_blank" rel="noopener">Saltstraumen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Saltstraumen" target="_blank" rel="noopener" data-lat="67.2333" data-lng="14.6167">Saltstraumen</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Pluscamp Saltstraumen Camping</div><div class="camp-note">Kousek od víru — lepší volba než kemp přímo v Bodø (Bodøsjøen Camping má slabší hodnocení).</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Pluscamp+Saltstraumen+Camping" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Pluscamp Saltstraumen Camping</span><span class="camp-rate">★ 4,1 <i>(1 216)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">80 míst s vodou, odpadem a elektřinou; sprchy a WC v malých místnostech; kuchyně, prádelna; čištění ryb.</div>
+        <a class="maplink camp" data-name="Pluscamp Saltstraumen Camping" data-rating="4,1" data-lat="67.235438" data-lng="14.621062" href="https://www.google.com/maps/search/?api=1&amp;query=Pluscamp+Saltstraumen+Camping" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 15 -->
@@ -466,9 +596,18 @@
     <div class="activity">
       <p>Trajekt Bodø → Moskenes, cca 3,5 h, scénická plavba otevřeným mořem. Po vylodění krátká jízda do Reine.</p>
       <div class="note warn"><b>V létě s vozidlem rezervovat předem</b> — bývá vyprodáno.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Reine+Lofoten" target="_blank" rel="noopener">Reine</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Reine+Lofoten" target="_blank" rel="noopener" data-lat="67.9327" data-lng="13.0887">Reine</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Oblast Ramberg / Reine</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kemp — oblast Ramberg</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lofoten Beach Camp (Ramberg)</span><span class="camp-rate">★ 4,3 <i>(1 630)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Sauna"><span class="am-i">🧖</span>sauna</span></div>
+        <div class="camp-note">16 sprch, 18 WC, sauny; vylévání chemického WC (kompletní dump station není); wifi. V sezóně fronty na sprchy.</div>
+        <a class="maplink camp" data-name="Lofoten Beach Camp (Ramberg)" data-rating="4,3" data-lat="68.103187" data-lng="13.294563" href="https://www.google.com/maps/search/?api=1&amp;query=Lofoten+Beach+Camp+Ramberg" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 16 -->
@@ -477,12 +616,12 @@
     <h2>Jižní Lofoty</h2>
     <div class="activity">
       <p>Reine a rybářská vesnička Hamnøy — nejfotografovanější místo Norska, Å i Lofoten na konci silnice E10.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hamn%C3%B8y+Lofoten" target="_blank" rel="noopener">Hamnøy</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85+i+Lofoten" target="_blank" rel="noopener">Å i Lofoten</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hamn%C3%B8y+Lofoten" target="_blank" rel="noopener" data-lat="67.9432" data-lng="13.1265">Hamnøy</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85+i+Lofoten" target="_blank" rel="noopener" data-lat="67.879" data-lng="12.9787">Å i Lofoten</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Lofoten Beach Camp (Ramberg)</div><div class="camp-note">300 m od pláže Skagsanden, sauna — jedno z nejlépe hodnocených míst na Lofotech.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lofoten+Beach+Camp+Ramberg" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="note">Stejný kemp jako den 15 (Lofoten Beach Camp) — nebo jiný v oblasti podle volných míst.</div>
+
   </section>
 
   <!-- DAY 17 -->
@@ -491,11 +630,20 @@
     <h2>Pláže a Nusfjord</h2>
     <div class="activity">
       <p>Arktické pláže s tyrkysovou vodou Uttakleiv a Haukland. Historická rybářská vesnice Nusfjord, jedna z nejlépe dochovaných v Norsku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uttakleiv+Beach" target="_blank" rel="noopener">Uttakleiv</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uttakleiv+Beach" target="_blank" rel="noopener" data-lat="68.209312" data-lng="13.506938">Uttakleiv</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haukland+Beach" target="_blank" rel="noopener">Haukland</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nusfjord" target="_blank" rel="noopener">Nusfjord</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nusfjord" target="_blank" rel="noopener" data-lat="68.035312" data-lng="13.347563">Nusfjord</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Vestvågøy / Uttakleiv</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kemp — Vestvågøy / Uttakleiv</span>
+
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Uttakleiv RV Parking</span><span class="camp-rate">★ 3,5</span></div>
+        <div class="camp-note">Jen parkoviště pro karavany u pláže (110 recenzí) — bez kempového zázemí. Na Lofotech je přespání mimo kemp omezeno, ověřte místní značky.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Uttakleiv+RV+Parking+Vestv%C3%A5g%C3%B8y" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 18 -->
@@ -504,12 +652,19 @@
     <h2>Henningsvær a Kabelvåg</h2>
     <div class="activity">
       <p>Henningsvær — „Benátky Lofot", malebné uličky a kavárny na skalách. Svolvær.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Henningsv%C3%A6r" target="_blank" rel="noopener">Henningsvær</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Svolv%C3%A6r" target="_blank" rel="noopener">Svolvær</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Henningsv%C3%A6r" target="_blank" rel="noopener" data-lat="68.1517" data-lng="14.2064">Henningsvær</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Svolv%C3%A6r" target="_blank" rel="noopener" data-lat="68.2342" data-lng="14.5677">Svolvær</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Kabelvåg Feriehus & Camping</div><div class="camp-note">V recenzích „pravděpodobně nejlepší kemp v Norsku".</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kabelv%C3%A5g+Feriehus+og+Camping" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Kabelvåg Feriehus & Camping</span><span class="camp-rate">★ 4,0 <i>(741)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">Sprchy 20 NOK / 4 min, elektřina 16 A, vypouštěcí a vodní stanice, kuchyně s indukcí, prádelna.</div>
+        <a class="maplink camp" data-name="Kabelvåg Feriehus & Camping" data-rating="4,0" data-lat="68.217313" data-lng="14.445438" href="https://www.google.com/maps/search/?api=1&amp;query=Kabelv%C3%A5g+Feriehus+and+Camping" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 19 -->
@@ -524,7 +679,7 @@
     </div>
     <div class="note"><b>Prodlužujete na Senju/Tromsø (dny 20–21)?</b> Trasa z Lofot na sever vede přímo přes souostroví Vesterålen — dá se zastavit v Nyksundu, malebné opuštěné a znovuobjevené rybářské vesničce, nebo v Bleiku (výjezdy na pozorování velryb). Klidně místo přímého odevzdání karavanu tenhle den zastavte ve Vesterålen a pokračujte na Senju další den.</div>
     <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nyksund+Vester%C3%A5len" target="_blank" rel="noopener">Nyksund</a>
-    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bleik+Vester%C3%A5len" target="_blank" rel="noopener">Bleik</a>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bleik+Vester%C3%A5len" target="_blank" rel="noopener" data-lat="69.2728" data-lng="15.9503">Bleik</a>
     <div class="pass">
       <div class="pass-main">
         <div class="pass-route"><span class="code">TOS</span><span class="arrow">✈</span><span class="code">PRG</span></div>
@@ -546,9 +701,16 @@
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tungeneset+Senja" target="_blank" rel="noopener">Tungeneset</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Segla+Senja" target="_blank" rel="noopener">Segla</a>
     </div>
-    <div class="camp"><div class="camp-icon">⛺</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Senja Camping (Silsand)</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Senja+Camping+Silsand" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Senja Camping (Silsand)</span><span class="camp-rate">★ 4,2 <i>(441)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">Terasovitá místa u jezera, sprchy na mince (10 NOK), kuchyňka, pračka a sušička.</div>
+        <a class="maplink camp" data-name="Senja Camping (Silsand)" data-rating="4,2" data-lat="69.231562" data-lng="17.702687" href="https://www.google.com/maps/search/?api=1&amp;query=Senja+Camping+Silsand" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 21 -->
@@ -560,8 +722,8 @@
     <h2>Tromsø — konec cesty</h2>
     <div class="activity">
       <p>Arktická katedrála Ishavskatedralen, lanovka Fjellheisen nad polární kruh s výhledem na fjordy. Odevzdání karavanu v Tromsø.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ishavskatedralen+Arctic+Cathedral+Troms%C3%B8" target="_blank" rel="noopener">Ishavskatedralen</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fjellheisen+Troms%C3%B8" target="_blank" rel="noopener">Fjellheisen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ishavskatedralen+Arctic+Cathedral+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.6392" data-lng="18.9556">Ishavskatedralen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fjellheisen+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.6356" data-lng="18.9938">Fjellheisen</a>
     </div>
     <div class="pass">
       <div class="pass-main">
@@ -578,6 +740,11 @@
       <span class="map-status" id="mapStatus"></span>
     </div>
     <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <label class="lg"><input type="checkbox" id="toggleCamps"> ⛺ kempy (<span id="campCnt">0</span>)</label>
+      <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
+      <span class="lg">┄┄ pořadí trasy</span>
+    </div>
   </div>
 
   <footer>
@@ -588,15 +755,16 @@
 <script>
 (function(){
   "use strict";
-  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
-  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
-  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
-  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
-  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  // Leaflet's CSS is inlined (not linked), so its default marker icon can't auto-detect where marker-icon.png etc. live
+  // and would look for them relative to this page (404) — point it at the CDN. imagePath must carry the full CDN base.
   if (window.L) {
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
   var COUNTRY_CODE = 'no';
+  var VIEWBOX = '';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
+  var PERMANENT_LABELS = false;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = true;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#3B6FA0';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){
@@ -607,36 +775,64 @@
     } catch(e){ return null; }
   }
   function extractMapPlaces(){
-    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
-    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    // the href's query param is usually more specific than the short visible link text — geocode with the fuller
+    // string, label with the short one. Links flagged .camp are campgrounds: a separate, switchable pin layer.
     var links = document.querySelectorAll('a.maplink');
     var seen = {}, out = [];
     links.forEach(function(a){
       var text = (a.textContent || '').trim();
       var hrefName = nameFromMapHref(a.getAttribute('href') || '');
-      var isGeneric = !text || /^mapa$/i.test(text);
-      var label = isGeneric ? (hrefName || text) : text;
+      var isGeneric = !text || /^mapa$/i.test(text) || /google/i.test(text);
+      var label = a.getAttribute('data-name') || (isGeneric ? (hrefName || text) : text);
       var query = hrefName || text;
       if (!label || !query) return;
       var key = query.toLowerCase();
-      if (seen[key]) return;
-      seen[key] = true;
-      out.push({label: label, query: query, href: a.getAttribute('href')});
+      if (seen[key]) { a._place = seen[key]; return; }
+      // data-lat/data-lng = coordinates already known → pin appears instantly, no Nominatim wait
+      var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
+      var p = {
+        label: label, query: query, href: a.getAttribute('href'),
+        coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
+        extra: !!a.closest('[data-extra]'), camp: a.classList.contains('camp'),
+        rating: a.getAttribute('data-rating') || ''
+      };
+      seen[key] = p; a._place = p;
+      out.push(p);
     });
     return out;
   }
   function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
   function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
   function geocodeOne(name){
-    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
-    // from a genuine "this place has no OSM entry" — those must never be cached the same way
-    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    // throws on a failed/blocked request (e.g. 429) so the caller can tell that apart from a genuine "no OSM entry"
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + (VIEWBOX ? '&viewbox=' + VIEWBOX + '&bounded=1' : '');
     return fetch(url).then(function(r){
       if (!r.ok) { throw new Error('http ' + r.status); }
       return r.json();
     }).then(function(rows){
       if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
       return null;
+    });
+  }
+  function fmt(c){ return c.lat.toFixed(5) + ',' + c.lng.toFixed(5); }
+
+  // per-day "open this day's route in Google Maps" button (directions URL — needs no API key; max 9 waypoints)
+  function addDayRouteButtons(){
+    document.querySelectorAll('section.day').forEach(function(sec){
+      if (sec.hasAttribute('data-extra') || sec.querySelector('.daybtn')) return;
+      var pts = [], seenK = {};
+      sec.querySelectorAll('a.maplink').forEach(function(a){
+        var p = a._place; if (!p || p.camp || !p.resolved) return;
+        var k = fmt(p.resolved); if (seenK[k]) return; seenK[k] = 1; pts.push(p.resolved);
+      });
+      if (pts.length < 2) return;
+      if (pts.length > 11) pts = pts.slice(0, 11);
+      var u = 'https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=' + fmt(pts[0]) + '&destination=' + fmt(pts[pts.length-1]);
+      if (pts.length > 2) u += '&waypoints=' + pts.slice(1, -1).map(fmt).join('%7C');
+      var a = document.createElement('a');
+      a.className = 'daybtn'; a.href = u; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🧭 Trasa dne v Google Maps (' + pts.length + ' zastávek)';
+      sec.appendChild(a);
     });
   }
 
@@ -651,15 +847,22 @@
     var cache = loadCache();
     var cacheKeyPrefix = COUNTRY_CODE + ':';
     var bounds = [];
-    var map = null;
+    var mainCount = 0, campCount = 0;
+    var routePts = [], routeLine = null;
+    var map = null, campLayer = null;
     var resolved = 0;
     var blocked = false;
+    var toggle = document.getElementById('toggleCamps');
 
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
-      // if the container gets its final size only after the map was created (fonts/layout still settling),
-      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      campLayer = L.layerGroup();
+      if (toggle) toggle.addEventListener('change', function(){
+        if (!map) return;
+        if (toggle.checked) campLayer.addTo(map); else map.removeLayer(campLayer);
+      });
+      // the container may get its final size only after the map was created — re-measure and re-fit on resize
       if (window.ResizeObserver) {
         new ResizeObserver(function(){
           if (!map) return;
@@ -670,8 +873,7 @@
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);
-      // this itinerary page can also load inside the claude.ai artifact preview, whose sandbox
-      // blocks external map-tile images — detect that and show a note instead of a broken gray box
+      // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
         blocked = true;
@@ -681,21 +883,44 @@
         statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
       });
     }
-    function addPoint(name, coord, href){
+    function popup(label, href, coord, extraLine){
+      return '<div class="pin-popup"><b>' + label + '</b>' + (extraLine ? '<br>' + extraLine : '') +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+        '<br><a href="https://mapy.cz/zakladni?x=' + coord.lng.toFixed(6) + '&y=' + coord.lat.toFixed(6) + '&z=15&source=coor&id=' + coord.lng.toFixed(6) + ',' + coord.lat.toFixed(6) + '" target="_blank" rel="noopener">Mapy.cz ↗</a></div>';
+    }
+    function addPoint(p, coord){
       ensureMap();
       if (blocked || !map) return;
-      var order = bounds.length + 1;
-      var icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
-      var m = L.marker([coord.lat, coord.lng], {icon: icon}).addTo(map);
-      m.bindTooltip(order + '. ' + name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + order + '. ' + name + '</b>' +
-        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
-      m.bindPopup(popupHtml);
+      var label = p.label, icon, zOffset = 0, m;
+      if (p.camp) {
+        campCount++;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="camp-pin">⛺</span>', iconSize:[20,20], iconAnchor:[10,10]});
+        m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: -500});
+        m.bindTooltip(label + (p.rating ? ' · ★ ' + p.rating : ''), {direction:'top', offset:[0,-8], className:'place-label'});
+        m.bindPopup(popup(label, p.href, coord, p.rating ? '★ ' + p.rating + ' (Google)' : ''));
+        campLayer.addLayer(m);
+        var cnt = document.getElementById('campCnt'); if (cnt) cnt.textContent = campCount;
+        return;
+      }
+      if (p.extra) {
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
+        zOffset = -1000;
+      } else {
+        var order = ++mainCount;
+        label = order + '. ' + p.label;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      }
+      m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
+      m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      // animate:false is load-bearing: when several places resolve from cache in the same tick
-      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
-      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
-      // early, too-small bounding box — later pins then render outside the visible map area
+      if (!p.extra && ROUTE_LINE) {
+        routePts.push([coord.lat, coord.lng]);
+        if (routeLine) routeLine.setLatLngs(routePts);
+        else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+      }
+      // animate:false is load-bearing: rapid-fire animated fitBounds calls (cache hits resolve in the same tick)
+      // interrupt each other and the view silently gets stuck on an early, too-small bounding box
       if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
       else map.fitBounds(bounds, {padding:[28,28], animate:false});
     }
@@ -703,7 +928,7 @@
     for (var i=0; i<places.length; i++){
       var place = places[i];
       var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
-      var cached = cache[cacheKey];
+      var cached = place.coord || cache[cacheKey];
       var madeLiveRequest = false;
       if (cached === undefined){
         statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
@@ -714,18 +939,18 @@
           madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          addDayRouteButtons();
           return;
         }
       }
-      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href); resolved++; }
-      if (blocked) return;
+      if (cached && cached !== 'FAIL'){ place.resolved = cached; addPoint(place, cached); resolved++; }
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
-      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
-      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      // only the Nominatim usage policy (~1 req/s) requires this pause — cache hits made no request and don't wait
       if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+    addDayRouteButtons();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);

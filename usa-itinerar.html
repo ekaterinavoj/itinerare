@@ -173,6 +173,37 @@
   .dropped b{color:var(--ink);}
 
   footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+
+  /* itin-common */
+  .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--ink-soft); box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
+  .map-legend .lg{display:inline-flex; align-items:center; gap:7px;}
+  .map-legend .num-pin{width:18px; height:18px; font-size:10px;}
+  .map-legend .num-pin--extra{width:12px; height:12px;}
+  .tip + .tip{margin-top:14px;}
+  .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .camp-item{padding:10px 0; border-top:1px solid var(--border);}
+  .camp-item:first-of-type{border-top:0; padding-top:2px;}
+  .camp-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .camp-name{font-weight:600; font-size:14.5px; color:var(--ink);}
+  .camp-rate{font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .camp-rate i{font-style:normal; color:var(--ink-faint);}
+  .amen{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .am{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:2px 8px 2px 6px;}
+  .am-i{font-size:13px; line-height:1;}
+  .amen-none{font-size:12px; color:var(--ink-faint); font-style:italic;}
+  .camp-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .camp-item a.maplink, .camp-item .maplink-plain{display:inline-block; margin-top:6px; font-size:12.5px;}
+  .maplink-plain{color:var(--ink-soft); text-decoration:underline;}
+  .camp-foot{font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5;}
+  .camp-pin{display:flex; align-items:center; justify-content:center; width:20px; height:20px; font-size:13px; line-height:1; background:var(--surface,#fff); border:1.5px solid var(--ink-soft,#666); border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .daybtn{display:inline-block; margin-top:14px; padding:8px 14px; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; box-shadow:var(--shadow, none);}
+  .daybtn:hover{border-color:var(--ink-soft);}
+  .linklist{list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; font-size:13.5px; line-height:1.5;}
+  .linklist span{color:var(--ink-soft);}
+  .tip--links a{font-weight:600; text-decoration:underline;}
+  .map-legend label.lg{cursor:pointer;}
 </style>
 </head>
 <body>
@@ -197,6 +228,7 @@
     <a href="#d12"><b>12</b> Devils Tower</a>
     <a href="#d13"><b>13</b> Rushmore</a>
     <a href="#d14"><b>14</b> Odlet</a>
+    <a href="#karavany"><b>🚐</b> Karavany</a>
   </div>
 </nav>
 
@@ -210,8 +242,37 @@
     <p><strong>🐻 Medvědi:</strong> povinné bear-boxy na jídlo na kempech, na treky medvědí sprej.</p>
     <p><strong>🏔️ Výška:</strong> Trail Ridge Road v RMNP vede přes 3 700 m n. m. — i v létě může sněžit.</p>
     <p><strong>🔄 Okruh jde otočit:</strong> celá trasa je smyčka Denver → Denver, dá se jet klidně i obráceně (Rushmore → Devils Tower → Bighorn/Cody → Yellowstone → Teton → Flaming Gorge → RMNP → Denver). Hodí se to hlavně kvůli RMNP — Trail Ridge Road bývá plně otevřená zhruba konec května až polovina října, ale i v sezóně ji můžou dočasně uzavřít letní bouře se sněžením ve výšce. Pokud by byla na začátku cesty zavřená, stačí přehodit pořadí a projet park na konci.</p>
-    <p><strong>🚐 Půjčovna karavanu v Denveru:</strong> <a href="https://www.tripadvisor.com/Attraction_Review-g33388-d23992853-Reviews-Native_Campervans_Denver-Denver_Colorado.html" target="_blank" rel="noopener">Native Campervans</a> (4,9★, přes 800 recenzí, přímo v Denveru — malá, pečlivá půjčovna) a <a href="https://www.escapecampervans.com/" target="_blank" rel="noopener">Escape Campervans</a> (4,1–4,4★, největší síť v Severní Americe, pobočka v Denveru, dobrá volba pro jednosměrný pronájem přes více měst) mají dlouhodobě nejlepší hodnocení. Pro víc možností srovnejte i tržiště <a href="https://www.outdoorsy.com/rv-rental/colorado/denver" target="_blank" rel="noopener">Outdoorsy</a> nebo <a href="https://www.rvezy.com/rv-rentals/campervan/destination/united-states/colorado/denver" target="_blank" rel="noopener">RVezy</a> — u obou vidíte recenze na konkrétní vůz/majitele dopředu.</p>
   </div>
+
+    <div class="tip tip--links" id="karavany"><span class="tip-label">Půjčovny karavanů (Denver, okružní)</span>
+      <p style="margin-top:8px;">Hodnocení Google (načteno 24. 9. 2026), řazeno podle spokojenosti. <b>Indie Campers jsem vyřadil</b> — máš s nimi špatnou zkušenost. Než rezervujete, zjistěte mílový limit a cenu generátoru / kuchyňského setu.</p>
+      <ul class="linklist">
+        <li><a href="https://www.nativecampervans.com/" target="_blank" rel="noopener">Native Campervans ↗</a> <span>— Google 4,9 ★ (757 recenzí); menší firma, pobočka v Denveru. Okružní pronájem s vrácením v Denveru sem sedí přesně.</span></li>
+        <li><a href="https://escapecampervans.com/" target="_blank" rel="noopener">Escape Campervans ↗</a> <span>— Google 4,7 ★ (Denver 700 recenzí, San Francisco 1 055) — největší síť, pobočky v obou městech.</span></li>
+        <li><a href="https://roadbearrv.com/" target="_blank" rel="noopener">Road Bear RV ↗</a> <span>— Google 4,7 ★ (515 recenzí); ověřte pobočku a podmínky.</span></li>
+        <li><a href="https://www.cruiseamerica.com/" target="_blank" rel="noopener">Cruise America ↗</a> <span>— Google 3,8 ★ (709 recenzí); velká síť poboček, ale hodnocení je slabší (vybavení a stav vozů se liší podle pobočky).</span></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=campervan+rental+Denver" target="_blank" rel="noopener">Hledání na Google Maps: pronájem karavanů, Denver ↗</a></li>
+      </ul>
+      <p style="margin-top:10px; font-size:13px;"><b>Reddit:</b> recenze na Redditu jsem nemohl přímo načíst (přístup je pro moje nástroje blokovaný), takže tu nejsou žádné citace z něj. Vyhledávání si udělejte sami: <a href="https://www.reddit.com/search/?q=escape%20campervans%20review" target="_blank" rel="noopener">Escape ↗</a>, <a href="https://www.reddit.com/search/?q=native%20campervans%20denver" target="_blank" rel="noopener">Native ↗</a>, <a href="https://www.reddit.com/search/?q=road%20bear%20rv%20review" target="_blank" rel="noopener">Road Bear ↗</a>, <a href="https://www.reddit.com/search/?q=cruise%20america%20rental%20review" target="_blank" rel="noopener">Cruise America ↗</a>, <a href="https://www.reddit.com/r/roadtrip/" target="_blank" rel="noopener">r/roadtrip ↗</a>.</p>
+    </div>
+
+    <div class="tip tip--links"><span class="tip-label">Kde hledat kempy a užitečné informace</span>
+      <ul class="linklist">
+        <li><a href="https://www.recreation.gov/" target="_blank" rel="noopener">recreation.gov ↗</a> <span>— oficiální rezervace kempů v národních parcích a lesích</span></li>
+        <li><a href="https://www.nps.gov/findapark/index.htm" target="_blank" rel="noopener">nps.gov — plánování návštěvy ↗</a> <span>— aktuální uzavírky, sezóny, povolení</span></li>
+        <li><a href="https://thedyrt.com/" target="_blank" rel="noopener">The Dyrt ↗</a> <span>— recenze kempů a fotky míst</span></li>
+        <li><a href="https://www.campendium.com/" target="_blank" rel="noopener">Campendium ↗</a> <span>— kempy včetně bezplatných / boondocking, recenze</span></li>
+        <li><a href="https://campflare.com/" target="_blank" rel="noopener">Campflare ↗</a> <span>— upozornění na uvolněná místa v plných kempech</span></li>
+        <li><a href="https://www.campsitephotos.com/" target="_blank" rel="noopener">Campsite Photos ↗</a> <span>— fotky konkrétních míst v kempu (hodí se pro výběr čísla místa)</span></li>
+        <li><a href="https://freecampsites.net/" target="_blank" rel="noopener">freecampsites.net ↗</a> <span>— bezplatné a levné kempování</span></li>
+        <li><a href="https://ioverlander.com/" target="_blank" rel="noopener">iOverlander ↗</a> <span>— místa pro přespání, vodu a dump stationy od cestovatelů</span></li>
+        <li><a href="https://www.allstays.com/" target="_blank" rel="noopener">AllStays ↗</a> <span>— kempy, RV parky, dump stationy</span></li>
+        <li><a href="https://www.hipcamp.com/" target="_blank" rel="noopener">Hipcamp ↗</a> <span>— soukromé kempy na pozemcích</span></li>
+        <li><a href="https://koa.com/" target="_blank" rel="noopener">KOA ↗</a> <span>— řetězec placených kempů s plnými službami</span></li>
+        <li><a href="https://www.blm.gov/programs/recreation/camping" target="_blank" rel="noopener">BLM — Bureau of Land Management ↗</a> <span>— levné a bezplatné kempy na federální půdě (Utah, Nevada, Arizona)</span></li>
+        <li><a href="https://esta.cbp.dhs.gov/" target="_blank" rel="noopener">ESTA — oficiální žádost o cestovní povolení ↗</a> <span>— Češi jezdí bez víza s ESTA; pozor na falešné weby s poplatky navíc</span></li>
+      </ul>
+    </div>
 
   <!-- DAY 1 -->
   <section class="day day--travel" id="d1">
@@ -230,14 +291,21 @@
       <div class="pass-stub">PŘÍLET</div>
     </div>
 
-    <div class="camp">
-      <div class="camp-icon">🏕️</div>
-      <div class="camp-body">
-        <span class="camp-label">Kemp</span>
-        <div class="camp-name">Carter Knolls Campground (Loveland)</div>
-        <div class="camp-note">Kousek od Rocky Mountain NP, ideální první zastávka po příletu.</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Carter+Knolls+Campground+Loveland+CO" target="_blank" rel="noopener">Mapa</a>
+    <div class="campbox">
+      <span class="camp-label">Kempy — první noc po příletu</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Carter Knolls Campground (Carter Lake)</span><span class="camp-rate">★ 4,4 <i>(69)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">Malý kemp (7 míst) nad jezerem; bez elektřiny a bez vody na místě (podle okresu Larimer).</div>
+        <a class="maplink camp" data-name="Carter Knolls Campground (Carter Lake)" data-rating="4,4" data-lat="40.338312" data-lng="-105.211063" href="https://www.google.com/maps/search/?api=1&amp;query=Carter+Knolls+Campground+Loveland" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Boyd Lake State Park</span><span class="camp-rate">★ 4,4 <i>(3 116)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
+        <div class="camp-note">148 míst, všechna s elektřinou (20/30/50 A), sprchy na mince, prádelna, dump station; bez kanalizace u místa.</div>
+        <a class="maplink camp" data-name="Boyd Lake State Park" data-rating="4,4" data-lat="40.431562" data-lng="-105.045187" href="https://www.google.com/maps/search/?api=1&amp;query=Boyd+Lake+State+Park+Campground+Loveland" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Denver → sever k Loveland; Boyd Lake SP má elektřinu na všech místech, Carter Knolls je malý a primitivnější.</div>
     </div>
   </section>
 
@@ -247,30 +315,54 @@
     <h2>Rocky Mountain National Park</h2>
     <div class="activity">
       <p>Trail Ridge Road — nejvýše položená průjezdná silnice v USA. Vyhlídky Many Parks Curve, Rainbow Curve, Forest Canyon Overlook, Medicine Bow Curve, Gore Range Overlook, Farview Curve, Inspiration Point.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trail+Ridge+Road+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Trail Ridge Road</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Forest+Canyon+Overlook" target="_blank" rel="noopener">Forest Canyon Overlook</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trail+Ridge+Road+Rocky+Mountain+National+Park" target="_blank" rel="noopener" data-lat="40.4406" data-lng="-105.7554">Trail Ridge Road</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Forest+Canyon+Overlook" target="_blank" rel="noopener" data-lat="40.395813" data-lng="-105.713953">Forest Canyon Overlook</a>
     </div>
     <div class="activity">
       <p><b>🧭 Návrh:</b> Ute Trailhead pro kratší procházku nad hranicí lesa, Bear Lake Rd s kratšími jezerními procházkami, National Park Gateway Stables pro vyjížďku na koni.</p>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ute+Trailhead+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Ute Trailhead</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bear+Lake+Road+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Bear Lake Rd</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bear+Lake+Road+Rocky+Mountain+National+Park" target="_blank" rel="noopener" data-lat="40.3125" data-lng="-105.6458">Bear Lake Rd</a>
       <div class="note">Longs Peak (4 346 m, ikonický vrchol parku) je ve vaší mapě jako výchozí bod/kemp — samotný výstup je ale cca 24 km tam a zpět, technický a náročný (cca 15 h), výrazně přes 13km limit. Počítejte s ním jen jako s dálkovým pohledem, ne s výstupem.</div>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body">
-      <span class="camp-label">Kemp — možnosti podle kapacity</span>
-      <div class="camp-name">Moraine Park Campground <span style="font-weight:400;color:var(--ink-faint);">4,6★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Moraine+Park+Campground" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Glacier Basin Campground <span style="font-weight:400;color:var(--ink-faint);">4,7★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Glacier+Basin+Campground+RMNP" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Aspenglen Campground</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Aspenglen+Campground+RMNP" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Timber Creek Campground <span style="font-weight:400;color:var(--ink-faint);">(západní strana, Grand Lake)</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Timber+Creek+Campground+RMNP" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Stillwater Campground / Stillwater RV <span style="font-weight:400;color:var(--ink-faint);">4,5★, Grand Lake</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Stillwater+Campground+Grand+Lake+CO" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Green Ridge Campground <span style="font-weight:400;color:var(--ink-faint);">4,4★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Green+Ridge+Campground+Grand+Lake+CO" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Moraine Park Campground</span><span class="camp-rate">★ 4,6 <i>(473)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Elektřina jen na vybraných místech (smyčky B, C); solární sprchy — vlastní vak, voda ve sprše není.</div>
+        <a class="maplink camp" data-name="Moraine Park Campground" data-rating="4,6" data-lat="40.360187" data-lng="-105.604438" href="https://www.google.com/maps/search/?api=1&amp;query=Moraine+Park+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Glacier Basin Campground</span><span class="camp-rate">★ 4,7 <i>(410)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Bez sprch a bez přípojek; sprchy až ve městě Estes Park.</div>
+        <a class="maplink camp" data-name="Glacier Basin Campground" data-rating="4,7" data-lat="40.328437" data-lng="-105.596063" href="https://www.google.com/maps/search/?api=1&amp;query=Glacier+Basin+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Aspenglen Campground</span><span class="camp-rate">★ 4,7 <i>(151)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Bez sprch a bez dump station (nejbližší v Moraine Park), bez přípojek; stany a menší vozy do cca 30 ft.</div>
+        <a class="maplink camp" data-name="Aspenglen Campground" data-rating="4,7" data-lat="40.400187" data-lng="-105.592562" href="https://www.google.com/maps/search/?api=1&amp;query=Aspenglen+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Timber Creek Campground</span><span class="camp-rate">★ 4,6 <i>(249)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Západní strana parku (Grand Lake). Bez sprch (placené sprchy až v Grand Lake); v kempu je dump station a plnění vody.</div>
+        <a class="maplink camp" data-name="Timber Creek Campground" data-rating="4,6" data-lat="40.378563" data-lng="-105.852063" href="https://www.google.com/maps/search/?api=1&amp;query=Timber+Creek+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Green Ridge Campground</span><span class="camp-rate">★ 4,4 <i>(285)</i></span></div>
+        <div class="amen"><span class="amen-none">vybavení neověřeno — zkontrolujte u správce kempu</span></div>
+        <div class="camp-note">Vybavení ověřte na recreation.gov.</div>
+        <a class="maplink camp" data-name="Green Ridge Campground" data-rating="4,4" data-lat="40.206063" data-lng="-105.844562" href="https://www.google.com/maps/search/?api=1&amp;query=Green+Ridge+Campground+Grand+Lake" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Stillwater Campground (Grand Lake)</span><span class="camp-rate">★ 4,5</span></div>
+        <div class="camp-note">Hodnocení z tvé mapy; na Googlu bez jednoznačného pinu.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Stillwater+Campground+Grand+Lake+Colorado" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 3 -->
@@ -279,28 +371,54 @@
     <h2>Přejezd přes Flaming Gorge</h2>
     <div class="activity">
       <p>Dlouhý přejezd severozápadním směrem přes oblast přehrady Flaming Gorge (Wyoming/Utah) — ve vaší mapě máte uložených hned několik kempů u Pilot Butte Reservoir.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Flaming+Gorge+National+Recreation+Area" target="_blank" rel="noopener">Flaming Gorge</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Flaming+Gorge+National+Recreation+Area" target="_blank" rel="noopener" data-lat="41.164566" data-lng="-109.555724">Flaming Gorge</a>
       <div class="note">Tento den je hlavně o řízení (cca 6–7 h čistého času). Alternativa: severnější trasa přes Curt Gowdy State Park a Medicine Bow (u Laramie), pokud by Flaming Gorge kempy nevyšly.</div>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body">
-      <span class="camp-label">Kemp — možnosti podle kapacity</span>
-      <div class="camp-name">Falls Campground <span style="font-weight:400;color:var(--ink-faint);">4,8★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Falls+Campground+Flaming+Gorge" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Sunrise Campground (Pilot Butte Reservoir) <span style="font-weight:400;color:var(--ink-faint);">4,8★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sunrise+Campground+Pilot+Butte+Reservoir" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Channel Campground <span style="font-weight:400;color:var(--ink-faint);">5,0★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Channel+Campground+Flaming+Gorge" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Bridge Hollow Campground <span style="font-weight:400;color:var(--ink-faint);">5,0★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bridge+Hollow+Campground+Flaming+Gorge" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Indian Crossing Campground <span style="font-weight:400;color:var(--ink-faint);">4,5★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Indian+Crossing+Campground+Flaming+Gorge" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Tough Creek Campground <span style="font-weight:400;color:var(--ink-faint);">4,4★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tough+Creek+Campground+Flaming+Gorge" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Pilot Butte Reservoir Campground <span style="font-weight:400;color:var(--ink-faint);">4,1★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Pilot+Butte+Reservoir+Campground" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Morton Lake Campground <span style="font-weight:400;color:var(--ink-faint);">4,0★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Morton+Lake+Campground+Flaming+Gorge" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — Flaming Gorge (hodnocení z tvé mapy)</span>
+
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Falls Campground</span><span class="camp-rate">★ 4,8</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Falls+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Sunrise Campground (Pilot Butte Reservoir)</span><span class="camp-rate">★ 4,8</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Sunrise+Campground+(Pilot+Butte+Reservoir)" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Channel Campground</span><span class="camp-rate">★ 5,0</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Channel+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Bridge Hollow Campground</span><span class="camp-rate">★ 5,0</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Bridge+Hollow+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Indian Crossing Campground</span><span class="camp-rate">★ 4,5</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Indian+Crossing+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Tough Creek Campground</span><span class="camp-rate">★ 4,4</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Tough+Creek+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Pilot Butte Reservoir Campground</span><span class="camp-rate">★ 4,1</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Pilot+Butte+Reservoir+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Morton Lake Campground</span><span class="camp-rate">★ 4,0</span></div>
+        <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Morton+Lake+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 4 -->
@@ -309,15 +427,33 @@
     <h2>Do Grand Tetonu</h2>
     <div class="activity">
       <p>Pokračování na sever, volitelná zastávka u Tie Hack Memorial (připomínka dřevorubců, kteří stavěli železniční pražce).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tie+Hack+Memorial+Wyoming" target="_blank" rel="noopener">Tie Hack Memorial</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tie+Hack+Memorial+Wyoming" target="_blank" rel="noopener" data-lat="43.646563" data-lng="-109.925688">Tie Hack Memorial</a>
     </div>
     <div class="activity">
       <p><b>🧭 Návrh:</b> po příjezdu do oblasti Jacksonu odpočinek v Astoria Hot Springs and Park (horké prameny s bazénem).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Astoria+Hot+Springs+and+Park" target="_blank" rel="noopener">Astoria Hot Springs</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Astoria+Hot+Springs+and+Park" target="_blank" rel="noopener" data-lat="43.300062" data-lng="-110.776188">Astoria Hot Springs</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Fireside Resort – Jackson Hole Campground</div><div class="camp-note">Glampingový styl, pohodlnější varianta; nebo klasický Colter Bay/Lizard Creek Campground.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fireside+Resort+Jackson+Hole+Campground" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Colter Bay Campground (Grand Teton)</span><span class="camp-rate">★ 4,5 <i>(606)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Sprchy a prádelna v Launderette u obchodu (za poplatek); dump station a plnění vody zdarma; obchod poblíž.</div>
+        <a class="maplink camp" data-name="Colter Bay Campground (Grand Teton)" data-rating="4,5" data-lat="43.907562" data-lng="-110.642063" href="https://www.google.com/maps/search/?api=1&amp;query=Colter+Bay+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lizard Creek Campground (Grand Teton)</span><span class="camp-rate">★ 4,5 <i>(146)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Bez sprch, přípojek a dump station (sprchy a prádelna v Colter Bay, 13 km).</div>
+        <a class="maplink camp" data-name="Lizard Creek Campground (Grand Teton)" data-rating="4,5" data-lat="44.004062" data-lng="-110.688438" href="https://www.google.com/maps/search/?api=1&amp;query=Lizard+Creek+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Fireside Resort – Jackson Hole Campground</span></div>
+        <div class="camp-note">Glampingový styl, pohodlnější varianta (bez hodnocení z Googlu).</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Fireside+Resort+Jackson+Hole+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 5 -->
@@ -326,22 +462,47 @@
     <h2>Grand Teton National Park</h2>
     <div class="activity">
       <p>Mount Moran Turnout (nejfotogeničtější pohled na štít Mount Moran nad jezerem), Teton Glacier Turnout, Cascade Canyon Turnout, Heron Pond & Swan Lake Trail, Hermitage Point.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Moran+Turnout" target="_blank" rel="noopener">Mount Moran Turnout</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Moran+Turnout" target="_blank" rel="noopener" data-lat="43.803426" data-lng="-110.641574">Mount Moran Turnout</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Heron+Pond+Swan+Lake+Trail" target="_blank" rel="noopener">Heron Pond Trail</a>
     </div>
     <div class="activity">
       <p><b>🧭 Návrh:</b> Hidden Falls Trail — oblíbená kratší trasa k vodopádu, dostupná i lodním shuttlem přes Jenny Lake.</p>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hidden+Falls+Trail+Grand+Teton" target="_blank" rel="noopener">Hidden Falls Trail</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body">
-      <span class="camp-label">Kemp — možnosti podle kapacity</span>
-      <div class="camp-name">Jenny Lake Campground <span style="font-weight:400;color:var(--ink-faint);">4,7★, nejblíž vyhlídkám</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jenny+Lake+Campground" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Colter Bay Campground</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Colter+Bay+Campground" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Lizard Creek Campground</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lizard+Creek+Campground" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Jenny Lake Campground (Grand Teton)</span><span class="camp-rate">★ 4,7 <i>(230)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Jen stany (bez RV a přívěsů). Sprchy — zdroje se rozcházejí; nejbližší sprchy jsou u Jenny Lake / v Colter Bay.</div>
+        <a class="maplink camp" data-name="Jenny Lake Campground (Grand Teton)" data-rating="4,7" data-lat="43.754437" data-lng="-110.720562" href="https://www.google.com/maps/search/?api=1&amp;query=Jenny+Lake+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Colter Bay Campground (Grand Teton)</span><span class="camp-rate">★ 4,5 <i>(606)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Sprchy a prádelna v Launderette u obchodu (za poplatek); dump station a plnění vody zdarma; obchod poblíž.</div>
+        <a class="maplink camp" data-name="Colter Bay Campground (Grand Teton)" data-rating="4,5" data-lat="43.907562" data-lng="-110.642063" href="https://www.google.com/maps/search/?api=1&amp;query=Colter+Bay+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lizard Creek Campground (Grand Teton)</span><span class="camp-rate">★ 4,5 <i>(146)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Bez sprch, přípojek a dump station (sprchy a prádelna v Colter Bay, 13 km).</div>
+        <a class="maplink camp" data-name="Lizard Creek Campground (Grand Teton)" data-rating="4,5" data-lat="44.004062" data-lng="-110.688438" href="https://www.google.com/maps/search/?api=1&amp;query=Lizard+Creek+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Signal Mountain Campground (Grand Teton)</span><span class="camp-rate">★ 4,6 <i>(270)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">81 míst, 24 s elektřinou; sprchy na žetony a prádelna v Signal Mountain Lodge, wifi, dump station.</div>
+        <a class="maplink camp" data-name="Signal Mountain Campground (Grand Teton)" data-rating="4,6" data-lat="43.841187" data-lng="-110.614188" href="https://www.google.com/maps/search/?api=1&amp;query=Signal+Mountain+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Gros Ventre Campground (Grand Teton)</span><span class="camp-rate">★ 4,4 <i>(786)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">36 míst s elektřinou, dvě dump stations u vjezdu; bez sprch.</div>
+        <a class="maplink camp" data-name="Gros Ventre Campground (Grand Teton)" data-rating="4,4" data-lat="43.615938" data-lng="-110.665813" href="https://www.google.com/maps/search/?api=1&amp;query=Gros+Ventre+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 6 -->
@@ -351,16 +512,25 @@
     <div class="activity">
       <p>Dojezd přes John D. Rockefeller, Jr. Memorial Parkway přímo do Yellowstonu.</p>
       <p><b>🧭 Návrh na zbytek dne:</b> West Thumb Geyser Basin (gejzíry přímo na břehu jezera Yellowstone Lake), Moose Falls (snadno dostupný vodopád hned za jižním vjezdem), Fishing Bridge.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=West+Thumb+Geyser+Basin" target="_blank" rel="noopener">West Thumb Geyser Basin</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=West+Thumb+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.417132" data-lng="-110.57142">West Thumb Geyser Basin</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Moose+Falls+Yellowstone" target="_blank" rel="noopener">Moose Falls</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body">
-      <span class="camp-label">Kemp — možnosti podle kapacity</span>
-      <div class="camp-name">Grant Village Campground <span style="font-weight:400;color:var(--ink-faint);">4,4★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Grant+Village+Campground" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Lewis Lake Campground & Boat Launch <span style="font-weight:400;color:var(--ink-faint);">4,2★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lewis+Lake+Campground+Boat+Launch" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Grant Village Campground (Yellowstone)</span><span class="camp-rate">★ 4,4</span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Camper Services: sprchy a prádelna (2 sprchy na noc v ceně), dump station. Hodnocení 4,4 je z původní mapy, na Googlu se nepodařilo jednoznačně dohledat.</div>
+        <a class="maplink camp" data-name="Grant Village Campground (Yellowstone)" data-rating="4,4" data-lat="44.3943" data-lng="-110.5636" href="https://www.google.com/maps/search/?api=1&amp;query=Grant+Village+Campground+Yellowstone+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lewis Lake Campground (Yellowstone)</span><span class="camp-rate">★ 4,2 <i>(224)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">85 míst, vozidla do cca 25 ft; bez sprch, bez dump station, bez signálu. Voda sezónně (do konce září).</div>
+        <a class="maplink camp" data-name="Lewis Lake Campground (Yellowstone)" data-rating="4,2" data-lat="44.282187" data-lng="-110.628063" href="https://www.google.com/maps/search/?api=1&amp;query=Lewis+Lake+Campground+Yellowstone" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 7 -->
@@ -369,15 +539,17 @@
     <h2>Yellowstone — gejzíry</h2>
     <div class="activity">
       <p>Old Faithful Geyser, Upper Geyser Basin, Morning Glory Pool, Biscuit Basin, Black Sand Basin, Grand Prismatic Spring + Grand Prismatic Overlook (krátký výšlap na vyhlídku — bez něj vidíte pramen jen zboku), Fountain Paint Pots, Firehole Lake Drive.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Old+Faithful+Geyser" target="_blank" rel="noopener">Old Faithful</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Grand+Prismatic+Spring+Overlook" target="_blank" rel="noopener">Grand Prismatic Overlook</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Old+Faithful+Geyser" target="_blank" rel="noopener" data-lat="44.460479" data-lng="-110.828138">Old Faithful</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Grand+Prismatic+Spring+Overlook" target="_blank" rel="noopener" data-lat="44.523325" data-lng="-110.839923">Grand Prismatic Overlook</a>
     </div>
     <div class="activity">
       <p><b>🧭 Volitelně:</b> Lone Star Geyser (klidnější, jen pěšky/na kole), nebo Grizzly & Wolf Discovery Center v sousedním West Yellowstone — dobrá záložní varianta při dešti, medvědi a vlci zblízka i mimo divočinu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lone+Star+Geyser" target="_blank" rel="noopener">Lone Star Geyser</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Grizzly+%26+Wolf+Discovery+Center" target="_blank" rel="noopener">Grizzly & Wolf Discovery Center</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lone+Star+Geyser" target="_blank" rel="noopener" data-lat="44.418369" data-lng="-110.806739">Lone Star Geyser</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Grizzly+%26+Wolf+Discovery+Center" target="_blank" rel="noopener" data-lat="44.656137" data-lng="-111.098613">Grizzly & Wolf Discovery Center</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Stejná oblast (Grant Village / Lewis Lake)</div></div></div>
+
+    <div class="note">Stejná oblast jako den 6 (Grant Village / Lewis Lake) — nebo přesun na jiný kemp podle volné kapacity.</div>
+
   </section>
 
   <!-- DAY 8 -->
@@ -386,16 +558,23 @@
     <h2>Grand Canyon of the Yellowstone</h2>
     <div class="activity">
       <p>Artist Point, Grand View, Inspiration Point, Lookout Point, Red Rock Point, Uncle Tom's Trail (schody dolů ke spodním vodopádům), Brink of the Lower Falls.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Artist+Point+Yellowstone" target="_blank" rel="noopener">Artist Point</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uncle+Tom%27s+Trail+Yellowstone" target="_blank" rel="noopener">Uncle Tom's Trail</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Artist+Point+Yellowstone" target="_blank" rel="noopener" data-lat="44.720123" data-lng="-110.479853">Artist Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uncle+Tom%27s+Trail+Yellowstone" target="_blank" rel="noopener" data-lat="44.715624" data-lng="-110.495834">Uncle Tom's Trail</a>
     </div>
     <div class="activity">
       <p><b>🧭 Návrh na zbytek dne:</b> Hayden Valley — jedno z nejlepších míst v parku na pozorování bizonů, hlavně za svítání/soumraku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hayden+Valley+Yellowstone" target="_blank" rel="noopener">Hayden Valley</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hayden+Valley+Yellowstone" target="_blank" rel="noopener" data-lat="44.675456" data-lng="-110.481998">Hayden Valley</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Canyon Campground</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Canyon+Campground+Yellowstone" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Canyon Campground (Yellowstone)</span><span class="camp-rate">★ 4,6 <i>(508)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Sprchy a prádelna v Camper Services (2 sprchy na noc v ceně), dump station (sezónně), obchod a restaurace v Canyon Village.</div>
+        <a class="maplink camp" data-name="Canyon Campground (Yellowstone)" data-rating="4,6" data-lat="44.735687" data-lng="-110.488937" href="https://www.google.com/maps/search/?api=1&amp;query=Canyon+Campground+Yellowstone+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 9 -->
@@ -404,22 +583,35 @@
     <h2>Severní Yellowstone</h2>
     <div class="activity">
       <p>Mammoth Hot Springs (Lower & Upper Terraces, Canary Spring, Orange Spring Mound), Norris Geyser Basin, Lamar Valley — divoká zvěř (vlci, bizoni, medvědi zdálky).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mammoth+Hot+Springs" target="_blank" rel="noopener">Mammoth Hot Springs</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lamar+Valley+Yellowstone" target="_blank" rel="noopener">Lamar Valley</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mammoth+Hot+Springs" target="_blank" rel="noopener" data-lat="44.962395" data-lng="-110.714357">Mammoth Hot Springs</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lamar+Valley+Yellowstone" target="_blank" rel="noopener" data-lat="44.868521" data-lng="-110.174643">Lamar Valley</a>
     </div>
     <div class="activity">
       <p><b>🧭 Návrh na zbytek dne:</b> Tower Fall, Calcite Springs Overlook, Petrified Tree, Yellowstone River Overlook.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tower+Fall+Yellowstone" target="_blank" rel="noopener">Tower Fall</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tower+Fall+Yellowstone" target="_blank" rel="noopener" data-lat="44.8917" data-lng="-110.3866">Tower Fall</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body">
-      <span class="camp-label">Kemp — možnosti podle kapacity</span>
-      <div class="camp-name">Mammoth Campground <span style="font-weight:400;color:var(--ink-faint);">4,6★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mammoth+Campground+Yellowstone" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Indian Creek Campground <span style="font-weight:400;color:var(--ink-faint);">4,6★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Indian+Creek+Campground+Yellowstone" target="_blank" rel="noopener">Mapa</a>
-      <div class="camp-name" style="margin-top:8px;">Tower Fall Campground <span style="font-weight:400;color:var(--ink-faint);">4,6★</span></div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tower+Fall+Campground" target="_blank" rel="noopener">Mapa</a>
-    </div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Mammoth Campground (Yellowstone)</span><span class="camp-rate">★ 4,6 <i>(264)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Bez sprch a bez dump station (nejbližší v Gardineru, cca 8 km). Celoročně, first-come.</div>
+        <a class="maplink camp" data-name="Mammoth Campground (Yellowstone)" data-rating="4,6" data-lat="44.976438" data-lng="-110.694063" href="https://www.google.com/maps/search/?api=1&amp;query=Mammoth+Campground+Yellowstone" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Indian Creek Campground (Yellowstone)</span><span class="camp-rate">★ 4,6 <i>(101)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Primitivnější: záchody bez splachování, voda sezónně, bez dump station. Cca červen – polovina září.</div>
+        <a class="maplink camp" data-name="Indian Creek Campground (Yellowstone)" data-rating="4,6" data-lat="44.886562" data-lng="-110.736063" href="https://www.google.com/maps/search/?api=1&amp;query=Indian+Creek+Campground+Yellowstone" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Tower Fall Campground (Yellowstone)</span><span class="camp-rate">★ 4,6 <i>(57)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">31 míst, vozidla do 30 ft, první příjezd — první obsluha; bez sprch a bez dump station. Zákaz generátorů.</div>
+        <a class="maplink camp" data-name="Tower Fall Campground (Yellowstone)" data-rating="4,6" data-lat="44.890062" data-lng="-110.390688" href="https://www.google.com/maps/search/?api=1&amp;query=Tower+Fall+Campground+Yellowstone" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 10 -->
@@ -431,11 +623,13 @@
     <h2>Yellowstone — trek/volný den</h2>
     <div class="activity">
       <p><b>🥾 Trek na výběr:</b> Mount Washburn od Chittenden Road (cca 5 km tam a zpět, 4–5 h), Mystic Falls (cca 4,5 km, 2–3 h), nebo Avalanche Peak (cca 6,5 km, ale strmé a náročné převýšení).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Washburn+Trailhead" target="_blank" rel="noopener">Mount Washburn</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Washburn+Trailhead" target="_blank" rel="noopener" data-lat="44.824519" data-lng="-110.444576">Mount Washburn</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mystic+Falls+Yellowstone" target="_blank" rel="noopener">Mystic Falls</a>
       <div class="note warn"><b>Union Falls (cca 17–19 km) a Electric Peak (cca 24–30 km)</b> jsou taky ve vaší mapě, ale obě výrazně přes doporučený denní limit 13 km — s vaším tempem se nedoporučují, i kdyby jim padl celý den.</div>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Stejná oblast jako den 9</div></div></div>
+
+    <div class="note">Stejná oblast jako den 9 (Mammoth / Indian Creek / Tower Fall).</div>
+
   </section>
 
   <!-- DAY 11 -->
@@ -444,9 +638,19 @@
     <h2>Yellowstone → Cody → Bighorn National Forest</h2>
     <div class="activity">
       <p>Východní výjezd z parku přes Cody (WY), odpoledne scénická silnice přes Bighorn National Forest.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bighorn+National+Forest" target="_blank" rel="noopener">Bighorn National Forest</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bighorn+National+Forest" target="_blank" rel="noopener" data-lat="44.471904" data-lng="-107.190707">Bighorn National Forest</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">V Bighorn National Forest nebo okolí</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Sibley Lake Campground (Bighorn NF)</span><span class="camp-rate">★ 4,7 <i>(106)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span></div>
+        <div class="camp-note">Jediný kemp v Bighorn NF s elektřinou (14 z 24 míst); záchody bez splachování; dump station pár km dál.</div>
+        <a class="maplink camp" data-name="Sibley Lake Campground (Bighorn NF)" data-rating="4,7" data-lat="44.758812" data-lng="-107.440063" href="https://www.google.com/maps/search/?api=1&amp;query=Sibley+Lake+Campground+Bighorn+National+Forest" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Bighorn National Forest — víc kempů podél US-14 (recreation.gov, fs.usda.gov).</div>
+    </div>
   </section>
 
   <!-- DAY 12 -->
@@ -455,9 +659,18 @@
     <h2>Devils Tower</h2>
     <div class="activity">
       <p>První národní památka USA (1906), unikátní sopečný suk, krátký okruh kolem paty (cca 2 km).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Devils+Tower+National+Monument" target="_blank" rel="noopener">Devils Tower</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Devils+Tower+National+Monument" target="_blank" rel="noopener" data-lat="44.589803" data-lng="-104.715163">Devils Tower</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Okolí Devils Tower / Sundance</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Belle Fourche River Campground (Devils Tower)</span><span class="camp-rate">★ 4,7 <i>(274)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Přímo pod Devils Tower; bez přípojek. Sprchy podle dostupných zdrojů nejsou.</div>
+        <a class="maplink camp" data-name="Belle Fourche River Campground (Devils Tower)" data-rating="4,7" data-lat="44.581562" data-lng="-104.706312" href="https://www.google.com/maps/search/?api=1&amp;query=Belle+Fourche+River+Campground+Devils+Tower" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 13 -->
@@ -466,13 +679,29 @@
     <h2>Mount Rushmore a Black Hills</h2>
     <div class="activity">
       <p>Mount Rushmore, případně okolní Black Hills (Custer State Park, Crazy Horse Memorial), pokud zbyde čas.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Rushmore" target="_blank" rel="noopener">Mount Rushmore</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Rushmore" target="_blank" rel="noopener" data-lat="43.880855" data-lng="-103.453823">Mount Rushmore</a>
     </div>
     <div class="activity">
       <p><b>🧭 Pokud zbyde čas navíc:</b> Badlands National Park — cca 1,5 h východně od Rushmore, měsíční krajina erodovaných útesů, prérioví psi, bizoni. Dá se stihnout jako odbočka i cestou zpět k Denveru.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Badlands+National+Park" target="_blank" rel="noopener">Badlands National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Badlands+National+Park" target="_blank" rel="noopener" data-lat="43.527106" data-lng="-102.361663">Badlands National Park</a>
     </div>
-    <div class="camp"><div class="camp-icon">🏕️</div><div class="camp-body"><span class="camp-label">Kemp</span><div class="camp-name">Black Hills oblast, poslední noc před návratem</div></div></div>
+
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Sylvan Lake Campground (Custer SP)</span><span class="camp-rate">★ 4,8 <i>(150)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span></div>
+        <div class="camp-note">Elektřina na 21 místech, sprchy; dump station zdarma v kempu Game Lodge. Mimo sezónu (říjen–duben) mohou být sprchy a splachovací záchody zavřené.</div>
+        <a class="maplink camp" data-name="Sylvan Lake Campground (Custer SP)" data-rating="4,8" data-lat="43.839687" data-lng="-103.557062" href="https://www.google.com/maps/search/?api=1&amp;query=Sylvan+Lake+Campground+Custer+State+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Horsethief Lake Campground (Black Hills NF)</span><span class="camp-rate">★ 4,6 <i>(146)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Blízko Mount Rushmore; bez sprch a bez elektřiny.</div>
+        <a class="maplink camp" data-name="Horsethief Lake Campground (Black Hills NF)" data-rating="4,6" data-lat="43.895563" data-lng="-103.484688" href="https://www.google.com/maps/search/?api=1&amp;query=Horsethief+Lake+Campground+Black+Hills" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Custer State Park a Black Hills NF — u Mount Rushmore je víc kempů (KOA, Hill City), viz odkazy níže.</div>
+    </div>
   </section>
 
   <!-- DAY 14 -->
@@ -504,18 +733,18 @@
         <span class="camp-label">Glacier National Park (Montana) — +3 dny</span>
         <div class="camp-name">Vložit mezi den 9 a den 11</div>
         <div class="camp-note">Cca 6–7 h přejezd každým směrem (přes Bozeman). Program: Going-to-the-Sun Road — Lake McDonald Lookout, Trail of the Cedars, Oberlin Bend, Paradise Meadow, Bird Woman Falls Overlook, Inspiration Point, The Loop. Kemp: Apgar Campground nebo Sprague Creek Campground.</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Going-to-the-Sun+Road+Glacier+National+Park" target="_blank" rel="noopener">Going-to-the-Sun Road</a>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Apgar+Campground+Glacier" target="_blank" rel="noopener">Apgar Campground</a>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Going-to-the-Sun+Road+Glacier+National+Park" target="_blank" rel="noopener" data-lat="48.6964" data-lng="-113.718">Going-to-the-Sun Road</a>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Apgar+Campground+Glacier" target="_blank" rel="noopener" data-lat="48.525512" data-lng="-113.981535">Apgar Campground</a>
       </div>
     </div>
 
     <div class="camp">
       <div class="camp-icon">🏜️</div>
       <div class="camp-body">
-        <span class="camp-label">Bryce Canyon a jižní Utah — +4–5 dní, samostatná odbočka</span>
+        <span class="camp-label">Bryce Canyon a jižní Utah — +4–5 dní, samostatná odbočka (v „USA Trip 1“ se nevešel)</span>
         <div class="camp-name">Jiný směr než zbytek trasy (jih, ne sever)</div>
         <div class="camp-note">Bryce Canyon (pískovcové věže — hoodoos) dává nejvíc smysl spojit s body, co už máte uložené: Potash Road (u Moabu/Canyonlands) a Uinta Mountains (Upper Provo Falls, Soapstone/Shady Dell/Duchesne Tunnel/Riverside Campground, Triple Arches). Spíš samostatná cesta po Utahu (Moab → Canyonlands → Bryce Canyon, případně Zion) než vsuvka do tohoto okruhu.</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bryce+Canyon+National+Park" target="_blank" rel="noopener">Bryce Canyon</a>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bryce+Canyon+National+Park" target="_blank" rel="noopener" data-lat="37.640372" data-lng="-112.169547">Bryce Canyon</a>
         <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Potash+Road+Moab" target="_blank" rel="noopener">Potash Road</a>
       </div>
     </div>
@@ -527,6 +756,12 @@
       <span class="map-status" id="mapStatus"></span>
     </div>
     <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <label class="lg"><input type="checkbox" id="toggleCamps"> ⛺ kempy (<span id="campCnt">0</span>)</label>
+      <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
+      <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty</span>
+      <span class="lg">┄┄ pořadí trasy</span>
+    </div>
   </div>
 
   <footer>
@@ -537,15 +772,16 @@
 <script>
 (function(){
   "use strict";
-  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
-  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
-  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
-  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
-  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  // Leaflet's CSS is inlined (not linked), so its default marker icon can't auto-detect where marker-icon.png etc. live
+  // and would look for them relative to this page (404) — point it at the CDN. imagePath must carry the full CDN base.
   if (window.L) {
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
   var COUNTRY_CODE = 'us';
+  var VIEWBOX = '';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
+  var PERMANENT_LABELS = false;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = true;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#5B8DB8';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){
@@ -556,36 +792,64 @@
     } catch(e){ return null; }
   }
   function extractMapPlaces(){
-    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
-    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    // the href's query param is usually more specific than the short visible link text — geocode with the fuller
+    // string, label with the short one. Links flagged .camp are campgrounds: a separate, switchable pin layer.
     var links = document.querySelectorAll('a.maplink');
     var seen = {}, out = [];
     links.forEach(function(a){
       var text = (a.textContent || '').trim();
       var hrefName = nameFromMapHref(a.getAttribute('href') || '');
-      var isGeneric = !text || /^mapa$/i.test(text);
-      var label = isGeneric ? (hrefName || text) : text;
+      var isGeneric = !text || /^mapa$/i.test(text) || /google/i.test(text);
+      var label = a.getAttribute('data-name') || (isGeneric ? (hrefName || text) : text);
       var query = hrefName || text;
       if (!label || !query) return;
       var key = query.toLowerCase();
-      if (seen[key]) return;
-      seen[key] = true;
-      out.push({label: label, query: query, href: a.getAttribute('href')});
+      if (seen[key]) { a._place = seen[key]; return; }
+      // data-lat/data-lng = coordinates already known → pin appears instantly, no Nominatim wait
+      var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
+      var p = {
+        label: label, query: query, href: a.getAttribute('href'),
+        coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
+        extra: !!a.closest('[data-extra]'), camp: a.classList.contains('camp'),
+        rating: a.getAttribute('data-rating') || ''
+      };
+      seen[key] = p; a._place = p;
+      out.push(p);
     });
     return out;
   }
   function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
   function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
   function geocodeOne(name){
-    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
-    // from a genuine "this place has no OSM entry" — those must never be cached the same way
-    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    // throws on a failed/blocked request (e.g. 429) so the caller can tell that apart from a genuine "no OSM entry"
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + (VIEWBOX ? '&viewbox=' + VIEWBOX + '&bounded=1' : '');
     return fetch(url).then(function(r){
       if (!r.ok) { throw new Error('http ' + r.status); }
       return r.json();
     }).then(function(rows){
       if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
       return null;
+    });
+  }
+  function fmt(c){ return c.lat.toFixed(5) + ',' + c.lng.toFixed(5); }
+
+  // per-day "open this day's route in Google Maps" button (directions URL — needs no API key; max 9 waypoints)
+  function addDayRouteButtons(){
+    document.querySelectorAll('section.day').forEach(function(sec){
+      if (sec.hasAttribute('data-extra') || sec.querySelector('.daybtn')) return;
+      var pts = [], seenK = {};
+      sec.querySelectorAll('a.maplink').forEach(function(a){
+        var p = a._place; if (!p || p.camp || !p.resolved) return;
+        var k = fmt(p.resolved); if (seenK[k]) return; seenK[k] = 1; pts.push(p.resolved);
+      });
+      if (pts.length < 2) return;
+      if (pts.length > 11) pts = pts.slice(0, 11);
+      var u = 'https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=' + fmt(pts[0]) + '&destination=' + fmt(pts[pts.length-1]);
+      if (pts.length > 2) u += '&waypoints=' + pts.slice(1, -1).map(fmt).join('%7C');
+      var a = document.createElement('a');
+      a.className = 'daybtn'; a.href = u; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🧭 Trasa dne v Google Maps (' + pts.length + ' zastávek)';
+      sec.appendChild(a);
     });
   }
 
@@ -600,15 +864,22 @@
     var cache = loadCache();
     var cacheKeyPrefix = COUNTRY_CODE + ':';
     var bounds = [];
-    var map = null;
+    var mainCount = 0, campCount = 0;
+    var routePts = [], routeLine = null;
+    var map = null, campLayer = null;
     var resolved = 0;
     var blocked = false;
+    var toggle = document.getElementById('toggleCamps');
 
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
-      // if the container gets its final size only after the map was created (fonts/layout still settling),
-      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      campLayer = L.layerGroup();
+      if (toggle) toggle.addEventListener('change', function(){
+        if (!map) return;
+        if (toggle.checked) campLayer.addTo(map); else map.removeLayer(campLayer);
+      });
+      // the container may get its final size only after the map was created — re-measure and re-fit on resize
       if (window.ResizeObserver) {
         new ResizeObserver(function(){
           if (!map) return;
@@ -619,8 +890,7 @@
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);
-      // this itinerary page can also load inside the claude.ai artifact preview, whose sandbox
-      // blocks external map-tile images — detect that and show a note instead of a broken gray box
+      // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
         blocked = true;
@@ -630,21 +900,44 @@
         statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
       });
     }
-    function addPoint(name, coord, href){
+    function popup(label, href, coord, extraLine){
+      return '<div class="pin-popup"><b>' + label + '</b>' + (extraLine ? '<br>' + extraLine : '') +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+        '<br><a href="https://mapy.cz/zakladni?x=' + coord.lng.toFixed(6) + '&y=' + coord.lat.toFixed(6) + '&z=15&source=coor&id=' + coord.lng.toFixed(6) + ',' + coord.lat.toFixed(6) + '" target="_blank" rel="noopener">Mapy.cz ↗</a></div>';
+    }
+    function addPoint(p, coord){
       ensureMap();
       if (blocked || !map) return;
-      var order = bounds.length + 1;
-      var icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
-      var m = L.marker([coord.lat, coord.lng], {icon: icon}).addTo(map);
-      m.bindTooltip(order + '. ' + name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + order + '. ' + name + '</b>' +
-        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
-      m.bindPopup(popupHtml);
+      var label = p.label, icon, zOffset = 0, m;
+      if (p.camp) {
+        campCount++;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="camp-pin">⛺</span>', iconSize:[20,20], iconAnchor:[10,10]});
+        m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: -500});
+        m.bindTooltip(label + (p.rating ? ' · ★ ' + p.rating : ''), {direction:'top', offset:[0,-8], className:'place-label'});
+        m.bindPopup(popup(label, p.href, coord, p.rating ? '★ ' + p.rating + ' (Google)' : ''));
+        campLayer.addLayer(m);
+        var cnt = document.getElementById('campCnt'); if (cnt) cnt.textContent = campCount;
+        return;
+      }
+      if (p.extra) {
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
+        zOffset = -1000;
+      } else {
+        var order = ++mainCount;
+        label = order + '. ' + p.label;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      }
+      m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
+      m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      // animate:false is load-bearing: when several places resolve from cache in the same tick
-      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
-      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
-      // early, too-small bounding box — later pins then render outside the visible map area
+      if (!p.extra && ROUTE_LINE) {
+        routePts.push([coord.lat, coord.lng]);
+        if (routeLine) routeLine.setLatLngs(routePts);
+        else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+      }
+      // animate:false is load-bearing: rapid-fire animated fitBounds calls (cache hits resolve in the same tick)
+      // interrupt each other and the view silently gets stuck on an early, too-small bounding box
       if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
       else map.fitBounds(bounds, {padding:[28,28], animate:false});
     }
@@ -652,7 +945,7 @@
     for (var i=0; i<places.length; i++){
       var place = places[i];
       var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
-      var cached = cache[cacheKey];
+      var cached = place.coord || cache[cacheKey];
       var madeLiveRequest = false;
       if (cached === undefined){
         statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
@@ -663,18 +956,18 @@
           madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          addDayRouteButtons();
           return;
         }
       }
-      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href); resolved++; }
-      if (blocked) return;
+      if (cached && cached !== 'FAIL'){ place.resolved = cached; addPoint(place, cached); resolved++; }
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
-      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
-      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      // only the Nominatim usage policy (~1 req/s) requires this pause — cache hits made no request and don't wait
       if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+    addDayRouteButtons();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);

@@ -10,66 +10,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <style>
   :root{
-    --ground:#F4F1F7;
-    --surface:#FFFEFF;
-    --surface-2:#EAE4F0;
-    --ink:#231C2C;
-    --ink-soft:#5A4C66;
-    --ink-faint:#928599;
-    --border:#DED4E6;
-    --dusk:#6A4C9C;
-    --dusk-ink:#F6F1FC;
-    --sage:#4F7A58;
-    --sage-ink:#EDF7EF;
-    --canyon:#C4552F;
-    --canyon-ink:#FCEEE8;
-    --gold:#B58620;
-    --gold-ink:#2A1D05;
-    --danger:#A3432A;
+    --ground:#F4F1F7; --surface:#FFFEFF; --surface-2:#EAE4F0; --ink:#231C2C; --ink-soft:#5A4C66; --ink-faint:#928599; --border:#DED4E6;
+    --dusk:#6A4C9C; --dusk-ink:#F6F1FC; --sage:#4F7A58; --sage-ink:#EDF7EF; --canyon:#C4552F; --canyon-ink:#FCEEE8;
+    --gold:#B58620; --gold-ink:#2A1D05; --danger:#A3432A;
     --shadow: 0 1px 2px rgba(35,28,44,.07), 0 6px 18px -10px rgba(35,28,44,.22);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ground:#17131D;
-      --surface:#211B29;
-      --surface-2:#2B2336;
-      --ink:#EDE7F3;
-      --ink-soft:#BBB0C8;
-      --ink-faint:#80749A;
-      --border:#3A3048;
-      --dusk:#B9A2E8;
-      --dusk-ink:#1B1030;
-      --sage:#8FCB9A;
-      --sage-ink:#0F2515;
-      --canyon:#E9906A;
-      --canyon-ink:#2A130A;
-      --gold:#E3B04E;
-      --gold-ink:#2A1D05;
-      --danger:#E58A6A;
+      --ground:#17131D; --surface:#211B29; --surface-2:#2B2336; --ink:#EDE7F3; --ink-soft:#BBB0C8; --ink-faint:#80749A; --border:#3A3048;
+      --dusk:#B9A2E8; --dusk-ink:#1B1030; --sage:#8FCB9A; --sage-ink:#0F2515; --canyon:#E9906A; --canyon-ink:#2A130A;
+      --gold:#E3B04E; --gold-ink:#2A1D05; --danger:#E58A6A;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
     }
   }
   :root[data-theme="dark"]{
-    --ground:#17131D;
-    --surface:#211B29;
-    --surface-2:#2B2336;
-    --ink:#EDE7F3;
-    --ink-soft:#BBB0C8;
-    --ink-faint:#80749A;
-    --border:#3A3048;
-    --dusk:#B9A2E8;
-    --dusk-ink:#1B1030;
-    --sage:#8FCB9A;
-    --sage-ink:#0F2515;
-    --canyon:#E9906A;
-    --canyon-ink:#2A130A;
-    --gold:#E3B04E;
-    --gold-ink:#2A1D05;
-    --danger:#E58A6A;
+    --ground:#17131D; --surface:#211B29; --surface-2:#2B2336; --ink:#EDE7F3; --ink-soft:#BBB0C8; --ink-faint:#80749A; --border:#3A3048;
+    --dusk:#B9A2E8; --dusk-ink:#1B1030; --sage:#8FCB9A; --sage-ink:#0F2515; --canyon:#E9906A; --canyon-ink:#2A130A;
+    --gold:#E3B04E; --gold-ink:#2A1D05; --danger:#E58A6A;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
   }
-
-  *{box-sizing:border-box;}
+*{box-sizing:border-box;}
   body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
   .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
   h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
@@ -180,6 +140,8 @@
 
   .badge--park{background:var(--dusk); color:var(--dusk-ink);}
   .badge--trek{background:var(--gold); color:var(--gold-ink);}
+  .badge--van{background:var(--sage); color:var(--sage-ink);}
+  .badge--long{background:transparent; color:var(--ink-soft); border:1px dashed var(--ink-faint);}
   .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
   .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--dusk); box-shadow:0 1px 3px rgba(0,0,0,.3);}
   .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
@@ -195,37 +157,65 @@
   .suggest li b{color:var(--ink); font-weight:600;}
   .extras .suggest + .suggest{margin-top:22px;}
   .tip a{color:var(--dusk); font-weight:600; text-decoration:underline;}
+  .tip + .tip{margin-top:14px;}
+  .extlink{color:var(--dusk); font-weight:600; text-decoration:underline;}
+
+  /* itin-common */
+  .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .camp-item{padding:10px 0; border-top:1px solid var(--border);}
+  .camp-item:first-of-type{border-top:0; padding-top:2px;}
+  .camp-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .camp-name{font-weight:600; font-size:14.5px; color:var(--ink);}
+  .camp-rate{font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .camp-rate i{font-style:normal; color:var(--ink-faint);}
+  .amen{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .am{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:2px 8px 2px 6px;}
+  .am-i{font-size:13px; line-height:1;}
+  .amen-none{font-size:12px; color:var(--ink-faint); font-style:italic;}
+  .camp-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .camp-item a.maplink, .camp-item .maplink-plain{display:inline-block; margin-top:6px; font-size:12.5px;}
+  .maplink-plain{color:var(--ink-soft); text-decoration:underline;}
+  .camp-foot{font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5;}
+  .camp-pin{display:flex; align-items:center; justify-content:center; width:20px; height:20px; font-size:13px; line-height:1; background:var(--surface,#fff); border:1.5px solid var(--ink-soft,#666); border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .daybtn{display:inline-block; margin-top:14px; padding:8px 14px; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; box-shadow:var(--shadow, none);}
+  .daybtn:hover{border-color:var(--ink-soft);}
+  .linklist{list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; font-size:13.5px; line-height:1.5;}
+  .linklist span{color:var(--ink-soft);}
+  .tip--links a{font-weight:600; text-decoration:underline;}
+  .map-legend label.lg{cursor:pointer;}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <a class="backlink" href="index.html">← Zpět na přehled</a>
-  <div class="eyebrow">USA Trip 1 · západ USA · cca 33 dní</div>
+  <div class="eyebrow">USA Trip 1 · New York → Denver → San Francisco → Florida · 30 dní (3týdenní verze 22 dní)</div>
   <h1>USA Trip 1</h1>
-  <p>Salt Lake City → Yellowstone → Utah → Grand Canyon → Las Vegas → Death Valley → Yosemite → San Francisco → Los Angeles. Klasický měsíční road trip po národních parcích západu USA.</p>
+  <p>New York → let do Denveru → karavanem přes Rocky Mountains, Utah, Grand Canyon, Las Vegas, Death Valley a Yosemite do San Francisca → let do Miami → Everglades a Kennedy Space Center → zpátky přes New York do Prahy. Bez Yellowstonu a Tetonů — ty jsou v „USA Trip 2“.</p>
 </header>
 
 <nav class="daynav">
   <div class="daynav-scroll">
-    <a href="#d1"><b>1</b> SLC</a>
-    <a href="#d2"><b>2</b> Yellowstone</a>
-    <a href="#d5"><b>5</b> Teton</a>
-    <a href="#d7"><b>7</b> Arches</a>
-    <a href="#d8"><b>8</b> Canyonlands</a>
-    <a href="#d9"><b>9</b> Monument Valley</a>
-    <a href="#d10"><b>10</b> Page</a>
-    <a href="#d11"><b>11</b> Grand Canyon</a>
-    <a href="#d13"><b>13</b> Bryce</a>
-    <a href="#d16"><b>16</b> Zion</a>
-    <a href="#d18"><b>18</b> Vegas</a>
-    <a href="#d20"><b>20</b> Death Valley</a>
-    <a href="#d23"><b>23</b> Sequoia</a>
-    <a href="#d24"><b>24</b> Yosemite</a>
-    <a href="#d26"><b>26</b> Mono Lake</a>
-    <a href="#d28"><b>28</b> San Francisco</a>
-    <a href="#d30"><b>30</b> Hwy 1</a>
-    <a href="#d32"><b>32</b> Joshua Tree</a>
+    <a href="#d1"><b>1</b> New York</a>
+    <a href="#d4"><b>4</b> Denver</a>
+    <a href="#d5"><b>5</b> Rocky Mountain</a>
+    <a href="#d7"><b>7</b> Moab</a>
+    <a href="#d8"><b>8</b> Arches</a>
+    <a href="#d9"><b>9</b> Canyonlands</a>
+    <a href="#d10"><b>10</b> Monument Valley</a>
+    <a href="#d11"><b>11</b> Page</a>
+    <a href="#d12"><b>12</b> Grand Canyon</a>
+    <a href="#d14"><b>14</b> Zion</a>
+    <a href="#d17"><b>17</b> Vegas</a>
+    <a href="#d18"><b>18</b> Death Valley</a>
+    <a href="#d20"><b>20</b> Mono Lake</a>
+    <a href="#d21"><b>21</b> Yosemite</a>
+    <a href="#d25"><b>25</b> San Francisco</a>
+    <a href="#d26"><b>26</b> Miami</a>
+    <a href="#d27"><b>27</b> Everglades</a>
+    <a href="#d29"><b>29</b> Kennedy Space Center</a>
+    <a href="#karavany"><b>🚐</b> Karavany</a>
     <a href="#extra"><b>+</b> Varianty</a>
   </div>
 </nav>
@@ -234,13 +224,44 @@
 
   <div class="tip">
     <span class="tip-label">Než vyrazíte</span>
-    <p><strong>🗓️ Délka:</strong> autoři článku doporučují 3 týdny až měsíc; za 2 týdny se toho dá stihnout hodně, ale je to hektické. Tenhle návrh má cca 33 dní — snadno se dá zkrátit (např. vynecháním Grand Tetonu, Cedar Breaks nebo Sequoie).</p>
-    <p><strong>🎟️ Povolení a rezervace:</strong> Angels Landing, Half Dome, The Subway a The Wave vyžadují povolení (často loterie); Alcatraz se vyprodává několik dní předem; ubytování u Yosemite mizí rychle. Antelope Canyon je jen s průvodcem — dnes se rezervuje předem.</p>
-    <p><strong>🚶 Tempo:</strong> plán počítá s pěšími túrami do 13 km denně. Half Dome, The Subway a Middle Teton to výrazně přesahují — jsou proto jen jako volitelné.</p>
-    <p><strong>🚗 Auto a poplatky:</strong> celoroční vstup do národních parků (America the Beautiful, cca $80 za auto) se při počtu parků vyplatí. Všechny ceny z článku jsou z doby jeho vzniku, před cestou je ověřte.</p>
-    <p><strong>🌌 Noc v kempu:</strong> v Death Valley a Joshua Tree stojí za to přespat v kempu přímo v parku — je tam neuvěřitelně tmavá obloha plná hvězd.</p>
-    <p><strong>🗺️ Zdroje:</strong> článek <a href="https://czechtheworld.com/roadtrip-usa/" target="_blank" rel="noopener">Road trip po západě USA (czechtheworld.com)</a> a jejich Google mapa „Road trip USA". Pořadí a délka dní jsou návrh podle pořadí trasy v mapě a doporučených dob pobytu v článku.</p>
+    <p><strong>🗓️ Dvě verze:</strong> plný plán má <b>30 dní</b> včetně cest. <b>3týdenní verze (22 dní)</b> vynechá: den 3 (New York — třetí den), den 6 (Rocky Mountain — západní strana), den 16 (Zion — druhý den), den 19 (Death Valley — druhý den), den 23 (Yosemite — druhý den). Sloučí: den 9 (Canyonlands a Dead Horse Point); den 10 (Monument Valley a Goosenecks); den 17 (Přejezd přes Las Vegas). Dny určené jen pro delší verzi mají štítek „Jen delší verze“.</p>
+    <p><strong>🚐 Karavan:</strong> jen mezi Denverem a San Franciscem (jednosměrný pronájem, cca 2–3 týdny). V New Yorku a na Floridě auto nepotřebujete (NYC) resp. půjčíte osobní auto v Miami.</p>
+    <p><strong>🗺️ Předpoklad k trase:</strong> „1 noc auto“ jsem si vyložil tak, že ze San Francisca letíte do Miami (1 noc v Miami), pak si půjčíte osobní auto a máte ještě 3 noci na Floridě (Everglades → Cape Canaveral → Orlando), auto vrátíte v Orlandu. Pokud jste to myslel jinak (např. dojezd autem z SF), dejte vědět.</p>
+    <p><strong>🌡️ Sezóna:</strong> Tioga Pass a Trail Ridge Road bývají otevřené cca od konce května do října; Death Valley je v létě extrémně horké (proto zimní kempy Sunset a Stovepipe jen od října). Nejpříjemnější kompromis je konec května – červen, případně září – začátek října.</p>
+    <p><strong>🎟️ Rezervace předem:</strong> kempy v národních parcích (Yosemite, Grand Canyon, Zion, Arches, Rocky Mountain), Alcatraz, Antelope Canyon, Angels Landing (loterie) a časované vjezdy do Arches / Rocky Mountain v sezóně.</p>
+    <p><strong>🔧 Ikonky u kempů:</strong> zobrazují jen to, co dané místo podle NPS / správců / průvodců opravdu nabízí (🚻 splachovací WC, 🚽 suchý záchod, 🚿 sprchy, 🚰 pitná voda, ⚡ elektřina, 🔌 plné přípojky, ♻️ dump station, 🧺 prádelna …). Chybějící ikona = ta služba tam není. Hodnocení a počet recenzí jsou z Google Maps k 24. 9. 2026 — otevřete si odkaz a ověřte aktuální volná místa.</p>
+    <p><strong>🗺️ Zdroje:</strong> vlastní návrh podle tvé trasy (NY → Denver → SF → Miami). Ceny a limity se mění — před cestou ověřte na oficiálních stránkách.</p>
   </div>
+
+    <div class="tip tip--links" id="karavany"><span class="tip-label">Půjčovny karavanů (Denver → San Francisco)</span>
+      <p style="margin-top:8px;">Hodnocení Google (načteno 24. 9. 2026), řazeno podle spokojenosti. <b>Indie Campers jsem vyřadil</b> — máš s nimi špatnou zkušenost. Než rezervujete, zjistěte <b>poplatek za jednosměrný pronájem</b>, mílový limit a cenu generátoru / kuchyňského setu.</p>
+      <ul class="linklist">
+        <li><a href="https://www.nativecampervans.com/" target="_blank" rel="noopener">Native Campervans ↗</a> <span>— Google 4,9 ★ (757 recenzí); menší firma, pobočka v Denveru. Podle dostupných informací jen okružní pronájem (vrácení v Denveru) — na jednosměrku se zeptejte.</span></li>
+        <li><a href="https://escapecampervans.com/" target="_blank" rel="noopener">Escape Campervans ↗</a> <span>— Google 4,7 ★ (Denver 700 recenzí, San Francisco 1 055) — největší síť, pobočky v obou městech, jednosměrné pronájmy běžné.</span></li>
+        <li><a href="https://roadbearrv.com/" target="_blank" rel="noopener">Road Bear RV ↗</a> <span>— Google 4,7 ★ (515 recenzí); ověřte pobočku a podmínky.</span></li>
+        <li><a href="https://www.cruiseamerica.com/" target="_blank" rel="noopener">Cruise America ↗</a> <span>— Google 3,8 ★ (709 recenzí); velká síť poboček, ale hodnocení je slabší (vybavení a stav vozů se liší podle pobočky).</span></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=campervan+rental+Denver" target="_blank" rel="noopener">Hledání na Google Maps: pronájem karavanů, Denver ↗</a></li>
+      </ul>
+      <p style="margin-top:10px; font-size:13px;"><b>Reddit:</b> recenze na Redditu jsem nemohl přímo načíst (přístup je pro moje nástroje blokovaný), takže tu nejsou žádné citace z něj. Vyhledávání si udělejte sami: <a href="https://www.reddit.com/search/?q=escape%20campervans%20review" target="_blank" rel="noopener">Escape ↗</a>, <a href="https://www.reddit.com/search/?q=native%20campervans%20denver" target="_blank" rel="noopener">Native ↗</a>, <a href="https://www.reddit.com/search/?q=road%20bear%20rv%20review" target="_blank" rel="noopener">Road Bear ↗</a>, <a href="https://www.reddit.com/search/?q=cruise%20america%20rental%20review" target="_blank" rel="noopener">Cruise America ↗</a>, <a href="https://www.reddit.com/r/roadtrip/" target="_blank" rel="noopener">r/roadtrip ↗</a>.</p>
+    </div>
+
+    <div class="tip tip--links"><span class="tip-label">Kde hledat kempy a užitečné informace</span>
+      <ul class="linklist">
+        <li><a href="https://www.recreation.gov/" target="_blank" rel="noopener">recreation.gov ↗</a> <span>— oficiální rezervace kempů v národních parcích a lesích</span></li>
+        <li><a href="https://www.nps.gov/findapark/index.htm" target="_blank" rel="noopener">nps.gov — plánování návštěvy ↗</a> <span>— aktuální uzavírky, sezóny, povolení</span></li>
+        <li><a href="https://thedyrt.com/" target="_blank" rel="noopener">The Dyrt ↗</a> <span>— recenze kempů a fotky míst</span></li>
+        <li><a href="https://www.campendium.com/" target="_blank" rel="noopener">Campendium ↗</a> <span>— kempy včetně bezplatných / boondocking, recenze</span></li>
+        <li><a href="https://campflare.com/" target="_blank" rel="noopener">Campflare ↗</a> <span>— upozornění na uvolněná místa v plných kempech</span></li>
+        <li><a href="https://www.campsitephotos.com/" target="_blank" rel="noopener">Campsite Photos ↗</a> <span>— fotky konkrétních míst v kempu (hodí se pro výběr čísla místa)</span></li>
+        <li><a href="https://freecampsites.net/" target="_blank" rel="noopener">freecampsites.net ↗</a> <span>— bezplatné a levné kempování</span></li>
+        <li><a href="https://ioverlander.com/" target="_blank" rel="noopener">iOverlander ↗</a> <span>— místa pro přespání, vodu a dump stationy od cestovatelů</span></li>
+        <li><a href="https://www.allstays.com/" target="_blank" rel="noopener">AllStays ↗</a> <span>— kempy, RV parky, dump stationy</span></li>
+        <li><a href="https://www.hipcamp.com/" target="_blank" rel="noopener">Hipcamp ↗</a> <span>— soukromé kempy na pozemcích</span></li>
+        <li><a href="https://koa.com/" target="_blank" rel="noopener">KOA ↗</a> <span>— řetězec placených kempů s plnými službami</span></li>
+        <li><a href="https://www.blm.gov/programs/recreation/camping" target="_blank" rel="noopener">BLM — Bureau of Land Management ↗</a> <span>— levné a bezplatné kempy na federální půdě (Utah, Nevada, Arizona)</span></li>
+        <li><a href="https://esta.cbp.dhs.gov/" target="_blank" rel="noopener">ESTA — oficiální žádost o cestovní povolení ↗</a> <span>— Češi jezdí bez víza s ESTA; pozor na falešné weby s poplatky navíc</span></li>
+      </ul>
+    </div>
 
   <!-- DAY 1 -->
   <section class="day" id="d1">
@@ -248,24 +269,24 @@
       <span class="day-date">DEN 01</span>
       <div class="badges"><span class="badge badge--travel">Přílet</span></div>
     </div>
-    <h2>Přílet do Salt Lake City</h2>
+    <h2>Přílet do New Yorku</h2>
     <div class="pass">
       <div class="pass-main">
-        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">SLC</span></div>
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">NYC</span></div>
         <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
       </div>
       <div class="pass-stub">PŘÍLET</div>
     </div>
     <div class="activity">
-      <p>Vyzvednutí auta na letišti v Salt Lake City a přesun na sever k Yellowstonu (cca 5 h do West Yellowstone). Po dlouhém letu a časovém posunu je rozumné přerušit cestu už v Idaho Falls.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Salt+Lake+City+International+Airport" target="_blank" rel="noopener" data-lat="40.786145" data-lng="-111.981048">Salt Lake City (letiště)</a>
+      <p>Z letiště metrem / vlakem do Manhattanu, ubytování a lehká večerní procházka — po přeletu a časovém posunu (–6 h) nic náročného.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Times+Square+New+York" target="_blank" rel="noopener" data-lat="40.758" data-lng="-73.9855">Times Square</a>
     </div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
         <span class="stay-label">Nocleh</span>
-        <div class="stay-name">West Yellowstone (nebo Idaho Falls)</div>
-        <div class="stay-note">West Yellowstone leží hned u hranice parku a je odtud všude nejblíž.</div>
+        <div class="stay-name">Manhattan (nebo Long Island City / Brooklyn — levnější)</div>
+        <div class="stay-note">Ubytování v NYC je drahé; kus mimo Manhattan ušetří hodně a metro to vyřeší.</div>
       </div>
     </div>
   </section>
@@ -274,79 +295,70 @@
   <section class="day" id="d2">
     <div class="day-head">
       <span class="day-date">DEN 02</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--light">Město</span></div>
     </div>
-    <h2>Yellowstone — gejzíry</h2>
+    <h2>New York — Manhattan a Brooklyn</h2>
     <div class="activity">
-      <p><b>Old Faithful a Upper Geyser Basin</b> — nejslavnější gejzír parku, kolem něj Castle Geyser, Morning Glory Pool, Biscuit Basin a Black Sand Basin. Na kus jídla nebo prohlídku zajděte do historického hotelu Old Faithful Inn.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Faithful+Geyser" target="_blank" rel="noopener" data-lat="44.460479" data-lng="-110.828138">Old Faithful</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Upper+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.463769" data-lng="-110.82971">Upper Geyser Basin</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Castle+Geyser" target="_blank" rel="noopener" data-lat="44.463656" data-lng="-110.836493">Castle Geyser</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Morning+Glory+Pool" target="_blank" rel="noopener" data-lat="44.475072" data-lng="-110.843535">Morning Glory Pool</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Biscuit+Basin" target="_blank" rel="noopener" data-lat="44.485117" data-lng="-110.852627">Biscuit Basin</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Black+Sand+Basin" target="_blank" rel="noopener" data-lat="44.4622" data-lng="-110.853758">Black Sand Basin</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Faithful+Inn" target="_blank" rel="noopener" data-lat="44.459836" data-lng="-110.831195">Old Faithful Inn</a>
+      <p><b>Central Park</b> a klasický okruh Manhattanem: Empire State Building, Grand Central, Times Square. Odpoledne přes <b>Brooklyn Bridge</b> pěšky (nejlépe od Brooklynu k Manhattanu) a západ slunce z Brooklyn Bridge Parku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Central+Park+New+York" target="_blank" rel="noopener" data-lat="40.7829" data-lng="-73.9654">Central Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Empire+State+Building" target="_blank" rel="noopener" data-lat="40.7484" data-lng="-73.9857">Empire State Building</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Brooklyn+Bridge" target="_blank" rel="noopener" data-lat="40.7061" data-lng="-73.9969">Brooklyn Bridge</a>
     </div>
     <div class="activity">
-      <p><b>Grand Prismatic Spring</b> — nejbarevnější pramen parku. Zblízka ho uvidíte jen z boku; celý je vidět z vyhlídky Overlook (stezka začíná na parkovišti Fairy Falls).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Prismatic+Spring" target="_blank" rel="noopener" data-lat="44.525082" data-lng="-110.838125">Grand Prismatic Spring</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Prismatic+Spring+Overlook" target="_blank" rel="noopener" data-lat="44.523325" data-lng="-110.839923">Grand Prismatic Overlook</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fairy+Falls+Trail+Parking+Lot" target="_blank" rel="noopener" data-lat="44.515139" data-lng="-110.832422">Fairy Falls (parkoviště)</a>
+      <p><b>Socha Svobody a Ellis Island</b> — trajekt z Battery Parku (lístky si předem kupte jen u oficiálního prodejce Statue City Cruises, ne od pouličních prodejců). Půl dne.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Statue+of+Liberty+National+Monument" target="_blank" rel="noopener" data-lat="40.6892" data-lng="-74.0445">Statue of Liberty</a>
     </div>
-    <div class="note">Všechno důležité v Yellowstonu se dá stihnout za 2 dny, autoři článku ale doporučují 3–4 dny i víc — proto jsou v plánu tři.</div>
   </section>
 
   <!-- DAY 3 -->
   <section class="day" id="d3">
     <div class="day-head">
       <span class="day-date">DEN 03</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--light">Město</span><span class="badge badge--long">Jen delší verze</span></div>
     </div>
-    <h2>Yellowstone — kaňon a Hayden Valley</h2>
+    <h2>New York — třetí den</h2>
     <div class="activity">
-      <p><b>Grand Canyon of the Yellowstone</b> — žlutý kaňon s dvojicí velkých vodopádů. Vyhlídky Upper Falls View, Inspiration Point a Artist Point; z Uncle Tom's Trail se sestupuje po schodech dolů k vodopádu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Canyon+of+the+Yellowstone" target="_blank" rel="noopener" data-lat="44.719745" data-lng="-110.48532">Grand Canyon of the Yellowstone</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Upper+Falls+View" target="_blank" rel="noopener" data-lat="44.714724" data-lng="-110.49717">Upper Falls View</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Inspiration+Point+Yellowstone" target="_blank" rel="noopener" data-lat="44.724984" data-lng="-110.469687">Inspiration Point</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Artist+Point+Yellowstone" target="_blank" rel="noopener" data-lat="44.720123" data-lng="-110.479853">Artist Point</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Uncle+Tom's+Trail+Yellowstone" target="_blank" rel="noopener" data-lat="44.715624" data-lng="-110.495834">Uncle Tom's Trail</a>
+      <p><b>9/11 Memorial &amp; Muzeum</b>, Oculus a Wall Street ráno; odpoledne <b>High Line</b> a Chelsea Market; večer vyhlídka <b>Top of the Rock</b> nebo Summit One Vanderbilt.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=9%2F11+Memorial+%26amp%3B+Museum+New+York" target="_blank" rel="noopener" data-lat="40.7115" data-lng="-74.0134">9/11 Memorial</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+High+Line+New+York" target="_blank" rel="noopener" data-lat="40.748" data-lng="-74.0048">High Line</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Top+of+the+Rock+Observation+Deck" target="_blank" rel="noopener" data-lat="40.7593" data-lng="-73.9794">Top of the Rock</a>
     </div>
-    <div class="activity">
-      <p><b>Hayden Valley</b> — široké údolí, kde se nejspíš potkáte se stády bizonů; nejlepší je brzy ráno nebo k večeru.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hayden+Valley" target="_blank" rel="noopener" data-lat="44.675456" data-lng="-110.481998">Hayden Valley</a>
-    </div>
-    <div class="activity">
-      <p><b>West Thumb Geyser Basin</b> — gejzíry a barevná jezírka přímo na břehu Yellowstone Lake.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=West+Thumb+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.417132" data-lng="-110.57142">West Thumb Geyser Basin</a>
-    </div>
+    <div class="note">Alternativa: Metropolitan Museum nebo výlet na Coney Island / do Brooklynu (DUMBO, Williamsburg).</div>
   </section>
 
   <!-- DAY 4 -->
   <section class="day" id="d4">
     <div class="day-head">
       <span class="day-date">DEN 04</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přelet</span><span class="badge badge--van">Karavan</span></div>
     </div>
-    <h2>Yellowstone — sever</h2>
-    <div class="activity">
-      <p><b>Norris Geyser Basin</b> — nejžhavější a nejproměnlivější geotermální oblast parku, dobře udělané chodníky.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Norris+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.726235" data-lng="-110.704281">Norris Geyser Basin</a>
-    </div>
-    <div class="activity">
-      <p><b>Mammoth Hot Springs</b> — bílé vápencové terasy, které vytvářejí horké prameny (Upper a Lower Terraces).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mammoth+Hot+Springs+Upper+Terraces" target="_blank" rel="noopener" data-lat="44.966388" data-lng="-110.711145">Mammoth Upper Terraces</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mammoth+Hot+Springs+Lower+Terraces" target="_blank" rel="noopener" data-lat="44.968417" data-lng="-110.705282">Mammoth Lower Terraces</a>
+    <h2>Let do Denveru a vyzvednutí karavanu</h2>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">NYC</span><span class="arrow">✈</span><span class="code">DEN</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+      </div>
+      <div class="pass-stub">PŘELET</div>
     </div>
     <div class="activity">
-      <p><b>Lamar Valley</b> — divoká zvěř (bizoni, vlci, medvědi), nejlépe za svítání a soumraku. Je to největší kus jízdy dne, počítejte s celým odpolednem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lamar+Valley" target="_blank" rel="noopener" data-lat="44.868521" data-lng="-110.174643">Lamar Valley</a>
+      <p>Ráno let z New Yorku do Denveru (cca 4 h + 2 h časový posun). Na letišti Denver International vyzvedněte půjčenou karavanu (většina půjčoven má pobočku v Denveru a předávka trvá 1–2 hodiny — u jednosměrného pronájmu Denver → San Francisco, viz sekce „Půjčovny karavanů“). Nákup potravin (Walmart / Target / King Soopers), plyn, náhradní voda.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Denver+International+Airport" target="_blank" rel="noopener" data-lat="39.8561" data-lng="-104.6737">Denver International Airport</a>
     </div>
     <div class="stay">
-      <div class="stay-icon">🏨</div>
+      <div class="stay-icon">🚐</div>
       <div class="stay-body">
         <span class="stay-label">Nocleh</span>
-        <div class="stay-name">West Yellowstone / uvnitř parku</div>
-        <div class="stay-note">Kempy a ubytování v parku se plní dopředu — rezervujte s velkým předstihem.</div>
+        <div class="stay-name">První noc blízko Denveru</div>
+        <div class="stay-note">Bez zkušeností s karavanem je fajn první noc přespat na zázemí — Chatfield State Park (jih od Denveru) má plné přípojky.</div>
+      </div>
+    </div>
+    <div class="campbox">
+      <span class="camp-label">Kemp — první noc</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Chatfield State Park Campground</span><span class="camp-rate">★ 4,5 <i>(945)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">197 míst, všechna s elektřinou, 146 s plnými přípojkami; sprchy, prádelna, wifi. Jižní okraj Denveru, celoročně.</div>
+        <a class="maplink camp" data-name="Chatfield State Park Campground" data-rating="4,5" data-lat="39.537937" data-lng="-105.064937" href="https://www.google.com/maps/search/?api=1&amp;query=Chatfield+State+Park+Campground+Littleton" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -357,24 +369,33 @@
       <span class="day-date">DEN 05</span>
       <div class="badges"><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Grand Teton</h2>
+    <h2>Rocky Mountain National Park</h2>
     <div class="activity">
-      <p><b>Grand Teton National Park</b> — nádherný horský hřeben; pokud nemáte čas na túry, stačí několik foto-zastávek. Foto-místo je Mormon Barn (Mormon Row) s Tetony v pozadí. Nejvyšší vrchol dostupný bez horolezeckého vybavení je Middle Teton, ale celý výstup je dlouhý a náročný a limit 13 km/den výrazně přesahuje.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Teton+National+Park" target="_blank" rel="noopener" data-lat="43.794231" data-lng="-110.691816">Grand Teton National Park</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mormon+Barn+Mormon+Row+Grand+Teton" target="_blank" rel="noopener" data-lat="43.660682" data-lng="-110.664972">Mormon Barn</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Middle+Teton" target="_blank" rel="noopener" data-lat="43.72993" data-lng="-110.811325">Middle Teton</a>
+      <p>Z Denveru na sever k <b>Estes Park</b> (cca 2 h). Ráno <b>Bear Lake</b> a okolní jezera (Nymph, Dream, Emerald), odpoledne <b>Moraine Park</b> s výhledy a stády wapiti (jeleni). Silnice <b>Trail Ridge Road</b> vede až do 3 700 m — nejvýš položená souvislá silnice v USA.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Rocky+Mountain+National+Park" target="_blank" rel="noopener" data-lat="40.3428" data-lng="-105.6836">Rocky Mountain National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bear+Lake+Rocky+Mountain+National+Park" target="_blank" rel="noopener" data-lat="40.3125" data-lng="-105.6458">Bear Lake</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Trail+Ridge+Road+Rocky+Mountain+National+Park" target="_blank" rel="noopener" data-lat="40.4406" data-lng="-105.7554">Trail Ridge Road</a>
     </div>
-    <div class="activity">
-      <p><b>Jackson Hole Mountain Resort</b> — kabinková lanovka je po 17:00 zdarma (poznámka z tvojí mapy).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Jackson+Hole+Mountain+Resort" target="_blank" rel="noopener" data-lat="43.587545" data-lng="-110.827918">Jackson Hole Mountain Resort</a>
-    </div>
-    <div class="note">Autoři mapy k Tetonům poznamenávají, že „nic moc tady není, možná bych i vynechal" — je to hezké, ale jako ostatní parky. Klidně stačí půl dne (článek uvádí minimum 0,5 dne, ideálně 2 dny).</div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Jackson</div>
-        <div class="stay-note">Nejlepší je ubytovat se v nedalekém Jacksonu.</div>
+    <div class="note warn">V sezóně (cca konec května – polovina října) vyžaduje park časovanou rezervaci vjezdu — ověřte aktuální systém na nps.gov/romo. Trail Ridge Road je mimo léto zavřená (sníh).</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Moraine Park Campground</span><span class="camp-rate">★ 4,6 <i>(473)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Elektřina jen na vybraných místech (smyčky B, C); solární sprchy — vlastní vak, voda ve sprše není.</div>
+        <a class="maplink camp" data-name="Moraine Park Campground" data-rating="4,6" data-lat="40.360187" data-lng="-105.604438" href="https://www.google.com/maps/search/?api=1&amp;query=Moraine+Park+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Glacier Basin Campground</span><span class="camp-rate">★ 4,7 <i>(410)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Bez sprch a bez přípojek; sprchy až ve městě Estes Park.</div>
+        <a class="maplink camp" data-name="Glacier Basin Campground" data-rating="4,7" data-lat="40.328437" data-lng="-105.596063" href="https://www.google.com/maps/search/?api=1&amp;query=Glacier+Basin+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Aspenglen Campground</span><span class="camp-rate">★ 4,7 <i>(151)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Bez sprch a bez dump station (nejbližší v Moraine Park), bez přípojek; stany a menší vozy do cca 30 ft.</div>
+        <a class="maplink camp" data-name="Aspenglen Campground" data-rating="4,7" data-lat="40.400187" data-lng="-105.592562" href="https://www.google.com/maps/search/?api=1&amp;query=Aspenglen+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -383,12 +404,27 @@
   <section class="day" id="d6">
     <div class="day-head">
       <span class="day-date">DEN 06</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--long">Jen delší verze</span></div>
     </div>
-    <h2>Přejezd do Utahu</h2>
+    <h2>Rocky Mountain — západní strana</h2>
     <div class="activity">
-      <p>Dlouhý den za volantem: z Jacksonu na jih do Utahu (cca 8 h čistého času přes Salt Lake City). Přespat je rozumné kolem Green River / Price, ať je do Moabu druhý den kousek.</p>
-
+      <p>Přes Trail Ridge Road na západní stranu parku: <b>Alpine Visitor Center</b> (3 600 m), pak údolí Kawuneeche s vysokou šancí na losy a Grand Lake. Klidnější a méně navštěvovaná část parku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Alpine+Visitor+Center+Rocky+Mountain+National+Park" target="_blank" rel="noopener" data-lat="40.4383" data-lng="-105.7513">Alpine Visitor Center</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Lake+Colorado" target="_blank" rel="noopener" data-lat="40.2522" data-lng="-105.8231">Grand Lake</a>
+    </div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Timber Creek Campground</span><span class="camp-rate">★ 4,6 <i>(249)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Západní strana parku (Grand Lake). Bez sprch (placené sprchy až v Grand Lake); v kempu je dump station a plnění vody.</div>
+        <a class="maplink camp" data-name="Timber Creek Campground" data-rating="4,6" data-lat="40.378563" data-lng="-105.852063" href="https://www.google.com/maps/search/?api=1&amp;query=Timber+Creek+Campground+Rocky+Mountain+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Stillwater Campground (Grand Lake)</span><span class="camp-rate">★ 4,5</span></div>
+        <div class="camp-note">Lokalita u jezera Granby; hodnocení z původní mapy — na Googlu bez jednoznačného pinu.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Stillwater+Campground+Grand+Lake+Colorado" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
     </div>
   </section>
 
@@ -396,24 +432,35 @@
   <section class="day" id="d7">
     <div class="day-head">
       <span class="day-date">DEN 07</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>Arches</h2>
+    <h2>Přejezd do Moabu</h2>
     <div class="activity">
-      <p><b>Arches National Park</b> — kamenné oblouky do všech stran. Na návštěvu stačí jeden den.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Arches+National+Park" target="_blank" rel="noopener" data-lat="38.616589" data-lng="-109.619846">Arches National Park</a>
+      <p>Dlouhý přejezd na západ (cca 6–7 h): <b>Glenwood Canyon</b> po I-70 je nejhezčí úsek dne (zastávka v Glenwood Springs / horké prameny), pak pouštní Utah. Tankujte před Green River — pumpy jsou řídké.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Glenwood+Springs+Colorado" target="_blank" rel="noopener" data-lat="39.5505" data-lng="-107.3248">Glenwood Springs</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Moab+Utah" target="_blank" rel="noopener" data-lat="38.5733" data-lng="-109.5498">Moab</a>
     </div>
-    <div class="activity">
-      <p><b>Corona Arch</b> — oblouk mimo park (cca 30 minut autem od vstupu do parku, necelé 2 km pěšky od parkoviště). Východ i západ slunce tu stojí za to.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Corona+Arch+Moab+Utah" target="_blank" rel="noopener">Corona Arch</a>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Základna</span>
-        <div class="stay-name">Moab</div>
-        <div class="stay-note">Malebné městečko, výchozí bod pro Arches i Canyonlands.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Devils Garden Campground (Arches)</span><span class="camp-rate">★ 4,8 <i>(285)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">V zimě jen záchody bez splachování a voda se vypíná; bez sprch, bez přípojek, bez dump station. Rezervace na recreation.gov (březen–říjen).</div>
+        <a class="maplink camp" data-name="Devils Garden Campground (Arches)" data-rating="4,8" data-lat="38.776187" data-lng="-109.589062" href="https://www.google.com/maps/search/?api=1&amp;query=Devils+Garden+Campground+Arches+National+Park" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Goose Island Campground (BLM)</span><span class="camp-rate">★ 4,5 <i>(238)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">Primitivní: bez vody, bez elektřiny, bez sprch. Nejbližší pitná voda v Lions Park.</div>
+        <a class="maplink camp" data-name="Goose Island Campground (BLM)" data-rating="4,5" data-lat="38.610937" data-lng="-109.558062" href="https://www.google.com/maps/search/?api=1&amp;query=Goose+Island+Campground+Moab" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Ken's Lake Campground (BLM)</span><span class="camp-rate">★ 4,3 <i>(314)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">Primitivní: bez vody, bez elektřiny, bez sprch.</div>
+        <a class="maplink camp" data-name="Ken's Lake Campground (BLM)" data-rating="4,3" data-lat="38.477938" data-lng="-109.422938" href="https://www.google.com/maps/search/?api=1&amp;query=Ken's+Lake+Campground+Moab" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Devils Garden (v parku Arches) se plní hodně dopředu; BLM kempy (Goose Island, Ken’s Lake) jsou levné a bez rezervace, ale bez vody.</div>
     </div>
   </section>
 
@@ -421,53 +468,43 @@
   <section class="day" id="d8">
     <div class="day-head">
       <span class="day-date">DEN 08</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Canyonlands a přesun k Monument Valley</h2>
+    <h2>Arches</h2>
     <div class="activity">
-      <p><b>Canyonlands National Park</b> (část Island in the Sky) — krajina dechberoucích kaňonů; podle autorů článku zaujme víc než samotný Grand Canyon. Vyhlídku nad smyčkou řeky Colorado nabízí i blízký Dead Horse Point State Park.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Canyonlands+National+Park" target="_blank" rel="noopener" data-lat="38.459796" data-lng="-109.820961">Canyonlands National Park</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dead+Horse+Point+State+Park" target="_blank" rel="noopener" data-lat="38.474826" data-lng="-109.740572">Dead Horse Point State Park</a>
+      <p><b>Arches National Park</b> — kamenné oblouky do všech stran: Windows, Turret Arch, Double Arch, ráno nebo k večeru <b>Delicate Arch</b> (cca 5 km tam a zpět). Devils Garden pro delší túru.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Arches+National+Park" target="_blank" rel="noopener" data-lat="38.616589" data-lng="-109.619846">Arches National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Delicate+Arch+Arches+National+Park" target="_blank" rel="noopener" data-lat="38.7436" data-lng="-109.4993">Delicate Arch</a>
     </div>
-    <div class="activity">
-      <p>Odpoledne přejezd k Monument Valley (cca 2,5–3 h).</p>
-
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Bluff nebo Kayenta</div>
-        <div class="stay-note">Nejbližší hotely u Monument Valley.</div>
-      </div>
-    </div>
+    <div class="note warn">V sezóně platí u vjezdu do Arches časovaná rezervace — ověřte na recreation.gov / nps.gov/arch. Bez ní vjezd před ránem (před 6:00) nebo večer.</div>
   </section>
 
   <!-- DAY 9 -->
   <section class="day" id="d9">
     <div class="day-head">
       <span class="day-date">DEN 09</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--long">3 týdny: sloučit</span></div>
     </div>
-    <h2>Monument Valley a cesta do Page</h2>
+    <h2>Canyonlands a Dead Horse Point</h2>
     <div class="activity">
-      <p><b>Forrest Gump Point</b> — silnice mířící do Monument Valley, kde se Forrest Gump zastavil po svém běhu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Forrest+Gump+Point" target="_blank" rel="noopener" data-lat="37.101496" data-lng="-109.990812">Forrest Gump Point</a>
+      <p><b>Island in the Sky</b> (Canyonlands) — rozlehlé kaňony do všech stran, vyhlídky Mesa Arch (východ slunce), Grand View Point a Green River Overlook. <b>Dead Horse Point</b> nabízí ikonický pohled na smyčku řeky Colorado.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Canyonlands+National+Park" target="_blank" rel="noopener" data-lat="38.459796" data-lng="-109.820961">Canyonlands National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dead+Horse+Point+State+Park" target="_blank" rel="noopener" data-lat="38.474826" data-lng="-109.740572">Dead Horse Point State Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mesa+Arch+Canyonlands" target="_blank" rel="noopener" data-lat="38.3893" data-lng="-109.8686">Mesa Arch</a>
     </div>
-    <div class="activity">
-      <p><b>Monument Valley</b> — westernová krajina skalních věží; stačí průjezd údolím (cca půl dne).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Monument+Valley" target="_blank" rel="noopener" data-lat="36.982097" data-lng="-110.111862">Monument Valley</a>
-    </div>
-    <div class="activity">
-      <p>Odpoledne přejezd do Page (cca 2,5 h).</p>
-
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Page</div>
-        <div class="stay-note">Kousek jak na Horseshoe Bend, tak do Antelope Canyonu.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Island in the Sky (Willow Flat) Campground</span><span class="camp-rate">★ 4,9 <i>(99)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">12 míst, první příjezd — první obsluha; bez vody (vezměte s sebou), bez elektřiny, bez sprch.</div>
+        <a class="maplink camp" data-name="Island in the Sky (Willow Flat) Campground" data-rating="4,9" data-lat="38.383312" data-lng="-109.888188" href="https://www.google.com/maps/search/?api=1&amp;query=Willow+Flat+Campground+Island+in+the+Sky+Canyonlands" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Kayenta Campground (Dead Horse Point SP)</span><span class="camp-rate">★ 4,7 <i>(106)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">21 míst, všechna s elektřinou (20/30/50 A); bez sprch.</div>
+        <a class="maplink camp" data-name="Kayenta Campground (Dead Horse Point SP)" data-rating="4,7" data-lat="38.486062" data-lng="-109.740438" href="https://www.google.com/maps/search/?api=1&amp;query=Kayenta+Campground+Dead+Horse+Point+State+Park" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -476,27 +513,36 @@
   <section class="day" id="d10">
     <div class="day-head">
       <span class="day-date">DEN 10</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--light">Vyhlídky</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--long">3 týdny: sloučit</span></div>
     </div>
-    <h2>Horseshoe Bend, Antelope Canyon a Grand Canyon</h2>
+    <h2>Monument Valley a Goosenecks</h2>
     <div class="activity">
-      <p><b>Horseshoe Bend</b> — řeka Colorado vytvořila kaňon ve tvaru podkovy; na návštěvu stačí cca 2 hodiny.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Horseshoe+Bend" target="_blank" rel="noopener" data-lat="36.876267" data-lng="-111.50282">Horseshoe Bend</a>
+      <p>Cesta na jih po Hwy 191 / 163 (cca 2,5 h). Cestou <b>Forrest Gump Point</b> a <b>Valley of the Gods</b>. Odpoledne <b>Monument Valley</b> — okružní cesta Valley Drive (17 mil, štěrk) a západ slunce. Podle chuti odbočka ke <b>Goosenecks</b> (meandry řeky San Juan).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Forrest+Gump+Point" target="_blank" rel="noopener" data-lat="37.101496" data-lng="-109.990812">Forrest Gump Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Monument+Valley" target="_blank" rel="noopener" data-lat="36.982097" data-lng="-110.111862">Monument Valley</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Goosenecks+State+Park+Utah" target="_blank" rel="noopener" data-lat="37.1735" data-lng="-109.9271">Goosenecks State Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Valley+of+the+Gods+Utah" target="_blank" rel="noopener" data-lat="37.2645" data-lng="-109.8358">Valley of the Gods</a>
     </div>
-    <div class="activity">
-      <p><b>Antelope Canyon</b> — světelné paprsky ve slotovém kaňonu; jde se jen s průvodcem, samotná prohlídka trvá zhruba hodinu, ale bývají fronty (počítejte 2–5 hodin). Dnes je lepší rezervovat předem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Antelope+Canyon" target="_blank" rel="noopener" data-lat="36.86191" data-lng="-111.37433">Antelope Canyon</a>
-    </div>
-    <div class="activity">
-      <p>Odpoledne přes Marble Canyon k Grand Canyonu (cca 2,5–3 h), večer ubytování v Tusayanu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Navajo+Bridge+Marble+Canyon" target="_blank" rel="noopener" data-lat="36.817134" data-lng="-111.631594">Navajo Bridge (Marble Canyon)</a>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Tusayan</div>
-        <div class="stay-note">Nejbližší ubytování u Grand Canyonu.</div>
+    <div class="note">Monument Valley leží v rezervaci Navajo — v 3týdenní verzi se dá spojit s dnem do Page (jeden delší den ~5,5 h za volantem).</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">The View Campground (Monument Valley)</span><span class="camp-rate">★ 4,0 <i>(721)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Bez přípojek. Výhled na Monument Valley přímo z kempu.</div>
+        <a class="maplink camp" data-name="The View Campground (Monument Valley)" data-rating="4,0" data-lat="36.986812" data-lng="-110.114563" href="https://www.google.com/maps/search/?api=1&amp;query=The+View+Campground+Monument+Valley" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Goulding's Resort RV & Campground</span><span class="camp-rate">★ 4,3 <i>(1 146)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Plné přípojky, prádelna, bazén, obchod, restaurace.</div>
+        <a class="maplink camp" data-name="Goulding's Resort RV & Campground" data-rating="4,3" data-lat="37.006937" data-lng="-110.214938" href="https://www.google.com/maps/search/?api=1&amp;query=Goulding's+Resort+RV+%26+Campground+Monument+Valley" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Goosenecks State Park (Mexican Hat)</span><span class="camp-rate">★ 4,7 <i>(2 864)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">8 míst nad meandry řeky San Juan; bez vody, bez elektřiny; $10/noc, first-come.</div>
+        <a class="maplink camp" data-name="Goosenecks State Park (Mexican Hat)" data-rating="4,7" data-lat="37.175187" data-lng="-109.926688" href="https://www.google.com/maps/search/?api=1&amp;query=Goosenecks+State+Park+Utah" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -505,17 +551,29 @@
   <section class="day" id="d11">
     <div class="day-head">
       <span class="day-date">DEN 11</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--light">Vyhlídky</span></div>
     </div>
-    <h2>Grand Canyon — South Rim</h2>
+    <h2>Horseshoe Bend a Antelope Canyon</h2>
     <div class="activity">
-      <p><b>South Rim</b> — odsud je většina slavných fotek. Vyhlídky Mather Point, Yavapai Point a Mohave Point (na Hermit Road); k západu slunce se vyplatí zůstat na okraji.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Canyon+South+Rim" target="_blank" rel="noopener" data-lat="36.059163" data-lng="-112.109308">Grand Canyon South Rim</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mather+Point" target="_blank" rel="noopener" data-lat="36.061678" data-lng="-112.107758">Mather Point</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yavapai+Point" target="_blank" rel="noopener" data-lat="36.063628" data-lng="-112.118414">Yavapai Point</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mohave+Point" target="_blank" rel="noopener" data-lat="36.072204" data-lng="-112.166">Mohave Point</a>
+      <p><b>Antelope Canyon</b> — světelné paprsky v úzkém kaňonu; jde se jen s průvodcem, bývá vyprodáno — rezervujte předem (dopoledne nejlepší světlo). <b>Horseshoe Bend</b> — řeka Colorado v podkovovité smyčce; z parkoviště 1,3 km po písčité stezce.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Antelope+Canyon" target="_blank" rel="noopener" data-lat="36.86191" data-lng="-111.37433">Antelope Canyon</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Horseshoe+Bend" target="_blank" rel="noopener" data-lat="36.876267" data-lng="-111.50282">Horseshoe Bend</a>
     </div>
-    <div class="note">Do kaňonu na dno vedou dlouhé traily — s limitem 13 km/den jde jen o kratší úseky pod okrajem. Klidnější a méně turistická je severní strana (North Rim), pokud budete mít čas navíc.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Page Lake Powell Campground</span><span class="camp-rate">★ 4,1 <i>(1 468)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Plné přípojky, prádelna, sprchy, bazén, wifi, malý obchod.</div>
+        <a class="maplink camp" data-name="Page Lake Powell Campground" data-rating="4,1" data-lat="36.901187" data-lng="-111.453438" href="https://www.google.com/maps/search/?api=1&amp;query=Page+Lake+Powell+Campground" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lone Rock Beach Campground</span><span class="camp-rate">★ 4,3 <i>(475)</i></span></div>
+        <div class="amen"><span class="amen-none">vybavení neověřeno — zkontrolujte u správce kempu</span></div>
+        <div class="camp-note">Kempování přímo na pláži Lake Powell; primitivní (bez přípojek a sprch). Písek — vjezd jen s vhodným vozem.</div>
+        <a class="maplink camp" data-name="Lone Rock Beach Campground" data-rating="4,3" data-lat="37.016937" data-lng="-111.541438" href="https://www.google.com/maps/search/?api=1&amp;query=Lone+Rock+Beach+Campground+Page" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 12 -->
@@ -524,18 +582,33 @@
       <span class="day-date">DEN 12</span>
       <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>Přesun do Kanabu</h2>
+    <h2>Cesta ke Grand Canyonu</h2>
     <div class="activity">
-      <p>Přejezd z Grand Canyonu směr Utah (cca 4 h). Na konci dne <b>Coral Pink Sand Dunes</b> — písečné duny narůžovělé barvy u Kanabu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Coral+Pink+Sand+Dunes+State+Park" target="_blank" rel="noopener" data-lat="37.037778" data-lng="-112.720278">Coral Pink Sand Dunes State Park</a>
+      <p>Přes <b>Navajo Bridge</b> (Marble Canyon) a Lees Ferry k jižnímu okraji kaňonu — kolem <b>Desert View Drive</b> a <b>Desert View Watchtower</b> (cca 3 h). Odpoledne první vyhlídky, večer západ slunce.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Navajo+Bridge+Marble+Canyon" target="_blank" rel="noopener" data-lat="36.817134" data-lng="-111.631594">Navajo Bridge (Marble Canyon)</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Desert+View+Watchtower+Grand+Canyon" target="_blank" rel="noopener" data-lat="36.0437" data-lng="-111.8256">Desert View Watchtower</a>
     </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Kanab</div>
-        <div class="stay-note">Dobrá základna pro Bryce Canyon i jako příjezd k The Wave.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Mather Campground (South Rim)</span><span class="camp-rate">★ 4,6 <i>(860)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Bez přípojek; sprchy a prádelna za poplatek u Camper Services. Rezervace na recreation.gov až 6 měsíců předem.</div>
+        <a class="maplink camp" data-name="Mather Campground (South Rim)" data-rating="4,6" data-lat="36.050687" data-lng="-112.121188" href="https://www.google.com/maps/search/?api=1&amp;query=Mather+Campground+Grand+Canyon" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Desert View Campground</span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Sezónní (duben–říjen). Bez sprch, prádelny a dump station; obchod a benzin poblíž. Hodnocení Google se nepodařilo načíst.</div>
+        <a class="maplink camp" data-name="Desert View Campground" data-lat="36.0446" data-lng="-111.8253" href="https://www.google.com/maps/search/?api=1&amp;query=Desert+View+Campground+Grand+Canyon" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Tusayan-Montane (dříve Ten-X) Campground</span><span class="camp-rate">★ 4,6 <i>(118)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Kaibab National Forest; bez sprch. Nenaplníte v něm nádrž karavanu (omezená voda).</div>
+        <a class="maplink camp" data-name="Tusayan-Montane (dříve Ten-X) Campground" data-rating="4,6" data-lat="35.934437" data-lng="-112.126063" href="https://www.google.com/maps/search/?api=1&amp;query=Ten+X+Campground+Tusayan" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Kempy v NP Grand Canyon přijímají rezervace přes recreation.gov až 6 měsíců předem; Tusayan-Montane je v lese mimo park (bez sprch).</div>
     </div>
   </section>
 
@@ -545,57 +618,63 @@
       <span class="day-date">DEN 13</span>
       <div class="badges"><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Cedar Breaks a Bryce Canyon</h2>
+    <h2>Grand Canyon — South Rim</h2>
     <div class="activity">
-      <p><b>Cedar Breaks National Monument</b> — menší „bratříček" Bryce; autoři článku doporučují zařadit ho před Bryce, ať jste z Bryce ještě víc nadšení. Stačí cca 2 hodiny.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Cedar+Breaks+National+Monument" target="_blank" rel="noopener" data-lat="37.635373" data-lng="-112.84528">Cedar Breaks National Monument</a>
+      <p><b>South Rim</b> — Mather Point, Yavapai Point, Hermit Road (Mohave Point, Pima Point; autem nelze, jezdí shuttle). Okraj stezkou <b>Rim Trail</b>, nebo kratší sestup po Bright Angel / South Kaibab (jen pár set výškových metrů, nahoru je to dvojnásobek času).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Canyon+South+Rim" target="_blank" rel="noopener" data-lat="36.059163" data-lng="-112.109308">Grand Canyon South Rim</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mather+Point" target="_blank" rel="noopener" data-lat="36.061678" data-lng="-112.107758">Mather Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yavapai+Point" target="_blank" rel="noopener" data-lat="36.063628" data-lng="-112.118414">Yavapai Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mohave+Point" target="_blank" rel="noopener" data-lat="36.072204" data-lng="-112.166">Mohave Point</a>
     </div>
-    <div class="activity">
-      <p><b>Bryce Canyon National Park</b> — oranžové, žluté a rudohnědé skalní věže (hoodoos). Odpoledne vyhlídky po okraji, večer západ slunce.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bryce+Canyon+National+Park" target="_blank" rel="noopener" data-lat="37.640372" data-lng="-112.169547">Bryce Canyon National Park</a>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Bryce, Tropic nebo Hatch</div>
-        <div class="stay-note">Nejbližší městečka k parku.</div>
-      </div>
-    </div>
+    <div class="note">Do kaňonu na dno a zpátky se za den nechodí — pro chůzi po okraji nebo krátký sestup stačí pohodlná obuv a hodně vody.</div>
   </section>
 
   <!-- DAY 14 -->
   <section class="day" id="d14">
     <div class="day-head">
       <span class="day-date">DEN 14</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>Bryce Canyon — druhý den</h2>
+    <h2>Přejezd do Zionu</h2>
     <div class="activity">
-      <p>Projděte se mezi věžemi — autoři článku tu procházku doporučují víc než jen dívání z vyhlídek. Východ slunce nad amfiteátrem je nejkrásnější světlo dne.</p>
-
+      <p>Přejezd přes Kanab do Springdale (cca 4,5 h). Cestou volitelná zastávka u <b>Coral Pink Sand Dunes</b>. Večer první procházka údolím — Zion je jeden z nejkrásnějších parků celé cesty.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Coral+Pink+Sand+Dunes+State+Park" target="_blank" rel="noopener" data-lat="37.037778" data-lng="-112.720278">Coral Pink Sand Dunes State Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zion+National+Park" target="_blank" rel="noopener" data-lat="37.205313" data-lng="-112.982443">Zion National Park</a>
     </div>
-    <div class="note">Kdyby zbýval čas, jsou v sekci „Další varianty" slotové kaňony u Escalante (Spooky Gulch, Peek-a-boo, Devil's Garden) — den navíc od Bryce.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Watchman Campground (Zion)</span><span class="camp-rate">★ 4,7 <i>(1 072)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Elektřina ve smyčkách A a B (30 A); bez sprch (sprchy v Springdale za pár dolarů).</div>
+        <a class="maplink camp" data-name="Watchman Campground (Zion)" data-rating="4,7" data-lat="37.196312" data-lng="-112.987562" href="https://www.google.com/maps/search/?api=1&amp;query=Watchman+Campground+Zion+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">South Campground (Zion)</span><span class="camp-rate">★ 4,6 <i>(543)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Bez přípojek a bez sprch (sprchy v Springdale).</div>
+        <a class="maplink camp" data-name="South Campground (Zion)" data-rating="4,6" data-lat="37.201188" data-lng="-112.984813" href="https://www.google.com/maps/search/?api=1&amp;query=South+Campground+Zion+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Zion Canyon Campground & RV Resort</span><span class="camp-rate">★ 4,3 <i>(1 958)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Soukromý kemp v Springdale: plné přípojky (kromě některých míst u řeky), sprchy, prádelna, bazén (sezónně), obchod.</div>
+        <a class="maplink camp" data-name="Zion Canyon Campground & RV Resort" data-rating="4,3" data-lat="37.193562" data-lng="-112.992812" href="https://www.google.com/maps/search/?api=1&amp;query=Zion+Canyon+Campground+Springdale" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 15 -->
   <section class="day" id="d15">
     <div class="day-head">
       <span class="day-date">DEN 15</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Bryce → Zion</h2>
+    <h2>Zion — Narrows a Angels Landing</h2>
     <div class="activity">
-      <p>Přejezd do Zionu (cca 2,5 h), odpoledne první seznámení s údolím. Veverky, které si můžete skoro pohladit, a scenérie, která patří k nejlepším v celém parku.</p>
-
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Základna</span>
-        <div class="stay-name">Springdale</div>
-        <div class="stay-note">Městečko přímo u hranice parku s velkým výběrem ubytování.</div>
-      </div>
+      <p>Zion Canyon se do parku jezdí shuttlem (auto v údolí nesmíte). <b>The Narrows</b> — brodění řekou úzkou soutěskou (obuv a hůlky se půjčují v Springdale; při zvýšeném průtoku uzavřeno). <b>Angels Landing</b> — exponovaný hřeben; na celou stezku je nutné povolení z loterie, bez něj jen ke Scout Lookoutu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Narrows" target="_blank" rel="noopener" data-lat="37.304703" data-lng="-112.949385">The Narrows</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Angels+Landing+Trailhead+Zion" target="_blank" rel="noopener" data-lat="37.269033" data-lng="-112.946899">Angels Landing</a>
     </div>
   </section>
 
@@ -603,13 +682,12 @@
   <section class="day" id="d16">
     <div class="day-head">
       <span class="day-date">DEN 16</span>
-      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--long">Jen delší verze</span></div>
     </div>
-    <h2>Zion — Angels Landing</h2>
+    <h2>Zion — druhý den</h2>
     <div class="activity">
-      <p><b>Angels Landing</b> — slavná exponovaná stezka na hřeben nad údolím (cca 8,7 km tam a zpět). Na celou trasu je dnes nutné povolení z loterie; bez něj se dá dojít jen ke Scout Lookoutu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Angels+Landing+Trailhead+Zion" target="_blank" rel="noopener" data-lat="37.269033" data-lng="-112.946899">Angels Landing</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zion+National+Park" target="_blank" rel="noopener" data-lat="37.205313" data-lng="-112.982443">Zion National Park</a>
+      <p>Klidnější den: <b>Emerald Pools</b>, Riverside Walk, případně Canyon Overlook Trail (krátká túra s nejlepším výhledem hned u tunelu, parkování omezené). Alternativa: jednodenní odbočka do <b>Bryce Canyonu</b> — v tomhle plánu není, viz „USA Trip 2“ (Bryce je tam mezi variantami).</p>
+
     </div>
   </section>
 
@@ -617,37 +695,78 @@
   <section class="day" id="d17">
     <div class="day-head">
       <span class="day-date">DEN 17</span>
-      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>Zion — The Narrows</h2>
+    <h2>Přejezd přes Las Vegas</h2>
     <div class="activity">
-      <p><b>The Narrows</b> — brodění řekou úzkou soutěskou. Délku určíte sami podle sil (čím dál po proudu, tím náročnější); potřebujete vhodnou obuv a při zvýšeném průtoku se nesmí.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Narrows" target="_blank" rel="noopener" data-lat="37.304703" data-lng="-112.949385">The Narrows</a>
+      <p>Zion → Las Vegas (cca 2,5 h). <b>Las Vegas</b> — po přírodě kontrast: neony, kasina, bezplatné show (fontány Bellagio, sopka Mirage, Fremont Street). Karavanu se dá parkovat na kempu přímo na Stripu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Las+Vegas" target="_blank" rel="noopener" data-lat="36.169941" data-lng="-115.13983">Las Vegas</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Red+Rock+Canyon" target="_blank" rel="noopener" data-lat="36.135686" data-lng="-115.427904">Red Rock Canyon</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hoover+Dam" target="_blank" rel="noopener" data-lat="36.016066" data-lng="-114.737732">Hoover Dam</a>
     </div>
-    <div class="note">Zion podle autorů stojí za tři dny, takže případný třetí den můžete věnovat klidnějším procházkám po údolí. The Subway je náročný trail s povolením — autoři ho po Angels Landing a The Narrows klidně vynechávají (viz „Další varianty").</div>
+    <div class="note">V 3týdenní verzi jen průjezd s večeří — přes Las Vegas dál do Death Valley (3 h).</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">The RV Park at Circus Circus</span><span class="camp-rate">★ 3,4 <i>(1 281)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Jediný kemp na Stripu; přípojky, prádelna, bazén (sezónně), obchod. Hodnocení na Googlu je slabší.</div>
+        <a class="maplink camp" data-name="The RV Park at Circus Circus" data-rating="3,4" data-lat="36.140062" data-lng="-115.164563" href="https://www.google.com/maps/search/?api=1&amp;query=The+RV+Park+at+Circus+Circus+Las+Vegas" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Oasis Las Vegas RV Resort</span><span class="camp-rate">★ 4,4 <i>(3 802)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Plné přípojky, sprchy zdarma, dva bazény, wifi, obchod.</div>
+        <a class="maplink camp" data-name="Oasis Las Vegas RV Resort" data-rating="4,4" data-lat="36.041062" data-lng="-115.178563" href="https://www.google.com/maps/search/?api=1&amp;query=Oasis+Las+Vegas+RV+Resort" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 18 -->
   <section class="day" id="d18">
     <div class="day-head">
       <span class="day-date">DEN 18</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Hoover Dam a Las Vegas</h2>
+    <h2>Death Valley</h2>
     <div class="activity">
-      <p><b>Hooverova přehrada</b> — fenomenální technické dílo kousek od Las Vegas; nabízí i exkurzi do nitra elektrárny (cenu ověřit). Stačí 1–2 hodiny.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hoover+Dam" target="_blank" rel="noopener" data-lat="36.016066" data-lng="-114.737732">Hoover Dam (Hooverova přehrada)</a>
+      <p>Přejezd do Death Valley (cca 2,5 h, natankujte předem — v parku je benzín výrazně dražší). <b>Zabriskie Point</b>, <b>Badwater Basin</b> (86 m pod mořem) a <b>Artists Palette</b>; v noci nepřekonatelná obloha bez světelného znečištění.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Death+Valley+National+Park" target="_blank" rel="noopener" data-lat="36.461754" data-lng="-116.866612">Death Valley National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zabriskie+Point+Death+Valley" target="_blank" rel="noopener" data-lat="36.4203" data-lng="-116.8104">Zabriskie Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Badwater+Basin+Death+Valley" target="_blank" rel="noopener" data-lat="36.2292" data-lng="-116.7669">Badwater Basin</a>
     </div>
-    <div class="activity">
-      <p><b>Las Vegas</b> — po dnech v přírodě obrovský kontrast: neony, kasina, hotely s bezplatnými show. Pokoje bývají levné, protože majitelé vydělávají v kasinech.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Las+Vegas" target="_blank" rel="noopener" data-lat="36.169941" data-lng="-115.13983">Las Vegas</a>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Las Vegas</div>
-        <div class="stay-note">Ceny pokojů jsou v porovnání s jinými městy nízké.</div>
+    <div class="note warn">Léto (červen–září) je tu extrémní: 45–50 °C. Ideální je říjen–duben, v létě jen ranní a večerní procházky. Kemp Sunset a Stovepipe Wells jsou otevřené jen v chladné části roku.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Furnace Creek Campground</span><span class="camp-rate">★ 4,5 <i>(717)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">18 míst s plnými přípojkami, ostatní bez. Sprchy v kempu nejsou (zdroje se rozcházejí; sprchy/bazén u nedalekého hotelu za poplatek).</div>
+        <a class="maplink camp" data-name="Furnace Creek Campground" data-rating="4,5" data-lat="36.463438" data-lng="-116.869688" href="https://www.google.com/maps/search/?api=1&amp;query=Furnace+Creek+Campground+Death+Valley" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Texas Springs Campground</span><span class="camp-rate">★ 4,6 <i>(230)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Bez přípojek, zákaz generátorů; jen first-come.</div>
+        <a class="maplink camp" data-name="Texas Springs Campground" data-rating="4,6" data-lat="36.459313" data-lng="-116.855563" href="https://www.google.com/maps/search/?api=1&amp;query=Texas+Springs+Campground+Death+Valley" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Sunset Campground (Death Valley)</span><span class="camp-rate">★ 4,2 <i>(143)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Velké štěrkové parkoviště, cca polovina října – polovina dubna; přetoková varianta.</div>
+        <a class="maplink camp" data-name="Sunset Campground (Death Valley)" data-rating="4,2" data-lat="36.458813" data-lng="-116.863688" href="https://www.google.com/maps/search/?api=1&amp;query=Sunset+Campground+Death+Valley" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Stovepipe Wells Campground</span><span class="camp-rate">★ 4,2 <i>(197)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Sezónní (říjen–duben); sprchy za poplatek v motelu naproti.</div>
+        <a class="maplink camp" data-name="Stovepipe Wells Campground" data-rating="4,2" data-lat="36.608063" data-lng="-117.147938" href="https://www.google.com/maps/search/?api=1&amp;query=Stovepipe+Wells+Campground+Death+Valley" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Panamint Springs Resort (kemp)</span><span class="camp-rate">★ 4,2 <i>(118)</i></span></div>
+        <div class="amen"><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Soukromý kemp na západním vjezdu do parku: 6 míst s plnými přípojkami, 26 suchých, sprchy v ceně, restaurace, obchod, benzin.</div>
+        <a class="maplink camp" data-name="Panamint Springs Resort (kemp)" data-rating="4,2" data-lat="36.340312" data-lng="-117.467938" href="https://www.google.com/maps/search/?api=1&amp;query=Panamint+Springs+Resort+Campground+Death+Valley" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -656,12 +775,13 @@
   <section class="day" id="d19">
     <div class="day-head">
       <span class="day-date">DEN 19</span>
-      <div class="badges"><span class="badge badge--light">Volný den</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--long">Jen delší verze</span></div>
     </div>
-    <h2>Las Vegas a Red Rock Canyon</h2>
+    <h2>Death Valley — druhý den</h2>
     <div class="activity">
-      <p>Den ve městě — bulvár Strip, hotely a pouliční umělci. Kdo chce zpátky do přírody, <b>Red Rock Canyon</b> je nedaleko Las Vegas s červenými skalami a okružní silnicí.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Red+Rock+Canyon" target="_blank" rel="noopener" data-lat="36.135686" data-lng="-115.427904">Red Rock Canyon</a>
+      <p><b>Mesquite Flat Sand Dunes</b> v ranním světle, <b>Devils Golf Course</b>, <b>Dantes View</b> (1 669 m, nádherná vyhlídka na celé údolí) a podle chuti Mosaic Canyon nebo Golden Canyon.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dantes+View+Death+Valley" target="_blank" rel="noopener" data-lat="36.2419" data-lng="-116.7261">Dantes View</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mesquite+Flat+Sand+Dunes+Death+Valley" target="_blank" rel="noopener" data-lat="36.6076" data-lng="-117.0817">Mesquite Flat Sand Dunes</a>
     </div>
   </section>
 
@@ -669,19 +789,28 @@
   <section class="day" id="d20">
     <div class="day-head">
       <span class="day-date">DEN 20</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>Cesta do Death Valley</h2>
+    <h2>Přes Owens Valley k Mono Lake</h2>
     <div class="activity">
-      <p>Přejezd do Death Valley (cca 2,5–3 h). Nejníže položené místo Severní Ameriky, horko a prašné cesty. Benzín je tu výrazně dražší než ve zbytku Kalifornie — natankujte předem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Death+Valley+National+Park" target="_blank" rel="noopener" data-lat="36.461754" data-lng="-116.866612">Death Valley National Park</a>
+      <p>Death Valley → Lone Pine (pohled na Mount Whitney) → Bishop → <b>Mono Lake</b> (cca 5–6 h). Večer u slaného jezera s vápencovými útvary tufa; <b>Bodie</b> — opuštěné zlatokopecké město — je odbočka na půl dne.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mono+Lake" target="_blank" rel="noopener" data-lat="37.942199" data-lng="-119.028986">Mono Lake</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bodie+State+Historic+Park" target="_blank" rel="noopener" data-lat="38.214149" data-lng="-119.004601">Bodie State Historic Park</a>
     </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Kemp uprostřed Death Valley</div>
-        <div class="stay-note">Autoři článku doporučují aspoň jednu noc v kempu: díky nulovému světelnému znečištění tu uvidíte tolik hvězd, že se hůř hledají souhvězdí. Levné ubytování je jinak jen v Panamint Springs.</div>
+    <div class="note warn">Silnice přes Tioga Pass (Hwy 120) je sezónní — obvykle otevřená cca od konce května do listopadu. Před cestou ověřte na nps.gov/yose, že je průjezdná; jinak objíždět přes Sonora Pass / Sequoia.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Tioga Lake Campground (Inyo NF)</span><span class="camp-rate">★ 4,6 <i>(67)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Před Tioga Pass (9 700 ft), first-come, cca červen–říjen; voda sezónně z pumpy; bear boxy.</div>
+        <a class="maplink camp" data-name="Tioga Lake Campground (Inyo NF)" data-rating="4,6" data-lat="37.927312" data-lng="-119.255062" href="https://www.google.com/maps/search/?api=1&amp;query=Tioga+Lake+Campground+Lee+Vining" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Junction Campground (Inyo NF)</span><span class="camp-rate">★ 4,7 <i>(28)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">Bez vody (vodu vezměte z Ellery Lake / Tioga Lake); first-come, cca červen–říjen; bear boxy.</div>
+        <a class="maplink camp" data-name="Junction Campground (Inyo NF)" data-rating="4,7" data-lat="37.938562" data-lng="-119.251063" href="https://www.google.com/maps/search/?api=1&amp;query=Junction+Campground+Lee+Vining" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -692,10 +821,39 @@
       <span class="day-date">DEN 21</span>
       <div class="badges"><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Death Valley</h2>
+    <h2>Tioga Road → Yosemite</h2>
     <div class="activity">
-      <p>Celý den údolím s foto-zastávkami — nejnižším bodem je Badwater Basin (cca 86 m pod mořem). Autoři doporučují 1–2 dny. Odpoledne horko výrazně sílí, dost vody a ranní/večerní procházky.</p>
-
+      <p>Přejezd nejvýše položenou silnicí Sierry (Tioga Pass 3 031 m) do Yosemite. Zastávky: <b>Tuolumne Meadows</b>, <b>Olmsted Point</b>, <b>Tenaya Lake</b>, k večeru <b>Tunnel View</b> a první pohled do údolí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yosemite+National+Park" target="_blank" rel="noopener" data-lat="37.748747" data-lng="-119.587162">Yosemite National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Olmsted+Point+Yosemite" target="_blank" rel="noopener" data-lat="37.8092" data-lng="-119.4849">Olmsted Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tunnel+View" target="_blank" rel="noopener" data-lat="37.715547" data-lng="-119.676906">Tunnel View</a>
+    </div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Tuolumne Meadows Campground</span><span class="camp-rate">★ 4,6 <i>(289)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Vysokohorský kemp na Tioga Road (sezónně, cca červenec–září); dump station poblíž, obchod v Tuolumne Meadows, sprchy ne. Bear boxy.</div>
+        <a class="maplink camp" data-name="Tuolumne Meadows Campground" data-rating="4,6" data-lat="37.8738" data-lng="-119.3579" href="https://www.google.com/maps/search/?api=1&amp;query=Tuolumne+Meadows+Campground+Yosemite" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Tamarack Flat Campground</span><span class="camp-rate">★ 4,6 <i>(98)</i></span></div>
+        <div class="amen"><span class="am" title="WC bez splachování"><span class="am-i">🚽</span>WC (suché)</span></div>
+        <div class="camp-note">Jen stany a malé vozy (bez RV); bez pitné vody, pouze potok. Cca červen–říjen.</div>
+        <a class="maplink camp" data-name="Tamarack Flat Campground" data-rating="4,6" data-lat="37.750312" data-lng="-119.735187" href="https://www.google.com/maps/search/?api=1&amp;query=Tamarack+Flat+Campground+Yosemite" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Crane Flat Campground</span><span class="camp-rate">★ 4,2 <i>(199)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Bez sprch a bez dump station; benzinka a obchod poblíž. Bear boxy.</div>
+        <a class="maplink camp" data-name="Crane Flat Campground" data-rating="4,2" data-lat="37.748063" data-lng="-119.799688" href="https://www.google.com/maps/search/?api=1&amp;query=Crane+Flat+Campground+Yosemite" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Hodgdon Meadow Campground</span><span class="camp-rate">★ 3,9 <i>(363)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">U západního vjezdu (Big Oak Flat). Bez sprch, bez přípojek a bez dump station.</div>
+        <a class="maplink camp" data-name="Hodgdon Meadow Campground" data-rating="3,9" data-lat="37.799937" data-lng="-119.866938" href="https://www.google.com/maps/search/?api=1&amp;query=Hodgdon+Meadow+Campground+Yosemite" target="_blank" rel="noopener">Google Maps</a>
+      </div>
     </div>
   </section>
 
@@ -703,20 +861,30 @@
   <section class="day" id="d22">
     <div class="day-head">
       <span class="day-date">DEN 22</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
     </div>
-    <h2>Death Valley → Sequoia</h2>
+    <h2>Yosemite Valley</h2>
     <div class="activity">
-      <p>Přejezd do Sequoia (cca 5–6 h). Odpoledne první rozhlídka po parku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sequoia+National+Park" target="_blank" rel="noopener" data-lat="36.486367" data-lng="-118.565752">Sequoia National Park</a>
+      <p><b>Glacier Point</b> — vyhlídka na celé údolí a Half Dome (silnice bývá zavřená od sněhu); <b>Yosemite Falls</b>, Mirror Lake, procházky po údolí. <b>Half Dome</b> je vyhlídka i cíl, výstup vyžaduje povolení a celý den.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Glacier+Point" target="_blank" rel="noopener" data-lat="37.730424" data-lng="-119.57365">Glacier Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Half+Dome" target="_blank" rel="noopener" data-lat="37.745919" data-lng="-119.533199">Half Dome</a>
     </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Základna</span>
-        <div class="stay-name">Three Rivers</div>
-        <div class="stay-note">Nejbližší hotely k parku.</div>
+    <div class="note warn">Bear boxy: veškeré jídlo a vonící věci patří do kovových schránek — medvědi tu vykrádají auta i karavany.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Upper Pines Campground (Yosemite)</span><span class="camp-rate">★ 4,5 <i>(744)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span></div>
+        <div class="camp-note">Rezervace 5 měsíců předem. Dump station zdarma; sprchy jen v Curry Village (Half Dome Village) za poplatek. Bear boxy.</div>
+        <a class="maplink camp" data-name="Upper Pines Campground (Yosemite)" data-rating="4,5" data-lat="37.736187" data-lng="-119.563812" href="https://www.google.com/maps/search/?api=1&amp;query=Upper+Pines+Campground+Yosemite" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">North Pines Campground (Yosemite)</span><span class="camp-rate">★ 4,6 <i>(330)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span></div>
+        <div class="camp-note">Dump station v Upper Pines; sprchy jen v Curry Village za poplatek. Bear boxy.</div>
+        <a class="maplink camp" data-name="North Pines Campground (Yosemite)" data-rating="4,6" data-lat="37.742188" data-lng="-119.566563" href="https://www.google.com/maps/search/?api=1&amp;query=North+Pines+Campground+Yosemite" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Kempy v Yosemite Valley se rezervují na recreation.gov 5 měsíců předem (vždy od 15. v měsíci); bývají do minut vyprodané.</div>
     </div>
   </section>
 
@@ -724,24 +892,12 @@
   <section class="day" id="d23">
     <div class="day-head">
       <span class="day-date">DEN 23</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--long">Jen delší verze</span></div>
     </div>
-    <h2>Sequoia a přesun do Yosemite</h2>
+    <h2>Yosemite — druhý den</h2>
     <div class="activity">
-      <p><b>Sequoia</b> — nejobjemnější stromy světa a s trochou štěstí i pár medvědů. Zkuste nějaký strom obejmout; Tunnel Log dává pocítit, jak je člověk malý — pod kmenem se dá projet i s autem. Stačí půl dne.</p>
+      <p>Volnější den: Mariposa Grove (obří sekvoje, Wawona), <b>Mist Trail</b> k Vernal Fall, Yosemite Falls. Vodopády mají nejvíc vody na jaře; v létě a na podzim bývají slabé.</p>
 
-    </div>
-    <div class="activity">
-      <p>Odpoledne do Yosemite (cca 4–5 h). K západu slunce se hodí <b>Tunnel View</b>.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tunnel+View" target="_blank" rel="noopener" data-lat="37.715547" data-lng="-119.676906">Tunnel View</a>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Základna</span>
-        <div class="stay-name">Yosemite West / okolí</div>
-        <div class="stay-note">V okolí Yosemite se ubytování vyprodává velmi rychle — zaplaťte pokoj co nejdřív.</div>
-      </div>
     </div>
   </section>
 
@@ -749,54 +905,77 @@
   <section class="day" id="d24">
     <div class="day-head">
       <span class="day-date">DEN 24</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>Yosemite Valley</h2>
+    <h2>Cesta do San Francisca</h2>
     <div class="activity">
-      <p><b>Glacier Point</b> — vyhlídka na celé údolí a Half Dome; <b>Half Dome</b> je ikona parku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yosemite+National+Park" target="_blank" rel="noopener" data-lat="37.748747" data-lng="-119.587162">Yosemite National Park</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Glacier+Point" target="_blank" rel="noopener" data-lat="37.730424" data-lng="-119.57365">Glacier Point</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Half+Dome" target="_blank" rel="noopener" data-lat="37.745919" data-lng="-119.533199">Half Dome</a>
+      <p>Yosemite → San Francisco Bay (cca 4–4,5 h). Karavanu nechte na kempu v <b>Pacifice</b> (20 min od města), do centra MHD / taxi — v samotném San Franciscu je noční parkování karavanu prakticky nemožné a hrozí pokuty.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Pacifica+California" target="_blank" rel="noopener" data-lat="37.6138" data-lng="-122.4869">Pacifica</a>
     </div>
-    <div class="note warn">Bear boxy: veškeré jídlo a vonící věci patří do speciálních bear boxů — medvědi tu vykrádají auta.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">San Francisco RV Resort (Pacifica)</span><span class="camp-rate">★ 3,6 <i>(863)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Na útesu nad oceánem, 20 min do SF; plné přípojky, prádelna, bazén, wifi. Hodnocení na Googlu je průměrné.</div>
+        <a class="maplink camp" data-name="San Francisco RV Resort (Pacifica)" data-rating="3,6" data-lat="37.646188" data-lng="-122.492188" href="https://www.google.com/maps/search/?api=1&amp;query=San+Francisco+RV+Resort+Pacifica" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 25 -->
   <section class="day" id="d25">
     <div class="day-head">
       <span class="day-date">DEN 25</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+      <div class="badges"><span class="badge badge--light">Město</span><span class="badge badge--van">Karavan</span></div>
     </div>
-    <h2>Yosemite — druhý den</h2>
+    <h2>San Francisco a vrácení karavanu</h2>
     <div class="activity">
-      <p>Další den v parku — Yosemite Falls, procházky po údolí, fotky. Autoři doporučují 3–4 dny.</p>
+      <p><b>Golden Gate Bridge</b> (Battery Spencer Viewpoint), Lombard Street, tramvaj cable car, Fisherman’s Wharf. <b>Alcatraz</b> — vstupenky několik dní předem (oficiální prodej Alcatraz City Cruises).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Gate+Bridge" target="_blank" rel="noopener" data-lat="37.819929" data-lng="-122.478255">Golden Gate Bridge</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Battery+Spencer+Viewpoint" target="_blank" rel="noopener" data-lat="37.827698" data-lng="-122.481783">Battery Spencer Viewpoint</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lombard+Street" target="_blank" rel="noopener" data-lat="37.802139" data-lng="-122.41874">Lombard Street</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Alcatraz+Island" target="_blank" rel="noopener" data-lat="37.826978" data-lng="-122.422956">Alcatraz Island</a>
+    </div>
+    <div class="activity">
+      <p>Vrácení karavanu: dopoledne před městem (čištění, plná nádrž, případně vyprázdnění toalety a nádrží) — přesné podmínky a pobočka podle půjčovny.</p>
 
     </div>
-    <div class="note">Vodopády jsou nejsilnější na jaře; po zbytek roku bývají většinu času vyschlé, takže je to vhodné mít v plánu při volbě termínu. Výstup na Half Dome (cca 26 km) vyžaduje povolení a limit 13 km/den výrazně přesahuje.</div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Hotel v San Franciscu nebo poblíž letiště SFO</div>
+        <div class="stay-note">Ubytování je tu dražší, ale po týdnech v karavanu se hodí.</div>
+      </div>
+    </div>
   </section>
 
   <!-- DAY 26 -->
   <section class="day" id="d26">
     <div class="day-head">
       <span class="day-date">DEN 26</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--travel">Přelet</span></div>
     </div>
-    <h2>Tioga Road, Mono Lake a Bodie</h2>
+    <h2>Let do Miami</h2>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">SFO</span><span class="arrow">✈</span><span class="code">MIA</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+      </div>
+      <div class="pass-stub">PŘELET</div>
+    </div>
     <div class="activity">
-      <p><b>Mono Lake</b> — slané jezero, kolem kterého se dá procházet mezi unikátními vápencovými útvary (stačí 1–2 hodiny).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mono+Lake" target="_blank" rel="noopener" data-lat="37.942199" data-lng="-119.028986">Mono Lake</a>
+      <p>Přes celé USA na druhé pobřeží (cca 5,5 h + 3 h časový posun). Večer příjezd, ubytování v Miami, případně večerní procházka po <b>South Beach</b> (Ocean Drive).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Miami+International+Airport" target="_blank" rel="noopener" data-lat="25.7959" data-lng="-80.287">Miami International Airport</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Ocean+Drive+South+Beach+Miami" target="_blank" rel="noopener" data-lat="25.7826" data-lng="-80.13">South Beach</a>
     </div>
-    <div class="activity">
-      <p><b>Bodie</b> — opuštěné zlatokopecké městečko, kde jako by se zastavil čas (cca půl dne).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bodie+State+Historic+Park" target="_blank" rel="noopener" data-lat="38.214149" data-lng="-119.004601">Bodie State Historic Park</a>
-    </div>
-    <div class="note">Silnice přes Tioga Pass je sezónní (zavřená v zimě) — ověřte, jestli je v termínu otevřená.</div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
         <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Lee Vining / Virginia Creek Settlement</div>
-        <div class="stay-note">Nejlevnější ubytování v okolí Mono Lake a Bodie.</div>
+        <div class="stay-name">Miami — South Beach nebo poblíž letiště</div>
+        <div class="stay-note">První noc na Floridě (1 noc v Miami).</div>
       </div>
     </div>
   </section>
@@ -805,16 +984,24 @@
   <section class="day" id="d27">
     <div class="day-head">
       <span class="day-date">DEN 27</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+      <div class="badges"><span class="badge badge--water">Příroda</span><span class="badge badge--travel">Auto</span></div>
     </div>
-    <h2>Lake Tahoe a cesta k San Franciscu</h2>
+    <h2>Everglades — lodě a kajak</h2>
     <div class="activity">
-      <p><b>Lake Tahoe</b> — alpské jezero na hranici Kalifornie a Nevady; zastavit stačí na procházku a oběd.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lake+Tahoe" target="_blank" rel="noopener" data-lat="39.096849" data-lng="-120.032351">Lake Tahoe</a>
+      <p>Vyzvedněte auto v Miami a vyrazte do <b>Everglades</b> (cca 1–1,5 h). Vyberte podle toho, co chcete: <b>Shark Valley</b> (tram a kolo mezi aligátory), <b>Ernest Coe / Flamingo</b> (mangrovy, kajaky, manaté), nebo <b>Everglades City — Ten Thousand Islands</b> (lodě a kajaky mezi ostrůvky, delfíni). Na airboat je nejjednodušší soukromá vyhlídková plavba.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Shark+Valley+Visitor+Center+Everglades+National+Park" target="_blank" rel="noopener" data-lat="25.6626" data-lng="-80.7645">Shark Valley</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Flamingo+Visitor+Center+Everglades+National+Park" target="_blank" rel="noopener" data-lat="25.1417" data-lng="-80.928">Flamingo</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Gulf+Coast+Visitor+Center+Everglades+City" target="_blank" rel="noopener" data-lat="25.8484" data-lng="-81.3868">Everglades City</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Everglades+kayak+tour" target="_blank" rel="noopener" data-lat="25.7" data-lng="-80.9">Everglades — kajak (hledání)</a>
     </div>
-    <div class="activity">
-      <p>Pokračování k San Francisku — noc v okolí Sacramenta, ať je do města další den krátká cesta.</p>
-
+    <div class="note warn">Nejlepší sezóna je suchá zima (listopad–duben): míň komárů a víc zvířat u vody. V létě hrozí bouřky a hodně hmyzu. Oficiální stránka parku: nps.gov/ever.</div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Homestead / Florida City (jih) nebo Naples (Gulf coast)</div>
+        <div class="stay-note">Druhá noc na Floridě.</div>
+      </div>
     </div>
   </section>
 
@@ -822,21 +1009,20 @@
   <section class="day" id="d28">
     <div class="day-head">
       <span class="day-date">DEN 28</span>
-      <div class="badges"><span class="badge badge--light">Město</span></div>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
     </div>
-    <h2>San Francisco</h2>
+    <h2>Přejezd k Cape Canaveral</h2>
     <div class="activity">
-      <p><b>Golden Gate Bridge</b> — most ze všech stran; Battery Spencer Viewpoint nabízí klasický pohled. Lombard Street je slavná klikatá ulice a svézt se dá i legendární tramvají (cable car).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Gate+Bridge" target="_blank" rel="noopener" data-lat="37.819929" data-lng="-122.478255">Golden Gate Bridge</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Battery+Spencer+Viewpoint" target="_blank" rel="noopener" data-lat="37.827698" data-lng="-122.481783">Battery Spencer Viewpoint</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lombard+Street" target="_blank" rel="noopener" data-lat="37.802139" data-lng="-122.41874">Lombard Street</a>
+      <p>Přejezd po Floridě na východní pobřeží ke Cape Canaveral (cca 4 h z Miami / z Everglades City déle). Večer <b>Cocoa Beach</b> — pláž a molo, blízkost startovacích ploch.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Cocoa+Beach+Florida" target="_blank" rel="noopener" data-lat="28.32" data-lng="-80.6076">Cocoa Beach</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Titusville+Florida" target="_blank" rel="noopener" data-lat="28.6122" data-lng="-80.8076">Titusville</a>
     </div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
         <span class="stay-label">Nocleh</span>
-        <div class="stay-name">San Francisco</div>
-        <div class="stay-note">Ubytování je tu bohužel dražší, ale někde spát musíte.</div>
+        <div class="stay-name">Titusville nebo Cocoa Beach</div>
+        <div class="stay-note">Třetí noc na Floridě — nejbližší ubytování k Kennedy Space Center.</div>
       </div>
     </div>
   </section>
@@ -845,16 +1031,24 @@
   <section class="day" id="d29">
     <div class="day-head">
       <span class="day-date">DEN 29</span>
-      <div class="badges"><span class="badge badge--light">Město</span></div>
+      <div class="badges"><span class="badge badge--park">Vesmír</span><span class="badge badge--travel">Přelet</span></div>
     </div>
-    <h2>San Francisco — Alcatraz</h2>
+    <h2>Kennedy Space Center a odlet</h2>
     <div class="activity">
-      <p><b>Alcatraz</b> — legendární věznice na ostrově. Vstupenky si rezervujte předem, několik dní před termínem bývají vyprodané.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Alcatraz+Island" target="_blank" rel="noopener" data-lat="37.826978" data-lng="-122.422956">Alcatraz Island</a>
+      <p><b>Kennedy Space Center Visitor Complex</b> — Atlantis, Saturn V, autobus k rampám; na celý den (otevírací doba a případné starty na kennedyspacecenter.com). Tip: sledujte kalendář startů — vypuštění rakety z blízkosti je zážitek navíc.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Kennedy+Space+Center+Visitor+Complex" target="_blank" rel="noopener" data-lat="28.5241" data-lng="-80.682">Kennedy Space Center</a>
     </div>
     <div class="activity">
-      <p>Zbytek dne: tramvaj (cable car) a procházka po městě.</p>
-
+      <p>Večer dojezd do <b>Orlanda</b> a vrácení auta (cca 1 h) na letišti MCO — případně noc v okolí letiště a ráno let.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Orlando+International+Airport+MCO" target="_blank" rel="noopener" data-lat="28.4312" data-lng="-81.3081">Orlando International Airport (MCO)</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Hotel u letiště Orlando (MCO)</div>
+        <div class="stay-note">Čtvrtá noc na Floridě (poslední).</div>
+      </div>
     </div>
   </section>
 
@@ -862,92 +1056,57 @@
   <section class="day" id="d30">
     <div class="day-head">
       <span class="day-date">DEN 30</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--light">Vyhlídky</span></div>
-    </div>
-    <h2>Highway 1 — Big Sur</h2>
-    <div class="activity">
-      <p><b>Highway 1</b> — výhledy na oceán, útesy a kolonie rypoušů sloních. <b>Bixby Creek Bridge</b> je nejfotografovanější most trasy. Kempy si rezervujte dopředu, bývají plné.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bixby+Creek+Bridge" target="_blank" rel="noopener" data-lat="36.380386" data-lng="-121.901808">Bixby Creek Bridge</a>
-    </div>
-  </section>
-
-  <!-- DAY 31 -->
-  <section class="day" id="d31">
-    <div class="day-head">
-      <span class="day-date">DEN 31</span>
-      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
-    </div>
-    <h2>Highway 1 → Los Angeles</h2>
-    <div class="activity">
-      <p>Dojezd po pobřeží do Los Angeles (cca 6 h). Večer klid — zítra poušť.</p>
-
-    </div>
-  </section>
-
-  <!-- DAY 32 -->
-  <section class="day" id="d32">
-    <div class="day-head">
-      <span class="day-date">DEN 32</span>
-      <div class="badges"><span class="badge badge--park">Národní park</span></div>
-    </div>
-    <h2>Joshua Tree</h2>
-    <div class="activity">
-      <p><b>Joshua Tree National Park</b> — poušť, kaktusy a typické stromy „Joshua". Stačí den; autoři doporučují přespat v kempu přímo v parku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Joshua+Tree+National+Park" target="_blank" rel="noopener" data-lat="34.133909" data-lng="-116.315587">Joshua Tree National Park</a>
-    </div>
-    <div class="stay">
-      <div class="stay-icon">🏨</div>
-      <div class="stay-body">
-        <span class="stay-label">Nocleh</span>
-        <div class="stay-name">Kemp v parku (nebo Joshua Tree / Twentynine Palms)</div>
-        <div class="stay-note">Nejbližší hotely jsou ve městech Joshua Tree a Twentynine Palms.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DAY 33 -->
-  <section class="day" id="d33">
-    <div class="day-head">
-      <span class="day-date">DEN 33</span>
       <div class="badges"><span class="badge badge--travel">Odlet</span></div>
     </div>
-    <h2>Odlet z Los Angeles</h2>
+    <h2>Zpátky: Orlando → New York → Praha</h2>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">MCO</span><span class="arrow">✈</span><span class="code">NYC</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
     <div class="activity">
-      <p>Dopoledne dojezd na letiště v Los Angeles (cca 2,5–3 h z Joshua Tree) a odevzdání auta.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Los+Angeles+International+Airport+LAX" target="_blank" rel="noopener" data-lat="33.942517" data-lng="-118.407828">Los Angeles (letiště LAX)</a>
+      <p>Let z Orlanda do New Yorku a pak přímý noční let do Prahy (PRG). Mezi lety nechte rezervu — u přestupu v USA se zpravidla prochází celní kontrolou a zavazadla se přebírají a odbavují znovu.</p>
+
     </div>
     <div class="pass">
       <div class="pass-main">
-        <div class="pass-route"><span class="code">LAX</span><span class="arrow">✈</span><span class="code">PRG</span></div>
-        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+        <div class="pass-route"><span class="code">NYC</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
       </div>
       <div class="pass-stub">ODLET</div>
     </div>
   </section>
 
-  <!-- EXTRAS -->
   <section class="day extras" id="extra" data-extra>
     <div class="day-head">
       <span class="day-date">MIMO PLÁN</span>
       <div class="badges"><span class="badge badge--light">Další varianty</span></div>
     </div>
     <h2>Další varianty</h2>
-    <p class="lead-text" style="margin-top:8px;">Nejsou součástí hlavního plánu — dobrodružnější nebo časově náročné nápady z článku a z tvojí mapy, které se hodí, když zbyde den navíc.</p>
+    <p class="lead-text" style="margin-top:8px;">Nejsou součástí hlavního plánu — nápady, když zbyde den nebo dva navíc.</p>
 
     <div class="suggest">
-      <span class="suggest-label">Slotové kaňony a povolení</span>
+      <span class="suggest-label">Když dokážete přidat pár dní</span>
       <ul>
-        <li><b>Escalante — Spooky Gulch, Peek-a-boo Canyon, Devil's Garden</b> — dobrodružná procházka, místy spíš prolézačka slotovými kaňony; fanoušci filmu 127 hodin ocení. Na den navíc od Bryce (cca 1 den, ubytování ve vesnici Escalante).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Devil's+Garden+Grand+Staircase-Escalante" target="_blank" rel="noopener" data-lat="37.585709" data-lng="-111.414689">Devil's Garden (Escalante)</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Spooky+Gulch" target="_blank" rel="noopener" data-lat="37.479989" data-lng="-111.209051">Spooky Gulch</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Peek-a-boo+Canyon" target="_blank" rel="noopener" data-lat="37.481378" data-lng="-111.216552">Peek-a-boo Canyon</a></li>
-        <li><b>The Wave</b> — zkamenělé písečné duny v Arizoně. Vyžaduje povolení z loterie; příjezd po prašné cestě i samotný přístup nejsou jednoduché, půl až celý den. Nejbližší ubytování v Kanabu a Page.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Wave" target="_blank" rel="noopener" data-lat="36.995629" data-lng="-112.00613">The Wave</a></li>
-        <li><b>The Subway (Zion)</b> — trail s povolením, téměř celodenní. Autoři článku ho po Angels Landing a The Narrows klidně vynechávají — nic zvlášť výjimečného; navíc přes limit 13 km/den.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Subway+(Zion)" target="_blank" rel="noopener" data-lat="37.284682" data-lng="-113.095902">The Subway (Zion)</a></li>
+        <li><b>Sequoia National Park</b> — nejobjemnější stromy světa; vhodné jako objížďka při zavřeném Tioga Pass (Death Valley → Sequoia → Yosemite přes Fresno). Kempy: Potwisha, Lodgepole.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sequoia+National+Park" target="_blank" rel="noopener" data-lat="36.486367" data-lng="-118.565752">Sequoia National Park</a></li>
+        <li><b>Lake Tahoe a Bodie</b> — cestou z Yosemite do San Francisca přes horní Sierru (půl dne navíc).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lake+Tahoe" target="_blank" rel="noopener" data-lat="39.096849" data-lng="-120.032351">Lake Tahoe</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bodie+State+Historic+Park" target="_blank" rel="noopener" data-lat="38.214149" data-lng="-119.004601">Bodie State Historic Park</a></li>
+        <li><b>Highway 1 / Big Sur</b> — z San Francisca po pobřeží (Bixby Creek Bridge), pokud vám zbude čas před vrácením karavanu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bixby+Creek+Bridge" target="_blank" rel="noopener" data-lat="36.380386" data-lng="-121.901808">Bixby Creek Bridge</a></li>
       </ul>
     </div>
 
     <div class="suggest">
-      <span class="suggest-label">Další místa z mapy</span>
+      <span class="suggest-label">Slotové kaňony a povolení</span>
       <ul>
-        <li><b>Boiling River (Yellowstone)</b> — přírodní horká říčka. Po záplavách v roce 2022 byla uzavřená — před cestou ověřte, jestli je otevřená.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Boiling+River" target="_blank" rel="noopener" data-lat="44.992478" data-lng="-110.691467">Boiling River</a></li>
-        <li><b>Silicon Valley</b> — technologické centrum jižně od San Francisca, pokud vás láká zastávka při cestě k Big Sur.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Silicon+Valley" target="_blank" rel="noopener" data-lat="37.387474" data-lng="-122.057543">Silicon Valley</a></li>
+        <li><b>The Wave</b>, <b>The Subway</b> a slotové kaňony u Escalante — vyžadují povolení (loterie) nebo delší dobrodružnější den. Nejsou součástí hlavního plánu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Wave" target="_blank" rel="noopener" data-lat="36.995629" data-lng="-112.00613">The Wave</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Subway+(Zion)" target="_blank" rel="noopener" data-lat="37.284682" data-lng="-113.095902">The Subway (Zion)</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Bryce Canyon — jinde</span>
+      <ul>
+        <li>Bryce Canyon, Cedar Breaks a Yellowstone/Teton se do téhle trasy nevešly — jsou v itineráři „USA Trip 2“ (Bryce je tam mezi variantami pod čarou).</li>
       </ul>
     </div>
   </section>
@@ -959,6 +1118,7 @@
     </div>
     <div class="map-container" id="mapContainer"></div>
     <div class="map-legend">
+      <label class="lg"><input type="checkbox" id="toggleCamps"> ⛺ kempy (<span id="campCnt">0</span>)</label>
       <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
       <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty</span>
       <span class="lg">┄┄ pořadí trasy</span>
@@ -966,24 +1126,23 @@
   </div>
 
   <footer>
-    Sestaveno z článku „Road trip po západě USA" (czechtheworld.com) a Google mapy „Road trip USA" (129 míst). Ceny a čas z článku jsou orientační.
+    Vlastní návrh trasy s karavanem Denver → San Francisco a Floridou. Hodnocení a vybavení kempů: Google Maps, NPS/USFS/BLM a kempové průvodce (24. 9. 2026). Ceny a otevírací doby ověřte před cestou.
   </footer>
 
 </div>
 <script>
 (function(){
   "use strict";
-  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
-  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
-  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
-  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
-  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  // Leaflet's CSS is inlined (not linked), so its default marker icon can't auto-detect where marker-icon.png etc. live
+  // and would look for them relative to this page (404) — point it at the CDN. imagePath must carry the full CDN base.
   if (window.L) {
     L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
   }
   var COUNTRY_CODE = 'us';
-  var PERMANENT_LABELS = false;
-  var ROUTE_LINE = true;
+  var VIEWBOX = '';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
+  var PERMANENT_LABELS = false;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = true;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#8A6BC4';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
 
   function nameFromMapHref(href){
@@ -994,43 +1153,64 @@
     } catch(e){ return null; }
   }
   function extractMapPlaces(){
-    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
-    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    // the href's query param is usually more specific than the short visible link text — geocode with the fuller
+    // string, label with the short one. Links flagged .camp are campgrounds: a separate, switchable pin layer.
     var links = document.querySelectorAll('a.maplink');
     var seen = {}, out = [];
     links.forEach(function(a){
       var text = (a.textContent || '').trim();
       var hrefName = nameFromMapHref(a.getAttribute('href') || '');
-      var isGeneric = !text || /^mapa$/i.test(text);
-      var label = isGeneric ? (hrefName || text) : text;
+      var isGeneric = !text || /^mapa$/i.test(text) || /google/i.test(text);
+      var label = a.getAttribute('data-name') || (isGeneric ? (hrefName || text) : text);
       var query = hrefName || text;
       if (!label || !query) return;
       var key = query.toLowerCase();
-      if (seen[key]) return;
-      seen[key] = true;
-      // data-lat/data-lng = coordinates already known (from Google Maps / OSM) → pin is placed instantly,
-      // no Nominatim lookup and no 1 req/s wait; links without them still get geocoded as before
+      if (seen[key]) { a._place = seen[key]; return; }
+      // data-lat/data-lng = coordinates already known → pin appears instantly, no Nominatim wait
       var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
-      out.push({
+      var p = {
         label: label, query: query, href: a.getAttribute('href'),
         coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
-        extra: !!a.closest('[data-extra]')
-      });
+        extra: !!a.closest('[data-extra]'), camp: a.classList.contains('camp'),
+        rating: a.getAttribute('data-rating') || ''
+      };
+      seen[key] = p; a._place = p;
+      out.push(p);
     });
     return out;
   }
   function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
   function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
   function geocodeOne(name){
-    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
-    // from a genuine "this place has no OSM entry" — those must never be cached the same way
-    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    // throws on a failed/blocked request (e.g. 429) so the caller can tell that apart from a genuine "no OSM entry"
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + (VIEWBOX ? '&viewbox=' + VIEWBOX + '&bounded=1' : '');
     return fetch(url).then(function(r){
       if (!r.ok) { throw new Error('http ' + r.status); }
       return r.json();
     }).then(function(rows){
       if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
       return null;
+    });
+  }
+  function fmt(c){ return c.lat.toFixed(5) + ',' + c.lng.toFixed(5); }
+
+  // per-day "open this day's route in Google Maps" button (directions URL — needs no API key; max 9 waypoints)
+  function addDayRouteButtons(){
+    document.querySelectorAll('section.day').forEach(function(sec){
+      if (sec.hasAttribute('data-extra') || sec.querySelector('.daybtn')) return;
+      var pts = [], seenK = {};
+      sec.querySelectorAll('a.maplink').forEach(function(a){
+        var p = a._place; if (!p || p.camp || !p.resolved) return;
+        var k = fmt(p.resolved); if (seenK[k]) return; seenK[k] = 1; pts.push(p.resolved);
+      });
+      if (pts.length < 2) return;
+      if (pts.length > 11) pts = pts.slice(0, 11);
+      var u = 'https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=' + fmt(pts[0]) + '&destination=' + fmt(pts[pts.length-1]);
+      if (pts.length > 2) u += '&waypoints=' + pts.slice(1, -1).map(fmt).join('%7C');
+      var a = document.createElement('a');
+      a.className = 'daybtn'; a.href = u; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🧭 Trasa dne v Google Maps (' + pts.length + ' zastávek)';
+      sec.appendChild(a);
     });
   }
 
@@ -1045,17 +1225,22 @@
     var cache = loadCache();
     var cacheKeyPrefix = COUNTRY_CODE + ':';
     var bounds = [];
-    var mainCount = 0;
+    var mainCount = 0, campCount = 0;
     var routePts = [], routeLine = null;
-    var map = null;
+    var map = null, campLayer = null;
     var resolved = 0;
     var blocked = false;
+    var toggle = document.getElementById('toggleCamps');
 
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
-      // if the container gets its final size only after the map was created (fonts/layout still settling),
-      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      campLayer = L.layerGroup();
+      if (toggle) toggle.addEventListener('change', function(){
+        if (!map) return;
+        if (toggle.checked) campLayer.addTo(map); else map.removeLayer(campLayer);
+      });
+      // the container may get its final size only after the map was created — re-measure and re-fit on resize
       if (window.ResizeObserver) {
         new ResizeObserver(function(){
           if (!map) return;
@@ -1066,8 +1251,7 @@
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);
-      // this itinerary page can also load inside the claude.ai artifact preview, whose sandbox
-      // blocks external map-tile images — detect that and show a note instead of a broken gray box
+      // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
         blocked = true;
@@ -1077,35 +1261,44 @@
         statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
       });
     }
-    function addPoint(name, coord, href, extra){
+    function popup(label, href, coord, extraLine){
+      return '<div class="pin-popup"><b>' + label + '</b>' + (extraLine ? '<br>' + extraLine : '') +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+        '<br><a href="https://mapy.cz/zakladni?x=' + coord.lng.toFixed(6) + '&y=' + coord.lat.toFixed(6) + '&z=15&source=coor&id=' + coord.lng.toFixed(6) + ',' + coord.lat.toFixed(6) + '" target="_blank" rel="noopener">Mapy.cz ↗</a></div>';
+    }
+    function addPoint(p, coord){
       ensureMap();
       if (blocked || !map) return;
-      // plan places: numbered pins with permanent labels; optional places ("Další varianty"): small hollow
-      // rings, label only on hover/tap, drawn underneath — otherwise ~30 always-on labels would bury the map
-      var label = name, icon, zOffset = 0;
-      if (extra) {
+      var label = p.label, icon, zOffset = 0, m;
+      if (p.camp) {
+        campCount++;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="camp-pin">⛺</span>', iconSize:[20,20], iconAnchor:[10,10]});
+        m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: -500});
+        m.bindTooltip(label + (p.rating ? ' · ★ ' + p.rating : ''), {direction:'top', offset:[0,-8], className:'place-label'});
+        m.bindPopup(popup(label, p.href, coord, p.rating ? '★ ' + p.rating + ' (Google)' : ''));
+        campLayer.addLayer(m);
+        var cnt = document.getElementById('campCnt'); if (cnt) cnt.textContent = campCount;
+        return;
+      }
+      if (p.extra) {
         icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
         zOffset = -1000;
       } else {
         var order = ++mainCount;
-        label = order + '. ' + name;
+        label = order + '. ' + p.label;
         icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
       }
-      var m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
-      m.bindTooltip(label, {permanent: (!extra && PERMANENT_LABELS), direction:'top', offset:[0, extra ? -6 : -8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + label + '</b>' +
-        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
-      m.bindPopup(popupHtml);
+      m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
+      m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      if (!extra && ROUTE_LINE) {
+      if (!p.extra && ROUTE_LINE) {
         routePts.push([coord.lat, coord.lng]);
         if (routeLine) routeLine.setLatLngs(routePts);
-        else routeLine = L.polyline(routePts, {color:'#8A6BC4', weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+        else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
       }
-      // animate:false is load-bearing: when several places resolve from cache in the same tick
-      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
-      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
-      // early, too-small bounding box — later pins then render outside the visible map area
+      // animate:false is load-bearing: rapid-fire animated fitBounds calls (cache hits resolve in the same tick)
+      // interrupt each other and the view silently gets stuck on an early, too-small bounding box
       if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
       else map.fitBounds(bounds, {padding:[28,28], animate:false});
     }
@@ -1124,18 +1317,18 @@
           madeLiveRequest = true;
         } catch(e){
           statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          addDayRouteButtons();
           return;
         }
       }
-      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href, place.extra); resolved++; }
-      if (blocked) return;
+      if (cached && cached !== 'FAIL'){ place.resolved = cached; addPoint(place, cached); resolved++; }
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
-      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
-      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      // only the Nominatim usage policy (~1 req/s) requires this pause — cache hits made no request and don't wait
       if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
     }
     if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+    addDayRouteButtons();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);

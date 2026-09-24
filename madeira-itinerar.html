@@ -215,6 +215,18 @@
   /* pins are numbered in the order they appear in the itinerary (top to bottom = chronological),
      so the map reads as a rough visiting order at a glance, not just an unordered cluster of places */
   .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--ember); color:var(--ember-ink); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
+  /* optional places from "Další varianty" are hollow rings, so the numbered pins still read as the actual plan */
+  .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--ember); box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
+  .map-legend .lg{display:inline-flex; align-items:center; gap:7px;}
+  .map-legend .num-pin{width:18px; height:18px; font-size:10px;}
+  .map-legend .num-pin--extra{width:12px; height:12px;}
+  .rating{display:inline-flex; align-items:center; gap:4px; font-family:'Space Mono',monospace; font-size:11.5px; font-weight:700; color:var(--ink); background:var(--surface-2); border-radius:999px; padding:2px 9px; white-space:nowrap; vertical-align:middle;}
+  .rating i{font-style:normal; color:var(--trail);}
+  .rating small{font-size:10.5px; font-weight:400; color:var(--ink-faint);}
+  .price{font-family:'Space Mono',monospace; font-size:11.5px; color:var(--ink-faint); white-space:nowrap;}
+  .suggest li .maplink{margin-top:6px;}
+  .extras .suggest + .suggest{margin-top:22px;}
 
   .note{
     background:var(--surface-2); border-radius:8px; padding:10px 12px;
@@ -290,6 +302,7 @@
     <a href="#d7"><b>2.10</b> PR9</a>
     <a href="#d8"><b>3.10</b> Jih</a>
     <a href="#d9"><b>4.10</b> Odlet</a>
+    <a href="#extra"><b>+</b> Varianty</a>
   </div>
 </nav>
 
@@ -511,6 +524,16 @@
     <div class="activity">
       <div class="time">–</div>
       <div>
+        <h3>Poncha Tavern <span class="rating"><i>★</i> 4,7 <small>(6 443)</small></span></h3>
+        <p>Oblíbený bar u silnice (Taberna da Poncha) v Serra de Água, kousek nad Ribeira Brava po silnici ER104 směr Encumeada. Poncha se tu míchá ručně přímo před vámi — kromě klasiky mají maracuju, mandarinku a verzi s arašídy (<i>poncha com amendoim</i>), alkoholickou i nealkoholickou. Jednoduché, levné (Google: 1–5 €) a hodně oblíbené. Dá se zařadit jako odbočka mezi Ponta do Sol a Cabo Girão.</p>
+        <a class="maplink" href="https://www.google.com/maps/place/Poncha+Tavern/@32.7164928,-17.0331137,17z/data=!4m6!3m5!1s0xc605c5037b58dbf:0xdc02779265bb6c2!8m2!3d32.7164928!4d-17.0331137!16s%2Fg%2F113hccfv0" target="_blank" rel="noopener" data-lat="32.716493" data-lng="-17.033114">Poncha Tavern</a>
+        <div class="note warn"><b>Řidič:</b> poncha je silná a v Portugalsku platí limit 0,5 ‰ — řidič ať si dá nealko variantu, ostatní klidně ochutnají všechny druhy.</div>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="time">–</div>
+      <div>
         <h3>Cabo Girão Skywalk</h3>
         <p>Jeden z nejvyšších útesů v Evropě (580 m nad mořem), vyhlídková plošina se prosklenou podlahou. Vstup cca €3.</p>
         <a class="maplink" href="https://maps.app.goo.gl/KnT1U6apwnbXMkAD7" target="_blank" rel="noopener">Cabo Girão</a>
@@ -548,16 +571,91 @@
     <div class="note">Celé dopoledne volné. Suvenýry (madeirské víno, koláč Bolo de Mel) na tržnici Mercado dos Lavradores ve Funchalu, poté cesta na letiště.</div>
   </section>
 
+  <!-- EXTRAS -->
+  <section class="day extras" id="extra" data-extra>
+    <div class="day-head">
+      <span class="day-date">MIMO PLÁN</span>
+      <span class="badge badge--open">Další varianty</span>
+    </div>
+    <h2>Další tipy na Madeiru</h2>
+    <p class="lead-text" style="margin-top:8px;">Nejsou součástí hlavního plánu — nápady na volné chvíle, špatné počasí nebo když se program změní. Vybráno z cestovní brožury Travel Kitchen (2017), takže ceny a otevírací dobu si před cestou ověřte. Hodnocení a počty recenzí jsou z Google Map ke dni 24. 9. 2026.</p>
+
+    <div class="suggest">
+      <span class="suggest-label">Kde se najíst — Funchal</span>
+      <ul>
+        <li><b>Barreirinha Bar Café</b> <span class="rating"><i>★</i> 4,6 <small>(4 338)</small></span> <span class="price">10–15 €</span><br>Oblíbený bar na večer: výhled na západ slunce, drobné jídlo, hamburgery a drinky (včetně ponchy).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Barreirinha+Bar+Caf%C3%A9+Largo+do+Socorro+Funchal" target="_blank" rel="noopener" data-lat="32.647040" data-lng="-16.897369">Barreirinha Bar Café</a></li>
+        <li><b>Castelo dos Hamburguers</b> <span class="rating"><i>★</i> 4,6 <small>(1 750)</small></span> <span class="price">5–10 €</span><br>Malý podnik na rychlý a levný oběd — burgery a čerstvé ovocné šťávy (chválené je třeba mango). Google uvádí adresu Rua da Carreira 306 (brožura 267).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Castelo+dos+Hamburguers+Rua+da+Carreira+Funchal" target="_blank" rel="noopener" data-lat="32.649313" data-lng="-16.917438">Castelo dos Hamburguers</a></li>
+        <li><b>PVP – Pão, Vinho e Petiscos</b> <span class="rating"><i>★</i> 4,5 <small>(1 309)</small></span> <span class="price">15–35 €</span><br>Portugalská restaurace na ryby, mořské plody a <i>petiscos</i> (portugalské tapas) za rozumné ceny; brožura ji doporučuje na večeři (dříve pod názvem Pão Vinhos e Petiscos). Stůl jde rezervovat přes TheFork.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=PVP+P%C3%A3o+Vinho+e+Petiscos+Funchal" target="_blank" rel="noopener" data-lat="32.638188" data-lng="-16.934402">PVP – Pão, Vinho e Petiscos</a></li>
+        <li><b>O Calhau</b> <span class="rating"><i>★</i> 4,3 <small>(919)</small></span> <span class="price">15–35 €</span><br>Restaurace kousek za katedrálou Sé — tuňákový steak, těstoviny nebo jen rychlé tapas a zákusky.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=O+Calhau+R.+de+Jo%C3%A3o+Gago+Funchal" target="_blank" rel="noopener" data-lat="32.648312" data-lng="-16.907688">O Calhau</a></li>
+        <li><b>Golden Gate Grand Café</b> <span class="rating"><i>★</i> 4,1 <small>(2 074)</small></span> <span class="price">5–30 €</span><br>Kavárna a restaurace hned u sochy J. G. Zarca na Avenida Arriaga — káva, sendviče, dezerty i poncha; klasická zastávka při procházce centrem.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Gate+Grand+Caf%C3%A9+Av.+Arriaga+Funchal" target="_blank" rel="noopener" data-lat="32.647813" data-lng="-16.909563">Golden Gate Grand Café</a></li>
+        <li><b>Café do Teatro</b> <span class="rating"><i>★</i> 4,0 <small>(1 361)</small></span> <span class="price">10–30 €</span><br>Podnik na Avenida Arriaga, který brožura zmiňuje jako oblíbené místo na ochutnání ponchy; z jídla espetada (maso na špejli) s bramborami a salátem.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+do+Teatro+Av.+Arriaga+Funchal" target="_blank" rel="noopener" data-lat="32.647188" data-lng="-16.911313">Café do Teatro</a></li>
+      </ul>
+      <div class="note"><b>A Mula</b> (tapas u tržnice), kterou brožura doporučuje, je podle Google <b>trvale zavřená</b> — proto ji tu nenajdete.</div>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Kde se najíst — Ribeira Brava (hodí se k 3. říjnu)</span>
+      <ul>
+        <li><b>Restaurant &amp; Grill Muralha Terrace</b> <span class="rating"><i>★</i> 4,7 <small>(3 355)</small></span> <span class="price">25–50 €</span><br>Grilované ryby a mořské plody (oblíbená je pečená chobotnice) — brožura ho doporučuje na večeři při západu slunce. Dražší, spíš na jednu „pořádnou" večeři.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+%26+Grill+Muralha+Terrace+Ribeira+Brava" target="_blank" rel="noopener" data-lat="32.671312" data-lng="-17.066188">Muralha Terrace</a></li>
+        <li><b>Miminho</b> <span class="rating"><i>★</i> 4,3 <small>(619)</small></span><br>Cukrárna a pekárna s portugalským pečivem a dortíky — recenzenti chválí sýrový koláček (<i>cheese tart</i>) a fazolový dortík (<i>bean cake</i>). Otevřeno do podvečera.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Miminho+Rua+6+de+Maio+Ribeira+Brava" target="_blank" rel="noopener" data-lat="32.678312" data-lng="-17.059813">Miminho</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Funchal a okolí</span>
+      <ul>
+        <li><b>Madeira Story Centre</b> — moderní interaktivní muzeum o 400 letech historie ostrova; na prohlídku stačí cca hodina, dobrý tip na den, kdy prší.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Madeira+Story+Centre+Funchal" target="_blank" rel="noopener" data-lat="32.647859" data-lng="-16.902498">Madeira Story Centre</a></li>
+        <li><b>Blandy's Wine Lodge</b> — prohlídka 200 let starého sklepa madeirského vinařství zakončená degustací madeirských vín (cca 45 minut).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Blandy%27s+Wine+Lodge+Funchal" target="_blank" rel="noopener" data-lat="32.647827" data-lng="-16.910578">Blandy's Wine Lodge</a></li>
+        <li><b>Sé a Zona Velha</b> — procházka starým městem: katedrála Sé z přelomu 15. a 16. století (cedrový strop v arabském stylu, azulejos), Praça do Município s černou mozaikovou dlažbou a jezuitský kostel.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=S%C3%A9+do+Funchal" target="_blank" rel="noopener" data-lat="32.648213" data-lng="-16.908221">Sé do Funchal</a></li>
+        <li><b>Carreiros do Monte</b> — tradiční sjezd z Monte na proutěných saních (cca 2 km, až 38 km/h), navazuje na lanovku na Monte z 29. 9. Dolů do centra pak taxi nebo pěšky (cca 2,6 km).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Carreiros+do+Monte+Funchal" target="_blank" rel="noopener" data-lat="32.675430" data-lng="-16.902626">Carreiros do Monte</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Jih a západ</span>
+      <ul>
+        <li><b>Lagoa do Lugar de Baixo</b> — podle brožury jediná přílivová laguna na Madeiře, s neobyčejnou biologickou rozmanitostí; kousek od Ponta do Sol (3. října).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lagoa+do+Lugar+de+Baixo+Ponta+do+Sol" target="_blank" rel="noopener" data-lat="32.679228" data-lng="-17.088619">Lagoa do Lugar de Baixo</a></li>
+        <li><b>Ribeira Brava — promenáda a pevnost</b> — večerní procházka po pobřežní promenádě, koupání u mola, kostel Igreja Matriz de São Bento a pevnost s informačním centrem.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Forte+da+Ribeira+Brava" target="_blank" rel="noopener" data-lat="32.670581" data-lng="-17.061621">Ribeira Brava — promenáda a pevnost</a></li>
+        <li><b>Quinta Pedagógica dos Prazeres</b> — vzdělávací farma o udržitelném zemědělství s ochutnávkou místních produktů (vstup placený).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Quinta+Pedag%C3%B3gica+dos+Prazeres" target="_blank" rel="noopener" data-lat="32.754118" data-lng="-17.201785">Quinta Pedagógica dos Prazeres</a></li>
+        <li><b>Maják Ponta do Pargo</b> — maják na nejzápadnějším cípu ostrova, na útesu asi 392 m nad mořem, uvnitř malé muzeum majáků. Je to daleko, počítejte s delší jízdou.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Farol+da+Ponta+do+Pargo" target="_blank" rel="noopener" data-lat="32.813927" data-lng="-17.263069">Farol da Ponta do Pargo</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Sever a východ</span>
+      <ul>
+        <li><b>Grutas de São Vicente</b> — lávové jeskyně vzniklé před zhruba 890 tisíci lety sopečnou erupcí, s interaktivním Centro do Vulcanismo; prohlídka cca 30 minut.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grutas+de+S%C3%A3o+Vicente" target="_blank" rel="noopener" data-lat="32.797546" data-lng="-17.042387">Grutas de São Vicente</a></li>
+        <li><b>Cabo Aéreo (Arco de São Jorge)</b> — vyhlídka na severu pojmenovaná podle lanové dráhy (<i>cabo aéreo</i>), po které místní dřív převáželi zboží; odtud pochází slavný záběr na horské pobřeží. Nedaleko jsou bazény v São Jorge.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=32.8275363,-16.9771762" target="_blank" rel="noopener" data-lat="32.827536" data-lng="-16.977176">Cabo Aéreo</a></li>
+        <li><b>Parque Temático da Madeira</b> — tematický park u Santany o historii a kultuře ostrova; slaměné domky ze Santany máte v plánu už 2. října.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Parque+Tem%C3%A1tico+da+Madeira+Santana" target="_blank" rel="noopener" data-lat="32.802155" data-lng="-16.885605">Parque Temático da Madeira</a></li>
+        <li><b>Ponte Velha do Faial</b> — starý most z počátku 20. století o sedmi obloucích, kdysi nejdelší na ostrově; po bouři v roce 1984 se čtyři oblouky zřítily.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Velha+do+Faial" target="_blank" rel="noopener" data-lat="32.787333" data-lng="-16.852359">Ponte Velha do Faial</a></li>
+        <li><b>Museu da Baleia (Caniçal)</b> — muzeum o lovu velryb u Madeiry; leží kousek od začátku PR8, takže se dá spojit s 28. zářím.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Museu+da+Baleia+Cani%C3%A7al" target="_blank" rel="noopener" data-lat="32.735841" data-lng="-16.740559">Museu da Baleia</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Túry — alternativy</span>
+      <ul>
+        <li><b>25 Fontes (Rabaçal)</b> — nejznámější levada na ostrově, kolem 25 pramenů, vodopádů a jezírek. Cca 9,2 km, lehká, 3–4 hodiny; začíná v Rabaçalu — ve stejné oblasti jako Levada Velha do Rabaçal z 1. října.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=25+Fontes+Raba%C3%A7al" target="_blank" rel="noopener" data-lat="32.7543" data-lng="-17.1332">25 Fontes</a></li>
+        <li><b>Pico Ruivo z Achada do Teixeira</b> — nejkratší a nejsnazší cesta na nejvyšší horu ostrova (1 862 m): 2,8 km jedním směrem po dlážděném chodníku se schody (cca 1–2 hodiny tam a zpět). Záloha k PR1 z 30. září, kdyby nešla celá trasa. Odpoledne bývá vrchol v mlze.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Achada+do+Teixeira+Pico+Ruivo" target="_blank" rel="noopener" data-lat="32.765326" data-lng="-16.920852">Achada do Teixeira</a></li>
+      </ul>
+      <div class="note warn">Z brožury jsem vynechal trasu <b>Pináculos</b> (17 km, těžká, 4–7 hodin) — výrazně přes limit 13 km na den.</div>
+    </div>
+  </section>
+
   <div class="map-section">
     <div class="map-head">
       <h3>Mapa itineráře</h3>
       <span class="map-status" id="mapStatus"></span>
     </div>
     <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <span class="lg"><span class="num-pin">1</span> plán</span>
+      <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty (název po najetí / klepnutí)</span>
+    </div>
   </div>
 
   <footer>
-    Sestaveno z dokumentu „Madeira" (Google Docs). Zdroj zůstává v Google Drive — zde je jen přehledná verze pro cesty.
+    Sestaveno z dokumentu „Madeira" (Google Docs). Zdroj zůstává v Google Drive — zde je jen přehledná verze pro cesty. Sekce „Další varianty" vychází z cestovní brožury Travel Kitchen (2017); hodnocení pocházejí z Google Map (24. 9. 2026).
   </footer>
 
 </div>
@@ -601,7 +699,14 @@
       var key = query.toLowerCase();
       if (seen[key]) return;
       seen[key] = true;
-      out.push({label: label, query: query, href: a.getAttribute('href')});
+      // data-lat/data-lng = coordinates already known (from Google Maps / OSM) → pin is placed instantly,
+      // no Nominatim lookup and no 1 req/s wait; links without them still get geocoded as before
+      var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
+      out.push({
+        label: label, query: query, href: a.getAttribute('href'),
+        coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
+        extra: !!a.closest('[data-extra]')
+      });
     });
     return out;
   }
@@ -631,6 +736,7 @@
     var cache = loadCache();
     var cacheKeyPrefix = COUNTRY_CODE + ':';
     var bounds = [];
+    var mainCount = 0;
     var map = null;
     var resolved = 0;
     var blocked = false;
@@ -652,14 +758,23 @@
         statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
       });
     }
-    function addPoint(name, coord, href){
+    function addPoint(name, coord, href, extra){
       ensureMap();
       if (blocked || !map) return;
-      var order = bounds.length + 1;
-      var icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
-      var m = L.marker([coord.lat, coord.lng], {icon: icon}).addTo(map);
-      m.bindTooltip(order + '. ' + name, {permanent:true, direction:'top', offset:[0,-8], className:'place-label'});
-      var popupHtml = '<div class="pin-popup"><b>' + order + '. ' + name + '</b>' +
+      // plan places: numbered pins with permanent labels; optional places ("Další varianty"): small hollow
+      // rings, label only on hover/tap, drawn underneath — otherwise ~30 always-on labels would bury the map
+      var label = name, icon, zOffset = 0;
+      if (extra) {
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
+        zOffset = -1000;
+      } else {
+        var order = ++mainCount;
+        label = order + '. ' + name;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      }
+      var m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: !extra, direction:'top', offset:[0, extra ? -6 : -8], className:'place-label'});
+      var popupHtml = '<div class="pin-popup"><b>' + label + '</b>' +
         (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
       m.bindPopup(popupHtml);
       bounds.push([coord.lat, coord.lng]);
@@ -674,7 +789,7 @@
     for (var i=0; i<places.length; i++){
       var place = places[i];
       var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
-      var cached = cache[cacheKey];
+      var cached = place.coord || cache[cacheKey];
       var madeLiveRequest = false;
       if (cached === undefined){
         statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
@@ -688,7 +803,7 @@
           return;
         }
       }
-      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href); resolved++; }
+      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href, place.extra); resolved++; }
       if (blocked) return;
       var done = i + 1;
       statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');

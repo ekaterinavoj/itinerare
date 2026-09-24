@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>USA Trip 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<style>
+  :root{
+    --ground:#F4F1F7;
+    --surface:#FFFEFF;
+    --surface-2:#EAE4F0;
+    --ink:#231C2C;
+    --ink-soft:#5A4C66;
+    --ink-faint:#928599;
+    --border:#DED4E6;
+    --dusk:#6A4C9C;
+    --dusk-ink:#F6F1FC;
+    --sage:#4F7A58;
+    --sage-ink:#EDF7EF;
+    --canyon:#C4552F;
+    --canyon-ink:#FCEEE8;
+    --gold:#B58620;
+    --gold-ink:#2A1D05;
+    --danger:#A3432A;
+    --shadow: 0 1px 2px rgba(35,28,44,.07), 0 6px 18px -10px rgba(35,28,44,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#17131D;
+      --surface:#211B29;
+      --surface-2:#2B2336;
+      --ink:#EDE7F3;
+      --ink-soft:#BBB0C8;
+      --ink-faint:#80749A;
+      --border:#3A3048;
+      --dusk:#B9A2E8;
+      --dusk-ink:#1B1030;
+      --sage:#8FCB9A;
+      --sage-ink:#0F2515;
+      --canyon:#E9906A;
+      --canyon-ink:#2A130A;
+      --gold:#E3B04E;
+      --gold-ink:#2A1D05;
+      --danger:#E58A6A;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#17131D;
+    --surface:#211B29;
+    --surface-2:#2B2336;
+    --ink:#EDE7F3;
+    --ink-soft:#BBB0C8;
+    --ink-faint:#80749A;
+    --border:#3A3048;
+    --dusk:#B9A2E8;
+    --dusk-ink:#1B1030;
+    --sage:#8FCB9A;
+    --sage-ink:#0F2515;
+    --canyon:#E9906A;
+    --canyon-ink:#2A130A;
+    --gold:#E3B04E;
+    --gold-ink:#2A1D05;
+    --danger:#E58A6A;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+
+  .hero{padding:38px 18px 22px;}
+  .backlink{display:inline-flex; align-items:center; gap:5px; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; margin-bottom:16px;}
+  .backlink:hover{color:var(--ink);}
+  .hero .eyebrow{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--dusk); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--dusk);}
+  .hero h1{font-size:44px; font-weight:700; line-height:1.02;}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:48ch; line-height:1.5;}
+
+  .daynav{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--border); padding:10px 0;}
+  .daynav-scroll{display:flex; gap:8px; overflow-x:auto; padding:0 18px; max-width:640px; margin:0 auto; scrollbar-width:none;}
+  .daynav-scroll::-webkit-scrollbar{display:none;}
+  .daynav a{
+    flex:0 0 auto; font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:7px 12px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .daynav a b{color:var(--ink); font-weight:700;}
+
+  .tip{
+    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--dusk);
+    border-radius:10px; padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--dusk); display:block; margin-bottom:5px;}
+  .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .tip p + p{margin-top:8px;}
+  .tip strong{color:var(--ink); font-weight:600;}
+
+  .day{padding:34px 0 6px; border-top:1px solid var(--border);}
+  .day:first-of-type{border-top:none;}
+  .day-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; scroll-margin-top:64px; flex-wrap:wrap;}
+  .day-date{font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint); letter-spacing:.03em;}
+  .badges{display:flex; gap:6px; flex-wrap:wrap;}
+  .badge{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap;
+  }
+  .badge--travel{background:var(--canyon); color:var(--canyon-ink);}
+  .badge--water{background:var(--sage); color:var(--sage-ink);}
+  .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+
+  .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
+
+  .activity{padding:14px 0; border-top:1px solid var(--border);}
+  .activity:first-of-type{border-top:none; padding-top:16px;}
+  .activity p{font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:0 0 8px;}
+  .activity p:last-of-type{margin-bottom:0;}
+
+  .maplink{
+    display:inline-flex; align-items:center; gap:6px; font-family:'Work Sans'; font-size:13px; font-weight:600;
+    color:var(--dusk); text-decoration:none; border:1px solid var(--border); border-radius:999px;
+    padding:6px 12px 6px 10px; background:var(--surface); margin:2px 6px 2px 0;
+  }
+  .maplink::before{content:"↗"; font-size:13px;}
+
+  .map-section{margin:32px 0 8px;}
+  .map-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px; flex-wrap:wrap;}
+  .map-head h3{font-size:15px; font-family:'Fraunces', Georgia, serif;}
+  .map-status{font-size:11.5px; color:var(--ink-faint); font-family:'Space Mono',monospace;}
+  .map-container{height:380px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--surface-2);}
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip{background:var(--surface); color:var(--ink);}
+  .leaflet-tooltip.place-label{background:var(--surface); color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:2px 7px; font-family:'Work Sans',sans-serif; font-size:11.5px; font-weight:600; box-shadow:none; white-space:nowrap;}
+  .leaflet-tooltip.place-label::before{display:none;}
+  .pin-popup{font-size:13px; line-height:1.5;}
+  .pin-popup a{font-size:12px; color:#0078a8;}
+  /* pins are numbered in the order they appear in the itinerary (top to bottom = chronological),
+     so the map reads as a rough visiting order at a glance, not just an unordered cluster of places */
+  .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--dusk); color:var(--dusk-ink); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
+
+  .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
+  .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
+  .note b{color:var(--ink);}
+
+  .stay{
+    display:flex; gap:12px; align-items:flex-start; margin-top:16px; padding:12px 14px;
+    background:var(--surface-2); border-radius:10px;
+  }
+  .stay-icon{
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--dusk); color:var(--dusk-ink);
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .stay-body{flex:1;}
+  .stay-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:2px;}
+  .stay-name{font-weight:600; font-size:14.5px;}
+  .stay-note{font-size:13px; color:var(--ink-soft); margin-top:3px; line-height:1.5;}
+
+  .pass{display:flex; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin:16px 0 6px;}
+  .pass-main{flex:1; padding:16px 16px;}
+  .pass-route{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .pass-route .code{font-family:'Space Mono',monospace; font-weight:700; font-size:20px;}
+  .pass-route .arrow{color:var(--ink-faint); font-size:14px;}
+  .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
+  .pass-note{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
+  .pass-stub{
+    flex:0 0 64px; background:var(--canyon); color:var(--canyon-ink); display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; writing-mode:vertical-rl; text-transform:uppercase;
+    font-weight:700; border-left:1px dashed rgba(0,0,0,.15);
+  }
+
+  footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+
+  .badge--park{background:var(--dusk); color:var(--dusk-ink);}
+  .badge--trek{background:var(--gold); color:var(--gold-ink);}
+  .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+  .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--dusk); box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
+  .map-legend .lg{display:inline-flex; align-items:center; gap:7px;}
+  .map-legend .num-pin{width:18px; height:18px; font-size:10px;}
+  .map-legend .num-pin--extra{width:12px; height:12px;}
+  .map-container{height:520px;}
+  .lead-text{font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .suggest{margin-top:6px; padding-top:6px;}
+  .suggest-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .suggest ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .suggest li{font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .suggest li b{color:var(--ink); font-weight:600;}
+  .extras .suggest + .suggest{margin-top:22px;}
+  .tip a{color:var(--dusk); font-weight:600; text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="backlink" href="index.html">← Zpět na přehled</a>
+  <div class="eyebrow">USA Trip 1 · západ USA · cca 33 dní</div>
+  <h1>USA Trip 1</h1>
+  <p>Salt Lake City → Yellowstone → Utah → Grand Canyon → Las Vegas → Death Valley → Yosemite → San Francisco → Los Angeles. Klasický měsíční road trip po národních parcích západu USA.</p>
+</header>
+
+<nav class="daynav">
+  <div class="daynav-scroll">
+    <a href="#d1"><b>1</b> SLC</a>
+    <a href="#d2"><b>2</b> Yellowstone</a>
+    <a href="#d5"><b>5</b> Teton</a>
+    <a href="#d7"><b>7</b> Arches</a>
+    <a href="#d8"><b>8</b> Canyonlands</a>
+    <a href="#d9"><b>9</b> Monument Valley</a>
+    <a href="#d10"><b>10</b> Page</a>
+    <a href="#d11"><b>11</b> Grand Canyon</a>
+    <a href="#d13"><b>13</b> Bryce</a>
+    <a href="#d16"><b>16</b> Zion</a>
+    <a href="#d18"><b>18</b> Vegas</a>
+    <a href="#d20"><b>20</b> Death Valley</a>
+    <a href="#d23"><b>23</b> Sequoia</a>
+    <a href="#d24"><b>24</b> Yosemite</a>
+    <a href="#d26"><b>26</b> Mono Lake</a>
+    <a href="#d28"><b>28</b> San Francisco</a>
+    <a href="#d30"><b>30</b> Hwy 1</a>
+    <a href="#d32"><b>32</b> Joshua Tree</a>
+    <a href="#extra"><b>+</b> Varianty</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="tip">
+    <span class="tip-label">Než vyrazíte</span>
+    <p><strong>🗓️ Délka:</strong> autoři článku doporučují 3 týdny až měsíc; za 2 týdny se toho dá stihnout hodně, ale je to hektické. Tenhle návrh má cca 33 dní — snadno se dá zkrátit (např. vynecháním Grand Tetonu, Cedar Breaks nebo Sequoie).</p>
+    <p><strong>🎟️ Povolení a rezervace:</strong> Angels Landing, Half Dome, The Subway a The Wave vyžadují povolení (často loterie); Alcatraz se vyprodává několik dní předem; ubytování u Yosemite mizí rychle. Antelope Canyon je jen s průvodcem — dnes se rezervuje předem.</p>
+    <p><strong>🚶 Tempo:</strong> plán počítá s pěšími túrami do 13 km denně. Half Dome, The Subway a Middle Teton to výrazně přesahují — jsou proto jen jako volitelné.</p>
+    <p><strong>🚗 Auto a poplatky:</strong> celoroční vstup do národních parků (America the Beautiful, cca $80 za auto) se při počtu parků vyplatí. Všechny ceny z článku jsou z doby jeho vzniku, před cestou je ověřte.</p>
+    <p><strong>🌌 Noc v kempu:</strong> v Death Valley a Joshua Tree stojí za to přespat v kempu přímo v parku — je tam neuvěřitelně tmavá obloha plná hvězd.</p>
+    <p><strong>🗺️ Zdroje:</strong> článek <a href="https://czechtheworld.com/roadtrip-usa/" target="_blank" rel="noopener">Road trip po západě USA (czechtheworld.com)</a> a jejich Google mapa „Road trip USA". Pořadí a délka dní jsou návrh podle pořadí trasy v mapě a doporučených dob pobytu v článku.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <section class="day" id="d1">
+    <div class="day-head">
+      <span class="day-date">DEN 01</span>
+      <div class="badges"><span class="badge badge--travel">Přílet</span></div>
+    </div>
+    <h2>Přílet do Salt Lake City</h2>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">SLC</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+      </div>
+      <div class="pass-stub">PŘÍLET</div>
+    </div>
+    <div class="activity">
+      <p>Vyzvednutí auta na letišti v Salt Lake City a přesun na sever k Yellowstonu (cca 5 h do West Yellowstone). Po dlouhém letu a časovém posunu je rozumné přerušit cestu už v Idaho Falls.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Salt+Lake+City+International+Airport" target="_blank" rel="noopener" data-lat="40.786145" data-lng="-111.981048">Salt Lake City (letiště)</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">West Yellowstone (nebo Idaho Falls)</div>
+        <div class="stay-note">West Yellowstone leží hned u hranice parku a je odtud všude nejblíž.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="d2">
+    <div class="day-head">
+      <span class="day-date">DEN 02</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Yellowstone — gejzíry</h2>
+    <div class="activity">
+      <p><b>Old Faithful a Upper Geyser Basin</b> — nejslavnější gejzír parku, kolem něj Castle Geyser, Morning Glory Pool, Biscuit Basin a Black Sand Basin. Na kus jídla nebo prohlídku zajděte do historického hotelu Old Faithful Inn.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Faithful+Geyser" target="_blank" rel="noopener" data-lat="44.460479" data-lng="-110.828138">Old Faithful</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Upper+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.463769" data-lng="-110.82971">Upper Geyser Basin</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Castle+Geyser" target="_blank" rel="noopener" data-lat="44.463656" data-lng="-110.836493">Castle Geyser</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Morning+Glory+Pool" target="_blank" rel="noopener" data-lat="44.475072" data-lng="-110.843535">Morning Glory Pool</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Biscuit+Basin" target="_blank" rel="noopener" data-lat="44.485117" data-lng="-110.852627">Biscuit Basin</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Black+Sand+Basin" target="_blank" rel="noopener" data-lat="44.4622" data-lng="-110.853758">Black Sand Basin</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Faithful+Inn" target="_blank" rel="noopener" data-lat="44.459836" data-lng="-110.831195">Old Faithful Inn</a>
+    </div>
+    <div class="activity">
+      <p><b>Grand Prismatic Spring</b> — nejbarevnější pramen parku. Zblízka ho uvidíte jen z boku; celý je vidět z vyhlídky Overlook (stezka začíná na parkovišti Fairy Falls).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Prismatic+Spring" target="_blank" rel="noopener" data-lat="44.525082" data-lng="-110.838125">Grand Prismatic Spring</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Prismatic+Spring+Overlook" target="_blank" rel="noopener" data-lat="44.523325" data-lng="-110.839923">Grand Prismatic Overlook</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fairy+Falls+Trail+Parking+Lot" target="_blank" rel="noopener" data-lat="44.515139" data-lng="-110.832422">Fairy Falls (parkoviště)</a>
+    </div>
+    <div class="note">Všechno důležité v Yellowstonu se dá stihnout za 2 dny, autoři článku ale doporučují 3–4 dny i víc — proto jsou v plánu tři.</div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head">
+      <span class="day-date">DEN 03</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Yellowstone — kaňon a Hayden Valley</h2>
+    <div class="activity">
+      <p><b>Grand Canyon of the Yellowstone</b> — žlutý kaňon s dvojicí velkých vodopádů. Vyhlídky Upper Falls View, Inspiration Point a Artist Point; z Uncle Tom's Trail se sestupuje po schodech dolů k vodopádu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Canyon+of+the+Yellowstone" target="_blank" rel="noopener" data-lat="44.719745" data-lng="-110.48532">Grand Canyon of the Yellowstone</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Upper+Falls+View" target="_blank" rel="noopener" data-lat="44.714724" data-lng="-110.49717">Upper Falls View</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Inspiration+Point+Yellowstone" target="_blank" rel="noopener" data-lat="44.724984" data-lng="-110.469687">Inspiration Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Artist+Point+Yellowstone" target="_blank" rel="noopener" data-lat="44.720123" data-lng="-110.479853">Artist Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Uncle+Tom's+Trail+Yellowstone" target="_blank" rel="noopener" data-lat="44.715624" data-lng="-110.495834">Uncle Tom's Trail</a>
+    </div>
+    <div class="activity">
+      <p><b>Hayden Valley</b> — široké údolí, kde se nejspíš potkáte se stády bizonů; nejlepší je brzy ráno nebo k večeru.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hayden+Valley" target="_blank" rel="noopener" data-lat="44.675456" data-lng="-110.481998">Hayden Valley</a>
+    </div>
+    <div class="activity">
+      <p><b>West Thumb Geyser Basin</b> — gejzíry a barevná jezírka přímo na břehu Yellowstone Lake.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=West+Thumb+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.417132" data-lng="-110.57142">West Thumb Geyser Basin</a>
+    </div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day" id="d4">
+    <div class="day-head">
+      <span class="day-date">DEN 04</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Yellowstone — sever</h2>
+    <div class="activity">
+      <p><b>Norris Geyser Basin</b> — nejžhavější a nejproměnlivější geotermální oblast parku, dobře udělané chodníky.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Norris+Geyser+Basin" target="_blank" rel="noopener" data-lat="44.726235" data-lng="-110.704281">Norris Geyser Basin</a>
+    </div>
+    <div class="activity">
+      <p><b>Mammoth Hot Springs</b> — bílé vápencové terasy, které vytvářejí horké prameny (Upper a Lower Terraces).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mammoth+Hot+Springs+Upper+Terraces" target="_blank" rel="noopener" data-lat="44.966388" data-lng="-110.711145">Mammoth Upper Terraces</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mammoth+Hot+Springs+Lower+Terraces" target="_blank" rel="noopener" data-lat="44.968417" data-lng="-110.705282">Mammoth Lower Terraces</a>
+    </div>
+    <div class="activity">
+      <p><b>Lamar Valley</b> — divoká zvěř (bizoni, vlci, medvědi), nejlépe za svítání a soumraku. Je to největší kus jízdy dne, počítejte s celým odpolednem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lamar+Valley" target="_blank" rel="noopener" data-lat="44.868521" data-lng="-110.174643">Lamar Valley</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">West Yellowstone / uvnitř parku</div>
+        <div class="stay-note">Kempy a ubytování v parku se plní dopředu — rezervujte s velkým předstihem.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
+    <div class="day-head">
+      <span class="day-date">DEN 05</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Grand Teton</h2>
+    <div class="activity">
+      <p><b>Grand Teton National Park</b> — nádherný horský hřeben; pokud nemáte čas na túry, stačí několik foto-zastávek. Foto-místo je Mormon Barn (Mormon Row) s Tetony v pozadí. Nejvyšší vrchol dostupný bez horolezeckého vybavení je Middle Teton, ale celý výstup je dlouhý a náročný a limit 13 km/den výrazně přesahuje.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Teton+National+Park" target="_blank" rel="noopener" data-lat="43.794231" data-lng="-110.691816">Grand Teton National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mormon+Barn+Mormon+Row+Grand+Teton" target="_blank" rel="noopener" data-lat="43.660682" data-lng="-110.664972">Mormon Barn</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Middle+Teton" target="_blank" rel="noopener" data-lat="43.72993" data-lng="-110.811325">Middle Teton</a>
+    </div>
+    <div class="activity">
+      <p><b>Jackson Hole Mountain Resort</b> — kabinková lanovka je po 17:00 zdarma (poznámka z tvojí mapy).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Jackson+Hole+Mountain+Resort" target="_blank" rel="noopener" data-lat="43.587545" data-lng="-110.827918">Jackson Hole Mountain Resort</a>
+    </div>
+    <div class="note">Autoři mapy k Tetonům poznamenávají, že „nic moc tady není, možná bych i vynechal" — je to hezké, ale jako ostatní parky. Klidně stačí půl dne (článek uvádí minimum 0,5 dne, ideálně 2 dny).</div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Jackson</div>
+        <div class="stay-note">Nejlepší je ubytovat se v nedalekém Jacksonu.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
+    <div class="day-head">
+      <span class="day-date">DEN 06</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Přejezd do Utahu</h2>
+    <div class="activity">
+      <p>Dlouhý den za volantem: z Jacksonu na jih do Utahu (cca 8 h čistého času přes Salt Lake City). Přespat je rozumné kolem Green River / Price, ať je do Moabu druhý den kousek.</p>
+
+    </div>
+  </section>
+
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">DEN 07</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Arches</h2>
+    <div class="activity">
+      <p><b>Arches National Park</b> — kamenné oblouky do všech stran. Na návštěvu stačí jeden den.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Arches+National+Park" target="_blank" rel="noopener" data-lat="38.616589" data-lng="-109.619846">Arches National Park</a>
+    </div>
+    <div class="activity">
+      <p><b>Corona Arch</b> — oblouk mimo park (cca 30 minut autem od vstupu do parku, necelé 2 km pěšky od parkoviště). Východ i západ slunce tu stojí za to.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Corona+Arch+Moab+Utah" target="_blank" rel="noopener">Corona Arch</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Základna</span>
+        <div class="stay-name">Moab</div>
+        <div class="stay-note">Malebné městečko, výchozí bod pro Arches i Canyonlands.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 8 -->
+  <section class="day" id="d8">
+    <div class="day-head">
+      <span class="day-date">DEN 08</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Canyonlands a přesun k Monument Valley</h2>
+    <div class="activity">
+      <p><b>Canyonlands National Park</b> (část Island in the Sky) — krajina dechberoucích kaňonů; podle autorů článku zaujme víc než samotný Grand Canyon. Vyhlídku nad smyčkou řeky Colorado nabízí i blízký Dead Horse Point State Park.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Canyonlands+National+Park" target="_blank" rel="noopener" data-lat="38.459796" data-lng="-109.820961">Canyonlands National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dead+Horse+Point+State+Park" target="_blank" rel="noopener" data-lat="38.474826" data-lng="-109.740572">Dead Horse Point State Park</a>
+    </div>
+    <div class="activity">
+      <p>Odpoledne přejezd k Monument Valley (cca 2,5–3 h).</p>
+
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Bluff nebo Kayenta</div>
+        <div class="stay-note">Nejbližší hotely u Monument Valley.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 9 -->
+  <section class="day" id="d9">
+    <div class="day-head">
+      <span class="day-date">DEN 09</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Monument Valley a cesta do Page</h2>
+    <div class="activity">
+      <p><b>Forrest Gump Point</b> — silnice mířící do Monument Valley, kde se Forrest Gump zastavil po svém běhu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Forrest+Gump+Point" target="_blank" rel="noopener" data-lat="37.101496" data-lng="-109.990812">Forrest Gump Point</a>
+    </div>
+    <div class="activity">
+      <p><b>Monument Valley</b> — westernová krajina skalních věží; stačí průjezd údolím (cca půl dne).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Monument+Valley" target="_blank" rel="noopener" data-lat="36.982097" data-lng="-110.111862">Monument Valley</a>
+    </div>
+    <div class="activity">
+      <p>Odpoledne přejezd do Page (cca 2,5 h).</p>
+
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Page</div>
+        <div class="stay-note">Kousek jak na Horseshoe Bend, tak do Antelope Canyonu.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 10 -->
+  <section class="day" id="d10">
+    <div class="day-head">
+      <span class="day-date">DEN 10</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--light">Vyhlídky</span></div>
+    </div>
+    <h2>Horseshoe Bend, Antelope Canyon a Grand Canyon</h2>
+    <div class="activity">
+      <p><b>Horseshoe Bend</b> — řeka Colorado vytvořila kaňon ve tvaru podkovy; na návštěvu stačí cca 2 hodiny.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Horseshoe+Bend" target="_blank" rel="noopener" data-lat="36.876267" data-lng="-111.50282">Horseshoe Bend</a>
+    </div>
+    <div class="activity">
+      <p><b>Antelope Canyon</b> — světelné paprsky ve slotovém kaňonu; jde se jen s průvodcem, samotná prohlídka trvá zhruba hodinu, ale bývají fronty (počítejte 2–5 hodin). Dnes je lepší rezervovat předem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Antelope+Canyon" target="_blank" rel="noopener" data-lat="36.86191" data-lng="-111.37433">Antelope Canyon</a>
+    </div>
+    <div class="activity">
+      <p>Odpoledne přes Marble Canyon k Grand Canyonu (cca 2,5–3 h), večer ubytování v Tusayanu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Navajo+Bridge+Marble+Canyon" target="_blank" rel="noopener" data-lat="36.817134" data-lng="-111.631594">Navajo Bridge (Marble Canyon)</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Tusayan</div>
+        <div class="stay-note">Nejbližší ubytování u Grand Canyonu.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 11 -->
+  <section class="day" id="d11">
+    <div class="day-head">
+      <span class="day-date">DEN 11</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Grand Canyon — South Rim</h2>
+    <div class="activity">
+      <p><b>South Rim</b> — odsud je většina slavných fotek. Vyhlídky Mather Point, Yavapai Point a Mohave Point (na Hermit Road); k západu slunce se vyplatí zůstat na okraji.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Canyon+South+Rim" target="_blank" rel="noopener" data-lat="36.059163" data-lng="-112.109308">Grand Canyon South Rim</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mather+Point" target="_blank" rel="noopener" data-lat="36.061678" data-lng="-112.107758">Mather Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yavapai+Point" target="_blank" rel="noopener" data-lat="36.063628" data-lng="-112.118414">Yavapai Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mohave+Point" target="_blank" rel="noopener" data-lat="36.072204" data-lng="-112.166">Mohave Point</a>
+    </div>
+    <div class="note">Do kaňonu na dno vedou dlouhé traily — s limitem 13 km/den jde jen o kratší úseky pod okrajem. Klidnější a méně turistická je severní strana (North Rim), pokud budete mít čas navíc.</div>
+  </section>
+
+  <!-- DAY 12 -->
+  <section class="day" id="d12">
+    <div class="day-head">
+      <span class="day-date">DEN 12</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Přesun do Kanabu</h2>
+    <div class="activity">
+      <p>Přejezd z Grand Canyonu směr Utah (cca 4 h). Na konci dne <b>Coral Pink Sand Dunes</b> — písečné duny narůžovělé barvy u Kanabu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Coral+Pink+Sand+Dunes+State+Park" target="_blank" rel="noopener" data-lat="37.037778" data-lng="-112.720278">Coral Pink Sand Dunes State Park</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Kanab</div>
+        <div class="stay-note">Dobrá základna pro Bryce Canyon i jako příjezd k The Wave.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 13 -->
+  <section class="day" id="d13">
+    <div class="day-head">
+      <span class="day-date">DEN 13</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Cedar Breaks a Bryce Canyon</h2>
+    <div class="activity">
+      <p><b>Cedar Breaks National Monument</b> — menší „bratříček" Bryce; autoři článku doporučují zařadit ho před Bryce, ať jste z Bryce ještě víc nadšení. Stačí cca 2 hodiny.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Cedar+Breaks+National+Monument" target="_blank" rel="noopener" data-lat="37.635373" data-lng="-112.84528">Cedar Breaks National Monument</a>
+    </div>
+    <div class="activity">
+      <p><b>Bryce Canyon National Park</b> — oranžové, žluté a rudohnědé skalní věže (hoodoos). Odpoledne vyhlídky po okraji, večer západ slunce.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bryce+Canyon+National+Park" target="_blank" rel="noopener" data-lat="37.640372" data-lng="-112.169547">Bryce Canyon National Park</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Bryce, Tropic nebo Hatch</div>
+        <div class="stay-note">Nejbližší městečka k parku.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 14 -->
+  <section class="day" id="d14">
+    <div class="day-head">
+      <span class="day-date">DEN 14</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Bryce Canyon — druhý den</h2>
+    <div class="activity">
+      <p>Projděte se mezi věžemi — autoři článku tu procházku doporučují víc než jen dívání z vyhlídek. Východ slunce nad amfiteátrem je nejkrásnější světlo dne.</p>
+
+    </div>
+    <div class="note">Kdyby zbýval čas, jsou v sekci „Další varianty" slotové kaňony u Escalante (Spooky Gulch, Peek-a-boo, Devil's Garden) — den navíc od Bryce.</div>
+  </section>
+
+  <!-- DAY 15 -->
+  <section class="day" id="d15">
+    <div class="day-head">
+      <span class="day-date">DEN 15</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Bryce → Zion</h2>
+    <div class="activity">
+      <p>Přejezd do Zionu (cca 2,5 h), odpoledne první seznámení s údolím. Veverky, které si můžete skoro pohladit, a scenérie, která patří k nejlepším v celém parku.</p>
+
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Základna</span>
+        <div class="stay-name">Springdale</div>
+        <div class="stay-note">Městečko přímo u hranice parku s velkým výběrem ubytování.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 16 -->
+  <section class="day" id="d16">
+    <div class="day-head">
+      <span class="day-date">DEN 16</span>
+      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Zion — Angels Landing</h2>
+    <div class="activity">
+      <p><b>Angels Landing</b> — slavná exponovaná stezka na hřeben nad údolím (cca 8,7 km tam a zpět). Na celou trasu je dnes nutné povolení z loterie; bez něj se dá dojít jen ke Scout Lookoutu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Angels+Landing+Trailhead+Zion" target="_blank" rel="noopener" data-lat="37.269033" data-lng="-112.946899">Angels Landing</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Zion+National+Park" target="_blank" rel="noopener" data-lat="37.205313" data-lng="-112.982443">Zion National Park</a>
+    </div>
+  </section>
+
+  <!-- DAY 17 -->
+  <section class="day" id="d17">
+    <div class="day-head">
+      <span class="day-date">DEN 17</span>
+      <div class="badges"><span class="badge badge--trek">Trek</span><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Zion — The Narrows</h2>
+    <div class="activity">
+      <p><b>The Narrows</b> — brodění řekou úzkou soutěskou. Délku určíte sami podle sil (čím dál po proudu, tím náročnější); potřebujete vhodnou obuv a při zvýšeném průtoku se nesmí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Narrows" target="_blank" rel="noopener" data-lat="37.304703" data-lng="-112.949385">The Narrows</a>
+    </div>
+    <div class="note">Zion podle autorů stojí za tři dny, takže případný třetí den můžete věnovat klidnějším procházkám po údolí. The Subway je náročný trail s povolením — autoři ho po Angels Landing a The Narrows klidně vynechávají (viz „Další varianty").</div>
+  </section>
+
+  <!-- DAY 18 -->
+  <section class="day" id="d18">
+    <div class="day-head">
+      <span class="day-date">DEN 18</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Hoover Dam a Las Vegas</h2>
+    <div class="activity">
+      <p><b>Hooverova přehrada</b> — fenomenální technické dílo kousek od Las Vegas; nabízí i exkurzi do nitra elektrárny (cenu ověřit). Stačí 1–2 hodiny.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hoover+Dam" target="_blank" rel="noopener" data-lat="36.016066" data-lng="-114.737732">Hoover Dam (Hooverova přehrada)</a>
+    </div>
+    <div class="activity">
+      <p><b>Las Vegas</b> — po dnech v přírodě obrovský kontrast: neony, kasina, hotely s bezplatnými show. Pokoje bývají levné, protože majitelé vydělávají v kasinech.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Las+Vegas" target="_blank" rel="noopener" data-lat="36.169941" data-lng="-115.13983">Las Vegas</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Las Vegas</div>
+        <div class="stay-note">Ceny pokojů jsou v porovnání s jinými městy nízké.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 19 -->
+  <section class="day" id="d19">
+    <div class="day-head">
+      <span class="day-date">DEN 19</span>
+      <div class="badges"><span class="badge badge--light">Volný den</span></div>
+    </div>
+    <h2>Las Vegas a Red Rock Canyon</h2>
+    <div class="activity">
+      <p>Den ve městě — bulvár Strip, hotely a pouliční umělci. Kdo chce zpátky do přírody, <b>Red Rock Canyon</b> je nedaleko Las Vegas s červenými skalami a okružní silnicí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Red+Rock+Canyon" target="_blank" rel="noopener" data-lat="36.135686" data-lng="-115.427904">Red Rock Canyon</a>
+    </div>
+  </section>
+
+  <!-- DAY 20 -->
+  <section class="day" id="d20">
+    <div class="day-head">
+      <span class="day-date">DEN 20</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Cesta do Death Valley</h2>
+    <div class="activity">
+      <p>Přejezd do Death Valley (cca 2,5–3 h). Nejníže položené místo Severní Ameriky, horko a prašné cesty. Benzín je tu výrazně dražší než ve zbytku Kalifornie — natankujte předem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Death+Valley+National+Park" target="_blank" rel="noopener" data-lat="36.461754" data-lng="-116.866612">Death Valley National Park</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Kemp uprostřed Death Valley</div>
+        <div class="stay-note">Autoři článku doporučují aspoň jednu noc v kempu: díky nulovému světelnému znečištění tu uvidíte tolik hvězd, že se hůř hledají souhvězdí. Levné ubytování je jinak jen v Panamint Springs.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 21 -->
+  <section class="day" id="d21">
+    <div class="day-head">
+      <span class="day-date">DEN 21</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Death Valley</h2>
+    <div class="activity">
+      <p>Celý den údolím s foto-zastávkami — nejnižším bodem je Badwater Basin (cca 86 m pod mořem). Autoři doporučují 1–2 dny. Odpoledne horko výrazně sílí, dost vody a ranní/večerní procházky.</p>
+
+    </div>
+  </section>
+
+  <!-- DAY 22 -->
+  <section class="day" id="d22">
+    <div class="day-head">
+      <span class="day-date">DEN 22</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Death Valley → Sequoia</h2>
+    <div class="activity">
+      <p>Přejezd do Sequoia (cca 5–6 h). Odpoledne první rozhlídka po parku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sequoia+National+Park" target="_blank" rel="noopener" data-lat="36.486367" data-lng="-118.565752">Sequoia National Park</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Základna</span>
+        <div class="stay-name">Three Rivers</div>
+        <div class="stay-note">Nejbližší hotely k parku.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 23 -->
+  <section class="day" id="d23">
+    <div class="day-head">
+      <span class="day-date">DEN 23</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Sequoia a přesun do Yosemite</h2>
+    <div class="activity">
+      <p><b>Sequoia</b> — nejobjemnější stromy světa a s trochou štěstí i pár medvědů. Zkuste nějaký strom obejmout; Tunnel Log dává pocítit, jak je člověk malý — pod kmenem se dá projet i s autem. Stačí půl dne.</p>
+
+    </div>
+    <div class="activity">
+      <p>Odpoledne do Yosemite (cca 4–5 h). K západu slunce se hodí <b>Tunnel View</b>.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tunnel+View" target="_blank" rel="noopener" data-lat="37.715547" data-lng="-119.676906">Tunnel View</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Základna</span>
+        <div class="stay-name">Yosemite West / okolí</div>
+        <div class="stay-note">V okolí Yosemite se ubytování vyprodává velmi rychle — zaplaťte pokoj co nejdřív.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 24 -->
+  <section class="day" id="d24">
+    <div class="day-head">
+      <span class="day-date">DEN 24</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Yosemite Valley</h2>
+    <div class="activity">
+      <p><b>Glacier Point</b> — vyhlídka na celé údolí a Half Dome; <b>Half Dome</b> je ikona parku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Yosemite+National+Park" target="_blank" rel="noopener" data-lat="37.748747" data-lng="-119.587162">Yosemite National Park</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Glacier+Point" target="_blank" rel="noopener" data-lat="37.730424" data-lng="-119.57365">Glacier Point</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Half+Dome" target="_blank" rel="noopener" data-lat="37.745919" data-lng="-119.533199">Half Dome</a>
+    </div>
+    <div class="note warn">Bear boxy: veškeré jídlo a vonící věci patří do speciálních bear boxů — medvědi tu vykrádají auta.</div>
+  </section>
+
+  <!-- DAY 25 -->
+  <section class="day" id="d25">
+    <div class="day-head">
+      <span class="day-date">DEN 25</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Yosemite — druhý den</h2>
+    <div class="activity">
+      <p>Další den v parku — Yosemite Falls, procházky po údolí, fotky. Autoři doporučují 3–4 dny.</p>
+
+    </div>
+    <div class="note">Vodopády jsou nejsilnější na jaře; po zbytek roku bývají většinu času vyschlé, takže je to vhodné mít v plánu při volbě termínu. Výstup na Half Dome (cca 26 km) vyžaduje povolení a limit 13 km/den výrazně přesahuje.</div>
+  </section>
+
+  <!-- DAY 26 -->
+  <section class="day" id="d26">
+    <div class="day-head">
+      <span class="day-date">DEN 26</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Tioga Road, Mono Lake a Bodie</h2>
+    <div class="activity">
+      <p><b>Mono Lake</b> — slané jezero, kolem kterého se dá procházet mezi unikátními vápencovými útvary (stačí 1–2 hodiny).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mono+Lake" target="_blank" rel="noopener" data-lat="37.942199" data-lng="-119.028986">Mono Lake</a>
+    </div>
+    <div class="activity">
+      <p><b>Bodie</b> — opuštěné zlatokopecké městečko, kde jako by se zastavil čas (cca půl dne).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bodie+State+Historic+Park" target="_blank" rel="noopener" data-lat="38.214149" data-lng="-119.004601">Bodie State Historic Park</a>
+    </div>
+    <div class="note">Silnice přes Tioga Pass je sezónní (zavřená v zimě) — ověřte, jestli je v termínu otevřená.</div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Lee Vining / Virginia Creek Settlement</div>
+        <div class="stay-note">Nejlevnější ubytování v okolí Mono Lake a Bodie.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 27 -->
+  <section class="day" id="d27">
+    <div class="day-head">
+      <span class="day-date">DEN 27</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Lake Tahoe a cesta k San Franciscu</h2>
+    <div class="activity">
+      <p><b>Lake Tahoe</b> — alpské jezero na hranici Kalifornie a Nevady; zastavit stačí na procházku a oběd.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lake+Tahoe" target="_blank" rel="noopener" data-lat="39.096849" data-lng="-120.032351">Lake Tahoe</a>
+    </div>
+    <div class="activity">
+      <p>Pokračování k San Francisku — noc v okolí Sacramenta, ať je do města další den krátká cesta.</p>
+
+    </div>
+  </section>
+
+  <!-- DAY 28 -->
+  <section class="day" id="d28">
+    <div class="day-head">
+      <span class="day-date">DEN 28</span>
+      <div class="badges"><span class="badge badge--light">Město</span></div>
+    </div>
+    <h2>San Francisco</h2>
+    <div class="activity">
+      <p><b>Golden Gate Bridge</b> — most ze všech stran; Battery Spencer Viewpoint nabízí klasický pohled. Lombard Street je slavná klikatá ulice a svézt se dá i legendární tramvají (cable car).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Gate+Bridge" target="_blank" rel="noopener" data-lat="37.819929" data-lng="-122.478255">Golden Gate Bridge</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Battery+Spencer+Viewpoint" target="_blank" rel="noopener" data-lat="37.827698" data-lng="-122.481783">Battery Spencer Viewpoint</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lombard+Street" target="_blank" rel="noopener" data-lat="37.802139" data-lng="-122.41874">Lombard Street</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">San Francisco</div>
+        <div class="stay-note">Ubytování je tu bohužel dražší, ale někde spát musíte.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 29 -->
+  <section class="day" id="d29">
+    <div class="day-head">
+      <span class="day-date">DEN 29</span>
+      <div class="badges"><span class="badge badge--light">Město</span></div>
+    </div>
+    <h2>San Francisco — Alcatraz</h2>
+    <div class="activity">
+      <p><b>Alcatraz</b> — legendární věznice na ostrově. Vstupenky si rezervujte předem, několik dní před termínem bývají vyprodané.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Alcatraz+Island" target="_blank" rel="noopener" data-lat="37.826978" data-lng="-122.422956">Alcatraz Island</a>
+    </div>
+    <div class="activity">
+      <p>Zbytek dne: tramvaj (cable car) a procházka po městě.</p>
+
+    </div>
+  </section>
+
+  <!-- DAY 30 -->
+  <section class="day" id="d30">
+    <div class="day-head">
+      <span class="day-date">DEN 30</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span><span class="badge badge--light">Vyhlídky</span></div>
+    </div>
+    <h2>Highway 1 — Big Sur</h2>
+    <div class="activity">
+      <p><b>Highway 1</b> — výhledy na oceán, útesy a kolonie rypoušů sloních. <b>Bixby Creek Bridge</b> je nejfotografovanější most trasy. Kempy si rezervujte dopředu, bývají plné.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bixby+Creek+Bridge" target="_blank" rel="noopener" data-lat="36.380386" data-lng="-121.901808">Bixby Creek Bridge</a>
+    </div>
+  </section>
+
+  <!-- DAY 31 -->
+  <section class="day" id="d31">
+    <div class="day-head">
+      <span class="day-date">DEN 31</span>
+      <div class="badges"><span class="badge badge--travel">Přesun</span></div>
+    </div>
+    <h2>Highway 1 → Los Angeles</h2>
+    <div class="activity">
+      <p>Dojezd po pobřeží do Los Angeles (cca 6 h). Večer klid — zítra poušť.</p>
+
+    </div>
+  </section>
+
+  <!-- DAY 32 -->
+  <section class="day" id="d32">
+    <div class="day-head">
+      <span class="day-date">DEN 32</span>
+      <div class="badges"><span class="badge badge--park">Národní park</span></div>
+    </div>
+    <h2>Joshua Tree</h2>
+    <div class="activity">
+      <p><b>Joshua Tree National Park</b> — poušť, kaktusy a typické stromy „Joshua". Stačí den; autoři doporučují přespat v kempu přímo v parku.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Joshua+Tree+National+Park" target="_blank" rel="noopener" data-lat="34.133909" data-lng="-116.315587">Joshua Tree National Park</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏨</div>
+      <div class="stay-body">
+        <span class="stay-label">Nocleh</span>
+        <div class="stay-name">Kemp v parku (nebo Joshua Tree / Twentynine Palms)</div>
+        <div class="stay-note">Nejbližší hotely jsou ve městech Joshua Tree a Twentynine Palms.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 33 -->
+  <section class="day" id="d33">
+    <div class="day-head">
+      <span class="day-date">DEN 33</span>
+      <div class="badges"><span class="badge badge--travel">Odlet</span></div>
+    </div>
+    <h2>Odlet z Los Angeles</h2>
+    <div class="activity">
+      <p>Dopoledne dojezd na letiště v Los Angeles (cca 2,5–3 h z Joshua Tree) a odevzdání auta.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Los+Angeles+International+Airport+LAX" target="_blank" rel="noopener" data-lat="33.942517" data-lng="-118.407828">Los Angeles (letiště LAX)</a>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">LAX</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section class="day extras" id="extra" data-extra>
+    <div class="day-head">
+      <span class="day-date">MIMO PLÁN</span>
+      <div class="badges"><span class="badge badge--light">Další varianty</span></div>
+    </div>
+    <h2>Další varianty</h2>
+    <p class="lead-text" style="margin-top:8px;">Nejsou součástí hlavního plánu — dobrodružnější nebo časově náročné nápady z článku a z tvojí mapy, které se hodí, když zbyde den navíc.</p>
+
+    <div class="suggest">
+      <span class="suggest-label">Slotové kaňony a povolení</span>
+      <ul>
+        <li><b>Escalante — Spooky Gulch, Peek-a-boo Canyon, Devil's Garden</b> — dobrodružná procházka, místy spíš prolézačka slotovými kaňony; fanoušci filmu 127 hodin ocení. Na den navíc od Bryce (cca 1 den, ubytování ve vesnici Escalante).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Devil's+Garden+Grand+Staircase-Escalante" target="_blank" rel="noopener" data-lat="37.585709" data-lng="-111.414689">Devil's Garden (Escalante)</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Spooky+Gulch" target="_blank" rel="noopener" data-lat="37.479989" data-lng="-111.209051">Spooky Gulch</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Peek-a-boo+Canyon" target="_blank" rel="noopener" data-lat="37.481378" data-lng="-111.216552">Peek-a-boo Canyon</a></li>
+        <li><b>The Wave</b> — zkamenělé písečné duny v Arizoně. Vyžaduje povolení z loterie; příjezd po prašné cestě i samotný přístup nejsou jednoduché, půl až celý den. Nejbližší ubytování v Kanabu a Page.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Wave" target="_blank" rel="noopener" data-lat="36.995629" data-lng="-112.00613">The Wave</a></li>
+        <li><b>The Subway (Zion)</b> — trail s povolením, téměř celodenní. Autoři článku ho po Angels Landing a The Narrows klidně vynechávají — nic zvlášť výjimečného; navíc přes limit 13 km/den.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The+Subway+(Zion)" target="_blank" rel="noopener" data-lat="37.284682" data-lng="-113.095902">The Subway (Zion)</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Další místa z mapy</span>
+      <ul>
+        <li><b>Boiling River (Yellowstone)</b> — přírodní horká říčka. Po záplavách v roce 2022 byla uzavřená — před cestou ověřte, jestli je otevřená.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Boiling+River" target="_blank" rel="noopener" data-lat="44.992478" data-lng="-110.691467">Boiling River</a></li>
+        <li><b>Silicon Valley</b> — technologické centrum jižně od San Francisca, pokud vás láká zastávka při cestě k Big Sur.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Silicon+Valley" target="_blank" rel="noopener" data-lat="37.387474" data-lng="-122.057543">Silicon Valley</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="map-section">
+    <div class="map-head">
+      <h3>Mapa itineráře</h3>
+      <span class="map-status" id="mapStatus"></span>
+    </div>
+    <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
+      <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty</span>
+      <span class="lg">┄┄ pořadí trasy</span>
+    </div>
+  </div>
+
+  <footer>
+    Sestaveno z článku „Road trip po západě USA" (czechtheworld.com) a Google mapy „Road trip USA" (129 míst). Ceny a čas z článku jsou orientační.
+  </footer>
+
+</div>
+<script>
+(function(){
+  "use strict";
+  // Leaflet's CSS is inlined below (not linked) so its default marker icon can't auto-detect
+  // where marker-icon.png etc. live and looks for them relative to this page (404) — point it at the CDN instead.
+  // Note: Icon.Default._getIconUrl() always prepends imagePath to iconUrl, so iconUrl itself must
+  // stay a relative filename and imagePath must carry the full CDN base (mergeOptions on iconUrl alone
+  // produces "<page-origin>/images/https://cdnjs..." — a broken concatenation, not an override).
+  if (window.L) {
+    L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
+  }
+  var COUNTRY_CODE = 'us';
+  var PERMANENT_LABELS = false;
+  var ROUTE_LINE = true;
+  var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
+
+  function nameFromMapHref(href){
+    try {
+      var q = new URL(href, location.href).searchParams.get('query');
+      if (!q) return null;
+      return decodeURIComponent(q.replace(/\+/g, ' ')).trim();
+    } catch(e){ return null; }
+  }
+  function extractMapPlaces(){
+    // the href's query param is usually more specific ("Hidden Falls Trail Grand Teton") than the
+    // short visible link text ("Hidden Falls Trail") — search with the fuller string, label with the short one
+    var links = document.querySelectorAll('a.maplink');
+    var seen = {}, out = [];
+    links.forEach(function(a){
+      var text = (a.textContent || '').trim();
+      var hrefName = nameFromMapHref(a.getAttribute('href') || '');
+      var isGeneric = !text || /^mapa$/i.test(text);
+      var label = isGeneric ? (hrefName || text) : text;
+      var query = hrefName || text;
+      if (!label || !query) return;
+      var key = query.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      // data-lat/data-lng = coordinates already known (from Google Maps / OSM) → pin is placed instantly,
+      // no Nominatim lookup and no 1 req/s wait; links without them still get geocoded as before
+      var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
+      out.push({
+        label: label, query: query, href: a.getAttribute('href'),
+        coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
+        extra: !!a.closest('[data-extra]')
+      });
+    });
+    return out;
+  }
+  function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
+  function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
+  function geocodeOne(name){
+    // throws on a failed/blocked request (e.g. 429 rate-limit) so the caller can tell that apart
+    // from a genuine "this place has no OSM entry" — those must never be cached the same way
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE;
+    return fetch(url).then(function(r){
+      if (!r.ok) { throw new Error('http ' + r.status); }
+      return r.json();
+    }).then(function(rows){
+      if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
+      return null;
+    });
+  }
+
+  async function renderMap(){
+    var statusEl = document.getElementById('mapStatus');
+    var container = document.getElementById('mapContainer');
+    if (!statusEl || !container) return;
+    if (!window.L){ statusEl.textContent = 'Mapová knihovna se nenačetla.'; return; }
+    var places = extractMapPlaces();
+    if (!places.length){ statusEl.textContent = 'Pro tuhle cestu nejsou na stránce žádná místa.'; return; }
+
+    var cache = loadCache();
+    var cacheKeyPrefix = COUNTRY_CODE + ':';
+    var bounds = [];
+    var mainCount = 0;
+    var routePts = [], routeLine = null;
+    var map = null;
+    var resolved = 0;
+    var blocked = false;
+
+    function ensureMap(){
+      if (map || blocked) return;
+      map = L.map(container, {scrollWheelZoom:true});
+      // if the container gets its final size only after the map was created (fonts/layout still settling),
+      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      if (window.ResizeObserver) {
+        new ResizeObserver(function(){
+          if (!map) return;
+          map.invalidateSize();
+          if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
+        }).observe(container);
+      }
+      var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
+      }).addTo(map);
+      // this itinerary page can also load inside the claude.ai artifact preview, whose sandbox
+      // blocks external map-tile images — detect that and show a note instead of a broken gray box
+      layer.on('tileerror', function(){
+        if (blocked) return;
+        blocked = true;
+        map.remove();
+        map = null;
+        container.innerHTML = '';
+        statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
+      });
+    }
+    function addPoint(name, coord, href, extra){
+      ensureMap();
+      if (blocked || !map) return;
+      // plan places: numbered pins with permanent labels; optional places ("Další varianty"): small hollow
+      // rings, label only on hover/tap, drawn underneath — otherwise ~30 always-on labels would bury the map
+      var label = name, icon, zOffset = 0;
+      if (extra) {
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
+        zOffset = -1000;
+      } else {
+        var order = ++mainCount;
+        label = order + '. ' + name;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      }
+      var m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!extra && PERMANENT_LABELS), direction:'top', offset:[0, extra ? -6 : -8], className:'place-label'});
+      var popupHtml = '<div class="pin-popup"><b>' + label + '</b>' +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Otevřít v Google Maps ↗</a>' : '') + '</div>';
+      m.bindPopup(popupHtml);
+      bounds.push([coord.lat, coord.lng]);
+      if (!extra && ROUTE_LINE) {
+        routePts.push([coord.lat, coord.lng]);
+        if (routeLine) routeLine.setLatLngs(routePts);
+        else routeLine = L.polyline(routePts, {color:'#8A6BC4', weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+      }
+      // animate:false is load-bearing: when several places resolve from cache in the same tick
+      // (no throttle needed since no live request was made), rapid-fire animated fitBounds calls
+      // interrupt each other's in-flight zoom animation and the view silently gets stuck on an
+      // early, too-small bounding box — later pins then render outside the visible map area
+      if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
+      else map.fitBounds(bounds, {padding:[28,28], animate:false});
+    }
+
+    for (var i=0; i<places.length; i++){
+      var place = places[i];
+      var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
+      var cached = place.coord || cache[cacheKey];
+      var madeLiveRequest = false;
+      if (cached === undefined){
+        statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
+        try {
+          cached = await geocodeOne(place.query);
+          cache[cacheKey] = cached || 'FAIL';
+          saveCache(cache);
+          madeLiveRequest = true;
+        } catch(e){
+          statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          return;
+        }
+      }
+      if (cached && cached !== 'FAIL'){ addPoint(place.label, cached, place.href, place.extra); resolved++; }
+      if (blocked) return;
+      var done = i + 1;
+      statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
+      // only the Nominatim usage policy (~1 req/s) requires this pause — a cache hit made no
+      // network request and doesn't need to wait, so cached/repeat visits render at full speed
+      if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
+    }
+    if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);
+  else renderMap();
+})();
+</script>
+</body>
+</html>

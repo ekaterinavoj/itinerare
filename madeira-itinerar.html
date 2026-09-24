@@ -744,6 +744,15 @@
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
+      // if the container gets its final size only after the map was created (fonts/layout still settling),
+      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      if (window.ResizeObserver) {
+        new ResizeObserver(function(){
+          if (!map) return;
+          map.invalidateSize();
+          if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
+        }).observe(container);
+      }
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);

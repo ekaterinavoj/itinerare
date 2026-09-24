@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>Norsko</title>
+<title>Road trip Norsko</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -190,7 +190,7 @@
 <header class="hero">
   <a class="backlink" href="index.html">← Zpět na přehled</a>
   <div class="eyebrow">Norsko · karavan</div>
-  <h1>Norsko</h1>
+  <h1>Road trip Norsko</h1>
   <p>Oslo → fjordy → Lofoty (volitelně dál na Senju a do Tromsø). Jádro na 19 dní, dole návod jak zkrátit na 14 nebo prodloužit na 3 týdny.</p>
 </header>
 
@@ -658,6 +658,15 @@
     function ensureMap(){
       if (map || blocked) return;
       map = L.map(container, {scrollWheelZoom:true});
+      // if the container gets its final size only after the map was created (fonts/layout still settling),
+      // Leaflet keeps the old size and the fit-to-bounds view ends up wrong — re-measure and re-fit on resize
+      if (window.ResizeObserver) {
+        new ResizeObserver(function(){
+          if (!map) return;
+          map.invalidateSize();
+          if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
+        }).observe(container);
+      }
       var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
       }).addTo(map);

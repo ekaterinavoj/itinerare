@@ -138,6 +138,21 @@
 
   footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
 
+  .must{margin:14px 0; padding:12px 15px; background:#FFF3C4; border:1px solid #E0B93A; border-left:5px solid #D99A00; border-radius:8px; font-size:14px; line-height:1.6; color:#3B2A00;}
+  .must b{color:#2A1D00;}
+  .must a{color:#7A4E00; text-decoration:underline; font-weight:600;}
+  .must ul{margin:8px 0 0; padding-left:18px;}
+  .must li{margin-bottom:5px;}
+  .suggest{margin-top:6px; padding-top:6px;}
+  .suggest-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .suggest ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .suggest li{font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .suggest li b{color:var(--ink);}
+  .extras .suggest + .suggest{margin-top:22px;}
+  .lead-text{font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .extlink{color:var(--sun); font-weight:600; text-decoration:underline;}
+  .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--sun); box-shadow:0 1px 3px rgba(0,0,0,.3);}
+
   /* itin-common */
   .tip + .tip{margin-top:14px;}
   .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
@@ -208,6 +223,21 @@
     <p><strong>🛂 Singapur:</strong> poslední dva dny jsou volitelné prodloužení — pokud by nevyšlo, cesta funguje i jako 17denní jen po Borneu s odletem přímo z Tawau.</p>
   </div>
 
+  <div class="must">
+    <b>⚠️ Východní Sabah (Semporna, Mabul, Kapalai, Tun Sakaran — dny 12–16): nejdřív ověřte bezpečnost.</b> Ministerstvo zahraničních věcí ČR (Velvyslanectví Kuala Lumpur) na své stránce uvádí, že se <b>nedoporučuje cestování do pobřežních oblastí východu státu Sabah</b> — v minulosti tam působily teroristické skupiny z jižních Filipín a docházelo k únosům zahraničních turistů (stránka naposledy aktualizovaná 2020, před cestou zkontrolujte aktuální stav a cestovní pojištění). Tato část trasy leží právě v takové oblasti. Pokud jedete, <b>organizujte ji přes cestovní kancelář / licencovaného místního operátora</b> (transfery, hlídané resorty, čluny) a řiďte se jejich instrukcemi. <a class="extlink" href="https://mzv.gov.cz/kualalumpur/cz/konzularni_a_vizove_informace/doporuceni_k_cestam_do_malajsie.html" target="_blank" rel="noopener">MZV: Doporučení k cestám do Malajsie ↗</a>
+    <br>Pokud se vám to nezdá, v „Dalších variantách“ dole je náhrada těchto dní (Danum Valley, Tabin, Tunku Abdul Rahman Park).
+  </div>
+
+  <div class="must">
+    <b>🧭 Kde se na Borneu vyplatí cestovní kancelář / místní operátor:</b>
+    <ul>
+      <li><b>Výstup na Mt. Kinabalu:</b> povinné povolení Sabah Parks (vázané na ubytování na hoře, např. Laban Rata) a <b>povinný registrovaný horský průvodce</b> — řeší se přes licencované operátory, často s měsíčním předstihem. Orientačně povolení cca RM 400 pro cizince + průvodce cca RM 350 (ceny ověřte). <a class="extlink" href="https://www.sabahparks.org.my/kinabalu-park/mount-kinabalu" target="_blank" rel="noopener">Sabah Parks — Mount Kinabalu ↗</a></li>
+      <li><b>Sipadan:</b> povolení dostávají jen licencovaní potápěčští operátoři (ne jednotlivci) — získáte je rezervací balíčku v resortu na Mabulu / Kapalai nebo v Semporně; cca 250 povolení denně, 3 ponory denně, min. kvalifikace Advanced Open Water, v listopadu je Sipadan zavřený. <a class="extlink" href="https://sabahtourism.com/destination/sipadan-island/" target="_blank" rel="noopener">Sabah Tourism — Sipadan ↗</a></li>
+      <li><b>Kinabatangan (safari na řece), Mantanani a ostrovy u Semporny:</b> ubytování v chatkách / resortech a čluny zajišťuje operátor (doprava po vodě není individuálně snadná).</li>
+      <li><b>Maliau Basin:</b> jen s organizovanou skupinou a povolením (Sabah Forestry Department). <b>Danum Valley:</b> jde i samostatně přes Danum Valley Field Centre, ale spojení je řídké — přes operátora je to jednodušší.</li>
+    </ul>
+  </div>
+
   <!-- DAY 1 -->
   <section class="day day--travel" id="d1">
     <div class="day-head">
@@ -231,14 +261,14 @@
     <h2>Přílet do Kota Kinabalu</h2>
     <div class="activity">
       <p>Přílet do provinčního hlavního města státu Sabah. Večer bohaté noční trhy a stánky s jídlem přímo u moře.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+Night+Market" target="_blank" rel="noopener">Kota Kinabalu Night Market</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+Night+Market" target="_blank" rel="noopener" data-lat="5.981582" data-lng="116.072042">Kota Kinabalu Night Market</a>
     </div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
         <span class="stay-label">Ubytování (dny 2–3)</span>
         <div class="stay-name">Kota Kinabalu</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu" target="_blank" rel="noopener">Mapa</a>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu" target="_blank" rel="noopener" data-lat="5.978007" data-lng="116.072899">Mapa</a>
       </div>
     </div>
   </section>
@@ -250,8 +280,8 @@
     <div class="activity">
       <p>Filipínská tržnice s kuriozitami z Indonésie a Filipín, plovoucí (vodní) mešita, kulturní vesnice Mari Mari — skanzen tradičních kmenových domů s bohatým obědem. Večer opět kulinářská tržnice.</p>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Filipino+Market+Kota+Kinabalu" target="_blank" rel="noopener">Filipínská tržnice</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+City+Mosque" target="_blank" rel="noopener">Plovoucí mešita</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mari+Mari+Cultural+Village" target="_blank" rel="noopener">Mari Mari Cultural Village</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kota+Kinabalu+City+Mosque" target="_blank" rel="noopener" data-lat="5.995791" data-lng="116.107686">Plovoucí mešita</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mari+Mari+Cultural+Village" target="_blank" rel="noopener" data-lat="5.973711" data-lng="116.203843">Mari Mari Cultural Village</a>
     </div>
   </section>
 
@@ -264,11 +294,11 @@
     <h2>Ostrov Mantanani Besar</h2>
     <div class="activity">
       <p>Přesun autobusem a rychlou lodí na ostrov s bělostnými plážemi. Relax, šnorchlování, večer svítící plankton. Možnost kulturního představení, kajaků, kroužku místní batikové techniky a nočního pozorování ptactva s průvodcem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Besar" target="_blank" rel="noopener">Mantanani Besar</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Besar" target="_blank" rel="noopener" data-lat="6.713062" data-lng="116.352109">Mantanani Besar</a>
     </div>
     <div class="activity">
       <p><b>🧭 Fakultativně:</b> výlet na vedlejší ostrov Mantanani Kecil, nebo potápění.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Kecil" target="_blank" rel="noopener">Mantanani Kecil</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mantanani+Kecil" target="_blank" rel="noopener" data-lat="6.709619" data-lng="116.312092">Mantanani Kecil</a>
     </div>
     <div class="stay">
       <div class="stay-icon">🏝️</div>
@@ -288,14 +318,14 @@
     <h2>Návrat na pevninu → Kundasang (NP Kinabalu)</h2>
     <div class="activity">
       <p>Rychlou lodí zpět na pevninu, odpoledne přesun dodávkou do NP Kinabalu (UNESCO) — ubytování na dvě noci v městečku Kundasang přímo vedle parku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinabalu+National+Park" target="_blank" rel="noopener">NP Kinabalu</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kinabalu+National+Park" target="_blank" rel="noopener" data-lat="6.006" data-lng="116.552">NP Kinabalu</a>
     </div>
     <div class="stay">
       <div class="stay-icon">🏨</div>
       <div class="stay-body">
         <span class="stay-label">Ubytování (dny 6–7)</span>
         <div class="stay-name">Kundasang</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang" target="_blank" rel="noopener">Mapa</a>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang" target="_blank" rel="noopener" data-lat="5.985727" data-lng="116.574481">Mapa</a>
       </div>
     </div>
   </section>
@@ -309,8 +339,8 @@
     <h2>NP Kinabalu — prales a vyhlídky</h2>
     <div class="activity">
       <p>Zelená bujná příroda nížinného deštného lesa s 4 500 druhy fauny a flóry. Lehký treking po dobře upravených stezkách v okolí nejvyšší hory Bornea s výhledy na vrcholek Mt. Kinabalu. Návštěva místní botanické zahrady, výstup na kopec Sosondikon s výhledy na horské štíty, tržnice v Kundasang a památník obětí 2. světové války.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Kinabalu" target="_blank" rel="noopener">Mt. Kinabalu</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang+War+Memorial" target="_blank" rel="noopener">Kundasang War Memorial</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mount+Kinabalu" target="_blank" rel="noopener" data-lat="6.075067" data-lng="116.5587">Mt. Kinabalu</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kundasang+War+Memorial" target="_blank" rel="noopener" data-lat="5.987354" data-lng="116.576309">Kundasang War Memorial</a>
     </div>
   </section>
 
@@ -323,8 +353,8 @@
     <h2>Do Sepiloku (u Sandakanu)</h2>
     <div class="activity">
       <p>Celodenní přejezd dodávkou se zastávkami. Horké prameny Poring — možnost koupání, pavilon orchidejí, procházka lanovým parkem v korunách stromů, zahrada Rafflesia s největší květinou na světě. Cestou návštěva organických čajových zahrad Sabah Tea.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Hot+Springs" target="_blank" rel="noopener">Poring Hot Springs</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Canopy+Walkway" target="_blank" rel="noopener">Canopy Walkway</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Hot+Springs" target="_blank" rel="noopener" data-lat="6.047956" data-lng="116.702303">Poring Hot Springs</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Poring+Canopy+Walkway" target="_blank" rel="noopener" data-lat="6.048469" data-lng="116.699588">Canopy Walkway</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Rafflesia+Forest+Reserve+Poring" target="_blank" rel="noopener">Rafflesia Forest Reserve</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sabah+Tea+Garden" target="_blank" rel="noopener">Sabah Tea Garden</a>
     </div>
@@ -334,7 +364,7 @@
         <span class="stay-label">Ubytování (dny 8–9)</span>
         <div class="stay-name">Sepilok</div>
         <div class="stay-note">U proslulého rehabilitačního centra pro orangutany.</div>
-        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sepilok" target="_blank" rel="noopener">Mapa</a>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sepilok" target="_blank" rel="noopener" data-lat="5.865607" data-lng="117.949254">Mapa</a>
       </div>
     </div>
   </section>
@@ -390,6 +420,7 @@
       <span class="badge badge--travel">Přesun</span>
     </div>
     <h2>Černá jeskyně Gomantong → Semporna</h2>
+    <div class="must" style="margin-top:10px;">⚠️ <b>Východní Sabah:</b> MZV ČR nedoporučuje cestování do pobřežních oblastí východu Sabahu — viz upozornění na začátku stránky. Tuto část jeďte jen přes cestovní kancelář / licencovaného operátora a s aktuálními informacemi.</div>
     <div class="activity">
       <p>Ráno přesun soukromými dodávkami do Semporny. Cestou zastávka v Černé jeskyni Gomantong, proslulé svojí krásou, mračny netopýrů a hemžícím se hmyzem — poslední zastávka v deštném lese před pobřežím.</p>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gomantong+Caves" target="_blank" rel="noopener">Gomantong Caves</a>
@@ -411,6 +442,7 @@
       <span class="badge badge--water">Ostrov</span>
     </div>
     <h2>Ostrov Mabul</h2>
+    <div class="must" style="margin-top:10px;">⚠️ <b>Východní Sabah:</b> MZV ČR nedoporučuje cestování do pobřežních oblastí východu Sabahu — viz upozornění na začátku stránky. Tuto část jeďte jen přes cestovní kancelář / licencovaného operátora a s aktuálními informacemi.</div>
     <div class="activity">
       <p>Rychlou lodí na ostrov Mabul, ubytování v hotelu na kůlech přímo nad vodou. Lodní výlety, koupání a šnorchlování kolem Mabulu i ostrova Kapalai — podmořský ráj.</p>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mabul+Island" target="_blank" rel="noopener">Mabul Island</a>
@@ -518,12 +550,63 @@
     </div>
   </section>
 
+  <section class="day extras" id="extra" data-extra>
+    <div class="day-head">
+      <span class="day-date">MIMO PLÁN</span>
+      <div class="badges"><span class="badge badge--light">Další varianty</span></div>
+    </div>
+    <h2>Další místa a možné výměny</h2>
+    <p class="lead-text" style="margin-top:8px;">Nejsou součástí hlavního plánu — nápady, co přidat nebo čím nahradit část trasy. Většina interiérových a chráněných míst se řeší přes místního operátora (viz upozornění nahoře).</p>
+
+    <div class="suggest">
+      <span class="suggest-label">Náhrada východního pobřeží (dny 12–16) — západ a interiér</span>
+      <ul>
+        <li><b>Danum Valley Conservation Area</b> — jeden z nejzachovalejších nížinných deštných lesů na světě, noční safari, treky s průvodcem, šance na orangutany a slony; obvykle 3 dny / 2 noci (Borneo Rainforest Lodge nebo Danum Valley Field Centre). Přístup přes Lahad Datu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Danum+Valley+Conservation+Area" target="_blank" rel="noopener" data-lat="4.9647" data-lng="117.8047">Danum Valley</a></li>
+        <li><b>Tabin Wildlife Reserve</b> — bahenní sopka, pygmejští sloni, orangutani; poslední kus divočiny mezi Sandakanem a Lahad Datu, ubytování v resortu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tabin+Wildlife+Reserve" target="_blank" rel="noopener" data-lat="5.2333" data-lng="118.7">Tabin Wildlife Reserve</a></li>
+        <li><b>Tunku Abdul Rahman Park</b> — pět ostrovů 15 minut lodí od Kota Kinabalu (Manukan, Sapi, Mamutik), šnorchlování a pláže; snadná polovina dne místo Mabulu a jen kousek od hotelu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tunku+Abdul+Rahman+Park+Kota+Kinabalu" target="_blank" rel="noopener" data-lat="5.9758" data-lng="116.0022">Tunku Abdul Rahman Park</a></li>
+        <li><b>Tip of Borneo (Kudat)</b> — nejsevernější cíp ostrova, pláže a vesnice domorodých Rungusů, cca 3 h autem od Kota Kinabalu (celodenní výlet).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tip+of+Borneo+Simpang+Mengayau+Kudat" target="_blank" rel="noopener" data-lat="6.9989" data-lng="116.7378">Tip of Borneo</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Doplnit v okolí Kinabalu a Kota Kinabalu</span>
+      <ul>
+        <li><b>Výstup na Mt. Kinabalu (4 095 m)</b> — dvoudenní výstup s nocí na Laban Rata; jen pro dobře trénované a s operátorem (viz upozornění). V tomto plánu je jen lehký trek v parku; horu by bylo třeba přidat na úkor 2 dnů jinde.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mount+Kinabalu+Low's+Peak" target="_blank" rel="noopener" data-lat="6.0754" data-lng="116.5586">Mount Kinabalu</a></li>
+        <li><b>Mesilau Nature Reserve</b> — chladnější horský prales nad Kundasangem, láčkovky a orchideje; půl dne.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mesilau+Nature+Reserve" target="_blank" rel="noopener">Mesilau Nature Reserve</a></li>
+        <li><b>Desa Dairy Farm</b> — pastviny a farma pod horou, nečekaná „novozélandská“ krajina, dobrá zastávka při přejezdu Kundasang – Poring.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Desa+Dairy+Farm+Kundasang" target="_blank" rel="noopener">Desa Dairy Farm Kundasang</a></li>
+        <li><b>Signal Hill Observatory Platform a Tanjung Aru Beach</b> — večerní vyhlídka na Kota Kinabalu a západ slunce nad mořem.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Signal+Hill+Observatory+Platform+Kota+Kinabalu" target="_blank" rel="noopener">Signal Hill Observatory Platform Kota Kinabalu</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tanjung+Aru+Beach+Kota+Kinabalu" target="_blank" rel="noopener" data-lat="5.9481" data-lng="116.0509">Tanjung Aru Beach Kota Kinabalu</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Východ Sabahu — jen s organizovanou dopravou (viz upozornění)</span>
+      <ul>
+        <li><b>Tawau Hills Park</b> — horké prameny, vodopády a prales pár desítek minut od Tawau, kde stejně končí trasa před letem do Singapuru. Zařadit lze v den 16–17, pokud vám bude vyhovovat cestovní kancelář.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tawau+Hills+Park" target="_blank" rel="noopener">Tawau Hills Park</a></li>
+        <li><b>Turtle Islands Park (Selingan)</b> — noční pozorování kladení vajec želv a vypouštění mláďat; povolení a doprava přes operátora ze Sandakanu.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Turtle+Islands+Park+Selingan+Sandakan" target="_blank" rel="noopener" data-lat="6.1989" data-lng="118.0561">Turtle Islands Park Selingan Sandakan</a></li>
+        <li><b>Sandakan — Memorial Park a památník 2. světové války</b> — smutná kapitola zdejší historie (pochod smrti), doplňuje návštěvu Sepilok.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sandakan+Memorial+Park" target="_blank" rel="noopener">Sandakan Memorial Park</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Singapur — co přidat do dnů 18–19</span>
+      <ul>
+        <li><b>Singapore Botanic Gardens</b> (UNESCO) a <b>Jewel Changi</b> s Rain Vortex a sady v letištní hale — pěkné, když máte odlet večer.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Singapore+Botanic+Gardens" target="_blank" rel="noopener" data-lat="1.3138" data-lng="103.8159">Singapore Botanic Gardens</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Jewel+Changi+Airport" target="_blank" rel="noopener" data-lat="1.3603" data-lng="103.9899">Jewel Changi Airport</a></li>
+        <li><b>Hawker centra</b> (Maxwell Food Centre, Lau Pa Sat) — místní jídlo za pár dolarů, Michelinem oceňované stánky; <b>Little India</b> a <b>Kampong Glam</b>.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Maxwell+Food+Centre+Singapore" target="_blank" rel="noopener" data-lat="1.2803" data-lng="103.8447">Maxwell Food Centre Singapore</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Lau+Pa+Sat+Singapore" target="_blank" rel="noopener" data-lat="1.2806" data-lng="103.8503">Lau Pa Sat Singapore</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Little+India+Singapore" target="_blank" rel="noopener" data-lat="1.3066" data-lng="103.8518">Little India Singapore</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Kampong+Glam+Singapore" target="_blank" rel="noopener" data-lat="1.302" data-lng="103.8595">Kampong Glam Singapore</a></li>
+        <li><b>Night Safari / Singapore Zoo</b> — noční safari s pohodlným tempem (cca 3 h), hodí se na večer před odletem.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Night+Safari+Singapore" target="_blank" rel="noopener" data-lat="1.4025" data-lng="103.7897">Night Safari Singapore</a></li>
+      </ul>
+    </div>
+  </section>
+
   <div class="map-section">
     <div class="map-head">
       <h3>Mapa itineráře</h3>
       <span class="map-status" id="mapStatus"></span>
     </div>
     <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
+      <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty</span>
+    </div>
   </div>
 
   <footer>

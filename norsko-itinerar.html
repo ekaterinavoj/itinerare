@@ -26,42 +26,8 @@
     --danger:#A0432A;
     --shadow: 0 1px 2px rgba(30,25,15,.07), 0 6px 18px -10px rgba(30,25,15,.22);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ground:#1B2431;
-      --surface:#232E3D;
-      --surface-2:#2C384A;
-      --ink:#EDEAE0;
-      --ink-soft:#B6B1A0;
-      --ink-faint:#7C7869;
-      --border:#3B4A5D;
-      --fjord:#8FBEE6;
-      --fjord-ink:#0F2436;
-      --midnight:#E69361;
-      --midnight-ink:#2A1409;
-      --route:#E6B45F;
-      --route-ink:#2A1D08;
-      --danger:#E08361;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#1B2431;
-    --surface:#232E3D;
-    --surface-2:#2C384A;
-    --ink:#EDEAE0;
-    --ink-soft:#B6B1A0;
-    --ink-faint:#7C7869;
-    --border:#3B4A5D;
-    --fjord:#8FBEE6;
-    --fjord-ink:#0F2436;
-    --midnight:#E69361;
-    --midnight-ink:#2A1409;
-    --route:#E6B45F;
-    --route-ink:#2A1D08;
-    --danger:#E08361;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
-  }
+  
+  
 
   *{box-sizing:border-box;}
   body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
@@ -212,6 +178,11 @@
   .linklist span{color:var(--ink-soft);}
   .tip--links a{font-weight:600; text-decoration:underline;}
   .map-legend label.lg{cursor:pointer;}
+  .leaflet-control-layers-toggle{background-image:url(https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/layers.png) !important; background-size:26px 26px;}
+
+  /* itin-white */
+  :root, :root[data-theme="light"], :root[data-theme="dark"]{ --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F6F4; --border:#E2E2DE; --ink:#1D1D1F; --ink-soft:#55555A; --ink-faint:#8A8A90; color-scheme:light; }
+  html, body{ background:#FFFFFF; }
 </style>
 </head>
 <body>
@@ -303,6 +274,7 @@
         <div class="camp-note">300 míst s elektřinou, 38 upravených pro karavany; sprchy v ceně; sdílená kuchyně.</div>
         <a class="maplink camp" data-name="Topcamp Bogstad (Oslo)" data-rating="3,8" data-lat="59.962563" data-lng="10.642312" href="https://www.google.com/maps/search/?api=1&amp;query=Topcamp+Bogstad+Oslo" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -340,6 +312,7 @@
         <a class="maplink camp" data-name="Sæbø Camping (Eidfjord)" data-rating="4,0" data-lat="60.425937" data-lng="7.121937" href="https://www.google.com/maps/search/?api=1&amp;query=S%C3%A6b%C3%B8+Camping+Eidfjord" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot">Původně navržený Vøringsfoss Camping se mi na Google Maps nepodařilo jednoznačně dohledat — Sæbø Camping je ověřený kemp přímo v Eidfjordu, na trase.</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -362,6 +335,7 @@
         <div class="camp-note">Sprchy na žetony (4 min), elektřina, dump station a voda pro karavany; benzinka a obchod hned vedle. Sezóna květen–říjen.</div>
         <a class="maplink camp" data-name="Lone Camping (Bergen)" data-rating="4,0" data-lat="60.373562" data-lng="5.459188" href="https://www.google.com/maps/search/?api=1&amp;query=Lone+Camping+Bergen" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -402,6 +376,7 @@
         <div class="camp-note">Sprchy v ceně, místa s elektřinou i bez, kuchyně, prádelna; servis (šedá/čistá voda) za poplatek.</div>
         <a class="maplink camp" data-name="Flåm Camping og Vandrarheim" data-rating="4,3" data-lat="60.863063" data-lng="7.109688" href="https://www.google.com/maps/search/?api=1&amp;query=Fl%C3%A5m+Camping+og+Vandrarheim" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -425,6 +400,7 @@
         <div class="camp-note">30 míst s elektřinou, vylévání chemického WC, kuchyňka, sušička, nabíječka EV, wifi. 300 m od centra Lomu.</div>
         <a class="maplink camp" data-name="Lom Camping" data-rating="3,8" data-lat="61.833812" data-lng="8.559063" href="https://www.google.com/maps/search/?api=1&amp;query=Lom+Camping+Fossbergom" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -449,6 +425,7 @@
         <div class="camp-note">42 míst (37 s elektřinou), renovované sociální zařízení (2024), kuchyňka, prádelna, wifi; nepřijímá rezervace — příjezd dopoledne.</div>
         <a class="maplink camp" data-name="Geirangerfjorden Feriesenter" data-rating="4,6" data-lat="62.114563" data-lng="7.185813" href="https://www.google.com/maps/search/?api=1&amp;query=Geirangerfjorden+Feriesenter" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -475,6 +452,7 @@
         <a class="maplink camp" data-name="Volsdalen Camping (Ålesund)" data-rating="3,3" data-lat="62.469563" data-lng="6.198063" href="https://www.google.com/maps/search/?api=1&amp;query=Volsdalen+Camping+%C3%85lesund" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot">Volsdalen má nejslabší hodnocení z celé trasy (fronty na sprchy, chybí plná dump station) — je ale jediný kemp přímo v Ålesundu. Alternativy najdete přes park4night / camping.no (odkazy výše).</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -498,6 +476,7 @@
         <div class="camp-note">Ověřené hodnocení a vybavení jsem tu nedohledal — vyberte přes park4night / camping.no podle volných míst; drží se trasy Atlanterhavsvegen → Kristiansund.</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=camping+Atlanterhavsvegen+Kristiansund" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -519,6 +498,7 @@
         <div class="camp-note">Na Google Maps se mi ho nepodařilo jednoznačně dohledat (bez hodnocení); vybavení ověřte na stránkách kempu.</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Sandmoen+Camping+Trondheim" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -542,6 +522,7 @@
         <div class="camp-note">230 míst, 150 s elektřinou; sprchy, prádelna a wifi v ceně; vyhřívaný bazén s mořskou vodou.</div>
         <a class="maplink camp" data-name="Torghatten Camping & Beach Restaurant" data-rating="4,0" data-lat="65.393062" data-lng="12.099063" href="https://www.google.com/maps/search/?api=1&amp;query=Torghatten+Camping+Br%C3%B8nn%C3%B8ysund" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -563,6 +544,7 @@
         <div class="camp-note">Sprchy zdarma (6–23 h), voda u místa, elektřina za poplatek, prádelna a kuchyně.</div>
         <a class="maplink camp" data-name="Mo i Rana Camping NAF" data-rating="3,7" data-lat="66.317188" data-lng="14.180312" href="https://www.google.com/maps/search/?api=1&amp;query=Mo+i+Rana+Camping+NAF" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -583,6 +565,7 @@
         <div class="camp-note">80 míst s vodou, odpadem a elektřinou; sprchy a WC v malých místnostech; kuchyně, prádelna; čištění ryb.</div>
         <a class="maplink camp" data-name="Pluscamp Saltstraumen Camping" data-rating="4,1" data-lat="67.235438" data-lng="14.621062" href="https://www.google.com/maps/search/?api=1&amp;query=Pluscamp+Saltstraumen+Camping" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -607,6 +590,7 @@
         <div class="camp-note">16 sprch, 18 WC, sauny; vylévání chemického WC (kompletní dump station není); wifi. V sezóně fronty na sprchy.</div>
         <a class="maplink camp" data-name="Lofoten Beach Camp (Ramberg)" data-rating="4,3" data-lat="68.103187" data-lng="13.294563" href="https://www.google.com/maps/search/?api=1&amp;query=Lofoten+Beach+Camp+Ramberg" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -631,7 +615,7 @@
     <div class="activity">
       <p>Arktické pláže s tyrkysovou vodou Uttakleiv a Haukland. Historická rybářská vesnice Nusfjord, jedna z nejlépe dochovaných v Norsku.</p>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uttakleiv+Beach" target="_blank" rel="noopener" data-lat="68.209312" data-lng="13.506938">Uttakleiv</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haukland+Beach" target="_blank" rel="noopener">Haukland</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haukland+Beach" target="_blank" rel="noopener" data-lat="68.197989" data-lng="13.529191">Haukland</a>
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nusfjord" target="_blank" rel="noopener" data-lat="68.035312" data-lng="13.347563">Nusfjord</a>
     </div>
 
@@ -643,6 +627,7 @@
         <div class="camp-note">Jen parkoviště pro karavany u pláže (110 recenzí) — bez kempového zázemí. Na Lofotech je přespání mimo kemp omezeno, ověřte místní značky.</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Uttakleiv+RV+Parking+Vestv%C3%A5g%C3%B8y" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -664,6 +649,7 @@
         <div class="camp-note">Sprchy 20 NOK / 4 min, elektřina 16 A, vypouštěcí a vodní stanice, kuchyně s indukcí, prádelna.</div>
         <a class="maplink camp" data-name="Kabelvåg Feriehus & Camping" data-rating="4,0" data-lat="68.217313" data-lng="14.445438" href="https://www.google.com/maps/search/?api=1&amp;query=Kabelv%C3%A5g+Feriehus+and+Camping" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -698,8 +684,8 @@
     <h2>Senja</h2>
     <div class="activity">
       <p>Ostrov s dramatickými štíty — vyhlídka Tungeneset (Ďáblovy zuby) a hora Segla (cca 6 km tam a zpět, ale strmé, výstup cca 3,5 h — spíš o převýšení než o vzdálenosti).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tungeneset+Senja" target="_blank" rel="noopener">Tungeneset</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Segla+Senja" target="_blank" rel="noopener">Segla</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tungeneset+Senja" target="_blank" rel="noopener" data-lat="69.486955" data-lng="17.333038">Tungeneset</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Segla+Senja" target="_blank" rel="noopener" data-lat="69.507366" data-lng="17.59572">Segla</a>
     </div>
 
     <div class="campbox">
@@ -710,6 +696,7 @@
         <div class="camp-note">Terasovitá místa u jezera, sprchy na mince (10 NOK), kuchyňka, pračka a sušička.</div>
         <a class="maplink camp" data-name="Senja Camping (Silsand)" data-rating="4,2" data-lat="69.231562" data-lng="17.702687" href="https://www.google.com/maps/search/?api=1&amp;query=Senja+Camping+Silsand" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -752,6 +739,7 @@
   </footer>
 
 </div>
+<script type="application/json" id="itin-route">["ylwlJwkh`AdKInHtOvAjLjIrS_GdRFtAb@SjEmQ~DiJpCiS\\S`Enc@LfHlAVg@}JRkD|JuRjDk[xBcGrPuYdCaJvBcQdDqm@a@gK_EsUi@}Gu@eu@R}JrAkI|B{ErOmKjLo^c@qEaIcIr@yEqHoRsB_CbDyS","ayslJegs`AcDxS`EbH}AnJ~IrMMjX_EvNuP|M_ElV~@|z@vGne@uBzh@wFbb@oSf_@uFz`@eKjQKna@uPlq@}HoS_DxSiE|Dax@}DsKg^kEnEmEeQ}DvLu\\]oVn[of@fQkD|i@cKzPoEcz@OfKsCcHmF`QqEhc@gEqQ_FzAZpJgJ}G","mv~lJugb`A|dDceBtlDf`JlwBlvUwtDhfFarD|`QcvJbdTu{Fuc@yqA_~DwiBhqC_{IjeA}cBfiIizC~vA{`DhqNyi@pd[uvBbvA}vD|yNu`AfjRmgC|cHAlvIc}N`vH}iBloGfLvyHqgAlfGa_GxsI`hBlfLsp@dyJi}Att@aqDf~O}uAjLuc@l_HakN`lKp`Bn_Ish@tjKbmDrvLbbExqFnnChkOznC~_Aje@vpKsjA`bYghDzaKjcExy_@uvDxtUkaGfvAmVf`DhWjcKbeFf~OujApkHfOtuSwgAtxH|nBilBdbDbsJryDyCngDnb_@ltG`jXtnCotEtaIba@|}BccK","eh{nJsomm@yJz~@qRxVmXxmA|Cbe@{Zrh@aEjrAch@ny@{aBxbA{IcTu\\iEwXxXuYme@_NjUm^{B}o@alAsa@oBsW`n@iI`q@mq@iEyVhc@oAxc@y_@vp@zGjoAmTlsCsb@vuASho@w\\naBfDzaBgLdl@~Dhe@eEhq@yNlU[~pAcb@fZq^qKmSh[eHpaAiQzm@pAze@sWrKyZ|m@sCvqBbVxxAyQryDtFn~AkDbl@sRdf@el@gBmUhIqIvZ","geyoJ}{gk@fn@ob@ck@|fBtNzv@oB{\\lJnEuPfYhf@`u@sUxoBvNsYfOtg@hExgAq]jlAdc@f|Dyi@lpAwSntDo~@|a@im@qSqv@dyAkXu@cCnt@wc@zh@qSnq@pRn~@s{@hcBg_@`iBmYlcExE|yB~{@hdEr@rhErWzzCmPbxC~Cd|Dn|B`eDfp@puCbe@ll@|MtnBpwChqBlrArbDtuBcxAlJjkAaaAdvCvtBn~@n}AdhBj~Avt@x}@mb@l|@vZvnCjlBj]niAtp@xc@blB}]zz@bu@`aBo^tyA`gBpaB|G`yArhAbgG`aCn{@{Jts@bcAhxAlPdPw]_JtL~Bis@iLu@xG}m@iYn|@tGk}BseAcmB_Ni~Axj@k{EaMqdFmZu`Bhf@gqD","yp~mJ{tbh@eUd`AcP`pBlZt`B`MpdFyJ`wAwWlaAgFz`A~Mh~AreAbmBpBh`AoKp{@hYu|@sGvm@jLpAuBps@xHwOg@hOhiAhj@|a@xf@x`Dka@vQ~Kx@x_@pd@eQl]vDlb@yiA|pBa_@jo@rFlXfg@nfAaPfShHxaAk{@v}AfNdYs`@trA{OreB}_A","eq{lJc}dg@auJp_D{vG{F_bDrxDkpAvU{yFnz^mNhwNssB}LomAkqBkiMhdRsnB[aPuwDocBwoBkkEdtQktAgaCcn@anF}k@oHym@bt@on@lkFibCvbDb{@lnRkt@`IfSd`Cye@rqAvM`wBc_BlfA}x@f_Kb{AfgD|CteE{jAhqB|{Ato@qBzhHelC`dElOrlAq`@|cBzeAtkCeUpjArWhwEisEpxEuHhxFds@tbJaWnkC~g@phFenFjnCmZhwAbCl|FcsBjxGpmBtlCfdC}_@xkAv_CroAeqBr`BA","{dsoJ_wo_@mwBro@c`AlhBquAefCqyBzf@wnBsyBna@kaD|nAyhCcCm|FlZiwAbpFwmC}i@eiFzHyuIie@_}CzX{rGstBu`AypA{oFzUaaCuWotFgqAqkAmuFrkC_rEbN{vByhFokBydByq@o|FeyCiaBohCy~QaOokF}t@az@aKouEji@mfFej@uxBNefN`{@{`DyFa|Chd@_mCgWe~BnhC{}VwiDsiMq}BqBitJkvI{~BzHc`AwaAuxCleBcvAmnCmFcvEx|@_xAdC{|CigEooS_iB~p@qbAcs@dL}fAamBirKeRemGczByoGoiAkmf@}p@sjAzzCq|Gjm@qa@dm@pw@jK_bBav@c~B_hEgqD~AorGofQgfg@a}DaoGo~F}}EpeAkdGje@aaOskAegFfk@iwDeGc~Eha@wuEa|AohJ`zAr^","iirsJu_un@qyAm\\zU`i@tdAf|Hia@vuEdGb~EoYb|@wPdzBrkAdgFmm@huI`GvjDuc@`rCki@bkAnGde@n~F|}E`}D`oGnfQffg@}L~oD|InaBfy@bvArr@nHhe@j_Alt@`Qlx@vlCmQ|tAal@gz@geAt`AiaCv`Gdq@rgAvhAxdf@dP~mAsiEq{DgxAcB","ugzrJqq|h@fIlK`l@}Q|`@rHhv@fh@|]jx@nv@zt@f|@bd@qPaoAwhAydf@aHqWsa@mRoEs[jxA}}D~m@yiAd_Aux@rZnu@nNzE~SyeAeG_l@_^ia@_QmmAiu@iRaMmf@gW}Wks@eIwVym@wu@ay@uHcqAan@u\\oC{SkbA}{@f[kDrPhNqJg[eReJ`Oh@iXeRqSdCtR}Nls@tT_Xkc@p^pXrZiA","}ewrJ{t_k@sZhAq^qX~Wjc@uWmOwZgDuR|NlLhCbFoGhXdRaOi@dRdJpJf[sPiNg[jD`LxBzQr[lb@n[nCzS|LNpSfXhKrB`G~^}BtRxDv]|OtIpDvLf_@r`@vVxm@js@dIfW|W`Mlf@|u@dSjGnS~G`x@pZn[~Ip`@Sn]yFla@}KvUjDfDnAuEqM_O}Mkr@nDsCrBdN","wjnrJ_plj@aUahDujEmuDpBgqGekPyre@sxMydPvjB{mUuiAk|GreAaiRaiEu|O|`AuiLca@qtHqrCqdDi{@mbG}cE|_Dw_DqzAoxAeeIHiuKyzCedPe_@yvVnjFugJrfDerb@okE}gTyzA_Vai@sfIi{Hb{F}x@moKpeBosMkf@osIstFp`QclGrrB{l@}}BygWzv@ezByzDkrDwj@ywFifN_mEwNu{Di|D_gLy~Ri_GeZp~@peOaqAvsBtu@zcI`uExcP`lAx|SbiHlrN","wtbwJa`us@ciHmrNskA}zSwxEk_TcwL{ZwsAxlBsbHsiNuoDmf[vvHatiAowEjsUaxAylBajB|pBseFpiQcxEfqIqjC~v@klHlnTo|CrtDmlAbgKg~CpoDqiClnRep@vxa@eiIldWswApeQszE~eTsrA`ec@m}Nb|[{}Qt~NqiBxw\\ueDhnDefBbmIw_Cim@_yDvfDfeDzfLxvH`_@","mne|Jgcym@yVJbSgK{Foj@pBb[_HkZw_Bnw@oyC}HmpBguBst@mkBsWrcAgiAxD{_Aup@kWf~BxU`aAcNd~@|g@zUxU~dBdbF|jMd_A`UzDj|Ay^dbAsyD|cB`JfsGiHzaEkb@`oA_p@e@giB`hCoWpcDws@beCqiDviGqW|sD__AdcFxm@nzCwvA|pFhQjsE`v@lbC{Bp`E|M`fAjsDsTlj@|YvqAhgSpWzaBdgCdxCfyBnsHpaBb|AbWbpA~tAry@cGldJxIluE`TfbBS`|FiNvx@ym@aqBySFoC~m@vN`bDr[jl@z\\vjCu}@lqHz[rkKl@kZ","qak|Jyj_g@k@hZmCiFbQnqCoEnnAkQx}@rH`jAoBd|@nVbqC|VfqAl@lwDxa@pqCfPzkG_FnPiAreB`M~kFoE|[bOvoBgWhmHhE|fCuCcNq@n_AaHuPyE`y@qHuXoCjNxGbl@k@bxA","kci|Jwrsd@_F{hCrL|LnPofBzHvOwJmcCrWqbHiO_aCeCinJly@mv@hq@pHdgAqi@pfA~o@fM~vAoF`dAtl@baFtE~mBf[zyAddAzdBbe@~tCrZ`vJ`|@ddF|{A`kQlCjwBrrAvxG`UzlD~|AlnJu@rmBrWnNfgAeq@jhBlv@va@nsB~t@qfAzxAhkFTtmA}d@bwBxXflFaRtfAmZjJkbAsy@_r@jgBvJdf@ek@xz@yS{EcI}fAeR}JqVbV{CttBqu@_u@kRnlCk\\hHgDmr@qSiKmbAxtCyf@q}@yLxMsUnw@~Yv`Bm@~kC_i@yt@mcAthAkPsd@{\\v@cIolAsz@gdBoW|x@p@hqB","y}z{Jakka@|UgkDvdAvqDt|C~N}AgfHboDok@neBmfFbq@vyAxqA_jEt_B|k@f_@qzM_rA{oHv}A_dB~nBbdBjc@ctFheDj\\ds@ooQvaGakKdrAvnAhbBo~CcIkwCfvCe`A|cBgkFf_Cms\\ptCmhJfSwaHrkMahWgrB_kZ}eBquD_wAihPqiFwsCecBejLqfFeaJw}M}OshMjuGwsDyrDqkAyb[jcEsf[euAkrKct@lw@gg@a}BypBmbUu~Ac_D|mBgdLaYyzH{fHkvF}uGy_PojFup@vZkwAk`Gbn@qeDoaFwzEzoCgoAaiScbAr`KfwB`pVq|Aj~GpWvhCuaGq[uxB|kEctDj`@arEvkNykEn^qClhZiaAdoFoaCioEyyDj`H_~@egBuvEnz@upDeyFqkDwhXo|CiqGgcExuFmzBxjSknDx`CkzAazI","apr_Kg|xk@pzAf{IdnD_bCd{BylSn}BshEnkCfCxbAukD{cDm_WwxAwoAoiDygO|PkjNyjA{uBja@_vEyiC}oK_wBemUw`E}eHwqEyft@yhA}oE_tBrj@ipBwbDeu@mxJn\\__OysAuwB{UcrFgsBoSe~AkbQ_cB{es@oaB{|Ns\\cfRzr@alI{cCea]y}@cfb@rd@o}FqeIgmMzSqgHykDmaZttAsnHevBseBgdBu{HsH_dKvkAssIy]qdL`sB}sLiiB_rGmLorWkwBavCcyNqjD","_jcbK_zn~@`cC}uBsvCwmLry@ahG_a@mma@blC{pS}jJkbRwmLjvMimKq}f@_yCi~DyaDkHmlKasPmoCms\\}rF}x\\muIpiC}tChlH}wIijGobJhrD}uBgiBcvC}uL_iD~fDshKyiImjE{iRodAwkUkgF{zO_hCo|^ykCi_KacHq`n@s}FeyI{aOth@onLrdHwuL}sTurExkGqtHzSclA|cIqnB`NfEv|KyuAluGs}Aum@mbApmCk`B}pFu`Bls@{`Dp}Tw|BrdGi`@a{@|rCvj]eoCahCyeF`bLyg@ty[ijAl{Cn_@hnKkkAj_B|w@bmN{]rxEltAnvA|P`lDq`CzzKwdAihAeqAtid@_s@iwD","q`{jKkcrcAqJ|z@p~@j{Bpq@scLaRgdR{p@isYyw@qkGiEifHmqAgtFjC_qB{iBc_CepAa}I_OxaFi}C}_Lg_Dy}Bej@ctCoxAzsAlNvwCy\\dtAkp@}{EwmBcoAe_H}qUoPyrDu_BiVgmAmjKdMyvAtx@ut@oFyxHofArp@ioBem@m_BmyH~BkqD{l@dnAjUfvF}lHnH_~@et@rEzaDasE`eJqbD{sNwv@eJ}hAqiCiwKypE{lAwtB`Fi_B}q@uuAq|BxuDs|@if@uoAnoDocB{hAq~BmtGebBoeM_jBuzFqm@_bAkaAjnBcvBu`Aeq@nsGhnAr~E}ObdChuExtHqaAbgDzbJb~MtiAumAdb@hi@","c|cnKmczhA{lBjc@{cJu`N|y@qwEqjEu{FxMgjCymAcwEtp@_{Glv@yHi{AmjHtrDibJ~gC|jCl~Ewt@nG}|DfmC_tGcw@qxHpeD}sOduHs|Flg@r_GvkA~y@r`HkfJcJypSa|LulZfuDc_Voz@wmMlv@skKmnBqiN_mIy|Og}Im}GokJmVw}GhwFgcGjWmuH~oNq_IblEwzFinEedDnhBi`EaaB}sCnuGgjC}MgpAhoFmyC|jBipFsqMq_AinQupBgnGuvQi_I}kE_fSry@yuK}yDk_e@{nFlhA_kHwgFuaBt}G_cDdb@uoCyeLeiAacPydAgvDcsBwNcuEw{^uyBsiEnLglM{nAmsBsGe~DelDq|AafAkqMc~CssAyj@k~U~dCc}CsVifRivE{vY_sC}vIkqIi~Kad@ynL`sBkaC~rBuxJxeC{iOyBqpIulBe}F{xDkdBy{AcgIycGkgC","axeuKemo|AgpBsiEwxCsAqzJcaIwqC{r@snE_sHsfF_|AolCjQghC`}CmfFx{OwiAnkGmqEphEgmHihF{qBzpC}fByHykCuzA_pBmjEioBnFu}CilEm`C_HtU~~BgQlsB`{AjaDwIj~FfRl}@mQNrZxfDznAh~E_X`cHpm@jxBafAhtIdd@xeDwBz_Hiq@zwAskFsDg^vwAihCg_BsAw|Bio@~ARdkI{q@jc@g{Dx}KuaAfv@g|AaaB_sCyiHopCvxArNncKhYiqB~sAnxDpsBxdUa{AlwLklApW_WnyDdWxtBa`Af|BqZ_vA","ajjyKaafxAm_@gaPovBukJqpFtj@|Auhg@ehD_cMgx@oxVh`@}cCfrC}a@bmD{eJp`A_aGmYyzI~fAkaD}KwkDs}@rj@qqHooPgpFk_YktFmbL}dAtrCezAmsCt_AhfO_oAv~DoxIqsEkmEhkBk|Fw_TaUcuOgpBs{TulBdKuUysJ_fHvoAomJlrO}bDccKsnAf|@cpByoIuzCz`DgyCulK}`G{xDizCbhX}sCpkDqxCk`EmkBfvBueCebI_d@{{IsfCn\\kUaoFu_CmuAieJvrU}s@sT_eAbmIox@swD}bBtwCc_EuuEq`@unGsX|hAe~@q|C{aAqlMw{AdiAmScnFqiCbd@_{BinF{jC`aBkpDdnJoqV}e@cmA|~DmgCu|AeKrcH}wCpeMacHp`AinBvnRrxGh|Ot`E||`@iy@b~EbaA|iu@_pAfkF~fAvmRhsChuK{lA`vD{CtdNzxC`jJncEvGfyEnaOsCvbGtvBu[`lAlcD~}@ejD|jDz|B~ZnvEncF~C~T`}NdbEjrR}Rz~]pw@pnQ{nCoCiiAmcJixBlr@xQbeMwqD`bSbsDjaNq_Fvo]|vErqFdp@hjJjcK`rTjj@nzDaa@r|DtoFbhQyEbvDnxAv{CnhB|wRr|G`Psk@|yHqcCqnDv@loMxpAjvBvuA}aAz@`vFrqDtpDbtCetAfcErwBnvA{zBvaB|aHpwAdO|i@lcKbe@a{A","ubs}Kul{nAZcAdChDzJuDpANzExKl@|GXtMsKpLeGz_@_AvCoB`C{FIsDzC}EwAsElKuAn@yHsJwC}Jc@{DDwC|AiMx@iOOcE}AmLR}Iz@qI[mLiCiNeFaMoAaOcEcHu@}G`C{ZZcYt@mNLwKt@kK?kGqA{G{KgK_EmHmBmNGoBh@mC","qou}K}vboAjAjVdTf[mGniBtTv|@q@lb@lBpR}Cra@~CxOrJjLjG}LnTsArK{g@bMeMbN|CvNd]|MiBxPcT|RlJvX~z@iA`i@hMxoAdf@ly@nAfo@jDbTfH|MvLuPt@_K~D_Aj_@rk@|EhXd@xo@rFz`@yBbObCpJe@pI`GxCtE|UtLxHdAhSqBvPBx]zIh]lBbCbDeN~Eg@|D`HCnL","yrh}K}|enAkz@uqC}MqqCa~@{ZysAuuHyvCbc@}i@mcKqwAeOo_@muDw`A_kB_wAjzB{|AmaA}c@xx@m`A_oBctCdtAsqDupD{@avFwuA|aAipAkuB_UgqDvRe~GpcCpnDdm@etH{`C~f@i|Cy}@mbAczFae@y|JoxAw{CjF_tDkmCygJcc@xK|W`uBeIprA}nAsNeb@miAqvBpuBzP~wA","kci_LkamqAgA}]sNay@zDcCxHoP|BmHjD{QnBoEdBaBbe@t@jDkDdEwLhB{AxCpBfCpH","owf_La}qqAj]qs@lPjHzAzi@hIzUvRwHpb@di@rWyOdIqrAcKm^{KysAxUo^hMrQ`O|t@`^zc@zg@vbBfB`r@rL~l@tVb_@~L`k@vCzuAmNz_AxH~r@jYrqAl^`BxW|m@be@l~GY~yAn\\zw@dX~bB~Kv}Aps@ha@hl@mQd]pa@h_@~JrrBy{@lKz[i@lr@xw@ff@rYvaB~J_oAo@gdBf]qnA|a@yC|O`Hx@lZfu@~C","ucg~Ko}mpA}jBuc@g]pnAoIftDsYwaByw@gf@cJioAsrBx{@o}@qm@il@lQus@qa@gd@o~Di]{z@X_zA{e@yaHaWqj@s_@_Dy_@ekBpLk}AwEwwA_c@idA{Oa`B{g@wbB}wAofDiNy|Aui@ux@`a@s|Dkj@ozDokBuvD}_BgxGoq@uc@mcCm|Dgk@kxE}C}pC}t@_y@}w@bPuVuo@kI_xA_fAa_Ado@iaDjYoeDzs@qoBaIggErpAurBpXmzENsyA}Kyr@e`BoaBoeAmpFfZwdDbpAoiD`RmyChr@kwCaM_wDoUitA`S}~DtwBoi@vJzvDrz@jgDdy@~y@`tAml@h@ujBlIeDnSriBfVdd@jl@~ApZuv@zW`bAxm@nk@r`@u~AxPns@ze@Il\\`rAtXfLuCie@","_|}~KuquuA~HnOiDxTuXgLm\\arA{e@HyPos@qOdQzAbn@}Rj]ym@ok@{WabAoLlKaMfj@kl@_BgVed@mPweBoLh@gMsxCtIqrBks@sxExVcgFsJykFsIa{@bKuzAqMovBzS{|FeIm`@eOgB}Fgn@mWmeAeCou@wNae@eDkz@mMab@cWgByTqh@kFsc@YskAxEc_AtD_E","m_n_Lch|wAuv@q|@_Ve}NebFuA_[ovE}jD{|B_~@djDalAmcDuvBt[rCwbGgyEoaOocEwG}wCcfJ|BshNzlAavDisCiuK_gAwmR~oAgkFcaA}iu@hy@c~E{_E}y`@ubEmwKy|@wjAgF`bFcs@fe@yhCgqDe\\erHyfHvmDehA|eX_zBntB_hAlmF_eAneTkvFdhFq|@`@ws@uxEdN}hHmtBze@mpAv}HmaAjYqhC}sDaaBekIaaAvC}f@ewCln@yuQuj@wfCulAt{Bmo@vhKmmClbHqbDwzBxJcjH{sDdy@srFiwH{yAliFciB}|CyvA`uBmgAtqUwpE`M{uEoyHilCDqvEsuT{DwhIceBqlKmdJqhMoe@cdHgdDccJ}uD|{B","ozxeLghj`B|uD}{BfdDbcJne@bdHldJphMbeBplKzDvhIpvEruThlCEzsE|xHvrEoLlgAuqUxvAauBlhBl}CpzA}iFrrFhwHzsDey@yJbjHpbDvzBlmCmbHlo@whKtlAu{Btj@vfCmn@xuQ|f@dwC`aAwC`aBdkIphC|sDlaAkYlpAw}HltB{e@eN|hHvs@txEp|@a@dvFmfFdeAggT~gAmmF~yBotBvhAyfX|fHslDz[|rH~oDzgDfC{~NjcB{gL`dHucA`lBkaGnvAckNwoCiuCwyCmbKq`IgeCs~BbqDbj@_~FftBi~AuuEw}SkRs|\\haAy~K{dAycHeoFtyBem@}lHapB}xClm@a{CjtCjqCr{D{_QnxNwoGspA_ug@aiCwpNvmAqrBff@alKcgEsu`@djBg_Yoy@keEfOitDgeC}gN|GgeFsuD_iGkbAb~@}iLq|Vk{Asmb@csBmsLpY_|I_|@{zL{pHydD{jButHkrJslCwgA_dK_dDwkIsDcpG}_Dei@ioGsfTqcDql@_yDk}GicCdo@oj@fbD{vDkmD_l@llCkhAml@yeBzuWseB~uEbQtpLh|@bjB_eA~fJu}BgXyuDb_Hmn@mdC_dE`mUurH_gE`Q`jTuz@}Kwf@tmDd_A|sDmb@tiJtl@|fPadEbtWd~@fkT_{J`h@iaElqQaw@od@kzE`lHe\\gaOieBuvF{tD|gJla@|iN{f@`aGyyB_jAo`Db~B","otbgLqjxhB_McIVwe@p^kzCb\\w~AtDm_A_P}{AfKy~ArVik@|AgWu[eqCuRcnCmP}o@Vm\\qf@kv@w]aUqL_j@cDcgAveA}lE|_@cApt@pc@nUqyArXyu@xZ_`@~ZyvBo@cT{Qe\\eE}d@~BmrBeC}p@sVcw@eFon@rEscBgB{lCoHkP}[~KcCw_@yDpTmPbIk^pbAk@joA}YhuAyg@|n@i_@{DyMnQcPhy@uAla@s[pv@hNdX","ekfgLcgpjBiNeXlo@isCvuAey@n\\ahDdt@gyAoMyfHpu@a{CjUqwG|w@sTdq@o|D{OyrE|f@ybB_BcwKxoAfOx{@lcB|uAyzBdPmdEkNocE`y@i|DbiAvu@leC_WzaA{wAxiAxmYx|AtkB|r@ziGlfBegCd@ckB|e@}n@jfCneElSe~@oLe{E|sAii@fJueBhgA~Uvg@{nDpZzu@d_@ee@mb@}zKnZg~E}dC{bPtiBu}@njAkzGaJadTi[myEbR{|B`o@yuAyXssFlt@kcElv@~NncHerNxsCqrBvHc_BydAk`CsV}bCfYsrEnmBu}HdZmbK~d@w}@xf@yuEgr@y`^uz@w}A}mAqjKmfCvCs}@oxG}Fw~GzS{dCwd@scEqrGqbVerA{]wTk{Fd_@yjAt~AclTjMgeJ_`@wnBs_@dcHslDfwLqcGltC_|CkpBaeHboMsv@sc@dOlnGai@rzEc{Gvn@ehBvhFin@h]s`EwgBg`Fh@cmGtmLijAaF{Ib~Ahw@x`Dt^haMdkAj|KbDjqDitIfdGyvBwb@yqB}uC","}~_hL}_wrBf@`AsGuOwNwUmDmI}BwJiBcMm@mIE{GoA\\m@w@kFmQwF_LwFoGuCg@lEwMtIw`@jBuTpEeQdCnKtCv[fAzGpFxIlAp@TcA"]</script>
 <script>
 (function(){
   "use strict";
@@ -766,6 +754,22 @@
   var ROUTE_LINE = true;              // dashed line through the plan pins in DOM order
   var ROUTE_COLOR = '#3B6FA0';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
+  // driving route legs (Google-encoded polylines) baked into the page at build time — the whole route along real roads
+  var ROUTES = [];
+  try { var rEl = document.getElementById('itin-route'); if (rEl) ROUTES = JSON.parse(rEl.textContent); } catch(e){}
+  function decodePoly(str){
+    var i = 0, lat = 0, lng = 0, out = [];
+    while (i < str.length) {
+      var b, shift = 0, res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lat += (res & 1) ? ~(res >> 1) : (res >> 1);
+      shift = 0; res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lng += (res & 1) ? ~(res >> 1) : (res >> 1);
+      out.push([lat / 1e5, lng / 1e5]);
+    }
+    return out;
+  }
 
   function nameFromMapHref(href){
     try {
@@ -853,6 +857,7 @@
     var resolved = 0;
     var blocked = false;
     var toggle = document.getElementById('toggleCamps');
+    if (ROUTES.length) document.querySelectorAll('.map-legend .lg').forEach(function(e){ if (e.textContent.indexOf('┄┄') === 0) e.textContent = '━ trasa po silnicích (auto)'; });
 
     function ensureMap(){
       if (map || blocked) return;
@@ -870,9 +875,15 @@
           if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
         }).observe(container);
       }
-      var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
-      }).addTo(map);
+      var esri = function(svc, maxZ){ return L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/' + svc + '/MapServer/tile/{z}/{y}/{x}', {maxZoom: maxZ, attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors'}); };
+      var layer = esri('World_Street_Map', 17).addTo(map);
+      L.control.layers({
+        'Silniční (Esri)': layer,
+        'Topografická (Esri)': esri('World_Topo_Map', 17),
+        'Světlá (Esri)': esri('Canvas/World_Light_Gray_Base', 16),
+        'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'})
+      }, null, {collapsed: true, position: 'topright'}).addTo(map);
+      ROUTES.forEach(function(p){ L.polyline(decodePoly(p), {color: ROUTE_COLOR, weight: 4, opacity: .85, interactive: false}).addTo(map); });
       // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
@@ -914,7 +925,7 @@
       m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
       m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      if (!p.extra && ROUTE_LINE) {
+      if (!p.extra && ROUTE_LINE && !ROUTES.length) {
         routePts.push([coord.lat, coord.lng]);
         if (routeLine) routeLine.setLatLngs(routePts);
         else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);

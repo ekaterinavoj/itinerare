@@ -26,42 +26,8 @@
     --danger:#A5432A;
     --shadow: 0 1px 2px rgba(32,26,10,.07), 0 6px 18px -10px rgba(32,26,10,.22);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ground:#1B1710;
-      --surface:#241F17;
-      --surface-2:#2E2819;
-      --ink:#F0E9D6;
-      --ink-soft:#C2B696;
-      --ink-faint:#8A7E60;
-      --border:#3D3524;
-      --sun:#E6A855;
-      --sun-ink:#2A1B05;
-      --reef:#6FCFA8;
-      --reef-ink:#0F251C;
-      --coral:#E68A6A;
-      --coral-ink:#2A140D;
-      --danger:#E08361;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#1B1710;
-    --surface:#241F17;
-    --surface-2:#2E2819;
-    --ink:#F0E9D6;
-    --ink-soft:#C2B696;
-    --ink-faint:#8A7E60;
-    --border:#3D3524;
-    --sun:#E6A855;
-    --sun-ink:#2A1B05;
-    --reef:#6FCFA8;
-    --reef-ink:#0F251C;
-    --coral:#E68A6A;
-    --coral-ink:#2A140D;
-    --danger:#E08361;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
-  }
+  
+  
 
   *{box-sizing:border-box;}
   body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
@@ -197,6 +163,11 @@
   .linklist span{color:var(--ink-soft);}
   .tip--links a{font-weight:600; text-decoration:underline;}
   .map-legend label.lg{cursor:pointer;}
+  .leaflet-control-layers-toggle{background-image:url(https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/layers.png) !important; background-size:26px 26px;}
+
+  /* itin-white */
+  :root, :root[data-theme="light"], :root[data-theme="dark"]{ --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F6F4; --border:#E2E2DE; --ink:#1D1D1F; --ink-soft:#55555A; --ink-faint:#8A8A90; color-scheme:light; }
+  html, body{ background:#FFFFFF; }
 </style>
 </head>
 <body>
@@ -574,6 +545,22 @@
   var ROUTE_LINE = false;              // dashed line through the plan pins in DOM order
   var ROUTE_COLOR = '#8A6BC4';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
+  // driving route legs (Google-encoded polylines) baked into the page at build time — the whole route along real roads
+  var ROUTES = [];
+  try { var rEl = document.getElementById('itin-route'); if (rEl) ROUTES = JSON.parse(rEl.textContent); } catch(e){}
+  function decodePoly(str){
+    var i = 0, lat = 0, lng = 0, out = [];
+    while (i < str.length) {
+      var b, shift = 0, res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lat += (res & 1) ? ~(res >> 1) : (res >> 1);
+      shift = 0; res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lng += (res & 1) ? ~(res >> 1) : (res >> 1);
+      out.push([lat / 1e5, lng / 1e5]);
+    }
+    return out;
+  }
 
   function nameFromMapHref(href){
     try {
@@ -661,6 +648,7 @@
     var resolved = 0;
     var blocked = false;
     var toggle = document.getElementById('toggleCamps');
+    if (ROUTES.length) document.querySelectorAll('.map-legend .lg').forEach(function(e){ if (e.textContent.indexOf('┄┄') === 0) e.textContent = '━ trasa po silnicích (auto)'; });
 
     function ensureMap(){
       if (map || blocked) return;
@@ -678,9 +666,15 @@
           if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
         }).observe(container);
       }
-      var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
-      }).addTo(map);
+      var esri = function(svc, maxZ){ return L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/' + svc + '/MapServer/tile/{z}/{y}/{x}', {maxZoom: maxZ, attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors'}); };
+      var layer = esri('World_Street_Map', 17).addTo(map);
+      L.control.layers({
+        'Silniční (Esri)': layer,
+        'Topografická (Esri)': esri('World_Topo_Map', 17),
+        'Světlá (Esri)': esri('Canvas/World_Light_Gray_Base', 16),
+        'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'})
+      }, null, {collapsed: true, position: 'topright'}).addTo(map);
+      ROUTES.forEach(function(p){ L.polyline(decodePoly(p), {color: ROUTE_COLOR, weight: 4, opacity: .85, interactive: false}).addTo(map); });
       // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
@@ -722,7 +716,7 @@
       m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
       m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      if (!p.extra && ROUTE_LINE) {
+      if (!p.extra && ROUTE_LINE && !ROUTES.length) {
         routePts.push([coord.lat, coord.lng]);
         if (routeLine) routeLine.setLatLngs(routePts);
         else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);

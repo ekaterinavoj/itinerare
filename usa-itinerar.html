@@ -26,42 +26,8 @@
     --danger:#8C3B23;
     --shadow: 0 1px 2px rgba(30,22,12,.07), 0 6px 18px -10px rgba(30,22,12,.22);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ground:#211C14;
-      --surface:#2B2419;
-      --surface-2:#352B1C;
-      --ink:#F0E8D6;
-      --ink-soft:#BEB093;
-      --ink-faint:#83765F;
-      --border:#453A26;
-      --teal:#8FBFE9;
-      --teal-ink:#12283A;
-      --rust:#E38B54;
-      --rust-ink:#2A1409;
-      --gold:#E0AD46;
-      --gold-ink:#2A1D06;
-      --danger:#E08A6A;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#211C14;
-    --surface:#2B2419;
-    --surface-2:#352B1C;
-    --ink:#F0E8D6;
-    --ink-soft:#BEB093;
-    --ink-faint:#83765F;
-    --border:#453A26;
-    --teal:#8FBFE9;
-    --teal-ink:#12283A;
-    --rust:#E38B54;
-    --rust-ink:#2A1409;
-    --gold:#E0AD46;
-    --gold-ink:#2A1D06;
-    --danger:#E08A6A;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.55);
-  }
+  
+  
 
   *{box-sizing:border-box;}
   body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
@@ -204,6 +170,11 @@
   .linklist span{color:var(--ink-soft);}
   .tip--links a{font-weight:600; text-decoration:underline;}
   .map-legend label.lg{cursor:pointer;}
+  .leaflet-control-layers-toggle{background-image:url(https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/layers.png) !important; background-size:26px 26px;}
+
+  /* itin-white */
+  :root, :root[data-theme="light"], :root[data-theme="dark"]{ --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F6F4; --border:#E2E2DE; --ink:#1D1D1F; --ink-soft:#55555A; --ink-faint:#8A8A90; color-scheme:light; }
+  html, body{ background:#FFFFFF; }
 </style>
 </head>
 <body>
@@ -306,6 +277,7 @@
         <a class="maplink camp" data-name="Boyd Lake State Park" data-rating="4,4" data-lat="40.431562" data-lng="-105.045187" href="https://www.google.com/maps/search/?api=1&amp;query=Boyd+Lake+State+Park+Campground+Loveland" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot">Denver → sever k Loveland; Boyd Lake SP má elektřinu na všech místech, Carter Knolls je malý a primitivnější.</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -362,6 +334,7 @@
         <div class="camp-note">Hodnocení z tvé mapy; na Googlu bez jednoznačného pinu.</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Stillwater+Campground+Grand+Lake+Colorado" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -418,6 +391,7 @@
         <div class="camp-note">Vybavení neověřeno (Flaming Gorge — zkontrolujte na recreation.gov / USFS); hodnocení z tvé mapy.</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Morton+Lake+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -453,6 +427,7 @@
         <div class="camp-note">Glampingový styl, pohodlnější varianta (bez hodnocení z Googlu).</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Fireside+Resort+Jackson+Hole+Campground" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -502,6 +477,7 @@
         <div class="camp-note">36 míst s elektřinou, dvě dump stations u vjezdu; bez sprch.</div>
         <a class="maplink camp" data-name="Gros Ventre Campground (Grand Teton)" data-rating="4,4" data-lat="43.615938" data-lng="-110.665813" href="https://www.google.com/maps/search/?api=1&amp;query=Gros+Ventre+Campground+Grand+Teton" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -530,6 +506,7 @@
         <div class="camp-note">85 míst, vozidla do cca 25 ft; bez sprch, bez dump station, bez signálu. Voda sezónně (do konce září).</div>
         <a class="maplink camp" data-name="Lewis Lake Campground (Yellowstone)" data-rating="4,2" data-lat="44.282187" data-lng="-110.628063" href="https://www.google.com/maps/search/?api=1&amp;query=Lewis+Lake+Campground+Yellowstone" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -574,6 +551,7 @@
         <div class="camp-note">Sprchy a prádelna v Camper Services (2 sprchy na noc v ceně), dump station (sezónně), obchod a restaurace v Canyon Village.</div>
         <a class="maplink camp" data-name="Canyon Campground (Yellowstone)" data-rating="4,6" data-lat="44.735687" data-lng="-110.488937" href="https://www.google.com/maps/search/?api=1&amp;query=Canyon+Campground+Yellowstone+National+Park" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -611,6 +589,7 @@
         <div class="camp-note">31 míst, vozidla do 30 ft, první příjezd — první obsluha; bez sprch a bez dump station. Zákaz generátorů.</div>
         <a class="maplink camp" data-name="Tower Fall Campground (Yellowstone)" data-rating="4,6" data-lat="44.890062" data-lng="-110.390688" href="https://www.google.com/maps/search/?api=1&amp;query=Tower+Fall+Campground+Yellowstone" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -650,6 +629,7 @@
         <a class="maplink camp" data-name="Sibley Lake Campground (Bighorn NF)" data-rating="4,7" data-lat="44.758812" data-lng="-107.440063" href="https://www.google.com/maps/search/?api=1&amp;query=Sibley+Lake+Campground+Bighorn+National+Forest" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot">Bighorn National Forest — víc kempů podél US-14 (recreation.gov, fs.usda.gov).</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -670,6 +650,7 @@
         <div class="camp-note">Přímo pod Devils Tower; bez přípojek. Sprchy podle dostupných zdrojů nejsou.</div>
         <a class="maplink camp" data-name="Belle Fourche River Campground (Devils Tower)" data-rating="4,7" data-lat="44.581562" data-lng="-104.706312" href="https://www.google.com/maps/search/?api=1&amp;query=Belle+Fourche+River+Campground+Devils+Tower" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -701,6 +682,7 @@
         <a class="maplink camp" data-name="Horsethief Lake Campground (Black Hills NF)" data-rating="4,6" data-lat="43.895563" data-lng="-103.484688" href="https://www.google.com/maps/search/?api=1&amp;query=Horsethief+Lake+Campground+Black+Hills" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot">Custer State Park a Black Hills NF — u Mount Rushmore je víc kempů (KOA, Hill City), viz odkazy níže.</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -723,7 +705,7 @@
     </div>
   </section>
 
-  <div class="day" style="border-top:1px solid var(--border); padding-top:28px;">
+  <div class="day" data-extra style="border-top:1px solid var(--border); padding-top:28px;">
     <h2 style="font-size:20px;">Prodloužení / body navíc</h2>
     <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin:8px 0 16px;">Základních 14 dní výše zůstává beze změny — tohle je jen co přidat, kdyby vyšlo víc času.</p>
 
@@ -748,6 +730,29 @@
         <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Potash+Road+Moab" target="_blank" rel="noopener">Potash Road</a>
       </div>
     </div>
+    <div class="campbox">
+      <span class="camp-label">Bryce Canyon — kempy (kdybyste ho zařadili)</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">North Campground (Bryce Canyon)</span><span class="camp-rate">★ 4,5 <i>(323)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Bez přípojek; sprchy a prádelna u obchodu v parku (sezónně, za poplatek); dump station cca půlka května – půlka října (pro kempující zdarma).</div>
+        <a class="maplink camp" data-name="North Campground (Bryce Canyon)" data-rating="4,5" data-lat="37.636562" data-lng="-112.166938" href="https://www.google.com/maps/search/?api=1&amp;query=North+Campground+Bryce+Canyon+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Sunset Campground (Bryce Canyon)</span><span class="camp-rate">★ 4,5 <i>(191)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Bez přípojek a bez dump station (použijte ten v North Campground); sprchy a prádelna u obchodu v parku.</div>
+        <a class="maplink camp" data-name="Sunset Campground (Bryce Canyon)" data-rating="4,5" data-lat="37.622063" data-lng="-112.174937" href="https://www.google.com/maps/search/?api=1&amp;query=Sunset+Campground+Bryce+Canyon+National+Park" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Ruby's Inn RV Park & Campground</span><span class="camp-rate">★ 4,4 <i>(2 009)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Plné přípojky (elektřina, voda, kanalizace)"><span class="am-i">🔌</span>plné přípojky</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Bazén"><span class="am-i">🏊</span>bazén</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Obchod / benzin poblíž"><span class="am-i">🛒</span>obchod</span></div>
+        <div class="camp-note">Soukromý kemp hned u parku: plné přípojky, sprchy, prádelna, bazén, wifi, dump station, obchod.</div>
+        <a class="maplink camp" data-name="Ruby's Inn RV Park & Campground" data-rating="4,4" data-lat="37.668187" data-lng="-112.160563" href="https://www.google.com/maps/search/?api=1&amp;query=Ruby's+Inn+RV+Park+%26+Campground+Bryce+Canyon+City" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Ubytování i kempy u Bryce, Zionu a Yosemite jsou hodně obsazené — rezervujte co nejdřív.</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
   </div>
 
   <div class="map-section">
@@ -769,6 +774,7 @@
   </footer>
 
 </div>
+<script type="application/json" id="itin-route">["{qyuFtlndStWbh@jJn]xLdE`Bm\\`IeQbMwDjSkSbFuVnGeBnI`D{KkXdVA`OkU`S{@zF{HC{PwDuIVqXdNaXgFkd@rAkHfGwGlA}Ub[qSxKq\\pLeAp`@dI","wwpuFrwedSpNqUkGau@|Jgr@Uk[ua@aqAeTqTsBgTzImOzVlo@lSgAlTbXtGgGnRq~@yGeZrBaQ{DmOgc@{c@aJm]lQur@lYwKrAiGq`@tPuc@ny@tHvi@yPii@hk@m{BdU{`@xS}hAj]gKmCoVha@_\\tVq`@~Hu[bDxAm@lWzGxJlPqk@r^yU`EjIaCng@bEhDnGua@da@gU~N}XzO|AdKrrAtSl_ArDs@Buf@zKrc@~SxA`LsO`R~HbMeE|NtNfEz^tXpSpCraBbg@lcAfR?~DxNgLqBvUlZyLw@qR}QpHzJKhV","yl`uFz{xcS{wAgsGgiCguCalBpo@kxC}j]{gGwtPn}Cmtk@uvi@yXkgEzyF|o@lmDqfBdbBcxPcrBctEfgCc{AtkGecKxqDgbOvyNsiF~`Kuxb@n`b@eoWnKeg@jsCqaFhc@qmCln]osH`cLsjE`{VmaIn}Nk}IxhHkaQ|kk@orIblLqrIz`WdqCnmc@uyA`xj@qtG`kt@~rAdaX{pAjsKdqOfabBhnEneQdaGjgy@moB|`mAkbD|mIanB|a^xoQboq@n\\zgEslBjiE|aEvoEn|GpnUhl@~{OhvLjbGf~Pd`YjtGdaBtrHc|DjwFbzBnjGwbAnwCufC{GssH","_{fzFz}t{SzGrsHoaDrkCo`Gx}@kwFczBqfHr}Dc|G}~AsbQ}cYsvL{cG{k@y}Ow|GqnUirDi_EibNhn@upHzdHakCnuJcaS|JwgHzxBaeGnqHmj^viFuah@}vxAynJynPadSwlJcaRai]ipBkvK_}IsaCgjH~yFgfMzpBagPxoUqpNnhC_tDzdKsuK`pGyyH~Mi|WvpK_{Qhhk@ygTpw^jI|pOwiLt~JefQ`cq@irHpqIyrBfrT","evkiGlz|}S{jAthBqwHjeDvBno@ckAfxAw@ti@fd@hOuB~j@agArsDgpA|l@{RhmA_u@pdAkxArUmV~~AbEz}BcoBr~EmoBjuBo|An}Dnb@|dEgTrbCdZfzAydA~rHbNfm@y^dzIcn@viBlOhnDis@nnFtOpwG}N``ApzJ~{Ebz@r{C~oAx`BlQraFreEzvEhuFnjBdvFpsFfwKdwBd{DBnyBxj@luC`sBb~CpWb_@vdD~g@|Y|lCgX|aEiiB~xA_fCzxCkg@pcCiuC~_EzdAz}B~oCdGfhC","eahgGl_ccTeGghC_`CitCcxDm`AiiCduC{xCjg@_yA~eC{_HlcCwuAwUka@yiDc~CqWmuCasBoyByj@e{DCkhM{{Cue@bhAy`BhHgiAj`Ae`AhDeg@sh@gdBnRacDaZuoCgcBwoApQijAmdA_NwbAml@{g@l\\apB_f@ipC","oijjGfthbTwy@ukCsaEwx@mSmvAaxAik@q\\apBoeDnDieAjgBiE`zEoiAtmA_eCaf@e`Dti@auBlkDcoCn~AsLzbAocA~]mkCsFwkFo~@}nCooBgwCab@sfDtzAucFitBioCb_@qaIgqCqu@i}@cmAeC_aC{tCggP_mEc|@uCcv@hx@mVu\\","gjbnGdm{aTlVt\\c`@pm@wUdEiCdLhFdQz[vBjDv[uhBn|FVr{AzRvWuEjWpJ~ZuA|j@sKvQ{g@kBma@zT}Td@cEl_@iTjWzBbJ`RdLeA~[rMhW{Glb@tCxk@vV~Jzf@lfAaE``@~TjZnD|{@jRrYiFhu@jJt`AyJre@aGheAqStgAyo@p_@_w@||@mFv\\rMbl@kZbmAma@nk@wC_Mz`@qb@`Pkx@kG}W{SpS","{ljnGpylcTtByEbBPvBnKk@zL`HbEl@tEoLha@y]vYP`JdH~JeCpXaNbWki@f\\}]uOg]mIw]gVeTsEk_@uj@eXmIiYa]oZ{K{PnDiHuAsNcLkZeh@yKhBib@pt@","epwnGzhncThb@qt@xKiB~i@hu@dZyAnZzKhY`]dXlIj_@tj@trBlw@jm@_c@jQ}s@vZ}h@|YenA}M_f@bFq_@~v@}|@xp@{a@","k}enGpbgcTyhBx_BcFp_@|M~e@}YdnAcm@z}Asn@jc@mqByw@{rAesAuu@aI_j@iu@eq@zy@gRxAi`@ihBc`BonAewBdcAk~@jyAmwB|FuuAvfCqeAfb@wj@g_@iNhVqYyCkMxWs^iP}F~hAx_@pn@lFf|A_Qzi@kKj`DoV|y@iDrtB_nA|v@kj@|{A|[hrAfo@mAtTjNhUjlAgEbvDuMl`AjJbrAol@`tFA`LbOuB","{{poGj`beTcOtB@aLnl@atFkJcrAtMm`AfEcvDiUklAuTkNgo@lA}[irAjj@}{AvlAsr@pE}xBnV}y@jKk`DvPie@eFy`By_@qn@|F_iAwXygAj@{hAmYmpBz[k~Bq@kdC}HqU_o@uMsJkWxQmj@}Ncf@nR{VyAuSitAmLcc@pXkt@gPuj@hPya@oPmn@`HcVqOmu@o_CbGmbAaWm_Aok@{[jBkfAvo@ixBaEugC|S_b@h@q`@|dA}`C~IodBgGazBqjA}|CgDoeAo\\irAmPaS_m@uCkKaSiGm`DdqAhGb\\t}@j}@mDk_@wq@_SglAoUkT","un|oGtelaTdKeCzDhKzRnVvFhCD|LfRs@~NjM`Gp@zb@ua@v_AwY~{@cwA","{stoGhpiaT_|@bwAw_AvY{b@ta@}YoOwmArFc\\u}@eqAiG|H`gDtfAp_@f^ttA~DvhApiAnyCpEveDiGf|@}dA|`Ci@p`@}S~a@`EtgCwo@hxBkBjfAq`@_Dk_@hPqSt[oA|t@ot@~TwDz_@cl@fz@{rAxRkh@xo@urA_Skv@hn@qm@mgAyeAad@ucATi`B`l@q{ClSsuAgk@wg@xQagCaXmuAxJum@qf@sGkXydAmq@cjCs`@fPvi@~EaQxOdH","wwlqGhxvbT{Wop@vk@mP_r@eJyi@vOeJcRvl@kW|[}}@roAciBp`@qzAzAibAn]wfAsJi~@gn@ugAk_@uoA~@ysDmb@ue@hf@exGcBidBuZu{@nDih@zu@{x@pOczCrPeAfs@aw@dYNn`@d]b]sZwF_aA|m@wuBqUu\\{Aug@l]yd@pSakAoDel@nT}uA`FowBcViwAu|@ktAfHa_C~_@irAGuaBz]gjAlnFosH}@oaCfOox@","qlzpGvmm_TgOnx@nGvdAoCjw@ug@hv@}fA~lA}a@z|@ym@rr@yx@nrA{UziA|ArpAo`@buA@lk@mHjl@l@`g@tz@lmAlWhwAwGvpAp@`h@oT|uAnDdl@qS`kAw\\pa@jB`n@jTpYhOmm@h~@ev@`Iw^lx@{_@","{{~pGz{v`TtSr@rUgVx]{JpUKjS~Gfu@rfAe@fR~A~XoD~GsQzFyAdKvBtJvMdExc@bAhTnN`FdL|HdGiAzVzOlZlTnUxLjUlU|HbEn[nLh@WrByJbAK~ErNdKjGk@rIpKnNVrF~Hfn@pFgCuD","kxqpGnfbaTwcB_c@~`M|aBdoCtwF`yJhIxkIyzHx|Cs_KpoF~Xdu@cgL~bBgzDjeFqxAhLcsNfuAjIzbEmoOwkGyv\\luHwiW}aBguYld@qyo@ywFsh`@fHmyPsaCetUn`AekVnnEebXzqBc|x@o~GqbSm^c`}@`]qnHvmBelBef@_uJ{`D_xEev@ei^cuJ_cXh_CksV}qTefH}lQxhDqoBqoE|xD{kGqrDio@ixAmyTumBdbBha@atE_qM{wJeeDafZpuBsoO`kIuiEhxC{kGzdKqd@thQouIcG`eCdkC{nAgNhlGj{Cxi@ljBrgGtoByZnx@drC``DsFxrJjmHrfFdfM","crinGjcylSsfFefMyrJkmHc|Aqg@}bAdo@ox@erCuoBxZmjBsgGk{Cyi@fNilGekCznAbGaeCnhHeoEd_BgEnhEccEprPu|ArpHizI`zGexEtmIszO~xGa}EtwFwu`@jcEqyJsA_qI`eCugE{oCqiLhd@}tFsj@_fCq@kbUf{Ck}M|fB}mCeBcfEivEesJsxAu_NasBovEfSozHak@ijEa_HijJ`Mw|HvtAc|DoCqyCi}AgxBxb@emSqo@m~GlXm_]hn@_gD~^mbYhiBskGasCobA}iAeaDyiH|m@qfCo_Dc_KibE}h@{xGm`HyoAa}@enB_RawIoy@eoBzPuyCmcGknA{nGlwBb]n_DujAfGd]}Y","k`doGpad~Re]|YtjAgGc]o_DznGmwBlcGjnA|yB}nFv{Cme@`fJ}_Mm@_{Ia{@{mEvoB}hPq}H{zTssEakGy`IkoGa}AssNwUgoY`rCwzG|YahMn{Box@teCi`EpQahMenAe`FpmAguLbaH{yLn{@y{FneNmdPtzGioAdbLoiHbqHe|JbrLc`Jbk@ixEfzHl@|fAbqArpFjm@jqDpzCte@dgLx{Cn`ElV`hF~wAlpDh_FslBh~@b`D","gayjGzflvRcCs[{h@yCiPu~BirEdhBcdBmlDi[__C|TyyAglDunEam@g~GbKo`CeyAgf@{zAwzBqbB}T{mAktCeBemBai@_`AwJcmCwsCs~AhiCctFvfKykb@jPowExmB{oCveBs}KlLumHz`@_hAjeBkiAfYipE`bAwmEfOyqD`a@ul@~uBufA~{LioLd~B{`@lrBhMv_HgdElvBae@lyAtj@faE{|AdzAqjA|xAgbCnoB{qAbfBkgFtgAnDjpCovCzQwlBvlDm_B"]</script>
 <script>
 (function(){
   "use strict";
@@ -783,6 +789,22 @@
   var ROUTE_LINE = true;              // dashed line through the plan pins in DOM order
   var ROUTE_COLOR = '#5B8DB8';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
+  // driving route legs (Google-encoded polylines) baked into the page at build time — the whole route along real roads
+  var ROUTES = [];
+  try { var rEl = document.getElementById('itin-route'); if (rEl) ROUTES = JSON.parse(rEl.textContent); } catch(e){}
+  function decodePoly(str){
+    var i = 0, lat = 0, lng = 0, out = [];
+    while (i < str.length) {
+      var b, shift = 0, res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lat += (res & 1) ? ~(res >> 1) : (res >> 1);
+      shift = 0; res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lng += (res & 1) ? ~(res >> 1) : (res >> 1);
+      out.push([lat / 1e5, lng / 1e5]);
+    }
+    return out;
+  }
 
   function nameFromMapHref(href){
     try {
@@ -870,6 +892,7 @@
     var resolved = 0;
     var blocked = false;
     var toggle = document.getElementById('toggleCamps');
+    if (ROUTES.length) document.querySelectorAll('.map-legend .lg').forEach(function(e){ if (e.textContent.indexOf('┄┄') === 0) e.textContent = '━ trasa po silnicích (auto)'; });
 
     function ensureMap(){
       if (map || blocked) return;
@@ -887,9 +910,15 @@
           if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
         }).observe(container);
       }
-      var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
-      }).addTo(map);
+      var esri = function(svc, maxZ){ return L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/' + svc + '/MapServer/tile/{z}/{y}/{x}', {maxZoom: maxZ, attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors'}); };
+      var layer = esri('World_Street_Map', 17).addTo(map);
+      L.control.layers({
+        'Silniční (Esri)': layer,
+        'Topografická (Esri)': esri('World_Topo_Map', 17),
+        'Světlá (Esri)': esri('Canvas/World_Light_Gray_Base', 16),
+        'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'})
+      }, null, {collapsed: true, position: 'topright'}).addTo(map);
+      ROUTES.forEach(function(p){ L.polyline(decodePoly(p), {color: ROUTE_COLOR, weight: 4, opacity: .85, interactive: false}).addTo(map); });
       // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
@@ -931,7 +960,7 @@
       m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
       m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      if (!p.extra && ROUTE_LINE) {
+      if (!p.extra && ROUTE_LINE && !ROUTES.length) {
         routePts.push([coord.lat, coord.lng]);
         if (routeLine) routeLine.setLatLngs(routePts);
         else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);

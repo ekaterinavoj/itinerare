@@ -26,42 +26,8 @@
     --danger:#A5432A;
     --shadow: 0 1px 2px rgba(32,40,31,.06), 0 6px 18px -10px rgba(32,40,31,.18);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ground:#161B15;
-      --surface:#1E251D;
-      --surface-2:#262F23;
-      --ink:#EAE6D9;
-      --ink-soft:#AEB8A5;
-      --ink-faint:#71806B;
-      --border:#333E2F;
-      --ember:#E68A6A;
-      --ember-ink:#2A140D;
-      --terracotta:#E68F5C;
-      --terracotta-ink:#2A1B10;
-      --trail:#E2A33B;
-      --trail-ink:#2A2013;
-      --danger:#E0805F;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.5);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#161B15;
-    --surface:#1E251D;
-    --surface-2:#262F23;
-    --ink:#EAE6D9;
-    --ink-soft:#AEB8A5;
-    --ink-faint:#71806B;
-    --border:#333E2F;
-    --ember:#E68A6A;
-    --ember-ink:#2A140D;
-    --terracotta:#E68F5C;
-    --terracotta-ink:#2A1B10;
-    --trail:#E2A33B;
-    --trail-ink:#2A2013;
-    --danger:#E0805F;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px -12px rgba(0,0,0,.5);
-  }
+  
+  
 
   *{box-sizing:border-box;}
   body{
@@ -309,6 +275,11 @@
   .linklist span{color:var(--ink-soft);}
   .tip--links a{font-weight:600; text-decoration:underline;}
   .map-legend label.lg{cursor:pointer;}
+  .leaflet-control-layers-toggle{background-image:url(https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/layers.png) !important; background-size:26px 26px;}
+
+  /* itin-white */
+  :root, :root[data-theme="light"], :root[data-theme="dark"]{ --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F6F4; --border:#E2E2DE; --ink:#1D1D1F; --ink-soft:#55555A; --ink-faint:#8A8A90; color-scheme:light; }
+  html, body{ background:#FFFFFF; }
 </style>
 </head>
 <body>
@@ -393,7 +364,7 @@
       <div>
         <div class="lead"><span class="trail"><span>PR13</span></span><h3 style="margin:0;">Vereda do Fanal</h3></div>
         <p>Cca 7 km, pohodová. Sraz na startu trasy — počítejte s návratem k autu kolem 14:00. <b>Rezervace na SIMplifica je povinná</b> (4,50 €, viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
-        <a class="maplink" href="https://maps.app.goo.gl/Nd2jvprodtFbpkAy6" target="_blank" rel="noopener">Vereda do Fanal</a>
+        <a class="maplink" href="https://maps.app.goo.gl/Nd2jvprodtFbpkAy6" target="_blank" rel="noopener" data-lat="32.808508" data-lng="-17.12903">Vereda do Fanal</a>
       </div>
     </div>
 
@@ -401,7 +372,7 @@
       <span class="suggest-label">Zbytek dne — sever/západ pobřeží</span>
       <ul>
         <li><b>Praia da Ribeira da Janela</b> — oblázková pláž s ikonickými skalními útvary v moři, kousek od Fanalu. <a class="maplink" href="https://maps.app.goo.gl/gNxT4jywaRxUiNS18" target="_blank" rel="noopener">Praia da Ribeira da Janela</a></li>
-        <li><b>Seixal</b> (Praia do Porto do Seixal) — pláž s černým vulkanickým pískem pod zelenými útesy a vodopády. <a class="maplink" href="https://maps.app.goo.gl/ieDUaSsbisGVs1ep7" target="_blank" rel="noopener">Praia do Porto do Seixal</a></li>
+        <li><b>Seixal</b> (Praia do Porto do Seixal) — pláž s černým vulkanickým pískem pod zelenými útesy a vodopády. <a class="maplink" href="https://maps.app.goo.gl/ieDUaSsbisGVs1ep7" target="_blank" rel="noopener" data-lat="32.821906" data-lng="-17.103137">Praia do Porto do Seixal</a></li>
         <li><b>Porto Moniz</b> — oběd a koupání v lávových přírodních bazénech.</li>
       </ul>
     </div>
@@ -420,7 +391,7 @@
       <div>
         <div class="lead"><span class="trail"><span>PR8</span></span><h3 style="margin:0;">Vereda da Ponta de São Lourenço</h3></div>
         <p>Podle oficiálního popisu 4 km jedním směrem (8 km tam a zpět), cca 2,5 h, start u Baía d'Abra / Casa do Sardinha. Sraz na startu trasy. Jde o chráněnou přírodní rezervaci. <b>Rezervace na SIMplifica je povinná</b> (4,50 €, viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
-        <a class="maplink" href="https://maps.app.goo.gl/C6QbRvvzYMMA3fcN6" target="_blank" rel="noopener">Ponta de São Lourenço</a>
+        <a class="maplink" href="https://maps.app.goo.gl/C6QbRvvzYMMA3fcN6" target="_blank" rel="noopener" data-lat="32.745138" data-lng="-16.711408">Ponta de São Lourenço</a>
         <div class="note warn"><b>Bez stínu.</b> Východní cíp ostrova — vyprahlá, větrná krajina zcela bez stromů. Opalovací krém a dostatek vody nutností.</div>
       </div>
     </div>
@@ -439,7 +410,7 @@
       <div>
         <h3>Ekologické pozorování z katamaránu</h3>
         <p>Rezervace přes Viator, vyplouvá se z Funchalu.</p>
-        <a class="maplink" href="https://maps.app.goo.gl/fuqQD6DzBjY7zFW19" target="_blank" rel="noopener">Funchal (marina)</a>
+        <a class="maplink" href="https://maps.app.goo.gl/fuqQD6DzBjY7zFW19" target="_blank" rel="noopener" data-lat="32.646562" data-lng="-16.910384">Funchal (marina)</a>
       </div>
     </div>
 
@@ -465,7 +436,7 @@
       <div>
         <div class="lead"><span class="trail"><span>PR1</span></span><h3 style="margin:0;">Areeiro – Pico Ruivo</h3></div>
         <p>Oficiálně 6,1 km, cca 3 h; jednosměrně od vyhlídky Pedra Rija. <b>Celá trasa PR1 (do Pico Ruivo) stojí 10,50 €</b> a rezervace na SIMplifica je povinná (viz <a class="extlink" href="#rezervace">podmínky nahoře</a>). Celá trasa začíná u Pico do Areeiro (ne u brány Pedra Rija) — vstupte v rezervovaném slotu.</p>
-        <a class="maplink" href="https://maps.app.goo.gl/mUzzq2T8wxG1CscE7" target="_blank" rel="noopener">Pico do Areeiro</a>
+        <a class="maplink" href="https://maps.app.goo.gl/mUzzq2T8wxG1CscE7" target="_blank" rel="noopener" data-lat="32.760295" data-lng="-16.941568">Pico do Areeiro</a>
         <div class="note warn"><b>Od 2026 přísně jednosměrná</b> za Pedra Rija (směr Areeiro → Ruivo). Z Pico Ruivo se sestupuje jen přes PR1.2 (Achada do Teixeira) nebo PR1.1 (Ilha). IFCN návrat na Pico do Areeiro nezajišťuje — odvoz (taxi/transfer) zpět k autu si zajistěte předem sami.</div>
       </div>
     </div>
@@ -485,7 +456,7 @@
       <div>
         <h3>Bica da Cana</h3>
         <p>Vyhlídka na vrcholu — dobrý start dne, mraky se zde často líně převalují pod vámi.</p>
-        <a class="maplink" href="https://maps.app.goo.gl/j5FRTmvkDECvhxe4A" target="_blank" rel="noopener">Bica da Cana</a>
+        <a class="maplink" href="https://maps.app.goo.gl/j5FRTmvkDECvhxe4A" target="_blank" rel="noopener" data-lat="32.756098" data-lng="-17.05527">Bica da Cana</a>
       </div>
     </div>
 
@@ -494,8 +465,8 @@
       <div>
         <h3>Fonte do Bispo + Levada Velha do Rabaçal</h3>
         <p>Malebné lesní prostranství na plošině, poté příjemná a stinná levada (PR6.4). <b>Levada Velha do Rabaçal je klasifikovaná trasa — rezervace na SIMplifica je povinná</b> (viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
-        <a class="maplink" href="https://mapy.com/en/?source=osm&amp;id=6712203" target="_blank" rel="noopener">Fonte do Bispo</a>
-        <a class="maplink" href="https://maps.app.goo.gl/FLDzBsUK9a4RNwEs6" target="_blank" rel="noopener">Levada Velha do Rabaçal</a>
+        <a class="maplink" href="https://mapy.com/en/?source=osm&amp;id=6712203" target="_blank" rel="noopener" data-lat="32.792201" data-lng="-17.181512">Fonte do Bispo</a>
+        <a class="maplink" href="https://maps.app.goo.gl/FLDzBsUK9a4RNwEs6" target="_blank" rel="noopener" data-lat="32.769056" data-lng="-17.153554">Levada Velha do Rabaçal</a>
       </div>
     </div>
 
@@ -529,7 +500,7 @@
       <div>
         <div class="lead"><span class="trail"><span>PR9</span></span><h3 style="margin:0;">Levada do Caldeirão Verde</h3></div>
         <p>Vstup z Parque Florestal das Queimadas (parkování 2 €/h). Sraz na startu trasy. <b>Cca 13 km tam a zpět</b> k vodopádu — na horní hranici pohodového denního limitu, počítejte s tím v tempu (celá PR9 podle oficiální stránky měří 8,7 km jedním směrem). <b>Rezervace na SIMplifica je povinná</b> (4,50 €, viz <a class="extlink" href="#rezervace">podmínky nahoře</a>).</p>
-        <a class="maplink" href="https://maps.app.goo.gl/TSBiyvTq438JQRi66" target="_blank" rel="noopener">Levada do Caldeirão Verde</a>
+        <a class="maplink" href="https://maps.app.goo.gl/TSBiyvTq438JQRi66" target="_blank" rel="noopener" data-lat="32.780791" data-lng="-16.916933">Levada do Caldeirão Verde</a>
         <div class="note warn"><b>Nutná čelovka/baterka</b> — trasa prochází několika dlouhými zcela temnými tunely. Na konci 100metrový vodopád.</div>
       </div>
     </div>
@@ -557,7 +528,7 @@
       <div>
         <h3>Levada do Moinho <span style="font-weight:400; color:var(--ink-faint); font-size:13px;">(pokud otevřená)</span></h3>
         <p>Nebo sousední Levada Nova u Ponta do Sol — procházka pod skalním převisem s vodopádem.</p>
-        <a class="maplink" href="https://maps.app.goo.gl/GWWvWT8X5tvH6WgAA" target="_blank" rel="noopener">Levada Nova, Ponta do Sol</a>
+        <a class="maplink" href="https://maps.app.goo.gl/GWWvWT8X5tvH6WgAA" target="_blank" rel="noopener" data-lat="32.720009" data-lng="-17.083581">Levada Nova, Ponta do Sol</a>
       </div>
     </div>
 
@@ -585,7 +556,7 @@
       <div>
         <h3>Cabo Girão Skywalk</h3>
         <p>Jeden z nejvyšších útesů v Evropě (580 m nad mořem), vyhlídková plošina se prosklenou podlahou. Vstup cca €3.</p>
-        <a class="maplink" href="https://maps.app.goo.gl/KnT1U6apwnbXMkAD7" target="_blank" rel="noopener">Cabo Girão</a>
+        <a class="maplink" href="https://maps.app.goo.gl/KnT1U6apwnbXMkAD7" target="_blank" rel="noopener" data-lat="32.656481" data-lng="-17.004453">Cabo Girão</a>
       </div>
     </div>
 
@@ -594,7 +565,7 @@
       <div>
         <h3>Câmara de Lobos</h3>
         <p>Malebné rybářské městečko s barevnými loďkami, proslavené Winstonem Churchillem. Ideální místo na drink Poncha (rum z cukrové třtiny, med, citron/marakuja).</p>
-        <a class="maplink" href="https://maps.app.goo.gl/Eue8v114CretDu1P9" target="_blank" rel="noopener">Câmara de Lobos</a>
+        <a class="maplink" href="https://maps.app.goo.gl/Eue8v114CretDu1P9" target="_blank" rel="noopener" data-lat="32.648549" data-lng="-16.975241">Câmara de Lobos</a>
       </div>
     </div>
   </section>
@@ -707,6 +678,7 @@
   </footer>
 
 </div>
+<script type="application/json" id="itin-route">["knegE~argBqFdLkGdAcAvCwQlBeFzGwJ`^{TbQmI`@D~J_PyFcCdNbD`JsClCiHx@iEsKyNpIuD_HaHe@Df^iG`GaD_@}G_Q}GdJoY}Z{EGeFsE_OpAuAyLbA_EcGNqBlD~@|CaOjI]~LoJeSmFfA}DgCgClD`BdEbL~AvAjCdE|`@ePsYaHKhDlCjAzL_CaEyIgCkFaFa@cIyMyOpEfKaCmBbChMfn@yq@dD{OhQk\\|VfAfGmBzy@gyAlD}JcA{Z`FcHPyThD}H_KgQxF}UvFmCbGpA}BwBjAeGrIuFcDo@","gpigEhokgBkOlTzw@sf@`KywDvP}[~JysAhh@uu@ah@iSya@kbDiZ}u@}PydBpHqtAzNaAaRaK~_@w`@z}@{G{AcOoe@gDyCoQgFvKkM}MiKzHyUab@gA~TmNpCqCqtAoO_\\sLw`FtLcPlpAaL{@ev@}i@yPfaAa[`UkxAjhBsjAzGei@na@_CrHiVj{A_l@f\\{v@ld@kHfLc|@x|BsqAQi`Bvk@mhAmYyO{_@isCex@cfA~^_p@{P_Oz@kzA_QeItKuO","imzfEbb_eBmMbOtRhI{@pzA|PfOyGbPoVxNaBhN|a@|`@tXjh@x]~mCjK`RvJbCf_@yOdy@_bA|j@h@pXzXz_@vAnf@bX|Qxv@wHzg@`CdRl[xCti@tYrKp^`f@_Bl]~Gt|@p`A~Bta@zPnQnLz\\~F~t@aHj`@Tnc@f[v}@a\\j}Ak_@|_@ie@zmA}Pty@~AhNtJ_Ifl@`ShLpX|E_EnHrJdF{@rCpK~BuG","ghgfE~xefBcBkb@s`@f^mhB_ZyKlAzApWiLjHLaQqUo]dAjO_NfFmEkGaa@aFd@gKwNx@dAoIzIkCoMKqLtKvAcSoNQc^h[_SAsDkC|IwEzBaPkIqBy@mIiRH|@yLkQe@JyFoJyB_@kb@yTdHgx@_`@GbWrIrEcL|E}y@aHoXeUzFnQaJ{FsV~DsOoRq@k\\_LkA}Mk_@_IcB_H{OlAfP}HpDuCgIcSqFoA{MkHeFuCxBjFxLeAdLzSjXeGfI~AbLh_@vMlNnu@bLpAhLpRpFnR{C~MvJdAfF`MwMcEuHrWwFoHqBdPi@iLqKnf@tC|YmKgT_@`JiCsUkI|H_Kfe@wMe@mHxd@","_u|fEbphfBlHyd@vMd@~Jge@jI}HhCrU^aJlKfTuC}YpKof@h@hLpBePvFnHtHsWvMbEgFaMwJeAzC_NqFoRiLqRcLqAmNou@i_@wM_BcLdGgI{SkXe@q]`I|EnAzMbSpFlC`IdIkDmAgP~GzO~HbB|Mj_@~KjAp@j\\rOnRrV_E`JzFcGoQvXdU|y@`HbL}EsIsERcWhx@~_@hZuLt@{XbNjDi@_IhNuAlFnCQbJpR`C~Pok@rc@eHlC_LdMcGfb@xBbFaSn\\c^u@cJbQqOsBnJtH[qBlKxEfB}DnR|TxB`OsL|Kv\\iHrFdYbExBrIiD}Am@hOhFnYqG|PvP`QjFeFed@~zAlJb]wJjj@pJhw@wD|bAhj@r]|QfYlAz]`]re@aPnk@{VjRyJ`_@{M|M\\~_@sNpHiHrRhQfdAkIbe@pNtqCyUn[_h@jS\\hN`RnVUj[ywB`lAh]|q@p]v[\\rZ{KxWu@`e@uO|e@@zk@eJxR|Fb]_HvH|DlGkKdFnErIsGhB_I{JgDxLm`@bElShP}WaBo_@pHtC`IwYkF_\\~CqJfFkApNg[_A_TvQ}DyDfE_SkI|CnFqHU}\\cMrIo\\}AqFlIcXi`@_FhNPqOoDzHZuIgF~F_S}ApH{BkGqQjHcCwIIqC|Gid@wOlKkFfB}MiG|CuM_MydAvJ}[uIyu@k}Bx{@szBxGC{DuK","cv|fEzabgBzDtKyGBw{@v{BxnBfxFs@~MuOzi@qAv\\wi@rp@{ErRyLvAcLrJgLr[cMjO}@vJ}M~VkC~LsTjVuGjT\\xLyHvPn@|JkEtHxCfJmg@tCoFhOiJhGaBvHiNg@{CmR_GzC","yycgEbszgBnCuCnBEzClR`HdAfE]`BwHhJiGnFiO~P{@nDuA|GjB~FoByCgJhAiE`CkB_A{DVuEjC}CdDeKe@mKrB}KnEkJfNqLvE_JxAgJ~EsF`FkO","se_gEthugBVJV{@h@gIlEoDtF{IfByG~HyRbLsJtA[tFJlBgA|AcGRuDxAaDt@w@lB]f@iDjB]hA{@vAcD~@mElFsH","{m|fEtnqgBs]zq@}YjMso@v}A}Yd`@cPv_AxCfJmg@tCuOvQol@cIeO`g@uYza@yLaBqS~KpAzW}Qk@oi@ch@od@rT_KyF_@tO}K~Ii@gScR}A`@wNqKsTaZbHgYqG{E{JoNrPiOd@sCdWfIfPs^xEeWiQe`@iHhN}r@oCeT{DgL{Hv@hDyY}HnJdCs[yItMYrVa@qPqFvNcKuz@pa@eRxV}q@xS~Are@sb@z`@sz@z^]t}@c`BjFu_AfXw^fNqr@|SiHyCiVtLm_@aIwy@~Pee@aDk]xPq\\fJ{qAlTgg@rSkOkh@gTePoqAkNg^s@qn@iZav@oDceA}KwWvHo|AzNTwQyN`M_DrQwZ|PnA|]wO|JdGqDoMjDuBsUeIoOdCyCoQgFvKgNcEZyGiKzHyUab@gA~TmNpCvDoKcGuH~FiEaM{d@zBeRoO_\\kNibDlAa`AvMaN~s@nAxXuL@su@yLmI}RHbaA{_@`@rIth@x@jiBb`A`Wxr@sKuCnc@lg@","a_agEvbffBoc@mg@rKtCaWyr@kmBqaAuu@sDco@xVt^xL\\ls@}UfNsy@i@oLfO}@h~@jNhbDlM~[y@dR|L|c@{FfFbGtHyDhKnNkCfA_UxU`b@hK{H[xGfNbE~EyK`DpQnOeCrUdIkDtBpDnM}JeG}]vOwPsAyQzZaM~CvQxN_PyAeI|zAnMl[nDbeA~Y|t@v@ps@pNjZdPnqApg@lU~SuF`FuKlMPzMw_@vP_JvB{TfTmC|IjTht@i@lUaRbTnCbiDoqAdd@hXja@uBf[bg@f]jUduBvy@ds@jn@jx@pZlR|TfIxXt\\zY`@p[{KxWu@`e@uO|e@@zk@eJxRzF`[gEhJyk@y^_LmSs]mJkJkP}t@zAsZkOkTlBs[aR","giufEzvggBzCZjBpBlDM|M`NtDLxGmCzEPlLxIfEL|FbDdEqCtD`AtK{BlKKfKjCtCONlFzI|HlJz@lAy@vPbKpIjQpPlIRfBpHvHvJxApD`H|D_Ep@wCUsFoDaJ}@eIp@kEbIgP|@sScAeVhPkg@uAmGpBkZ~JeUf@qDy@yNt@mJmHcEcQeQm@sNaSq[uK{K}NI}ScFaIyHsI{AeQ{QuFyIaXwOi^oN{CyCuQuEeJ_GyVoI","_}tfEpw}fBzxAnl@`XvOzXt\\xIpBzHbHlh@|MxtBmoAnAeHsAsSuQiUm@kLlEuFvc@{MlQeVfBcLqAcg@mEy@_EwP{EpFyRg\\pR_GyFoIvGtAvJiDbE|IfFSqCqCzCz@","kkifElcxfB{C{@i@oBF{@`C_Gb@nBc@rDtAhAr@Y^mLxAeB^aCnAgCg@a@{KvBwD@iH~EoAWn@UfAkCsBc@SmBHaBx@KAmBtA]}@eA[yJpCgAzFkHQgCn@eJzAiEvAcBdBo@pD{LGeEhBwGnAiBz@~@nA|IbCsDpAmEdAYdBwCzBuFrJiHvB_JZmD~AwAy@uA}@}DJoHlCwFvCCkBl@{ApBbBrA"]</script>
 <script>
 (function(){
   "use strict";
@@ -721,6 +693,22 @@
   var ROUTE_LINE = false;              // dashed line through the plan pins in DOM order
   var ROUTE_COLOR = '#9E4229';
   var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
+  // driving route legs (Google-encoded polylines) baked into the page at build time — the whole route along real roads
+  var ROUTES = [];
+  try { var rEl = document.getElementById('itin-route'); if (rEl) ROUTES = JSON.parse(rEl.textContent); } catch(e){}
+  function decodePoly(str){
+    var i = 0, lat = 0, lng = 0, out = [];
+    while (i < str.length) {
+      var b, shift = 0, res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lat += (res & 1) ? ~(res >> 1) : (res >> 1);
+      shift = 0; res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lng += (res & 1) ? ~(res >> 1) : (res >> 1);
+      out.push([lat / 1e5, lng / 1e5]);
+    }
+    return out;
+  }
 
   function nameFromMapHref(href){
     try {
@@ -808,6 +796,7 @@
     var resolved = 0;
     var blocked = false;
     var toggle = document.getElementById('toggleCamps');
+    if (ROUTES.length) document.querySelectorAll('.map-legend .lg').forEach(function(e){ if (e.textContent.indexOf('┄┄') === 0) e.textContent = '━ trasa po silnicích (auto)'; });
 
     function ensureMap(){
       if (map || blocked) return;
@@ -825,9 +814,15 @@
           if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
         }).observe(container);
       }
-      var layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 16, attribution: '&copy; OpenStreetMap (body) &middot; Esri, HERE, Garmin (mapa)'
-      }).addTo(map);
+      var esri = function(svc, maxZ){ return L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/' + svc + '/MapServer/tile/{z}/{y}/{x}', {maxZoom: maxZ, attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors'}); };
+      var layer = esri('World_Street_Map', 17).addTo(map);
+      L.control.layers({
+        'Silniční (Esri)': layer,
+        'Topografická (Esri)': esri('World_Topo_Map', 17),
+        'Světlá (Esri)': esri('Canvas/World_Light_Gray_Base', 16),
+        'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'})
+      }, null, {collapsed: true, position: 'topright'}).addTo(map);
+      ROUTES.forEach(function(p){ L.polyline(decodePoly(p), {color: ROUTE_COLOR, weight: 4, opacity: .85, interactive: false}).addTo(map); });
       // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
       layer.on('tileerror', function(){
         if (blocked) return;
@@ -869,7 +864,7 @@
       m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
       m.bindPopup(popup(label, p.href, coord, ''));
       bounds.push([coord.lat, coord.lng]);
-      if (!p.extra && ROUTE_LINE) {
+      if (!p.extra && ROUTE_LINE && !ROUTES.length) {
         routePts.push([coord.lat, coord.lng]);
         if (routeLine) routeLine.setLatLngs(routePts);
         else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);

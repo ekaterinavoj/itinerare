@@ -11,10 +11,8 @@
   :root{
     --ground:#F3EEE1; --surface:#FFFEFB; --border:#E2D8BC; --ink:#241F17; --ink-soft:#5B5344; --ink-faint:#938971;
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){ --ground:#151310; --surface:#201C16; --border:#393225; --ink:#EFE8D8; --ink-soft:#B8AD97; --ink-faint:#7C7261; }
-  }
-  :root[data-theme="dark"]{ --ground:#151310; --surface:#201C16; --border:#393225; --ink:#EFE8D8; --ink-soft:#B8AD97; --ink-faint:#7C7261; }
+  
+  
   *{box-sizing:border-box;}
   body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans',system-ui,sans-serif; min-height:100vh;}
   .wrap{max-width:560px; margin:0 auto; padding:48px 20px 60px;}
@@ -39,6 +37,10 @@
   .japonsko .em{background:#F6DEDB; color:#C1443B;}
   .borneo .em{background:#F4E4C8; color:#B8721E;}
   .cina .em{background:#F6DDE8; color:#B03A6E;}
+
+  /* itin-white */
+  :root, :root[data-theme="light"], :root[data-theme="dark"]{ --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F6F4; --border:#E2E2DE; --ink:#1D1D1F; --ink-soft:#55555A; --ink-faint:#8A8A90; color-scheme:light; }
+  html, body{ background:#FFFFFF; }
 </style>
 </head>
 <body>

@@ -151,10 +151,19 @@
   footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
 
   /* itin-common */
+  .must{margin-top:12px; padding:11px 14px; background:#FFF3C4; border:1px solid #E0B93A; border-left:5px solid #D99A00; border-radius:8px; font-size:14px; line-height:1.55; color:#3B2A00; font-weight:600;}
+  .must a{color:#7A4E00; text-decoration:underline;}
+  .ferry{margin-top:12px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .ferry-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .ferry ul{margin:0; padding-left:18px;}
+  .ferry li{font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-bottom:5px;}
+  .ferry li b{color:var(--ink);}
+  .km{display:block; font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); margin-bottom:6px; line-height:1.5;}
   .map-legend{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:10px; font-size:12px; color:var(--ink-faint);}
   .map-legend .lg{display:inline-flex; align-items:center; gap:7px;}
   .map-legend .num-pin{width:18px; height:18px; font-size:10px;}
   .tip + .tip{margin-top:14px;}
+
   .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
   .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
   .camp-item{padding:10px 0; border-top:1px solid var(--border);}
@@ -189,26 +198,34 @@
 
 <header class="hero">
   <a class="backlink" href="index.html">← Zpět na přehled</a>
-  <div class="eyebrow">Norsko · karavan</div>
+  <div class="eyebrow">Norsko · karavan · 22 dní</div>
   <h1>Road trip Norsko</h1>
-  <p>Oslo → fjordy → Lofoty (volitelně dál na Senju a do Tromsø). Jádro na 19 dní, dole návod jak zkrátit na 14 nebo prodloužit na 3 týdny.</p>
+  <p>Oslo → fjordy → Atlantická silnice → Trondheim → Kystriksveien → Lofoty → Andenes (velryby) → Senja → Tromsø (polární záře). Celkem 22 dní včetně cest, jednosměrný pronájem Oslo → Tromsø.</p>
 </header>
 
 <nav class="daynav">
   <div class="daynav-scroll">
     <a href="#d1"><b>1</b> Oslo</a>
-    <a href="#d3"><b>3</b> Hardangervidda</a>
-    <a href="#d5"><b>5</b> Bergen</a>
-    <a href="#d6"><b>6</b> Flåm</a>
-    <a href="#d8"><b>8</b> Geiranger</a>
-    <a href="#d9"><b>9</b> Ålesund</a>
-    <a href="#d11"><b>11</b> Trondheim</a>
-    <a href="#d13"><b>13</b> Polár. kruh</a>
-    <a href="#d15"><b>15</b> Trajekt</a>
-    <a href="#d16"><b>16</b> Reine</a>
-    <a href="#d18"><b>18</b> Henningsvær</a>
-    <a class="ext" href="#d20"><b>20</b> Senja</a>
-    <a class="ext" href="#d21"><b>21</b> Tromsø</a>
+    <a href="#d2"><b>2</b> Hardangervidda</a>
+    <a href="#d3"><b>3</b> Bergen</a>
+    <a href="#d4"><b>4</b> Flåm</a>
+    <a href="#d5"><b>5</b> Sognefjellsvegen</a>
+    <a href="#d6"><b>6</b> Geiranger</a>
+    <a href="#d7"><b>7</b> Ålesund</a>
+    <a href="#d8"><b>8</b> Atlantic Rd</a>
+    <a href="#d9"><b>9</b> Trondheim</a>
+    <a href="#d10"><b>10</b> Fv17 start</a>
+    <a href="#d11"><b>11</b> Polární kruh</a>
+    <a href="#d12"><b>12</b> Saltstraumen</a>
+    <a href="#d13"><b>13</b> Trajekt</a>
+    <a href="#d14"><b>14</b> Jižní Lofoty</a>
+    <a href="#d15"><b>15</b> Nusfjord</a>
+    <a href="#d16"><b>16</b> Henningsvær</a>
+    <a href="#d17"><b>17</b> Velryby</a>
+    <a href="#d18"><b>18</b> Senja</a>
+    <a href="#d19"><b>19</b> Senja 2</a>
+    <a href="#d20"><b>20</b> Tromsø</a>
+    <a href="#d21"><b>21</b> Aurora</a>
   </div>
 </nav>
 
@@ -216,7 +233,7 @@
 
   <div class="tip">
     <span class="tip-label">Než vyrazíte</span>
-    <p><strong>Sezóna:</strong> horské silnice (Trollstigen, Sognefjellsvegen) a kempy fungují naplno zhruba polovina června – polovina září. Na půlnoční slunce na Lofotech cílit konec května – polovina července.</p>
+    <p><strong>Sezóna:</strong> horské silnice (Trollstigen, Sognefjellsvegen) a kempy fungují naplno zhruba polovina června – polovina září. Na půlnoční slunce na Lofotech cílit konec května – polovina července. Polární záře v Tromsø je reálná až od poloviny září — cesta koncem srpna / začátkem září je kompromis mezi sjízdností silnic a první šancí na záři.</p>
     <p><strong>Letiště v Oslu:</strong> při koupi letenek pozor, ať jde o Oslo Gardemoen (OSL), ne Oslo Sandefjord Torp (TRF) — Torp je oblíbený u nízkonákladovek, ale je to cca 2 h vlakem od centra Osla, kde se vyzvedává karavan.</p>
     <p><strong>Jednosměrný pronájem:</strong> vrátit karavan zpátky v Oslu by stálo několik dní jízdy navíc. Vyplatí se <strong>Oslo → Tromsø jednosměrně</strong> (poplatek za přesun) a let zpět ze severu.</p>
     <p><strong>🚐 Půjčovna karavanu:</strong> nejlépe hodnocené s jednosměrným pronájmem Oslo → Tromsø jsou <a href="https://www.norwaycampers.no/oneway/" target="_blank" rel="noopener">Norway Campers</a> (od 860 NOK/den, nové rodinné karavany s pevnou postelí, neomezené km) a <a href="https://arcticcampers.no/one-way-offers" target="_blank" rel="noopener">Arctic Campers</a> (pobočky Oslo + Tromsø, automat, možnost 4×4). <a href="https://anywherecampers.com/norway-one-way/" target="_blank" rel="noopener">Anywhere Campers</a> naváží kdekoliv po trase, hodí se pokud nechcete jezdit přímo na pobočku, a malá <a href="https://vanjoy.no/" target="_blank" rel="noopener">Vanjoy</a> má bezchybné 5,0★ hodnocení (menší vozy, spíš pro dva).</p>
@@ -224,7 +241,19 @@
     <p><strong>Tempo:</strong> mimo obec 80 km/h, v obci 50 km/h, přísně kontrolováno radary. 200 km kvůli horám, tunelům a trajektům klidně zabere celý den — plánujte podle času, ne podle vzdálenosti na mapě.</p>
     <p><strong>Palivo:</strong> cca 18–24 NOK/l, na severu dráž než na jihu — při délce trasy počítat jako s významnou položkou rozpočtu.</p>
     <p><strong>Allemannsretten:</strong> přespání s karavanem i mimo kempy je v Norsku legální (150 m od obydlí, ne na obdělávané půdě, max. 2 noci na místě). Na Lofotech v posledních letech přibylo míst se zákazem přespání přímo na pláži/parkovišti přes noc — proto má tenhle itinerář na každou noc tam rovnou placený kemp.</p>
-    <p><strong>Trajekt Bodø–Moskenes</strong> (den 15) se s vozidlem v létě plní — rezervovat předem.</p>
+    <p><strong>Trajekty:</strong> Bodø–Moskenes (den 13) a Andenes–Gryllefjord (den 18) je třeba plánovat podle jízdních řádů — Bodø–Moskenes s karavanem rezervovat předem (torghatten-nord.no).</p>
+    <p><strong>Ubytování v kempech:</strong> ikonky u kempů jsou orientační. Aktuální nabídku ověřte na oficiální stránce kempu — z technických důvodů se něco nemusí nabízet.</p>
+  </div>
+
+  <div class="summary">
+    <span class="tip-label">Co škrtnout, když se nestíhá (spíš přírodu než města)</span>
+    <ul>
+      <li>1. <b>Zkrátit přírodní zastávky:</b> Hardangervidda, Låtefossen, Dalsnibba, Runde, Svartisen a Fv17 severně od Mo i Rana (E6 je rychlejší) — poslední, co se dá vypustit.</li>
+      <li>2. <b>Kratší túry na Lofotech:</b> Reinebringen, Ryten, Segla — nahradit krátkými procházkami.</li>
+      <li>3. <b>Města nechat:</b> Bergen, Ålesund, Trondheim, Tromsø jsou pevný bod plánu — škrtejte před nimi přírodu.</li>
+      <li>4. <b>Trajekty na severu:</b> Andenes–Gryllefjord jede jen cca 13. 5. – 27. 9.; mimo sezónu se jede po pevnině přes E6 (cca +1 den). Botnhamn–Brensholmen jezdí celoročně.</li>
+      <li>5. <b>Plán je na 22 dní a nepřekračuje je.</b> Extra den na velryby ani polární záři tam není — jde o rezervy uvnitř plánu (viz poznámky u dnů 17 a 21).</li>
+    </ul>
   </div>
 
     <div class="tip tip--links"><span class="tip-label">Kde hledat kempy a užitečné informace (Norsko)</span>
@@ -234,38 +263,32 @@
         <li><a href="https://camping.no/en/" target="_blank" rel="noopener">camping.no ↗</a> <span>— norský přehled kempů podle hvězdičkové klasifikace</span></li>
         <li><a href="https://www.nafcamp.no/en/" target="_blank" rel="noopener">NAF Camp ↗</a> <span>— kempy automobilového klubu NAF (rezervace, sezóny)</span></li>
         <li><a href="https://campio.no/" target="_blank" rel="noopener">Campio ↗</a> <span>— vyhledávání a rezervace norských kempů</span></li>
-        <li><a href="https://www.norcamp.de/en/norway/" target="_blank" rel="noopener">Norcamp ↗</a> <span>— databáze kempů (recenze, vybavení)</span></li>
+        <li><a href="https://www.torghatten-nord.no" target="_blank" rel="noopener">Torghatten Nord (trajekty) ↗</a> <span>— Bodø–Moskenes, Andenes–Gryllefjord, jízdní řády a rezervace</span></li>
+        <li><a href="https://entur.no" target="_blank" rel="noopener">Entur / reisnordland.no ↗</a> <span>— jízdní řády trajektů a spojů po celém Norsku</span></li>
+        <li><a href="https://kystriksveien.no/?lang=en" target="_blank" rel="noopener">Kystriksveien ↗</a> <span>— oficiální stránky Fv17 (trasa, trajekty, zastávky)</span></li>
         <li><a href="https://www.visitnorway.com/" target="_blank" rel="noopener">VisitNorway ↗</a> <span>— oficiální turistický portál — trasy, silnice, trajekty</span></li>
       </ul>
     </div>
-
-  <div class="summary">
-    <span class="tip-label">Jak zkrátit na 14 dní</span>
-    <ul>
-      <li>Vynechat <b>den 7</b> (Sognefjellsvegen) — z Flåmu rovnou na Trollstigen/Geiranger.</li>
-      <li>Vynechat nebo spojit <b>den 10</b> (Atlanterhavsvegen) s přejezdem do Trondheimu.</li>
-      <li>Na Kystriksveien vybrat jen 2–3 zastávky (Torghatten, polární kruh), zbytek po rychlejší E6.</li>
-      <li>Jižní a střední Lofoty spojit do dvou dní místo čtyř (dny 15–18 → Reine/Hamnøy + Henningsvær).</li>
-    </ul>
-  </div>
 
   <!-- DAY 1 -->
   <section class="day day--travel" id="d1">
     <div class="day-head">
       <span class="day-date">DEN 01</span>
-      <span class="badge badge--travel">Přílet</span>
+      <div class="badges"><span class="badge badge--travel">Přílet</span></div>
     </div>
     <h2>Oslo — vyzvednutí karavanu</h2>
-
     <div class="pass">
       <div class="pass-main">
         <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">OSL</span></div>
         <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
-        <div class="pass-note">Vyzvednutí karavanu na letišti/v Oslu, první nákup (plyn, voda). Večer klidně jen usadit a projít okolí.</div>
       </div>
       <div class="pass-stub">PŘÍLET</div>
     </div>
-
+    <div class="activity">
+      <p>Vyzvednutí karavanu na letišti/v Oslu, první nákup (plyn, voda, potraviny). Kdo má sílu: <b>Vigelandsparken</b> a <b>Operahuset</b> (střecha budovy je veřejná procházka) — jinak klidně jen usadit a projít okolí. Oslo dostává jen tenhle večer, celý druhý den už jedete na západ.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Vigelandsparken+Oslo" target="_blank" rel="noopener" data-lat="59.927" data-lng="10.7009">Vigelandsparken</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Oslo+Opera+House" target="_blank" rel="noopener" data-lat="59.9075" data-lng="10.753">Operahuset</a>
+    </div>
     <div class="campbox">
       <span class="camp-label">Kemp — první noc</span>
       <div class="camp-item">
@@ -280,29 +303,16 @@
 
   <!-- DAY 2 -->
   <section class="day" id="d2">
-    <div class="day-head"><span class="day-date">DEN 02</span></div>
-    <h2>Oslo</h2>
-    <div class="activity">
-      <p>Vigelandsparken (sochařský park), Opera House se střechou k projití, pevnost Akershus, promenáda Aker Brygge. Na výhled na celý Oslofjord zajet na skokanský můstek Holmenkollen.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Vigelandsparken+Oslo" target="_blank" rel="noopener" data-lat="59.92659" data-lng="10.701652">Vigelandsparken</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Oslo+Opera+House" target="_blank" rel="noopener" data-lat="59.907524" data-lng="10.752681">Opera House</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Holmenkollen+Ski+Jump" target="_blank" rel="noopener" data-lat="59.9639" data-lng="10.6679">Holmenkollen</a>
+    <div class="day-head">
+      <span class="day-date">DEN 02</span>
+      <div class="badges"><span class="badge badge--route">Přejezd</span></div>
     </div>
-
-    <div class="note">Stejný kemp jako den 1 (Topcamp Bogstad).</div>
-
-  </section>
-
-  <!-- DAY 3 -->
-  <section class="day" id="d3">
-    <div class="day-head"><span class="day-date">DEN 03</span></div>
     <h2>Hardangervidda a Vøringsfossen</h2>
     <div class="activity">
-      <p>Přejezd z Osla na západ přes náhorní plošinu Hardangervidda (Rv7) — největší horská plošina v Evropě, časté stádo sobů. Zastávka u vodopádu Vøringsfossen s vyhlídkovou lávkou nad propastí.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hardangervidda" target="_blank" rel="noopener" data-lat="60.133054" data-lng="7.531103">Hardangervidda</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=V%C3%B8ringsfossen" target="_blank" rel="noopener" data-lat="60.427051" data-lng="7.250881">Vøringsfossen</a>
+      <p><span class="km">Oslo → Vøringsfossen ~290 km, cca 5 h</span> Přejezd na západ přes náhorní plošinu <b>Hardangervidda</b> (Rv7) — největší horská plošina v Evropě, časté stáda sobů. Zastávka u vodopádu <b>Vøringsfossen</b> s vyhlídkovou lávkou nad propastí (Fossli / Fossli Hotel je nejlepší výchozí bod).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hardangervidda" target="_blank" rel="noopener" data-lat="60.133054" data-lng="7.531103">Hardangervidda</a>
+      <a class="maplink" href="https://maps.app.goo.gl/D1M232xquMMCSNQE6" target="_blank" rel="noopener" data-name="Vøringsfossen" data-lat="60.4266" data-lng="7.2515">Vøringsfossen</a>
     </div>
-
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -316,17 +326,23 @@
     </div>
   </section>
 
-  <!-- DAY 4 -->
-  <section class="day" id="d4">
-    <div class="day-head"><span class="day-date">DEN 04</span></div>
-    <h2>Hardangerfjord → Bergen</h2>
-    <div class="activity">
-      <p>Kdo je zdatný a má den navíc: celodenní treking na Trolltunga (10–12 h, jen pro fyzicky připravené). Jinak kratší zastávka u vodopádu Latefossen u Odda — dvojitý vodopád přímo u silnice, bez náročného výšlapu — a přejezd přes most Hardangerbru do Bergenu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trolltunga" target="_blank" rel="noopener" data-lat="60.132958" data-lng="6.753998">Trolltunga (volitelně)</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Latefossen" target="_blank" rel="noopener" data-lat="59.947895" data-lng="6.58476">Latefossen</a>
-      <div class="note warn"><b>Trolltunga je cca 27 km tam a zpět</b> — daleko přes doporučený denní limit (13 km), navíc prodlužuje trasu o den navíc. Doporučení: vynechat, Latefossen dá podobný zážitek bez velkého treku.</div>
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head">
+      <span class="day-date">DEN 03</span>
+      <div class="badges"><span class="badge badge--route">Město</span></div>
     </div>
-
+    <h2>Eidfjord → Bergen</h2>
+    <div class="activity">
+      <p><span class="km">Eidfjord → Bergen ~175 km, cca 3 h</span> Dopoledne přejezd, odpoledne <b>Bergen</b>: Hanzovní čtvrť <b>Bryggen</b> (UNESCO), rybí trh <b>Fisketorget</b>, lanovka <b>Fløibanen</b> na vyhlídku nad městem. Bergen má celý zbytek dne — druhý den ráno už jedete do Flåmu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bryggen+Bergen" target="_blank" rel="noopener" data-lat="60.397726" data-lng="5.322933">Bryggen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fl%C3%B8ibanen+Bergen" target="_blank" rel="noopener" data-lat="60.39641" data-lng="5.328564">Fløibanen</a>
+    </div>
+    <div class="note">Volitelně cestou: vodopád <b>Låtefossen</b> u Odda (dvojitý vodopád přímo u silnice) — objížďka na cca hodinu navíc. <b>Trolltunga</b> (27 km tam a zpět, 10–12 h) v 22denním plánu nevychází.</div>
+    <div class="activity">
+      <p></p>
+      <a class="maplink" href="https://share.google/19QVc5mKtz9StNadz" target="_blank" rel="noopener" data-name="Låtefossen (volitelně)" data-lat="59.947895" data-lng="6.58476">Låtefossen (volitelně)</a>
+    </div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -339,35 +355,21 @@
     </div>
   </section>
 
-  <!-- DAY 5 -->
-  <section class="day" id="d5">
-    <div class="day-head"><span class="day-date">DEN 05</span></div>
-    <h2>Bergen</h2>
-    <div class="activity">
-      <p>Hanzovní čtvrť Bryggen (UNESCO), rybí trh Fisketorget, lanovka Fløibanen na vyhlídku nad městem.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bryggen+Bergen" target="_blank" rel="noopener" data-lat="60.397726" data-lng="5.322933">Bryggen</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%B8ibanen+Bergen" target="_blank" rel="noopener" data-lat="60.39641" data-lng="5.328564">Fløibanen</a>
+  <!-- DAY 4 -->
+  <section class="day" id="d4">
+    <div class="day-head">
+      <span class="day-date">DEN 04</span>
+      <div class="badges"><span class="badge badge--route">Přejezd</span></div>
     </div>
-
-    <div class="note">Stejný kemp jako den 4 (Lone Camping).</div>
-
-  </section>
-
-  <!-- DAY 6 -->
-  <section class="day" id="d6">
-    <div class="day-head"><span class="day-date">DEN 06</span></div>
-    <h2>Sognefjord a Flåm</h2>
+    <h2>Bergen → Flåm</h2>
     <div class="activity">
-      <p>Cestou volitelně Borgund stavkirke — nejlépe dochovaný dřevěný kostel v Norsku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Borgund+Stave+Church" target="_blank" rel="noopener" data-lat="61.0472" data-lng="7.8156">Borgund stavkirke</a>
+      <p><span class="km">Bergen → Flåm ~170 km, cca 3 h</span> Po ránu ještě rychlá procházka Bergenem, kolem poledne odjezd. Odpoledne ve <b>Flåmu</b>: horská železnice <b>Flåmsbana</b> (cca 1 h jedním směrem do Myrdalu, jedna z nejkrásnějších tratí světa) a večer vyhlídka <b>Stegastein</b> (plošina 30 m vysoko nad Aurlandsfjordem).</p>
+      <a class="maplink" href="https://en.flamsbana.no/" target="_blank" rel="noopener" data-name="Flåmsbana" data-lat="60.8626" data-lng="7.1146">Flåmsbana</a>
+      <a class="maplink" href="https://share.google/OwZMRScyJZvswEQWy" target="_blank" rel="noopener" data-name="Stegastein" data-lat="60.908634" data-lng="7.211773">Stegastein</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=N%C3%A6r%C3%B8yfjord" target="_blank" rel="noopener" data-lat="60.943925" data-lng="6.939724">Nærøyfjord</a>
     </div>
-    <div class="activity">
-      <p>Nærøyfjord — nejužší fjord v Evropě (UNESCO). Vyhlídka Stegastein, 30 m plošina vysoko nad fjordem. Ve Flåmu volitelně horská železnice Flåmsbana, jedna z nejkrásnějších tratí světa.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=N%C3%A6r%C3%B8yfjord" target="_blank" rel="noopener" data-lat="60.943925" data-lng="6.939724">Nærøyfjord</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Stegastein+Viewpoint" target="_blank" rel="noopener" data-lat="60.908634" data-lng="7.211773">Stegastein</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fl%C3%A5msbana" target="_blank" rel="noopener" data-lat="60.863081" data-lng="7.114534">Flåmsbana</a>
-    </div>
-
+    <div class="must">⚠️ <b>Lístky na Flåmsbanu si zarezervujte včas</b> — v sezóně se vyprodávají a v Myrdalu není pokladna ani automat, takže bez předem koupené jízdenky se nedostanete zpátky. Prodej: <a href="https://en.flamsbana.no/" target="_blank" rel="noopener">en.flamsbana.no</a> (letní jízdenky se obvykle otevírají v lednu).</div>
+    <div class="note">Alternativa/doplněk: plavba po <b>Nærøyfjordu</b> (UNESCO) z Flåmu do Gudvangenu (cca 2 h) místo vlaku, pokud vás víc láká fjord z vody.</div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -380,18 +382,19 @@
     </div>
   </section>
 
-  <!-- DAY 7 -->
-  <section class="day" id="d7">
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
     <div class="day-head">
-      <span class="day-date">DEN 07</span>
-      <span class="badge badge--route">Turistická silnice</span>
+      <span class="day-date">DEN 05</span>
+      <div class="badges"><span class="badge badge--route">Turistická silnice</span></div>
     </div>
-    <h2>Sognefjellsvegen</h2>
+    <h2>Borgund a Sognefjellsvegen</h2>
     <div class="activity">
-      <p>Nejvyšší horská silnice severní Evropy (přes 1 400 m n. m., úsek Turtagrø–Lom), vede národním parkem Jotunheimen s výhledy na ledovce a nejvyšší norské vrcholy.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jotunheimen+National+Park" target="_blank" rel="noopener" data-lat="61.552916" data-lng="8.530709">Jotunheimen</a>
+      <p><span class="km">Flåm → Borgund ~55 km · Borgund → Skjolden ~115 km · Skjolden → Lom ~80 km = celkem ~250 km, cca 4,5 h + zastávky</span> Ráno <b>Borgund stavkirke</b> (nejlépe dochovaný dřevěný kostel v Norsku, 12. století), pak přes Lærdal a Sogndal na <b>Sognefjellsvegen</b> — nejvyšší horská silnice severní Evropy (přes 1 400 m), vede národním parkem Jotunheimen s výhledy na ledovce. Cíl: <b>Lom</b> (dřevěný stavkirke).</p>
+      <a class="maplink" href="https://www.stavechurch.com/churches/borgund" target="_blank" rel="noopener" data-name="Borgund stavkirke" data-lat="61.0472" data-lng="7.8156">Borgund stavkirke</a>
+      <a class="maplink" href="https://share.google/RIMJ8hqKOCBAXXayC" target="_blank" rel="noopener" data-name="Jotunheimen" data-lat="61.5" data-lng="8.3">Jotunheimen</a>
     </div>
-
+    <div class="must">⚠️ <b>Vstup do Borgund stavkirke je placený</b> (cca 150 NOK za kostel + expozici, 2026; otevřeno obvykle denně 9:30–17:00) — <a href="https://www.stavechurch.com/churches/borgund" target="_blank" rel="noopener">koupit vstupenku na stavechurch.com</a> nebo na místě a předem ověřit otevírací dobu. Skupiny musí rezervovat předem.</div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -404,19 +407,19 @@
     </div>
   </section>
 
-  <!-- DAY 8 -->
-  <section class="day" id="d8">
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
     <div class="day-head">
-      <span class="day-date">DEN 08</span>
-      <span class="badge badge--route">Turistická silnice</span>
+      <span class="day-date">DEN 06</span>
+      <div class="badges"><span class="badge badge--route">Turistická silnice</span></div>
     </div>
-    <h2>Trollstigen → Geiranger</h2>
+    <h2>Trollstigen a Geirangerfjord</h2>
     <div class="activity">
-      <p>Trollstigen — 11 serpentin do sklonu 12 %, vodopád Stigfossen přímo u silnice. Odpoledne dojezd ke Geirangerfjordu (UNESCO), cestou vodopády Sedm sester a Nápadník.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Trollstigen" target="_blank" rel="noopener" data-lat="62.4548" data-lng="7.6708">Trollstigen</a>
-      <div class="note warn"><b>Velmi úzké serpentiny.</b> S velkým/těžkým karavanem počítat s pomalou, opatrnou jízdou a čekáním na výhybnách na protijedoucí autobusy.</div>
+      <p><span class="km">Lom → Åndalsnes ~200 km (3,5 h) · Åndalsnes → Trollstigen ~18 km · Trollstigen → Geiranger ~70 km (1,4 h) = celkem ~290 km, cca 5,5 h bez zastávek</span> Dlouhý den. Z Lomu přes Dombås do <b>Åndalsnes</b>, pak <b>Trollstigen</b> — 11 serpentin a vodopád Stigfossen — a dolů k <b>Geirangeru</b>. Cestou (pokud stíháte) vyhlídka <b>Dalsnibba</b> (1 500 m, skywalk). Velmi úzké serpentiny: s velkým karavanem počítat s čekáním na výhybnách.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Trollstigen" target="_blank" rel="noopener" data-lat="62.4548" data-lng="7.6708">Trollstigen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Dalsnibba+Geiranger" target="_blank" rel="noopener" data-lat="62.0492" data-lng="7.2381">Dalsnibba</a>
     </div>
-
+    <div class="note warn">Pořadí Lom → Åndalsnes → Trollstigen → Geiranger je nejlogičtější (silnice Trollstigen se jezdí ze severu na jih). Když se nestíhá, <b>vynechte Dalsnibbu</b> (přírodní zastávka), ne Trollstigen ani Geirangerfjord.</div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -425,24 +428,24 @@
         <div class="camp-note">42 míst (37 s elektřinou), renovované sociální zařízení (2024), kuchyňka, prádelna, wifi; nepřijímá rezervace — příjezd dopoledne.</div>
         <a class="maplink camp" data-name="Geirangerfjorden Feriesenter" data-rating="4,6" data-lat="62.114563" data-lng="7.185813" href="https://www.google.com/maps/search/?api=1&amp;query=Geirangerfjorden+Feriesenter" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-foot">Geiranger je oblíbený — kemp nepřijímá rezervace, jeďte dopoledne, aby zbylo místo.</div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
-  <!-- DAY 9 -->
-  <section class="day" id="d9">
-    <div class="day-head"><span class="day-date">DEN 09</span></div>
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">DEN 07</span>
+      <div class="badges"><span class="badge badge--route">Fjord + město</span></div>
+    </div>
     <h2>Geiranger → Ålesund</h2>
     <div class="activity">
-      <p>Dopoledne fjord z vodní hladiny (trajekt/výletní loď proplouvá pod vodopády). Odpoledne secesní Ålesund — vyhlídka Aksla, 418 schodů, výhled na město mezi fjordy.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85lesund" target="_blank" rel="noopener" data-lat="62.480236" data-lng="6.555074">Ålesund</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Aksla+Viewpoint+%C3%85lesund" target="_blank" rel="noopener" data-lat="62.47516" data-lng="6.167823">Aksla</a>
+      <p><span class="km">Geiranger → Ålesund po silnici ~110 km, cca 2 h (jen jízda) — s plavbou po fjordu spíš celý den</span> Dopoledne <b>Geirangerfjord z vody</b>: výletní loď / trajekt Geiranger–Hellesylt (cca 1 h, pluje pod vodopády Sedm sester a Nápadník; s vozidlem — ověřte aktuální jízdní řád u provozovatele) nebo alternativně objet po silnici přes Ørnesvingen (Orlí cesta) a Eidsdal–Linge trajekt. Odpoledne <b>Ålesund</b> — secesní město na ostrovech, vyhlídka <b>Aksla</b> (418 schodů, výhled na město mezi fjordy).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%85lesund" target="_blank" rel="noopener" data-lat="62.480236" data-lng="6.555074">Ålesund</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Aksla+Viewpoint+%C3%85lesund" target="_blank" rel="noopener" data-lat="62.47516" data-lng="6.167823">Aksla</a>
     </div>
-    <div class="activity">
-      <p><b>🧭 Pokud zbyde čas navíc:</b> ostrov Runde — jedna z největších ptačích kolonií v Norsku (papuchalci), cca hodinu od Ålesundu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Runde+Norway" target="_blank" rel="noopener" data-lat="62.398443" data-lng="5.631051">Runde</a>
-    </div>
-
+    <div class="note"><b>Bude potřeba víc dnů?</b> Ålesund je hezké město, ale v 22denním plánu má jen odpoledne a večer. Kdo chce víc času (Runde, papuchalci, hodinu od Ålesundu), musí šetřit jinde: viz „Co škrtnout“ nahoře — škrtněte raději přírodní zastávky, města nechte.</div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -451,45 +454,47 @@
         <div class="camp-note">Nejslabší hodnocení z celé trasy (fronty na sprchy); bez plné dump station pro karavany.</div>
         <a class="maplink camp" data-name="Volsdalen Camping (Ålesund)" data-rating="3,3" data-lat="62.469563" data-lng="6.198063" href="https://www.google.com/maps/search/?api=1&amp;query=Volsdalen+Camping+%C3%85lesund" target="_blank" rel="noopener">Google Maps</a>
       </div>
-      <div class="camp-foot">Volsdalen má nejslabší hodnocení z celé trasy (fronty na sprchy, chybí plná dump station) — je ale jediný kemp přímo v Ålesundu. Alternativy najdete přes park4night / camping.no (odkazy výše).</div>
+      <div class="camp-foot">Volsdalen má nejslabší hodnocení z celé trasy (fronty na sprchy, chybí plná dump station) — je ale jediný kemp přímo v Ålesundu. Alternativy najdete přes park4night / camping.no.</div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
-  <!-- DAY 10 -->
-  <section class="day" id="d10">
+  <!-- DAY 8 -->
+  <section class="day" id="d8">
     <div class="day-head">
-      <span class="day-date">DEN 10</span>
-      <span class="badge badge--route">Turistická silnice</span>
+      <span class="day-date">DEN 08</span>
+      <div class="badges"><span class="badge badge--route">Turistická silnice</span></div>
     </div>
-    <h2>Atlanterhavsvegen</h2>
+    <h2>Atlanterhavsvegen → Kristiansund</h2>
     <div class="activity">
-      <p>Atlantická silnice — 8 km nad otevřeným oceánem, most Storseisundet vypadá jako rampa do prázdna. Norové ji zvolili „stavbou století".</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Atlanterhavsvegen+Atlantic+Road" target="_blank" rel="noopener" data-lat="63.0064" data-lng="7.3452">Atlantická silnice</a>
+      <p><span class="km">Ålesund → Molde ~95 km (2,2 h, s trajektem Vestnes–Molde) · Molde → Atlanterhavsvegen ~50 km · Atlanterhavsvegen → Kristiansund ~35 km = celkem ~180 km, cca 4 h</span> <b>Ano, Atlanterhavsvegen na Ålesund navazuje</b>: z Ålesundu po E39 na trajekt Vestnes–Molde (cca 35 min, jezdí často, nerezervuje se), z Moldeu po Fv64 k <b>Atlantické silnici</b> — 8 km nad otevřeným oceánem, most Storseisundet vypadá jako rampa do prázdna. Dojezd do <b>Kristiansundu</b> (přístavní město, místo pro noc).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Atlanterhavsvegen+Storseisundet" target="_blank" rel="noopener" data-lat="63.0064" data-lng="7.3452">Atlantická silnice</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Kristiansund" target="_blank" rel="noopener" data-lat="63.1107" data-lng="7.728">Kristiansund</a>
     </div>
-
     <div class="campbox">
       <span class="camp-label">Kemp — okolí Bud / Kristiansund</span>
 
       <div class="camp-item camp-item--plain">
         <div class="camp-top"><span class="camp-name">Kempy u Atlanterhavsvegen (výběr)</span></div>
-        <div class="camp-note">Ověřené hodnocení a vybavení jsem tu nedohledal — vyberte přes park4night / camping.no podle volných míst; drží se trasy Atlanterhavsvegen → Kristiansund.</div>
+        <div class="camp-note">Ověřené hodnocení a vybavení jsem tu nedohledal — vyberte přes park4night / camping.no podle volných míst.</div>
         <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=camping+Atlanterhavsvegen+Kristiansund" target="_blank" rel="noopener">Google Maps ↗</a>
       </div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
-  <!-- DAY 11 -->
-  <section class="day" id="d11">
-    <div class="day-head"><span class="day-date">DEN 11</span></div>
+  <!-- DAY 9 -->
+  <section class="day" id="d9">
+    <div class="day-head">
+      <span class="day-date">DEN 09</span>
+      <div class="badges"><span class="badge badge--route">Město</span></div>
+    </div>
     <h2>Trondheim</h2>
     <div class="activity">
-      <p>Katedrála Nidarosdomen (největší středověká stavba Skandinávie), barevná čtvrť Bakklandet podél řeky.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nidaros+Cathedral+Trondheim" target="_blank" rel="noopener" data-lat="63.4269" data-lng="10.3969">Nidarosdomen</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bakklandet+Trondheim" target="_blank" rel="noopener" data-lat="63.4283" data-lng="10.4033">Bakklandet</a>
+      <p><span class="km">Kristiansund → Trondheim ~195 km, cca 3,7 h</span> Odpoledne <b>Trondheim</b>: katedrála <b>Nidarosdomen</b> (největší středověká stavba Skandinávie), barevné domy na kůlech v <b>Bakklandetu</b> a Gamle Bybro. Trondheim je město — v případě spěchu ho nevynechávejte, ale zkraťte přírodní zastávky před ním.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nidaros+Cathedral+Trondheim" target="_blank" rel="noopener" data-lat="63.4269" data-lng="10.3969">Nidarosdomen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bakklandet+Trondheim" target="_blank" rel="noopener" data-lat="63.4283" data-lng="10.4033">Bakklandet</a>
     </div>
-
     <div class="campbox">
       <span class="camp-label">Kemp — Trondheim</span>
 
@@ -502,18 +507,33 @@
     </div>
   </section>
 
-  <!-- DAY 12 -->
-  <section class="day" id="d12">
+  <!-- DAY 10 -->
+  <section class="day" id="d10">
     <div class="day-head">
-      <span class="day-date">DEN 12</span>
-      <span class="badge badge--route">Turistická silnice</span>
+      <span class="day-date">DEN 10</span>
+      <div class="badges"><span class="badge badge--route">Turistická silnice</span><span class="badge badge--ferry">Trajekt</span></div>
     </div>
-    <h2>Start Kystriksveien</h2>
+    <h2>Start Kystriksveien (Fv17): Trondheim → Brønnøysund</h2>
     <div class="activity">
-      <p>Vjezd na Kystriksveien (Fv17) — 650 km pobřežní silnice s řadou trajektů, National Geographic ji řadí mezi nejkrásnější cesty světa.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kystriksveien+Fv17" target="_blank" rel="noopener" data-lat="64.86" data-lng="11.24">Kystriksveien</a>
+      <p><span class="km">Trondheim → Steinkjer ~120 km (E6, 2 h) · Steinkjer → Namsos ~75 km (Fv17) · Namsos → Vennesund/Holm → Brønnøysund ~ 200 km s trajektem · celkem ~400 km, cca 7 h + trajekt</span> <b>Kystriksveien (Fv17)</b> má cca 630 km od Steinkjeru po Bodø a 6 trajektů. Opustíte rychlou E6 v <b>Steinkjeru</b> a jedete pobřeží. Čekají vás mírné kopce, fjordy, mosty a malé přístavy — nejde o vyhlídkové „highlighty“ každých pár km, ale o pomalou jízdu od trajektu k trajektu. První trajekt: <b>Holm – Vennesund</b>. Dojezd do <b>Brønnøysundu</b>; <b>Torghatten</b> (hora s dírou) leží hned vedle.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Steinkjer" target="_blank" rel="noopener" data-lat="64.0148" data-lng="11.4954">Steinkjer</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Namsos" target="_blank" rel="noopener" data-lat="64.4667" data-lng="11.4952">Namsos</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Torghatten" target="_blank" rel="noopener" data-lat="65.3987" data-lng="12.0939">Torghatten</a>
     </div>
-
+    <div class="ferry">
+      <span class="ferry-label">🚢 Trajekty na Fv17 (nerezervují se — stojíte ve frontě a jedete dalším spojem s místem)</span>
+      <ul>
+        <li><b>Holm – Vennesund</b>, cca 20 min (první z šesti trajektů).</li>
+        <li><b>Horn – Andalsvågen</b>, cca 20 min (Helgeland, den 11).</li>
+        <li><b>Tjøtta – Forvik</b>, cca 45–60 min (Helgeland; podle zvolené trasy).</li>
+        <li><b>Levang – Nesna</b>, cca 25 min (den 11).</li>
+        <li><b>Kilboghamn – Jektvik</b>, cca 55–65 min, <b>přes polární kruh</b> (den 12).</li>
+        <li><b>Forøy – Ågskardet</b>, cca 10–15 min (den 12).</li>
+        <li>Pořadí a přesné časy si před cestou ověřte na reisnordland.no / entur.no — uvedené doby jsou orientační.</li>
+        <li>V sezóně přijeďte k trajektu aspoň 30 minut předem; času z jízdního řádu se držte — v létě jezdí zhruba po hodině, mimo sezónu méně. Aktuální časy: <a href="https://reisnordland.no" target="_blank" rel="noopener">reisnordland.no</a> nebo <a href="https://entur.no" target="_blank" rel="noopener">entur.no</a>. Trajekty se platí kartou / AutoPASS, u půjčeného karavanu to řeší půjčovna.</li>
+      </ul>
+    </div>
+    <div class="note">Když se nestíhá: v Steinkjeru zůstat na <b>E6</b> a Fv17 chytit až u Brønnøysundu — ztratíte jen část pobřeží (přírodu), ne města.</div>
     <div class="campbox">
       <span class="camp-label">Kemp — okolí Brønnøysundu</span>
       <div class="camp-item">
@@ -522,41 +542,58 @@
         <div class="camp-note">230 míst, 150 s elektřinou; sprchy, prádelna a wifi v ceně; vyhřívaný bazén s mořskou vodou.</div>
         <a class="maplink camp" data-name="Torghatten Camping & Beach Restaurant" data-rating="4,0" data-lat="65.393062" data-lng="12.099063" href="https://www.google.com/maps/search/?api=1&amp;query=Torghatten+Camping+Br%C3%B8nn%C3%B8ysund" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Vennesund Brygge og Camping (u trajektu Holm–Vennesund)</span></div>
+        <div class="camp-note">Záložní zastávka cca 200 km od Steinkjeru, kdybyste nestihli dojet do Brønnøysundu. Hodnocení a vybavení jsem neověřoval — zkontrolujte na vennesund.no.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Vennesund+Brygge+og+Camping" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
-  <!-- DAY 13 -->
-  <section class="day" id="d13">
-    <div class="day-head"><span class="day-date">DEN 13</span></div>
-    <h2>Torghatten, Sedm sester, polární kruh</h2>
-    <div class="activity">
-      <p>Hora s dírou skrz vrchol Torghatten (krátká procházka až do díry). Horský hřeben De syv søstre (Sedm sester) u Sandnessjøenu. Odpoledne symbolické překročení polárního kruhu na Polarsirkelsenteret.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Torghatten" target="_blank" rel="noopener" data-lat="65.3987" data-lng="12.0939">Torghatten</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Polarsirkelsenteret+Arctic+Circle+Centre" target="_blank" rel="noopener" data-lat="66.5539" data-lng="15.3208">Polarsirkelsenteret</a>
+  <!-- DAY 11 -->
+  <section class="day" id="d11">
+    <div class="day-head">
+      <span class="day-date">DEN 11</span>
+      <div class="badges"><span class="badge badge--route">Turistická silnice</span><span class="badge badge--ferry">Trajekt</span></div>
     </div>
-
+    <h2>Torghatten, Sedm sester a polární kruh</h2>
+    <div class="activity">
+      <p><span class="km">Brønnøysund → Torghatten ~15 km · Torghatten → Sandnessjøen ~120 km (po cestě 1–2 trajekty, mezi nimi Horn–Andalsvågen) · Sandnessjøen → Mo i Rana ~110 km (s trajektem Levang–Nesna) · celkem ~255 km, cca 5–6 h čisté jízdy + 2 trajekty</span> Ráno <b>Torghatten</b> — hora s otvorem skrz vrchol; procházka až do díry cca 30–40 min tam. Pak jih–sever po Helgelandu: <b>Sandnessjøen</b> a pohoří <b>De syv søstre (Sedm sester)</b> nad městem, most Helgelandsbrua a nakonec do <b>Mo i Rana</b>. V okolí Mo i Rana (E6, ~80 km severně) je <b>Polarsirkelsenteret</b> — symbolické překročení polárního kruhu autem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Torghatten" target="_blank" rel="noopener" data-lat="65.3987" data-lng="12.0939">Torghatten</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sandnessj%C3%B8en" target="_blank" rel="noopener" data-lat="66.0217" data-lng="12.6316">Sandnessjøen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Polarsirkelsenteret+Arctic+Circle+Centre" target="_blank" rel="noopener" data-lat="66.5539" data-lng="15.3208">Polarsirkelsenteret</a>
+    </div>
     <div class="campbox">
-      <span class="camp-label">Kemp — Mo i Rana</span>
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
         <div class="camp-top"><span class="camp-name">Mo i Rana Camping NAF</span><span class="camp-rate">★ 3,7 <i>(657)</i></span></div>
         <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
         <div class="camp-note">Sprchy zdarma (6–23 h), voda u místa, elektřina za poplatek, prádelna a kuchyně.</div>
         <a class="maplink camp" data-name="Mo i Rana Camping NAF" data-rating="3,7" data-lat="66.317188" data-lng="14.180312" href="https://www.google.com/maps/search/?api=1&amp;query=Mo+i+Rana+Camping+NAF" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Zálohou Sandnessjøen / Nesna</span></div>
+        <div class="camp-note">Kdybyste nestihli dojet do Mo i Rana, přespěte v Sandnessjøenu nebo Nesně — kempy si vyberte přes park4night (neověřoval jsem).</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=camping+Sandnessj%C3%B8en" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
-  <!-- DAY 14 -->
-  <section class="day" id="d14">
-    <div class="day-head"><span class="day-date">DEN 14</span></div>
-    <h2>Saltstraumen → Bodø</h2>
-    <div class="activity">
-      <p>Saltstraumen — nejsilnější mořský vír na světě, nejlepší podívaná kolem přílivu/odlivu.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Saltstraumen" target="_blank" rel="noopener" data-lat="67.2333" data-lng="14.6167">Saltstraumen</a>
+  <!-- DAY 12 -->
+  <section class="day" id="d12">
+    <div class="day-head">
+      <span class="day-date">DEN 12</span>
+      <div class="badges"><span class="badge badge--route">Turistická silnice</span><span class="badge badge--ferry">Trajekt</span></div>
     </div>
-
+    <h2>Svartisen, Saltstraumen → Bodø</h2>
+    <div class="activity">
+      <p><span class="km">Mo i Rana → Saltstraumen ~215 km po E6 (3,3 h) · po Fv17 s trajekty je to víc, cca 300 km + 2 trajekty · Saltstraumen → Bodø ~30 km</span> Varianta A (pobřeží, delší): Fv17 přes <b>Kilboghamn – Jektvik</b> (kde <b>překročíte polární kruh</b> na palubě), <b>Forøy – Ågskardet</b> a k ledovci <b>Svartisen</b> (padá téměř k hladině fjordu, loď přes jezero + krátká procházka). Varianta B (rychlejší): E6 přes Mo i Rana rovnou k Saltstraumenu. <b>Saltstraumen</b> je nejsilnější mořský proud světa — nejlepší při přílivu/odlivu (časy si najděte předem), pak <b>Bodø</b>.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Svartisen+glacier" target="_blank" rel="noopener" data-lat="66.6" data-lng="13.7">Svartisen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Saltstraumen" target="_blank" rel="noopener" data-lat="67.2333" data-lng="14.6167">Saltstraumen</a>
+    </div>
+    <div class="note warn">Když se nestíhá: vzít <b>variantu B</b> (E6) — vynecháte Svartisen a část Fv17 (příroda), na trajekt do Lofot dorazíte v klidu.</div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -564,6 +601,81 @@
         <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
         <div class="camp-note">80 míst s vodou, odpadem a elektřinou; sprchy a WC v malých místnostech; kuchyně, prádelna; čištění ryb.</div>
         <a class="maplink camp" data-name="Pluscamp Saltstraumen Camping" data-rating="4,1" data-lat="67.235438" data-lng="14.621062" href="https://www.google.com/maps/search/?api=1&amp;query=Pluscamp+Saltstraumen+Camping" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Bobilplass Bodøsjøen (Bodø)</span><span class="camp-rate">★ 4,2</span></div>
+        <div class="camp-note">Jednoduché stání pro karavany u Bodø (28 recenzí), bez kempového zázemí — záložní řešení hned u přístavu.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Bod%C3%B8sj%C3%B8en+Bobil+plats+Bod%C3%B8" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
+  </section>
+
+  <!-- DAY 13 -->
+  <section class="day day--travel" id="d13">
+    <div class="day-head">
+      <span class="day-date">DEN 13</span>
+      <div class="badges"><span class="badge badge--ferry">Trajekt</span></div>
+    </div>
+    <h2>Trajekt Bodø → Moskenes (Lofoty)</h2>
+    <div class="activity">
+      <p>Dopoledne rezerva v Bodø (nákup zásob, příp. muzeum), pak nalodění. Po vylodění <b>Lofotská zeď</b> — štíty přímo z oceánu — a krátká jízda do <b>Sørvågenu / Reine</b>.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Moskenes+Lofoten" target="_blank" rel="noopener" data-lat="67.8983" data-lng="12.9736">Moskenes</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Reine+Lofoten" target="_blank" rel="noopener" data-lat="67.9327" data-lng="13.0887">Reine</a>
+    </div>
+    <div class="ferry">
+      <span class="ferry-label">🚢 Bodø → Moskenes — kudy, kdy, kde objednat</span>
+      <ul>
+        <li><b>Odkud–kam:</b> přístav <b>Bodø</b> → <b>Moskenes</b> (jižní špice Lofot); cca <b>3 h 30 min</b> otevřeným mořem. Provozovatel: <b>Torghatten Nord</b>.</li>
+        <li><b>Sezóna 2026:</b> hlavní sezóna cca <b>18. 5. – 6. 9.</b> s několika spoji denně; po ní jezdí méně spojů — ověřte řád podle data cesty.</li>
+        <li><b>Kde objednat:</b> online na <a href="https://www.torghatten-nord.no" target="_blank" rel="noopener">torghatten-nord.no</a> (jízdní řády i rezervace vozidel). Rezervovat lze až 60 % kapacity každého spoje, obvykle do večera před odjezdem; zbytek je na místě fronta — <b>v létě rezervujte co nejdřív</b>.</li>
+        <li><b>Cena:</b> auto do 6 m cca 605 NOK (2026) + cestující; karavan délkově/výškově dražší — přesnou cenu zobrazí rezervace. Cestující se musí předem zaregistrovat (jméno, národnost, datum narození).</li>
+        <li><b>Alternativa přes Værøy a Røst:</b> stejná linka se zastávkami na vnějších ostrovech (Værøy, Røst) — úsek Værøy/Røst ↔ Moskenes je bezplatný, ale plavba je delší.</li>
+        <li><b>Záložní varianta, když je Moskenes vyprodaný:</b> silnice E6 z Bodø do Skutviku (cca 190 km, 3 h) a trajekt Skutvik–Svolvær (cca 2 h) do středu Lofot — ověřte spoje na stránkách provozovatele (neověřoval jsem).</li>
+        <li>V přístavu buďte s vozidlem s dostatečným předstihem před odjezdem (čas uvádí potvrzení rezervace).</li>
+      </ul>
+    </div>
+    <div class="must">⚠️ <b>Trajekt Bodø–Moskenes s karavanem si rezervujte předem</b> — v létě bývá vyprodáno a bez rezervace se můžete dostat až na další den.</div>
+    <div class="note warn"><b>Kde spát po dojezdu:</b> nejbližší kemp je <b>Moskenes Camping v Sørvågenu</b> (cca 4 km od přístavu) — po dojezdu večer žádná další jízda. V okolí Reine a Å (a na Lofotech obecně) přibylo míst se zákazem přespání karavanů mimo kemp — nocleh si nechte v kempu.</div>
+    <div class="campbox">
+      <span class="camp-label">Kemp — po dojezdu trajektu</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Moskenes Camping (Sørvågen)</span><span class="camp-rate">★ 4,1 <i>(2 003)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Cca 4 km od přístavu trajektu; 12 sprch, 18 WC, kuchyně, prádelna, wifi, místa s elektřinou, vylévání chemického WC. Nejbližší kemp po vylodění.</div>
+        <a class="maplink camp" data-name="Moskenes Camping (Sørvågen)" data-rating="4,1" data-lat="67.900188" data-lng="13.052438" href="https://www.google.com/maps/search/?api=1&amp;query=Moskenes+Camping+S%C3%B8rv%C3%A5gen" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
+  </section>
+
+  <!-- DAY 14 -->
+  <section class="day" id="d14">
+    <div class="day-head">
+      <span class="day-date">DEN 14</span>
+      <div class="badges"><span class="badge badge--water">Lofoty</span></div>
+    </div>
+    <h2>Jižní Lofoty: Reine, Hamnøy, Å</h2>
+    <div class="activity">
+      <p><span class="km">Moskenes → Reine ~8 km · Reine → Å ~10 km (E10, celkem do 20 km) · Reine → Ramberg ~40 km</span> Dnes v podstatě pěšky a s fotoaparátem: <b>Reine</b> (nejfotografovanější vesnice Norska), <b>Hamnøy</b> (rorbuer pod horami) a <b>Å i Lofoten</b> na konci silnice E10 (Stockfish muzeum). Kdo chce: <b>Reinebringen</b> — strmé kamenné schody (cca 1,5–2 h nahoru, výhled na Reine; jen za dobrého počasí, obuv!). Večer přejezd na <b>Ramberg</b>.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Reine+Lofoten" target="_blank" rel="noopener" data-lat="67.9327" data-lng="13.0887">Reine</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hamn%C3%B8y+Lofoten" target="_blank" rel="noopener" data-lat="67.9432" data-lng="13.1265">Hamnøy</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%85+i+Lofoten" target="_blank" rel="noopener" data-lat="67.879" data-lng="12.9787">Å i Lofoten</a>
+    </div>
+    <div class="note"><b>Kde spát:</b> <b>Lofoten Beach Camp v Rambergu</b> — cca 40 km od Reine, sauny a pláž Skagsanden pár set metrů, jedno z nejlépe hodnocených míst na Lofotech. Druhá volba je zůstat další noc v Moskenes Camping (Sørvågen).</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — Jižní Lofoty</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Lofoten Beach Camp (Ramberg)</span><span class="camp-rate">★ 4,3 <i>(1 630)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Sauna"><span class="am-i">🧖</span>sauna</span></div>
+        <div class="camp-note">16 sprch, 18 WC, sauny; vylévání chemického WC (kompletní dump station není); wifi. V sezóně fronty na sprchy.</div>
+        <a class="maplink camp" data-name="Lofoten Beach Camp (Ramberg)" data-rating="4,3" data-lat="68.103187" data-lng="13.294563" href="https://www.google.com/maps/search/?api=1&amp;query=Lofoten+Beach+Camp+Ramberg" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Moskenes Camping (Sørvågen)</span><span class="camp-rate">★ 4,1 <i>(2 003)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Cca 4 km od přístavu trajektu; 12 sprch, 18 WC, kuchyně, prádelna, wifi, místa s elektřinou, vylévání chemického WC. Nejbližší kemp po vylodění.</div>
+        <a class="maplink camp" data-name="Moskenes Camping (Sørvågen)" data-rating="4,1" data-lat="67.900188" data-lng="13.052438" href="https://www.google.com/maps/search/?api=1&amp;query=Moskenes+Camping+S%C3%B8rv%C3%A5gen" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
@@ -573,74 +685,16 @@
   <section class="day" id="d15">
     <div class="day-head">
       <span class="day-date">DEN 15</span>
-      <span class="badge badge--ferry">Trajekt</span>
+      <div class="badges"><span class="badge badge--water">Lofoty</span></div>
     </div>
-    <h2>Bodø → Moskenes (Lofoty)</h2>
-    <div class="activity">
-      <p>Trajekt Bodø → Moskenes, cca 3,5 h, scénická plavba otevřeným mořem. Po vylodění krátká jízda do Reine.</p>
-      <div class="note warn"><b>V létě s vozidlem rezervovat předem</b> — bývá vyprodáno.</div>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Reine+Lofoten" target="_blank" rel="noopener" data-lat="67.9327" data-lng="13.0887">Reine</a>
-    </div>
-
-    <div class="campbox">
-      <span class="camp-label">Kemp — oblast Ramberg</span>
-      <div class="camp-item">
-        <div class="camp-top"><span class="camp-name">Lofoten Beach Camp (Ramberg)</span><span class="camp-rate">★ 4,3 <i>(1 630)</i></span></div>
-        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Sauna"><span class="am-i">🧖</span>sauna</span></div>
-        <div class="camp-note">16 sprch, 18 WC, sauny; vylévání chemického WC (kompletní dump station není); wifi. V sezóně fronty na sprchy.</div>
-        <a class="maplink camp" data-name="Lofoten Beach Camp (Ramberg)" data-rating="4,3" data-lat="68.103187" data-lng="13.294563" href="https://www.google.com/maps/search/?api=1&amp;query=Lofoten+Beach+Camp+Ramberg" target="_blank" rel="noopener">Google Maps</a>
-      </div>
-      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
-    </div>
-  </section>
-
-  <!-- DAY 16 -->
-  <section class="day" id="d16">
-    <div class="day-head"><span class="day-date">DEN 16</span></div>
-    <h2>Jižní Lofoty</h2>
-    <div class="activity">
-      <p>Reine a rybářská vesnička Hamnøy — nejfotografovanější místo Norska, Å i Lofoten na konci silnice E10.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hamn%C3%B8y+Lofoten" target="_blank" rel="noopener" data-lat="67.9432" data-lng="13.1265">Hamnøy</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%C3%85+i+Lofoten" target="_blank" rel="noopener" data-lat="67.879" data-lng="12.9787">Å i Lofoten</a>
-    </div>
-
-    <div class="note">Stejný kemp jako den 15 (Lofoten Beach Camp) — nebo jiný v oblasti podle volných míst.</div>
-
-  </section>
-
-  <!-- DAY 17 -->
-  <section class="day" id="d17">
-    <div class="day-head"><span class="day-date">DEN 17</span></div>
     <h2>Pláže a Nusfjord</h2>
     <div class="activity">
-      <p>Arktické pláže s tyrkysovou vodou Uttakleiv a Haukland. Historická rybářská vesnice Nusfjord, jedna z nejlépe dochovaných v Norsku.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Uttakleiv+Beach" target="_blank" rel="noopener" data-lat="68.209312" data-lng="13.506938">Uttakleiv</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haukland+Beach" target="_blank" rel="noopener" data-lat="68.197989" data-lng="13.529191">Haukland</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nusfjord" target="_blank" rel="noopener" data-lat="68.035312" data-lng="13.347563">Nusfjord</a>
+      <p><span class="km">Ramberg → Nusfjord ~20 km (od Moskenes ~48 km) · Nusfjord → Haukland ~35 km · Haukland → Kabelvåg ~65 km · celkem cca 120 km, 2,5–3 h čisté jízdy</span> <b>Nusfjord</b> (UNESCO, jedna z nejlépe dochovaných rybářských vesnic Norska — vstupné se platí), pak arktické pláže s tyrkysovou vodou <b>Haukland</b> a <b>Uttakleiv</b> (Vestvågøy). Volitelně výšlap na <b>Ryten</b> nad pláží Kvalvika (cca 4 h) — jen když je čas a počasí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nusfjord" target="_blank" rel="noopener" data-lat="68.0354" data-lng="13.3476">Nusfjord</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Haukland+Beach" target="_blank" rel="noopener" data-lat="68.2143" data-lng="13.52">Haukland</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Uttakleiv+Beach" target="_blank" rel="noopener" data-lat="68.2093" data-lng="13.5069">Uttakleiv</a>
     </div>
-
-    <div class="campbox">
-      <span class="camp-label">Kemp — Vestvågøy / Uttakleiv</span>
-
-      <div class="camp-item camp-item--plain">
-        <div class="camp-top"><span class="camp-name">Uttakleiv RV Parking</span><span class="camp-rate">★ 3,5</span></div>
-        <div class="camp-note">Jen parkoviště pro karavany u pláže (110 recenzí) — bez kempového zázemí. Na Lofotech je přespání mimo kemp omezeno, ověřte místní značky.</div>
-        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Uttakleiv+RV+Parking+Vestv%C3%A5g%C3%B8y" target="_blank" rel="noopener">Google Maps ↗</a>
-      </div>
-      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
-    </div>
-  </section>
-
-  <!-- DAY 18 -->
-  <section class="day" id="d18">
-    <div class="day-head"><span class="day-date">DEN 18</span></div>
-    <h2>Henningsvær a Kabelvåg</h2>
-    <div class="activity">
-      <p>Henningsvær — „Benátky Lofot", malebné uličky a kavárny na skalách. Svolvær.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Henningsv%C3%A6r" target="_blank" rel="noopener" data-lat="68.1517" data-lng="14.2064">Henningsvær</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Svolv%C3%A6r" target="_blank" rel="noopener" data-lat="68.2342" data-lng="14.5677">Svolvær</a>
-    </div>
-
+    <div class="note"><b>Kde spát:</b> na plážích Haukland a Uttakleiv je <b>parkování pro karavany</b> (Uttakleiv RV parking má Google 3,5 při 110 recenzích — jen stání, bez zázemí). Doporučená varianta je jet dál na <b>Kabelvåg</b> — kemp s kuchyní, pračkou a vylévací stanicí, jeden z nejlépe hodnocených v okolí.</div>
     <div class="campbox">
       <span class="camp-label">Kempy — na výběr podle kapacity</span>
       <div class="camp-item">
@@ -649,29 +703,138 @@
         <div class="camp-note">Sprchy 20 NOK / 4 min, elektřina 16 A, vypouštěcí a vodní stanice, kuchyně s indukcí, prádelna.</div>
         <a class="maplink camp" data-name="Kabelvåg Feriehus & Camping" data-rating="4,0" data-lat="68.217313" data-lng="14.445438" href="https://www.google.com/maps/search/?api=1&amp;query=Kabelv%C3%A5g+Feriehus+and+Camping" target="_blank" rel="noopener">Google Maps</a>
       </div>
+      <div class="camp-item camp-item--plain">
+        <div class="camp-top"><span class="camp-name">Uttakleiv RV Parking (Vestvågøy)</span><span class="camp-rate">★ 3,5</span></div>
+        <div class="camp-note">Jen parkoviště pro karavany u pláže (110 recenzí) — bez kempového zázemí. Na Lofotech je přespání mimo kemp omezeno, ověřte místní značky.</div>
+        <a class="maplink-plain" href="https://www.google.com/maps/search/?api=1&amp;query=Uttakleiv+RV+Parking+Vestv%C3%A5g%C3%B8y" target="_blank" rel="noopener">Google Maps ↗</a>
+      </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
+  </section>
+
+  <!-- DAY 16 -->
+  <section class="day" id="d16">
+    <div class="day-head">
+      <span class="day-date">DEN 16</span>
+      <div class="badges"><span class="badge badge--water">Lofoty</span><span class="badge badge--route">Přejezd</span></div>
+    </div>
+    <h2>Henningsvær, Kabelvåg → Andenes (Vesterály)</h2>
+    <div class="activity">
+      <p><span class="km">Kabelvåg → Henningsvær ~25 km · Henningsvær → Svolvær ~25 km · Svolvær → Fiskebøl ~30 km + trajekt Fiskebøl–Melbu (cca 25 min, jezdí často) → Andenes ~145 km · Svolvær → Andenes celkem ~210 km, cca 3,6 h + trajekt</span> Dopoledne <b>Henningsvær</b> („Benátky Lofot“, fotbalové hřiště na skále) a <b>Svolvær</b>, poté přejezd přes Vesterály. Zastávka podle času: <b>Nyksund</b> (opuštěná a znovuobjevená rybářská vesnice), <b>Bleik</b> (kolonie papuchalků, velrybí výlety). Dojezd do <b>Andenes</b> — cíl velrybího safari.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Henningsv%C3%A6r" target="_blank" rel="noopener" data-lat="68.1517" data-lng="14.2064">Henningsvær</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Svolv%C3%A6r" target="_blank" rel="noopener" data-lat="68.2342" data-lng="14.5677">Svolvær</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nyksund+Vester%C3%A5len" target="_blank" rel="noopener">Nyksund</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bleik+Vester%C3%A5len" target="_blank" rel="noopener" data-lat="69.2728" data-lng="15.9503">Bleik</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Andenes" target="_blank" rel="noopener" data-lat="69.3266" data-lng="16.12">Andenes</a>
+    </div>
+    <div class="note"><b>Kdyby se nestihl přejezd do Andenes:</b> přespěte cestou ve Vesterálech (Sortland / Melbu — kemp si vyberte přes park4night, neověřoval jsem) a do Andenes dojeďte ráno. Z Andenes je safari nejlépe brát v odpoledních spojích, takže brzký příjezd není nutný.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — Andenes a okolí</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Midnattsol Camping (Bleik)</span><span class="camp-rate">★ 4,5 <i>(934)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Cca 15 km od Andenes u pláže; 60 míst, kompletní servis pro karavany, kuchyně, prádelna, wifi.</div>
+        <a class="maplink camp" data-name="Midnattsol Camping (Bleik)" data-rating="4,5" data-lat="69.275312" data-lng="15.966188" href="https://www.google.com/maps/search/?api=1&amp;query=Midnattsol+Camping+Bleik" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Andenes Camping</span><span class="camp-rate">★ 3,9 <i>(826)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Přímo v Andenes na západním pobřeží (půlnoční slunce); 30 míst s elektřinou 16 A, sprchy na mince, kuchyně, prádelna, wifi.</div>
+        <a class="maplink camp" data-name="Andenes Camping" data-rating="3,9" data-lat="69.304312" data-lng="16.067312" href="https://www.google.com/maps/search/?api=1&amp;query=Andenes+Camping" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Midnattsol Camping v Bleiku je cca 15 km od Andenes a má nejlepší hodnocení; Andenes Camping je přímo u města na západním pobřeží.</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
+  </section>
+
+  <!-- DAY 17 -->
+  <section class="day" id="d17">
+    <div class="day-head">
+      <span class="day-date">DEN 17</span>
+      <div class="badges"><span class="badge badge--water">Velryby</span></div>
+    </div>
+    <h2>Velrybí safari v Andenes</h2>
+    <div class="activity">
+      <p><b>Andenes je celoroční místo pro pozorování velryb</b> — hluboký podmořský příkop hned u pobřeží zajišťuje stálý výskyt <b>vorvaňů obrovských</b>. Plavba trvá obvykle 3–4 hodiny (krátká vzdálenost z přístavu), vede ji biologové nebo studenti oboru. Kromě vorvaňů se dá potkat i jiná mořská zvěř a v okolí (Bleik) ptáci — záleží na sezóně a počasí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Whalesafari+Andenes" target="_blank" rel="noopener" data-lat="69.3266" data-lng="16.1186">Whalesafari Andenes</a>
+      <a class="extlink" href="https://whalesafari.no/" target="_blank" rel="noopener">Whalesafari (rezervace) ↗</a>
+      <a class="extlink" href="https://www.arcticwhaletours.com/whale-safari-andenes" target="_blank" rel="noopener">Arctic Whale Tours ↗</a>
+    </div>
+    <div class="must">⚠️ <b>Safari si zarezervujte s předstihem</b> — hlavní sezóna je od konce května do poloviny září, tour se dá objednat i mimo ni. Operátoři: <b>Whalesafari Andenes (Whale2Sea)</b> a <b>Arctic Whale Tours</b>. Ráno / odpoledne — vezměte si teplé oblečení (nepromokavé, na moři je i v srpnu chladno).</div>
+    <div class="note warn"><b>Rezervní čas:</b> plán nemá extra den navíc — pokud by safari kvůli počasí (vítr, vlny) padlo, zkuste další spoj týž den nebo přesunout na příští den a zkrátit Senju o půlden. Dobré je při rezervaci předem zjistit storno podmínky a náhradní termín.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Midnattsol Camping (Bleik)</span><span class="camp-rate">★ 4,5 <i>(934)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Cca 15 km od Andenes u pláže; 60 míst, kompletní servis pro karavany, kuchyně, prádelna, wifi.</div>
+        <a class="maplink camp" data-name="Midnattsol Camping (Bleik)" data-rating="4,5" data-lat="69.275312" data-lng="15.966188" href="https://www.google.com/maps/search/?api=1&amp;query=Midnattsol+Camping+Bleik" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Andenes Camping</span><span class="camp-rate">★ 3,9 <i>(826)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Přímo v Andenes na západním pobřeží (půlnoční slunce); 30 míst s elektřinou 16 A, sprchy na mince, kuchyně, prádelna, wifi.</div>
+        <a class="maplink camp" data-name="Andenes Camping" data-rating="3,9" data-lat="69.304312" data-lng="16.067312" href="https://www.google.com/maps/search/?api=1&amp;query=Andenes+Camping" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
+  </section>
+
+  <!-- DAY 18 -->
+  <section class="day day--travel" id="d18">
+    <div class="day-head">
+      <span class="day-date">DEN 18</span>
+      <div class="badges"><span class="badge badge--ferry">Trajekt</span><span class="badge badge--water">Senja</span></div>
+    </div>
+    <h2>Trajekt Andenes → Gryllefjord a Senja</h2>
+    <div class="activity">
+      <p><span class="km">Gryllefjord → Tungeneset cca 50–60 km (1,3 h), pak podél pobřeží ke Skalandu</span> Přeplavba na <b>Senju</b> (Norsko v miniatuře — divočejší a méně navštěvovaná tvář než Lofoty). Z přístavu Gryllefjord po <b>Fv86 Nasjonal turistveg</b>: <b>Tungeneset</b> (dřevěný chodník ke skalám na pobřeží s výhledem na „Ďáblovy zuby“ Okshornan) a <b>Bergsbotn</b> (vyhlídková plošina 44 m nad Ersfjordem).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Tungeneset+Senja" target="_blank" rel="noopener" data-lat="69.486955" data-lng="17.333038">Tungeneset</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Bergsbotn+Senja" target="_blank" rel="noopener" data-lat="69.439644" data-lng="17.467572">Bergsbotn</a>
+    </div>
+    <div class="ferry">
+      <span class="ferry-label">🚢 Andenes → Gryllefjord</span>
+      <ul>
+        <li><b>Odkud–kam:</b> <b>Andenes</b> (Andøya) → <b>Gryllefjord</b> (Senja); cca <b>1 h 40 min</b>, provozovatel Torghatten Nord.</li>
+        <li><b>Sezóna 2026:</b> letní linka jede cca <b>13. 5. – 27. 9.</b>, asi 3 spoje denně. Mimo tuto dobu nejezdí — objížďka po pevnině přes E6 (cca +1 den, viz „Co škrtnout“).</li>
+        <li><b>Rezervace: není</b> — stojíte ve frontě. V červenci/srpnu přijeďte s velkým předstihem, na první ranní spoj se čeká už večer předtím (auto do fronty).</li>
+      </ul>
+    </div>
+    <div class="campbox">
+      <span class="camp-label">Kemp — Senja (u Tungeneset)</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Skaland Camping (Senja)</span><span class="camp-rate">★ 4,3 <i>(244)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Elektřina (část míst), sprchy, kuchyně, pračka, wifi; vylévací stanice v ceně (bez odvodu šedé vody).</div>
+        <a class="maplink camp" data-name="Skaland Camping (Senja)" data-rating="4,3" data-lat="69.443688" data-lng="17.304063" href="https://www.google.com/maps/search/?api=1&amp;query=Skaland+Camping+Senja" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot">Skaland je nejblíž vyhlídkám. Kdybyste nestihli dojet: Senja Camping v Silsandu je až na jihu ostrova (kus mimo trasu).</div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
   <!-- DAY 19 -->
-  <section class="day day--travel" id="d19">
+  <section class="day" id="d19">
     <div class="day-head">
       <span class="day-date">DEN 19</span>
-      <span class="badge badge--travel">Konec 19denní varianty</span>
+      <div class="badges"><span class="badge badge--water">Senja</span><span class="badge badge--route">Trek</span></div>
     </div>
-    <h2>Odevzdání karavanu</h2>
+    <h2>Senja — vyhlídky a Segla</h2>
     <div class="activity">
-      <p>Přejezd na odevzdání karavanu (Tromsø / Harstad / Narvik dle půjčovny) a let zpět.</p>
+      <p><span class="km">Senja: ostrovní silnice Fv86 je pomalá — 60–70 km zabere 1,5 h</span> Celý den na Senji. <b>Segla</b> — ikonický a strmý vrchol (cca 6 km tam a zpět, 3,5 h, spíš o převýšení než délce; jen při dobrém počasí). Snadnější varianta s pohledem na Seglu: <b>Hesten</b>. Pokud je počasí špatné, stačí projet vyhlídky a pláže.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Segla+Senja" target="_blank" rel="noopener" data-lat="69.507366" data-lng="17.59572">Segla</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hesten+Senja" target="_blank" rel="noopener" data-lat="69.411517" data-lng="17.785599">Hesten</a>
     </div>
-    <div class="note"><b>Prodlužujete na Senju/Tromsø (dny 20–21)?</b> Trasa z Lofot na sever vede přímo přes souostroví Vesterålen — dá se zastavit v Nyksundu, malebné opuštěné a znovuobjevené rybářské vesničce, nebo v Bleiku (výjezdy na pozorování velryb). Klidně místo přímého odevzdání karavanu tenhle den zastavte ve Vesterålen a pokračujte na Senju další den.</div>
-    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nyksund+Vester%C3%A5len" target="_blank" rel="noopener">Nyksund</a>
-    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bleik+Vester%C3%A5len" target="_blank" rel="noopener" data-lat="69.2728" data-lng="15.9503">Bleik</a>
-    <div class="pass">
-      <div class="pass-main">
-        <div class="pass-route"><span class="code">TOS</span><span class="arrow">✈</span><span class="code">PRG</span></div>
-        <div class="pass-flight">LETENKA — DOPLNIT PO VÝBĚRU</div>
+    <div class="note">Do Tromsø se jede zítra — kdo spěchá, přesune se dnes večer na Botnhamn (kemp poblíž si vyberte přes park4night, neověřoval jsem).</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Skaland Camping (Senja)</span><span class="camp-rate">★ 4,3 <i>(244)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span></div>
+        <div class="camp-note">Elektřina (část míst), sprchy, kuchyně, pračka, wifi; vylévací stanice v ceně (bez odvodu šedé vody).</div>
+        <a class="maplink camp" data-name="Skaland Camping (Senja)" data-rating="4,3" data-lat="69.443688" data-lng="17.304063" href="https://www.google.com/maps/search/?api=1&amp;query=Skaland+Camping+Senja" target="_blank" rel="noopener">Google Maps</a>
       </div>
-      <div class="pass-stub">ODLET</div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
@@ -679,38 +842,69 @@
   <section class="day" id="d20">
     <div class="day-head">
       <span class="day-date">DEN 20</span>
-      <span class="badge badge--ext">Prodloužení</span>
+      <div class="badges"><span class="badge badge--ferry">Trajekt</span><span class="badge badge--route">Město</span></div>
     </div>
-    <h2>Senja</h2>
+    <h2>Senja → Tromsø</h2>
     <div class="activity">
-      <p>Ostrov s dramatickými štíty — vyhlídka Tungeneset (Ďáblovy zuby) a hora Segla (cca 6 km tam a zpět, ale strmé, výstup cca 3,5 h — spíš o převýšení než o vzdálenosti).</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tungeneset+Senja" target="_blank" rel="noopener" data-lat="69.486955" data-lng="17.333038">Tungeneset</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Segla+Senja" target="_blank" rel="noopener" data-lat="69.507366" data-lng="17.59572">Segla</a>
+      <p><span class="km">Senja (Skaland) → Botnhamn cca 60–70 km (1,5 h) · trajekt Botnhamn–Brensholmen cca 35 min · Brensholmen → Tromsø ~35 km (cca 45 min)</span> Přejezd do „Paříže severu“. Odpoledne <b>Ishavskatedralen</b> (Arktická katedrála) a <b>Fjellheisen</b> — lanovka na Storsteinen s výhledem na celé město.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Ishavskatedralen+Arctic+Cathedral+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.6392" data-lng="18.9556">Ishavskatedralen</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fjellheisen+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.6356" data-lng="18.9938">Fjellheisen</a>
     </div>
-
+    <div class="ferry">
+      <span class="ferry-label">🚢 Botnhamn → Brensholmen (Senja → Tromsø)</span>
+      <ul>
+        <li><b>Odkud–kam:</b> <b>Botnhamn</b> (Senja) → <b>Brensholmen</b> (Kvaløya u Tromsø); cca <b>35 min</b>, operátor Svipper. Jezdí celoročně (v provozu i po sezónní linka do Gryllefjordu).</li>
+        <li><b>Rezervace:</b> obvykle není potřeba; auto se platí na palubě (AutoPASS / FerryPay / karta), cca 230 NOK (2026). Spoje: pracovní dny 4–7 každým směrem, první 8:00 — časy si ověřte na havspor.no.</li>
+        <li><b>Kdyby trajekt nejel:</b> po silnici přes Finnsnes a E6 cca 220–250 km, 4–5 h (do Tromsø).</li>
+      </ul>
+    </div>
     <div class="campbox">
-      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <span class="camp-label">Kemp — Tromsø</span>
       <div class="camp-item">
-        <div class="camp-top"><span class="camp-name">Senja Camping (Silsand)</span><span class="camp-rate">★ 4,2 <i>(441)</i></span></div>
-        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Prádelna"><span class="am-i">🧺</span>prádelna</span></div>
-        <div class="camp-note">Terasovitá místa u jezera, sprchy na mince (10 NOK), kuchyňka, pračka a sušička.</div>
-        <a class="maplink camp" data-name="Senja Camping (Silsand)" data-rating="4,2" data-lat="69.231562" data-lng="17.702687" href="https://www.google.com/maps/search/?api=1&amp;query=Senja+Camping+Silsand" target="_blank" rel="noopener">Google Maps</a>
+        <div class="camp-top"><span class="camp-name">Tromsø Lodge & Camping (Tromsdalen)</span><span class="camp-rate">★ 4,3 <i>(2 498)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Sauna"><span class="am-i">🧖</span>sauna</span></div>
+        <div class="camp-note">Celoročně; 76 míst s elektřinou, sauna, sdílená kuchyně, doplnění vody a vylévání odpadu, wifi.</div>
+        <a class="maplink camp" data-name="Tromsø Lodge & Camping (Tromsdalen)" data-rating="4,3" data-lat="69.647562" data-lng="19.013937" href="https://www.google.com/maps/search/?api=1&amp;query=Troms%C3%B8+Lodge+%26+Camping" target="_blank" rel="noopener">Google Maps</a>
       </div>
       <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
     </div>
   </section>
 
   <!-- DAY 21 -->
-  <section class="day day--travel" id="d21">
+  <section class="day" id="d21">
     <div class="day-head">
       <span class="day-date">DEN 21</span>
-      <span class="badge badge--ext">Prodloužení</span>
+      <div class="badges"><span class="badge badge--route">Město</span><span class="badge badge--ext">Polární záře</span></div>
     </div>
-    <h2>Tromsø — konec cesty</h2>
+    <h2>Tromsø — den a polární záře</h2>
     <div class="activity">
-      <p>Arktická katedrála Ishavskatedralen, lanovka Fjellheisen nad polární kruh s výhledem na fjordy. Odevzdání karavanu v Tromsø.</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ishavskatedralen+Arctic+Cathedral+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.6392" data-lng="18.9556">Ishavskatedralen</a>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Fjellheisen+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.6356" data-lng="18.9938">Fjellheisen</a>
+      <p>Volný den: Polaria, Tromsø muzeum, procházka městem, případně <b>Telegrafbukta</b> u pláže. <b>Večer organizovaná túra za polární září</b> (minibusy vyjíždějí za jasnou oblohou často až k finským hranicím) — tour se dá objednat předem přes Visit Tromsø. Pro campervan je výhoda, že v kempu můžete zůstat a nemusíte se vracet k parkování.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Telegrafbukta+Troms%C3%B8" target="_blank" rel="noopener" data-lat="69.632527" data-lng="18.906227">Telegrafbukta</a>
+      <a class="extlink" href="https://www.visittromso.no/northern-lights" target="_blank" rel="noopener">Visit Tromsø — polární záře ↗</a>
+    </div>
+    <div class="note warn"><b>Kdy je záře reálná:</b> sezóna polární záře v Tromsø je zhruba od <b>poloviny září</b> do poloviny dubna. Při cestě koncem srpna je noc ještě příliš světlá a šance velmi malá — v tom případě si aurora tour naplánujte až na dobu po půlce září (jinak vezměte den jako doplňkový volný). U polární záře sledujte aplikaci (Kp-index) a mapu oblačnosti.</div>
+    <div class="campbox">
+      <span class="camp-label">Kempy — na výběr podle kapacity</span>
+      <div class="camp-item">
+        <div class="camp-top"><span class="camp-name">Tromsø Lodge & Camping (Tromsdalen)</span><span class="camp-rate">★ 4,3 <i>(2 498)</i></span></div>
+        <div class="amen"><span class="am" title="WC se splachováním"><span class="am-i">🚻</span>WC</span><span class="am" title="Sprchy"><span class="am-i">🚿</span>sprchy</span><span class="am" title="Elektřina (přípojky)"><span class="am-i">⚡</span>elektřina</span><span class="am" title="Pitná voda"><span class="am-i">🚰</span>voda</span><span class="am" title="Vylévání odpadu (dump station)"><span class="am-i">♻️</span>dump</span><span class="am" title="Společná kuchyně"><span class="am-i">🍳</span>kuchyně</span><span class="am" title="Wifi"><span class="am-i">📶</span>wifi</span><span class="am" title="Sauna"><span class="am-i">🧖</span>sauna</span></div>
+        <div class="camp-note">Celoročně; 76 míst s elektřinou, sauna, sdílená kuchyně, doplnění vody a vylévání odpadu, wifi.</div>
+        <a class="maplink camp" data-name="Tromsø Lodge & Camping (Tromsdalen)" data-rating="4,3" data-lat="69.647562" data-lng="19.013937" href="https://www.google.com/maps/search/?api=1&amp;query=Troms%C3%B8+Lodge+%26+Camping" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="camp-foot camp-foot--info">ℹ️ Ikonky jsou orientační. Aktuální nabídku kempu ověřte na oficiální stránce, kde se kemp rezervuje — z technických důvodů se něco nemusí nabízet nebo se nabídka změnila.</div>
+    </div>
+  </section>
+
+  <!-- DAY 22 -->
+  <section class="day day--travel" id="d22">
+    <div class="day-head">
+      <span class="day-date">DEN 22</span>
+      <div class="badges"><span class="badge badge--travel">Odlet</span></div>
+    </div>
+    <h2>Vrácení karavanu a odlet</h2>
+    <div class="activity">
+      <p>Dopoledne vrácení karavanu v Tromsø (jednosměrný pronájem Oslo → Tromsø, viz tip výše), poté odlet domů.</p>
+
     </div>
     <div class="pass">
       <div class="pass-main">
@@ -739,7 +933,7 @@
   </footer>
 
 </div>
-<script type="application/json" id="itin-route">["ylwlJwkh`AdKInHtOvAjLjIrS_GdRFtAb@SjEmQ~DiJpCiS\\S`Enc@LfHlAVg@}JRkD|JuRjDk[xBcGrPuYdCaJvBcQdDqm@a@gK_EsUi@}Gu@eu@R}JrAkI|B{ErOmKjLo^c@qEaIcIr@yEqHoRsB_CbDyS","ayslJegs`AcDxS`EbH}AnJ~IrMMjX_EvNuP|M_ElV~@|z@vGne@uBzh@wFbb@oSf_@uFz`@eKjQKna@uPlq@}HoS_DxSiE|Dax@}DsKg^kEnEmEeQ}DvLu\\]oVn[of@fQkD|i@cKzPoEcz@OfKsCcHmF`QqEhc@gEqQ_FzAZpJgJ}G","mv~lJugb`A|dDceBtlDf`JlwBlvUwtDhfFarD|`QcvJbdTu{Fuc@yqA_~DwiBhqC_{IjeA}cBfiIizC~vA{`DhqNyi@pd[uvBbvA}vD|yNu`AfjRmgC|cHAlvIc}N`vH}iBloGfLvyHqgAlfGa_GxsI`hBlfLsp@dyJi}Att@aqDf~O}uAjLuc@l_HakN`lKp`Bn_Ish@tjKbmDrvLbbExqFnnChkOznC~_Aje@vpKsjA`bYghDzaKjcExy_@uvDxtUkaGfvAmVf`DhWjcKbeFf~OujApkHfOtuSwgAtxH|nBilBdbDbsJryDyCngDnb_@ltG`jXtnCotEtaIba@|}BccK","eh{nJsomm@yJz~@qRxVmXxmA|Cbe@{Zrh@aEjrAch@ny@{aBxbA{IcTu\\iEwXxXuYme@_NjUm^{B}o@alAsa@oBsW`n@iI`q@mq@iEyVhc@oAxc@y_@vp@zGjoAmTlsCsb@vuASho@w\\naBfDzaBgLdl@~Dhe@eEhq@yNlU[~pAcb@fZq^qKmSh[eHpaAiQzm@pAze@sWrKyZ|m@sCvqBbVxxAyQryDtFn~AkDbl@sRdf@el@gBmUhIqIvZ","geyoJ}{gk@fn@ob@ck@|fBtNzv@oB{\\lJnEuPfYhf@`u@sUxoBvNsYfOtg@hExgAq]jlAdc@f|Dyi@lpAwSntDo~@|a@im@qSqv@dyAkXu@cCnt@wc@zh@qSnq@pRn~@s{@hcBg_@`iBmYlcExE|yB~{@hdEr@rhErWzzCmPbxC~Cd|Dn|B`eDfp@puCbe@ll@|MtnBpwChqBlrArbDtuBcxAlJjkAaaAdvCvtBn~@n}AdhBj~Avt@x}@mb@l|@vZvnCjlBj]niAtp@xc@blB}]zz@bu@`aBo^tyA`gBpaB|G`yArhAbgG`aCn{@{Jts@bcAhxAlPdPw]_JtL~Bis@iLu@xG}m@iYn|@tGk}BseAcmB_Ni~Axj@k{EaMqdFmZu`Bhf@gqD","yp~mJ{tbh@eUd`AcP`pBlZt`B`MpdFyJ`wAwWlaAgFz`A~Mh~AreAbmBpBh`AoKp{@hYu|@sGvm@jLpAuBps@xHwOg@hOhiAhj@|a@xf@x`Dka@vQ~Kx@x_@pd@eQl]vDlb@yiA|pBa_@jo@rFlXfg@nfAaPfShHxaAk{@v}AfNdYs`@trA{OreB}_A","eq{lJc}dg@auJp_D{vG{F_bDrxDkpAvU{yFnz^mNhwNssB}LomAkqBkiMhdRsnB[aPuwDocBwoBkkEdtQktAgaCcn@anF}k@oHym@bt@on@lkFibCvbDb{@lnRkt@`IfSd`Cye@rqAvM`wBc_BlfA}x@f_Kb{AfgD|CteE{jAhqB|{Ato@qBzhHelC`dElOrlAq`@|cBzeAtkCeUpjArWhwEisEpxEuHhxFds@tbJaWnkC~g@phFenFjnCmZhwAbCl|FcsBjxGpmBtlCfdC}_@xkAv_CroAeqBr`BA","{dsoJ_wo_@mwBro@c`AlhBquAefCqyBzf@wnBsyBna@kaD|nAyhCcCm|FlZiwAbpFwmC}i@eiFzHyuIie@_}CzX{rGstBu`AypA{oFzUaaCuWotFgqAqkAmuFrkC_rEbN{vByhFokBydByq@o|FeyCiaBohCy~QaOokF}t@az@aKouEji@mfFej@uxBNefN`{@{`DyFa|Chd@_mCgWe~BnhC{}VwiDsiMq}BqBitJkvI{~BzHc`AwaAuxCleBcvAmnCmFcvEx|@_xAdC{|CigEooS_iB~p@qbAcs@dL}fAamBirKeRemGczByoGoiAkmf@}p@sjAzzCq|Gjm@qa@dm@pw@jK_bBav@c~B_hEgqD~AorGofQgfg@a}DaoGo~F}}EpeAkdGje@aaOskAegFfk@iwDeGc~Eha@wuEa|AohJ`zAr^","iirsJu_un@qyAm\\zU`i@tdAf|Hia@vuEdGb~EoYb|@wPdzBrkAdgFmm@huI`GvjDuc@`rCki@bkAnGde@n~F|}E`}D`oGnfQffg@}L~oD|InaBfy@bvArr@nHhe@j_Alt@`Qlx@vlCmQ|tAal@gz@geAt`AiaCv`Gdq@rgAvhAxdf@dP~mAsiEq{DgxAcB","ugzrJqq|h@fIlK`l@}Q|`@rHhv@fh@|]jx@nv@zt@f|@bd@qPaoAwhAydf@aHqWsa@mRoEs[jxA}}D~m@yiAd_Aux@rZnu@nNzE~SyeAeG_l@_^ia@_QmmAiu@iRaMmf@gW}Wks@eIwVym@wu@ay@uHcqAan@u\\oC{SkbA}{@f[kDrPhNqJg[eReJ`Oh@iXeRqSdCtR}Nls@tT_Xkc@p^pXrZiA","}ewrJ{t_k@sZhAq^qX~Wjc@uWmOwZgDuR|NlLhCbFoGhXdRaOi@dRdJpJf[sPiNg[jD`LxBzQr[lb@n[nCzS|LNpSfXhKrB`G~^}BtRxDv]|OtIpDvLf_@r`@vVxm@js@dIfW|W`Mlf@|u@dSjGnS~G`x@pZn[~Ip`@Sn]yFla@}KvUjDfDnAuEqM_O}Mkr@nDsCrBdN","wjnrJ_plj@aUahDujEmuDpBgqGekPyre@sxMydPvjB{mUuiAk|GreAaiRaiEu|O|`AuiLca@qtHqrCqdDi{@mbG}cE|_Dw_DqzAoxAeeIHiuKyzCedPe_@yvVnjFugJrfDerb@okE}gTyzA_Vai@sfIi{Hb{F}x@moKpeBosMkf@osIstFp`QclGrrB{l@}}BygWzv@ezByzDkrDwj@ywFifN_mEwNu{Di|D_gLy~Ri_GeZp~@peOaqAvsBtu@zcI`uExcP`lAx|SbiHlrN","wtbwJa`us@ciHmrNskA}zSwxEk_TcwL{ZwsAxlBsbHsiNuoDmf[vvHatiAowEjsUaxAylBajB|pBseFpiQcxEfqIqjC~v@klHlnTo|CrtDmlAbgKg~CpoDqiClnRep@vxa@eiIldWswApeQszE~eTsrA`ec@m}Nb|[{}Qt~NqiBxw\\ueDhnDefBbmIw_Cim@_yDvfDfeDzfLxvH`_@","mne|Jgcym@yVJbSgK{Foj@pBb[_HkZw_Bnw@oyC}HmpBguBst@mkBsWrcAgiAxD{_Aup@kWf~BxU`aAcNd~@|g@zUxU~dBdbF|jMd_A`UzDj|Ay^dbAsyD|cB`JfsGiHzaEkb@`oA_p@e@giB`hCoWpcDws@beCqiDviGqW|sD__AdcFxm@nzCwvA|pFhQjsE`v@lbC{Bp`E|M`fAjsDsTlj@|YvqAhgSpWzaBdgCdxCfyBnsHpaBb|AbWbpA~tAry@cGldJxIluE`TfbBS`|FiNvx@ym@aqBySFoC~m@vN`bDr[jl@z\\vjCu}@lqHz[rkKl@kZ","qak|Jyj_g@k@hZmCiFbQnqCoEnnAkQx}@rH`jAoBd|@nVbqC|VfqAl@lwDxa@pqCfPzkG_FnPiAreB`M~kFoE|[bOvoBgWhmHhE|fCuCcNq@n_AaHuPyE`y@qHuXoCjNxGbl@k@bxA","kci|Jwrsd@_F{hCrL|LnPofBzHvOwJmcCrWqbHiO_aCeCinJly@mv@hq@pHdgAqi@pfA~o@fM~vAoF`dAtl@baFtE~mBf[zyAddAzdBbe@~tCrZ`vJ`|@ddF|{A`kQlCjwBrrAvxG`UzlD~|AlnJu@rmBrWnNfgAeq@jhBlv@va@nsB~t@qfAzxAhkFTtmA}d@bwBxXflFaRtfAmZjJkbAsy@_r@jgBvJdf@ek@xz@yS{EcI}fAeR}JqVbV{CttBqu@_u@kRnlCk\\hHgDmr@qSiKmbAxtCyf@q}@yLxMsUnw@~Yv`Bm@~kC_i@yt@mcAthAkPsd@{\\v@cIolAsz@gdBoW|x@p@hqB","y}z{Jakka@|UgkDvdAvqDt|C~N}AgfHboDok@neBmfFbq@vyAxqA_jEt_B|k@f_@qzM_rA{oHv}A_dB~nBbdBjc@ctFheDj\\ds@ooQvaGakKdrAvnAhbBo~CcIkwCfvCe`A|cBgkFf_Cms\\ptCmhJfSwaHrkMahWgrB_kZ}eBquD_wAihPqiFwsCecBejLqfFeaJw}M}OshMjuGwsDyrDqkAyb[jcEsf[euAkrKct@lw@gg@a}BypBmbUu~Ac_D|mBgdLaYyzH{fHkvF}uGy_PojFup@vZkwAk`Gbn@qeDoaFwzEzoCgoAaiScbAr`KfwB`pVq|Aj~GpWvhCuaGq[uxB|kEctDj`@arEvkNykEn^qClhZiaAdoFoaCioEyyDj`H_~@egBuvEnz@upDeyFqkDwhXo|CiqGgcExuFmzBxjSknDx`CkzAazI","apr_Kg|xk@pzAf{IdnD_bCd{BylSn}BshEnkCfCxbAukD{cDm_WwxAwoAoiDygO|PkjNyjA{uBja@_vEyiC}oK_wBemUw`E}eHwqEyft@yhA}oE_tBrj@ipBwbDeu@mxJn\\__OysAuwB{UcrFgsBoSe~AkbQ_cB{es@oaB{|Ns\\cfRzr@alI{cCea]y}@cfb@rd@o}FqeIgmMzSqgHykDmaZttAsnHevBseBgdBu{HsH_dKvkAssIy]qdL`sB}sLiiB_rGmLorWkwBavCcyNqjD","_jcbK_zn~@`cC}uBsvCwmLry@ahG_a@mma@blC{pS}jJkbRwmLjvMimKq}f@_yCi~DyaDkHmlKasPmoCms\\}rF}x\\muIpiC}tChlH}wIijGobJhrD}uBgiBcvC}uL_iD~fDshKyiImjE{iRodAwkUkgF{zO_hCo|^ykCi_KacHq`n@s}FeyI{aOth@onLrdHwuL}sTurExkGqtHzSclA|cIqnB`NfEv|KyuAluGs}Aum@mbApmCk`B}pFu`Bls@{`Dp}Tw|BrdGi`@a{@|rCvj]eoCahCyeF`bLyg@ty[ijAl{Cn_@hnKkkAj_B|w@bmN{]rxEltAnvA|P`lDq`CzzKwdAihAeqAtid@_s@iwD","q`{jKkcrcAqJ|z@p~@j{Bpq@scLaRgdR{p@isYyw@qkGiEifHmqAgtFjC_qB{iBc_CepAa}I_OxaFi}C}_Lg_Dy}Bej@ctCoxAzsAlNvwCy\\dtAkp@}{EwmBcoAe_H}qUoPyrDu_BiVgmAmjKdMyvAtx@ut@oFyxHofArp@ioBem@m_BmyH~BkqD{l@dnAjUfvF}lHnH_~@et@rEzaDasE`eJqbD{sNwv@eJ}hAqiCiwKypE{lAwtB`Fi_B}q@uuAq|BxuDs|@if@uoAnoDocB{hAq~BmtGebBoeM_jBuzFqm@_bAkaAjnBcvBu`Aeq@nsGhnAr~E}ObdChuExtHqaAbgDzbJb~MtiAumAdb@hi@","c|cnKmczhA{lBjc@{cJu`N|y@qwEqjEu{FxMgjCymAcwEtp@_{Glv@yHi{AmjHtrDibJ~gC|jCl~Ewt@nG}|DfmC_tGcw@qxHpeD}sOduHs|Flg@r_GvkA~y@r`HkfJcJypSa|LulZfuDc_Voz@wmMlv@skKmnBqiN_mIy|Og}Im}GokJmVw}GhwFgcGjWmuH~oNq_IblEwzFinEedDnhBi`EaaB}sCnuGgjC}MgpAhoFmyC|jBipFsqMq_AinQupBgnGuvQi_I}kE_fSry@yuK}yDk_e@{nFlhA_kHwgFuaBt}G_cDdb@uoCyeLeiAacPydAgvDcsBwNcuEw{^uyBsiEnLglM{nAmsBsGe~DelDq|AafAkqMc~CssAyj@k~U~dCc}CsVifRivE{vY_sC}vIkqIi~Kad@ynL`sBkaC~rBuxJxeC{iOyBqpIulBe}F{xDkdBy{AcgIycGkgC","axeuKemo|AgpBsiEwxCsAqzJcaIwqC{r@snE_sHsfF_|AolCjQghC`}CmfFx{OwiAnkGmqEphEgmHihF{qBzpC}fByHykCuzA_pBmjEioBnFu}CilEm`C_HtU~~BgQlsB`{AjaDwIj~FfRl}@mQNrZxfDznAh~E_X`cHpm@jxBafAhtIdd@xeDwBz_Hiq@zwAskFsDg^vwAihCg_BsAw|Bio@~ARdkI{q@jc@g{Dx}KuaAfv@g|AaaB_sCyiHopCvxArNncKhYiqB~sAnxDpsBxdUa{AlwLklApW_WnyDdWxtBa`Af|BqZ_vA","ajjyKaafxAm_@gaPovBukJqpFtj@|Auhg@ehD_cMgx@oxVh`@}cCfrC}a@bmD{eJp`A_aGmYyzI~fAkaD}KwkDs}@rj@qqHooPgpFk_YktFmbL}dAtrCezAmsCt_AhfO_oAv~DoxIqsEkmEhkBk|Fw_TaUcuOgpBs{TulBdKuUysJ_fHvoAomJlrO}bDccKsnAf|@cpByoIuzCz`DgyCulK}`G{xDizCbhX}sCpkDqxCk`EmkBfvBueCebI_d@{{IsfCn\\kUaoFu_CmuAieJvrU}s@sT_eAbmIox@swD}bBtwCc_EuuEq`@unGsX|hAe~@q|C{aAqlMw{AdiAmScnFqiCbd@_{BinF{jC`aBkpDdnJoqV}e@cmA|~DmgCu|AeKrcH}wCpeMacHp`AinBvnRrxGh|Ot`E||`@iy@b~EbaA|iu@_pAfkF~fAvmRhsChuK{lA`vD{CtdNzxC`jJncEvGfyEnaOsCvbGtvBu[`lAlcD~}@ejD|jDz|B~ZnvEncF~C~T`}NdbEjrR}Rz~]pw@pnQ{nCoCiiAmcJixBlr@xQbeMwqD`bSbsDjaNq_Fvo]|vErqFdp@hjJjcK`rTjj@nzDaa@r|DtoFbhQyEbvDnxAv{CnhB|wRr|G`Psk@|yHqcCqnDv@loMxpAjvBvuA}aAz@`vFrqDtpDbtCetAfcErwBnvA{zBvaB|aHpwAdO|i@lcKbe@a{A","ubs}Kul{nAZcAdChDzJuDpANzExKl@|GXtMsKpLeGz_@_AvCoB`C{FIsDzC}EwAsElKuAn@yHsJwC}Jc@{DDwC|AiMx@iOOcE}AmLR}Iz@qI[mLiCiNeFaMoAaOcEcHu@}G`C{ZZcYt@mNLwKt@kK?kGqA{G{KgK_EmHmBmNGoBh@mC","qou}K}vboAjAjVdTf[mGniBtTv|@q@lb@lBpR}Cra@~CxOrJjLjG}LnTsArK{g@bMeMbN|CvNd]|MiBxPcT|RlJvX~z@iA`i@hMxoAdf@ly@nAfo@jDbTfH|MvLuPt@_K~D_Aj_@rk@|EhXd@xo@rFz`@yBbObCpJe@pI`GxCtE|UtLxHdAhSqBvPBx]zIh]lBbCbDeN~Eg@|D`HCnL","yrh}K}|enAkz@uqC}MqqCa~@{ZysAuuHyvCbc@}i@mcKqwAeOo_@muDw`A_kB_wAjzB{|AmaA}c@xx@m`A_oBctCdtAsqDupD{@avFwuA|aAipAkuB_UgqDvRe~GpcCpnDdm@etH{`C~f@i|Cy}@mbAczFae@y|JoxAw{CjF_tDkmCygJcc@xK|W`uBeIprA}nAsNeb@miAqvBpuBzP~wA","kci_LkamqAgA}]sNay@zDcCxHoP|BmHjD{QnBoEdBaBbe@t@jDkDdEwLhB{AxCpBfCpH","owf_La}qqAj]qs@lPjHzAzi@hIzUvRwHpb@di@rWyOdIqrAcKm^{KysAxUo^hMrQ`O|t@`^zc@zg@vbBfB`r@rL~l@tVb_@~L`k@vCzuAmNz_AxH~r@jYrqAl^`BxW|m@be@l~GY~yAn\\zw@dX~bB~Kv}Aps@ha@hl@mQd]pa@h_@~JrrBy{@lKz[i@lr@xw@ff@rYvaB~J_oAo@gdBf]qnA|a@yC|O`Hx@lZfu@~C","ucg~Ko}mpA}jBuc@g]pnAoIftDsYwaByw@gf@cJioAsrBx{@o}@qm@il@lQus@qa@gd@o~Di]{z@X_zA{e@yaHaWqj@s_@_Dy_@ekBpLk}AwEwwA_c@idA{Oa`B{g@wbB}wAofDiNy|Aui@ux@`a@s|Dkj@ozDokBuvD}_BgxGoq@uc@mcCm|Dgk@kxE}C}pC}t@_y@}w@bPuVuo@kI_xA_fAa_Ado@iaDjYoeDzs@qoBaIggErpAurBpXmzENsyA}Kyr@e`BoaBoeAmpFfZwdDbpAoiD`RmyChr@kwCaM_wDoUitA`S}~DtwBoi@vJzvDrz@jgDdy@~y@`tAml@h@ujBlIeDnSriBfVdd@jl@~ApZuv@zW`bAxm@nk@r`@u~AxPns@ze@Il\\`rAtXfLuCie@","_|}~KuquuA~HnOiDxTuXgLm\\arA{e@HyPos@qOdQzAbn@}Rj]ym@ok@{WabAoLlKaMfj@kl@_BgVed@mPweBoLh@gMsxCtIqrBks@sxExVcgFsJykFsIa{@bKuzAqMovBzS{|FeIm`@eOgB}Fgn@mWmeAeCou@wNae@eDkz@mMab@cWgByTqh@kFsc@YskAxEc_AtD_E","m_n_Lch|wAuv@q|@_Ve}NebFuA_[ovE}jD{|B_~@djDalAmcDuvBt[rCwbGgyEoaOocEwG}wCcfJ|BshNzlAavDisCiuK_gAwmR~oAgkFcaA}iu@hy@c~E{_E}y`@ubEmwKy|@wjAgF`bFcs@fe@yhCgqDe\\erHyfHvmDehA|eX_zBntB_hAlmF_eAneTkvFdhFq|@`@ws@uxEdN}hHmtBze@mpAv}HmaAjYqhC}sDaaBekIaaAvC}f@ewCln@yuQuj@wfCulAt{Bmo@vhKmmClbHqbDwzBxJcjH{sDdy@srFiwH{yAliFciB}|CyvA`uBmgAtqUwpE`M{uEoyHilCDqvEsuT{DwhIceBqlKmdJqhMoe@cdHgdDccJ}uD|{B","ozxeLghj`B|uD}{BfdDbcJne@bdHldJphMbeBplKzDvhIpvEruThlCEzsE|xHvrEoLlgAuqUxvAauBlhBl}CpzA}iFrrFhwHzsDey@yJbjHpbDvzBlmCmbHlo@whKtlAu{Btj@vfCmn@xuQ|f@dwC`aAwC`aBdkIphC|sDlaAkYlpAw}HltB{e@eN|hHvs@txEp|@a@dvFmfFdeAggT~gAmmF~yBotBvhAyfX|fHslDz[|rH~oDzgDfC{~NjcB{gL`dHucA`lBkaGnvAckNwoCiuCwyCmbKq`IgeCs~BbqDbj@_~FftBi~AuuEw}SkRs|\\haAy~K{dAycHeoFtyBem@}lHapB}xClm@a{CjtCjqCr{D{_QnxNwoGspA_ug@aiCwpNvmAqrBff@alKcgEsu`@djBg_Yoy@keEfOitDgeC}gN|GgeFsuD_iGkbAb~@}iLq|Vk{Asmb@csBmsLpY_|I_|@{zL{pHydD{jButHkrJslCwgA_dK_dDwkIsDcpG}_Dei@ioGsfTqcDql@_yDk}GicCdo@oj@fbD{vDkmD_l@llCkhAml@yeBzuWseB~uEbQtpLh|@bjB_eA~fJu}BgXyuDb_Hmn@mdC_dE`mUurH_gE`Q`jTuz@}Kwf@tmDd_A|sDmb@tiJtl@|fPadEbtWd~@fkT_{J`h@iaElqQaw@od@kzE`lHe\\gaOieBuvF{tD|gJla@|iN{f@`aGyyB_jAo`Db~B","otbgLqjxhB_McIVwe@p^kzCb\\w~AtDm_A_P}{AfKy~ArVik@|AgWu[eqCuRcnCmP}o@Vm\\qf@kv@w]aUqL_j@cDcgAveA}lE|_@cApt@pc@nUqyArXyu@xZ_`@~ZyvBo@cT{Qe\\eE}d@~BmrBeC}p@sVcw@eFon@rEscBgB{lCoHkP}[~KcCw_@yDpTmPbIk^pbAk@joA}YhuAyg@|n@i_@{DyMnQcPhy@uAla@s[pv@hNdX","ekfgLcgpjBiNeXlo@isCvuAey@n\\ahDdt@gyAoMyfHpu@a{CjUqwG|w@sTdq@o|D{OyrE|f@ybB_BcwKxoAfOx{@lcB|uAyzBdPmdEkNocE`y@i|DbiAvu@leC_WzaA{wAxiAxmYx|AtkB|r@ziGlfBegCd@ckB|e@}n@jfCneElSe~@oLe{E|sAii@fJueBhgA~Uvg@{nDpZzu@d_@ee@mb@}zKnZg~E}dC{bPtiBu}@njAkzGaJadTi[myEbR{|B`o@yuAyXssFlt@kcElv@~NncHerNxsCqrBvHc_BydAk`CsV}bCfYsrEnmBu}HdZmbK~d@w}@xf@yuEgr@y`^uz@w}A}mAqjKmfCvCs}@oxG}Fw~GzS{dCwd@scEqrGqbVerA{]wTk{Fd_@yjAt~AclTjMgeJ_`@wnBs_@dcHslDfwLqcGltC_|CkpBaeHboMsv@sc@dOlnGai@rzEc{Gvn@ehBvhFin@h]s`EwgBg`Fh@cmGtmLijAaF{Ib~Ahw@x`Dt^haMdkAj|KbDjqDitIfdGyvBwb@yqB}uC","}~_hL}_wrBf@`AsGuOwNwUmDmI}BwJiBcMm@mIE{GoA\\m@w@kFmQwF_LwFoGuCg@lEwMtIw`@jBuTpEeQdCnKtCv[fAzGpFxIlAp@TcA"]</script>
+<script type="application/json" id="itin-route">["onwlJykh`AzLGnHtOvAjLjIrS_GdRFtAb@SjEmQ~DiJpCiS\\S`Enc@LfHdAZTm@u@sIRkD|JuRjDk[xBcGrPuYdCaJvBcQdDqm@a@gK_EsUi@}Gu@eu@R}JrAkI|B{ErOmKjLo^c@qEaIcIr@yEqHoRsB_CnDqU","uxslJ}hs`AwnAfoNzzD|g_@qrD|`FarD|`QcvJbdTu{Fuc@yqA_~DwiBhqC_{IjeA}cBfiIizC~vA{`DhqNyi@pd[uvBbvA}vD|yNu`AfjRmgC|cHAlvIc}N`vH}iBloGfLvyHqgAlfGa_GxsI`hBlfLsp@dyJi}Att@aqDf~O}uAjLuc@l_HakN`lKp`Bn_Ish@tjKbmDrvLbbExqFnnChkOznC~_Aje@vpKsjA`bYghDzaKjcExy_@uvDxtUkaGfvAmVf`DhWjcKbeFf~OujApkHfOtuSwgAtxH|nBilBdbDbsJryDyCngDnb_@ltG`jXtnCotEtaIba@|}BccK","eh{nJsomm@yJz~@qRxVmXxmA|Cbe@{Zrh@aEjrAch@ny@{aBxbA{IcTu\\iEwXxXuYme@_NjUm^{B}o@alAsa@oBsW`n@iI`q@mq@iEyVhc@oAxc@y_@vp@zGjoAmTlsCsb@vuASho@w\\naBfDzaBgLdl@~Dhe@eEhq@yNlU[~pAcb@fZq^qKmSh[eHpaAiQzm@pAze@sWrKyZ|m@sCvqBbVxxAyQryDtFn~AkDbl@}Rjf@ibAzEyC~Z","o_yoJu{gk@nh@wb@ck@|fBfl@xoBsUxoB~^`MgWduCdc@f|Dq~@|eGylBjMyxBzvD_@~pB{{AjmEkYv`EvbA|aIbLhuTnWvU{^w~@_wB~yAo_I|bSu{A}aAklBjiA|Pl{FmgCnaOwIpkDsfA|hD{mCvgByg@dcOmj@`cAlrDt`N{qAfwFs~@zyMpWfzBid@~lC`GdzCi{@vbDOdfNdj@txBoi@rkFzJ|nEfu@l{@`OnkFxj@tzA@nnCt{AprJbzCjbBxq@n|FnkBxdBfvB~gFrrEiMluFskC|qAhmA~VvrF{U`aCxpAzoFxrBz`AaWtrGhe@~|C{HxuI`h@bhFgnFxnCmZhwAbCl|FmlBnqEuD|xA`oBrzBp_Cob@~mAhaCroAeqBr`BA","{dsoJ_wo_@mwBro@gaAfhBmmA}`C{aCha@mnB_lClrBixGcCm|FlZiwAbpFwmC}i@eiF`WokCes@ubJtHixFhsEqxEsWiwEdUqjA{eAukCp`@}cBmOslAdlCadEpB{hH}{Auo@zjAiqB}CueEc{AggD|x@g_Kb_BmfAwMawBxe@sqAmSq_Cpt@uIc{@mnRhbCwbDnn@mkFxm@ct@|k@nHbn@`nFjtAfaCliEgsQleBxnB`PtwDrnBZjiMidRnmAjqBrsB|LdQggO~wFgh^nrFuqEzvGzF`uJq_D","eq{lJc}dg@ii\\ncFifZmgMajGhGqlSqnLxt@qdFycCpmAe~EglG{jFggOowL|}U}jErJxRfwFgqC|iTqtExnGyr@j`Pe~CxQidPwpKymDzdBkyAspDfhAwdIqnAodJcaCsoKokDFwsBijVqyBokGajAuqf@eq@sgA|iF_}H","_fnrJimlj@rCNsCbN`B`OdOlIcEtQ}CqCtHiLrIqk@U}e@uHcXwYoYiIi|@{FgQ}u@eSaMmf@gW}Wks@eIwVym@g_@s`@qDwL}OuIyDw]|BuRyFu^qK}B}R{WqM[oC{Smb@o[{Qs[aLyBf[kDrPhNqJg[eReJ`Oh@iXeRcFnGmLiCtR}NvZfDtWlO_Xkc@p^pXrZiA","}ewrJ{t_k@sZhAq^qX~Wjc@ms@uTuR|NpSeChXdRaOi@dRdJpJf[sPiNg[jDjbA|{@nCzSxm@j\\|HlqAvu@`y@vVxm@js@dIfW|W`Mlf@hu@hR~PlmA~]ha@dG~k@gJ|v@wInMoMoEsZou@e_Atx@_n@xiAkxA|}DnEr[ra@lR`HpWvhAxdf@dP~mA{{@ac@ov@{t@}]kx@iv@gh@}`@sHal@|QgImK","ugzrJqq|h@fxAbB~iEr|DqPaoAwhAydf@eq@sgAhaCw`GfeAu`A|j@z{@pRqvAmx@wlCmt@aQie@k_Asr@oHgy@cvA}IoaB|L_pDofQgfg@a}DaoGo~F}}EoE{e@jg@mjAtc@arCaGwjDlm@iuIskAegFvPezBnYc|@eGc~Eha@wuEudAg|HkVgk@`zAr^","iirsJu_un@qyAm\\x{AljJqa@rqEdGb~Eck@drDlkAhiFss@zoQs|ArsDwjD{hBsUr_A~^lyBoP`eBqp@_g@ufDhuD_mBhdD_CtdA_aCkxFa~B}kLyNk~Lxg@qgEofE{gEmVugJyaBlBaZenBmvA}gAwVufC}~EDseAajIoLrxDydHdbFgcBheEkgDuZgb@zx@qrC_q@e{@a~ActFxi@{vAcjKs}@ul@uFu~AqEzu@_XowA_kAil@oa@}`Csz@wEwjAw`CuRmyK_tBchQulLkhC_a@yoI_~AsrFnSu~A_s@utCliC~u@`sFmg@hfBksCrlCkbAbkBc{D","c`tvJiviq@a`JzrKo}JqMwuKguc@}aNe{OgeAooLmtBk{FkfFl~Yor@zk^uxFllk@qxBbvC_j@trOmgAjbFarHdfFa[~}NbkAvgMwsDtg\\hpBxu`@gtB~tKvNruGuvChuCw\\}mCmiApjAm|Ih_Qu~CyeB{oHxfH_fO_kHyxAahNut@|v@kk@{oCclBcoTu~Ac_D|mBgdLiYu{HsfHouFksGm}OemFms@ff@s_@","mne|Jgcym@gf@r_@dmFls@jsGl}OtjDtnA|zBxeDhYt{H}mBfdLt~Ab_D|W`zHbpA|kCvFlzFfg@`}Bbt@mw@noBbbOnlIvvFteDvXn|@{wCnnFomCheBmEjx@flB~GkgBt]`c@dcCapDtTi{BdvAuLbx@amDxtAm}AqJ`oAfx@vq@","ojvyJccgk@gx@wq@pJaoAytAl}Acx@`mDevAtLuTh{BecC`pDu]ac@_HjgBkx@glBieBlEonFnmCi}@`xC{dD}XqhJwrHykA`fFefBhiR_yAa`AqjAiyEcrDvpAgtA``Go[hvO_cGrjBkv@rjDqfA|bBkSw^wEpeCor@po@uIbfGalBys@lOhaWeNxv@ym@aqBiXfn@fiAd{Iu}@lqHh]fpJ","qak|Jyj_g@k@hZmCiFbQnqCoEnnAkQx}@rH`jAoBd|@nVbqC|VfqAl@lwDxa@pqCfPzkG_FnPiAreB`M~kFoE|[bOvoBgWhmHhE|fCuCcNq@n_AaHuPyE`y@qHuXoCjNxGbl@k@bxA","kci|Jwrsd@_F{hC~g@chAn@sh\\qmBmy\\dXk`Dwi@imOx}@o{HgiAcqIhXyp@xm@`qBhNwx@ySim[_rEwuFgyBosHegCexCijBejVw}EaG_LcmGos@srB_SipDvvAq{G_n@gxCvwAkzKpiDwiGflAuiHj|D_sEAe{MdyDybBt_@ijAwEgtAe_AaU_yF}pP}g@{UjJamAgsA_aDmd@iuOi\\tGlAxuDyp@laDnwBlbWy]vbFu}@z{@pWvhCuaGq[uxB|kEqeCxfAqm@me@ovB~vHoiAzf@aPzkCukAkd@c_CzcAqClhZcdA~aCxAdlBmUocBakByjByyDj`H_~@egBuvEnz@upDeyFqwC_zQ_SwmEo|CiqGgcExuFma@pfHut@z{@ib@jfHkjAcN_cB|oC}j@{y@mn@e_H","apr_Kg|xk@cCfGeHc`@_IizBmWynA~q@{gC\\wpAr\\}oBce@ixBiB}mEqZwiBkB_sBdGwp@va@ykAd[yfC~CuuA}Cgc@kZc{@}a@bQ_Rs}@yc@|Du`@}cAcb@e]qHc`@sHmDeInQsMoXcMfCsOe[iFa_AyHzNcXej@{dAkn@sStJcd@isAw\\}ZqPbRwWl|Bwi@p}@ec@~Isa@u\\kiBc`EaK_s@yMm|CdY{~Dfc@gHj[cZpTItCp]","yhe`K{jdn@q}@`^eNkcAl_A_bClj@k_LllAbp@nlBzgGf}E}gBbr@nUfc@fxBxv@o`C~pDehBjqAp~Arb@orEwi@y{Fu_B{wCcc@wdIymAcbEaDidEw`E}eHcuDypf@w\\syLugAikE}tBbj@qrBsmDcr@cpJrO_qFoU{~Anb@ajDysAuwB{UcrFckAnp@cg@_eAk~AocQybBwds@oaB{|NtPsjJin@ozFzr@alIiz@wvEwc@e}GbKmbE}o@ygGkGweUmu@k_Lrd@o}FygDwnHsv@yBceBuyCzSqgHadCg|Owf@edIrkAgjC`HkcDew@jB_~@_iBgdBu{HsH_dKvkAssIy]qdL`sB}sLiiB_rGvQamPe_@mdFkwBavCobFsb@geDerCkoBfJ","_jcbK_zn~@|e@tVb|AsmCkCegBgrCqeIry@ahG_a@mma@|x@{lI~t@}qA`f@ssD{nFodKir@uqFewBuUc_DzfD_tAv{Dky@g[uxA`}Bu}@shCaV_kFqwH}g[sgAiBkpA_{Da`Bzu@w`Ag_AgkA{oDgrA`AkrA}lFqyCivCeq@k|MaoAgyFeMy{EwwAa{JogAcyBuqAwbM{sIfhCi`AxiEsvB|cBstBa~@ah@c|BywCgoA}jJ`oDwnBqhBatCg_Mau@le@","q{ueKoedeAwsBllCe|AkcCmdArLkz@apBqp@|`FenB`pAkZrwF|^plLq`@~qHaxDeKm}FdbIgkApxEck@ov@ogAtlA_~Bmw@kfIjaEk~Bsj@uiC_bF}sBe~Aan@oeFq}Ae_Ait@egCrEquCgjBqqHsoB_dB_d@seJmf@icBkfBmg@{wAsdEetAql@glAtyBtLbuA","mcnhKqcdeAweBimc@h~B{hPgkGykk@xWk~CraCsb@jkAqwDpJ{mF}|AqsIpuAs{B\\gfZ_vJmbNct@oxIgkCc|EguBkcM}yNwyR}`GazVojOy}UspF}yPuiCqwBkhB_fJcnHogBieCspHv`@kcEckEy|GqhNgnMox@{hD{cDuCcjDogFg`Dxe@k`OibH_zGpcLwfAa_DchDlY}lEakG{`Ih_BjkHdkMtoCluPyu@jpKjv@piOcqDhcT`|LtlZfNleQizAb}FaiElsDclAyy@mg@s_GeuHr|FqeD|sObw@pxHgmC~sGoG||Dm~Evt@_hC}jCerD|}IxzAxnHmv@xHup@~zGxmAbwEyMfjCpjEt{F}y@pwEzcJt`NzlBkc@","c|cnKmczhA{lBjc@{cJu`N|y@qwEqjEu{FxMgjCymAcwEtp@_{Glv@yHyzAynHdrD}}I~gC|jCl~Ewt@nG}|DfmC_tGcw@qxHpeD}sOduHs|Flg@r_GblAxy@`iEmsDhzAc}FgNmeQa|LulZbqDicTkv@qiOxu@kpKuoCmuPckHelMceK_uHwcLxUc|Dz_FmhGj[wqHvlNq_IblEwzFinEedDnhBi`EaaBiyRlnWseEml@sjAnhFofBcp@cuHk{YosDrg@ypLx}j@zjC|aS{YxbN~w@njO|x@pkHl{CxnGxu@j~Gqa@p_B","uz}qK{`blAiGeu@v_@js@bIw}Ayu@k~Gks@wqDmz@jQsk@mnB}x@qkH_x@ojOzYybN}aAilL}gAstEj[{~E`lJsda@`l@}|AxxCqlAxZolOceBobIbc@}fDmkD{{@m~DmhRiFopAb_AenIqzD{`e@aj@gbAgg@fxA}zC|s@_kHwgFuaBt}G_cDdb@uoCyeLeiAacPydAgvDcsBwN_e@wpIwjAaoBgRghEqoAuqEQ_~CuyBsiEcIajGrVeaE{nAmsBsGe~Dit@skB{vB`NafAkqMu}C_rAgk@_`V|\\}pBfx@xs@xm@_`BsVifRivE{vY_sC}vIixBkzAaxE}bIad@ynL|MecAbdBe}@~rBuxJnp@knGhtAozFyBqpIulBe}FedCuOus@usAy{AcgIoaD}ZiaBmkB","axeuKemo|AgpBsiEwxCsAqzJcaIwqC{r@snE_sHsfF_|AolCjQghC`}CmfFx{OwiAnkGmqEphEgmHihF{qBzpC}fByHykCuzA_pBmjEioBnFu}CilEc`CeHjUd_CgQlsB`{AjaDwIj~FfRl}@mQNrZxfDznAh~E_X`cHpm@jxB_fAxqIhd@zlDgP|gIooG`e@k_@hxAihCg_BsAw|Bio@~ARdkI{q@jc@g{Dx}KuaAfv@g|AaaBusCijHibAnJkvAl}BnXxsIhYiqB~sAnxDnsBz`U_{Aj{L{kAlUqPtcGlpAzxC|o@uiD~YpoDhzAzk@`QtoDu`@duMlT~_ExtA|iBd[d|Cd{EnwLng@|aEpwCrcAp|@}\\zUivAx\\veInd@brBpbAs`@v\\oxAzwBhq@huDjkFjp@o|@hk@voClElvGt|ArsBmdBviDcDd}Crs@zeEaDxtDdz@fjC`wAv\\kL`xA`[dhF~pAh{Gam@bnCuc@lcPdyAdcM}Yd`Yvh@lu@buFqwItzBwx@lp@a}Gbm@_ZlKmnAf^zXhCe~@hn@dkC~q@_d@sBonGdpAmoCrWhyAptB{}Koe@gyPlo@ciKfeAg}Cd~KdaR{S|oCrNttPmWpqBv_AlnRdu@t[zSrpBnI~iM_nAnsAof@m~@uh@ncCuf@|PtZhtF`yBfpG~fF`x@zZke@ti@mzKnuAyjAto@_eC`h@~N","qcwuKwhxqAah@_Ouo@~dCouAxjAui@lzK{Zje@_gFax@ayBgpGuZitFtf@}Pth@ocCnf@l~@~mAosAoI_jM{SspBeu@u[w_AmnRlWqqBsNutPzS}oCe~KeaRgeAf}Cmo@biKne@fyPqtBz}KsWiyAepAloCrBnnGep@he@y`@gjCuSf}@e]eZmKlnA}m@n\\{n@lyGm{Bzy@mfGrmImd@woBzf@m}VeyAozLvc@sjPhm@ekCgqAg~Ga[ehFjLaxAawAw\\o}@uwCzGgcDyi@cqBcFkkFhgBwkD}~AoaCcF}|Gii@adCkp@n|@ewDamFcxByo@sZtxAecAz_@{c@kqBq[ydIcWjuAq|@|\\qwCscAei@cfEoyEisLu\\o_D{uAqpByQwzDr`@opM_S}uDkxAse@{ZapDwm@niDqs@qvBclA~gCm[suA","eyj}KsdknAtDFbEyPsF{`@e@yo@gEmVa`@om@_E~@u@~JwLtPgH}MkDcToAgo@ef@my@iMyoAhAai@gXcz@mSiKyPbT{NzAyMw\\sOiCgAsV{EyKoR~@","ubs}Kul{nAZcAdChDzJuDpANzExKl@|GXtMsKpLeGz_@_AvCoB`C{FIsDzC}EwAsElKuAn@yHsJwC}Jc@{DDwC|AiMx@iOOcE}AmLR}Iz@qI[mLiCiNeFaMoAaOcEcHu@}G`C{ZZcYt@mNLwKt@kK?kGqA{G{KgK_EmHmBmNGoBh@mC","qou}K}vboAjAjVdTf[mGniBtTv|@q@lb@lBpR}Cra@~CxOrJjLjG}LnTsArK{g@bMeMbN|CvNd]|MiBxPcT|RlJvX~z@iA`i@hMxoAdf@ly@nAfo@jDbTfH|MvLuPt@_K~D_Aj_@rk@|EhXd@xo@rFz`@yBbObCpJe@pI`GxCtE|UtLxHdAhSqBvPBx]zIh]lBbCbDeN~Eg@|D`HCnL","yrh}K}|enAkTgIsHebBk[gd@}MqqCk_@sk@u]vO{FkdAef@my@_K{yBwX_{@us@~K{]cb@wY`v@oh@dB}@miBuTw|@tGegBiVuc@uCknAcs@pLmc@w\\o_@muDw`A_kB_wAjzB{|AmaA}c@xx@m`A_oBwkBhsAgh@LqyBusCev@q[{@avFe~A|~@_vA}`DyFwfCfTk}GbvAzzAnXh`B|Yy\\xd@ceFxw@ff@nZraBrHctDf]qnAjjBzc@","gdg~Ki}mpAkjB{c@g]pnAoIftDsYwaByw@gf@cJioAsrBx{@o}@qm@il@lQus@qa@gd@o~Di]{z@X_zA{e@yaHaWqj@s_@_Dy_@ekBpLk}AeEsuAqc@mfA{Oa`B{g@wbBm|@mlByUn^~WfsBeIprAsWxOiv@m_@eLw`AsRoHgVns@edAdH}g@jgA","kci_LcamqA{PgxAt^oz@~aAkFlLsi@qBatDzq@e`E~Bm~@|Z}~@C{n@gw@m}Es~AwsC__BmvGmr@oe@mcCm|Dgk@kxE}C}pC}t@_y@}w@bPuVuo@kI_xA_fAa_Ado@iaDjYoeDzs@qoBaIggErpAurB|XsaFyKgfCe`BoaBgeAsuF~Yq_DbpAoiD`RmyChr@kwCaM_wDoUitAjWceEjsBic@vJzvDrz@jgDdy@~y@`tAml@h@ujBlIeDnSriBfVdd@jl@~ApZuv@zW`bAxm@nk@r`@u~AxPns@ze@Il\\`rAtXfLuCie@","_|}~KuquuA~HnOiDxTuXgLm\\arA{e@HyPos@qOdQzAbn@}Rj]ym@ok@{WabAoLlKaMfj@kl@_BgVed@mPweBoLh@gMsxCtIqrBks@sxExVcgFsJykFsIa{@bKuzAqMovBzS{|FeIm`@eOgB}Fgn@mWmeAeCou@wNae@eDkz@mMab@cWgByTqh@kFsc@YskAxEc_AtD_E","m_n_Lch|wAuv@q|@_Ve}NebFuA_[ovE}jD{|B_~@djDalAmcDuvBt[rCwbGgyEoaOocEwG}wCcfJ|BshNzlAavDisCiuK_gAwmR~oAgkFcaA}iu@hy@c~E{_E}y`@ubEmwKy|@wjAgF`bFcs@fe@yhCgqDe\\erHyfHvmDehA|eX_zBntB_hAlmF_eAneTkvFdhFq|@`@ws@uxEdN}hHmtBze@mpAv}HmaAjYqhC}sDaaBekIaaAvC}f@ewCln@yuQuj@wfCulAt{Bmo@vhKmmClbHqbDwzBxJcjH{sDdy@srFiwH{yAliFciB}|CyvA`uBmgAtqUwpE`M{uEoyHilCDqvEsuT{DwhIceBqlKmdJqhMoe@cdHgdDccJ}uD|{B","ozxeLghj`Be@a]pFoD{Eoo@qP{c@ei@g~BcEuCwQ`Kkj@yc@aXfFiFgI_AoKlBcVlMeUzEek@tJ}c@dAoQcFys@iR}p@gDgj@Rse@uFgC_HqVoPg_AoFibA{_@_yAiGi{@m@em@sBfD}Uis@sh@iu@}Aw@SbMoEdSqCiE","otbgLqjxhB`|@vJra@sTvl@khAvHo]hIkLxRhJpL~UpOjInI}Tbu@eOlClLxB~u@xBgz@zXq{AdIgiBeA__Ae_@yjCiG}`AkAo~@|Ac}AtMsdB","wkyfLwqriBuMrdBQr|ChG|`Ad_@xjCdA~~@eIfiBoXnyAeCh|@gGmcAcu@dOoI|Tep@yk@g}@poBc^|VmqA{PHgg@hYidCja@ytBtDm_A_P}{AfKy~ArVik@~AqUmo@_bHmP}o@Vm\\qf@kv@w]aUqL_j@cDcgAveA}lE|_@cApt@pc@nUqyArXyu@xZ_`@~ZyvBo@cT{Qe\\eE}d@~BmrBeC}p@sVcw@eFon@rEscBgB{lCoHkP}[~KcCw_@yDpTmPbIk^pbAk@joA}YhuAyg@|n@i_@{DyMnQcPhy@uAla@s[pv@hNdX","ekfgLcgpjBiNeXr[qv@xRw{AvuAey@tZauAx@_rAdt@gyAoMyfHpu@a{CjUqwG|w@sTpVihCrYes@{OyrE|f@ybB}Nq~HpLazAdoAvQd`AfaBvxAcrC~HynDqKem@yAmqClx@k{DviAxt@`f@}l@j~A|TzaA{wAtRn~J{k@heFrJprHmg@vvLukAbiDmy@aCcIh\\yZeDebBwyB","}~_hL}_wrBf@`AsGuOwNwUmDmI}BwJiBcMm@mIE{GoA\\m@w@kFmQwF_LwFoGuCg@lEwMtIw`@jBuTpEeQdCnKtCv[fAzGpFxIlAp@TcA","_s`hL}b|rBiIgHyFmg@uBuIuAdFkEqVi]p|@iCsl@sH{]kLiVwn@ij@mAeg@uJgO{^x[{h@n`Bgg@f_A_Epa@|@bSnDtN|FzC~GaOjIh[hKvPr@rw@`E~U`H|Nv}@lh@f]jCrHf\\`Ewd@hK|KjDuJn\\f_@`H|PbOz}@hb@pz@vL`n@`Sno@t@fSxGmEqAxG"]</script>
 <script>
 (function(){
   "use strict";

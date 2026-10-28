@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Mallorca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<style>
+  :root{
+    --ground:#F6F1E4;
+    --surface:#FFFEFB;
+    --surface-2:#EFE6CF;
+    --ink:#28210F;
+    --ink-soft:#5E5439;
+    --ink-faint:#94886A;
+    --border:#E3D6B4;
+    --sun:#B8721E;
+    --sun-ink:#FBF0E1;
+    --reef:#1F7A5C;
+    --reef-ink:#E9F7F0;
+    --coral:#C1573D;
+    --coral-ink:#FBEBE6;
+    --danger:#A5432A;
+    --shadow: 0 1px 2px rgba(32,26,10,.07), 0 6px 18px -10px rgba(32,26,10,.22);
+  }
+  
+  
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ground); color:var(--ink); font-family:'Work Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 64px;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+
+  .hero{padding:38px 18px 22px;}
+  .backlink{display:inline-flex; align-items:center; gap:5px; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; margin-bottom:16px;}
+  .backlink:hover{color:var(--ink);}
+  .hero .eyebrow{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--sun); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .hero .eyebrow::before{content:""; width:16px; height:1px; background:var(--sun);}
+  .hero h1{font-size:44px; font-weight:700; line-height:1.02;}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:12px 0 0; max-width:48ch; line-height:1.5;}
+
+  .daynav{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--border); padding:10px 0;}
+  .daynav-scroll{display:flex; gap:8px; overflow-x:auto; padding:0 18px; max-width:640px; margin:0 auto; scrollbar-width:none;}
+  .daynav-scroll::-webkit-scrollbar{display:none;}
+  .daynav a{
+    flex:0 0 auto; font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:7px 12px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .daynav a b{color:var(--ink); font-weight:700;}
+
+  .tip{
+    margin:22px 0 8px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--sun);
+    border-radius:10px; padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .tip .tip-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--sun); display:block; margin-bottom:5px;}
+  .tip p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .tip p + p{margin-top:8px;}
+  .tip strong{color:var(--ink); font-weight:600;}
+
+  .day{padding:34px 0 6px; border-top:1px solid var(--border);}
+  .day:first-of-type{border-top:none;}
+  .day-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px; scroll-margin-top:64px; flex-wrap:wrap;}
+  .day-date{font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-faint); letter-spacing:.03em;}
+  .badges{display:flex; gap:6px; flex-wrap:wrap;}
+  .badge{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap;
+  }
+  .badge--travel{background:var(--coral); color:var(--coral-ink);}
+  .badge--water{background:var(--reef); color:var(--reef-ink);}
+  .badge--light{background:transparent; color:var(--ink-soft); border:1px solid var(--border);}
+
+  .day h2{font-size:24px; font-weight:600; margin-top:6px; line-height:1.15;}
+
+  .activity{padding:14px 0; border-top:1px solid var(--border);}
+  .activity:first-of-type{border-top:none; padding-top:16px;}
+  .activity p{font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:0 0 8px;}
+  .activity p:last-of-type{margin-bottom:0;}
+
+  .maplink{
+    display:inline-flex; align-items:center; gap:6px; font-family:'Work Sans'; font-size:13px; font-weight:600;
+    color:var(--sun); text-decoration:none; border:1px solid var(--border); border-radius:999px;
+    padding:6px 12px 6px 10px; background:var(--surface); margin:2px 6px 2px 0;
+  }
+  .maplink::before{content:"↗"; font-size:13px;}
+
+  .map-section{margin:32px 0 8px;}
+  .map-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px; flex-wrap:wrap;}
+  .map-head h3{font-size:15px; font-family:'Fraunces', Georgia, serif;}
+  .map-status{font-size:11.5px; color:var(--ink-faint); font-family:'Space Mono',monospace;}
+  .map-container{height:380px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--surface-2);}
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip{background:var(--surface); color:var(--ink);}
+  .leaflet-tooltip.place-label{background:var(--surface); color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:2px 7px; font-family:'Work Sans',sans-serif; font-size:11.5px; font-weight:600; box-shadow:none; white-space:nowrap;}
+  .leaflet-tooltip.place-label::before{display:none;}
+  .pin-popup{font-size:13px; line-height:1.5;}
+  .pin-popup a{font-size:12px; color:#0078a8;}
+  /* pins are numbered in the order they appear in the itinerary (top to bottom = chronological),
+     so the map reads as a rough visiting order at a glance, not just an unordered cluster of places */
+  .num-pin{display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--sun); color:var(--sun-ink); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.35); border:2px solid var(--surface);}
+
+  .note{background:var(--surface-2); border-radius:8px; padding:10px 12px; font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin-top:10px;}
+  .note.warn{border-left:3px solid var(--danger); background:var(--surface);}
+  .note b{color:var(--ink);}
+
+  .stay{
+    display:flex; gap:12px; align-items:flex-start; margin-top:16px; padding:12px 14px;
+    background:var(--surface-2); border-radius:10px;
+  }
+  .stay-icon{
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px; background:var(--sun); color:var(--sun-ink);
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .stay-body{flex:1;}
+  .stay-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:2px;}
+  .stay-name{font-weight:600; font-size:14.5px;}
+  .stay-note{font-size:13px; color:var(--ink-soft); margin-top:3px; line-height:1.5;}
+
+  .pass{display:flex; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin:16px 0 6px;}
+  .pass-main{flex:1; padding:16px 16px;}
+  .pass-route{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .pass-route .code{font-family:'Space Mono',monospace; font-weight:700; font-size:20px;}
+  .pass-route .arrow{color:var(--ink-faint); font-size:14px;}
+  .pass-flight{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); letter-spacing:.05em;}
+  .pass-note{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
+  .pass-stub{
+    flex:0 0 64px; background:var(--coral); color:var(--coral-ink); display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; writing-mode:vertical-rl; text-transform:uppercase;
+    font-weight:700; border-left:1px dashed rgba(0,0,0,.15);
+  }
+
+  footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink-faint); line-height:1.6;}
+
+  .must{margin:14px 0; padding:12px 15px; background:#FFF3C4; border:1px solid #E0B93A; border-left:5px solid #D99A00; border-radius:8px; font-size:14px; line-height:1.6; color:#3B2A00;}
+  .must b{color:#2A1D00;}
+  .must a{color:#7A4E00; text-decoration:underline; font-weight:600;}
+  .must ul{margin:8px 0 0; padding-left:18px;}
+  .must li{margin-bottom:5px;}
+  .suggest{margin-top:6px; padding-top:6px;}
+  .suggest-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .suggest ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .suggest li{font-size:14.5px; line-height:1.55; color:var(--ink-soft);}
+  .suggest li b{color:var(--ink);}
+  .extras .suggest + .suggest{margin-top:22px;}
+  .lead-text{font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .extlink{color:var(--sun); font-weight:600; text-decoration:underline;}
+  .num-pin--extra{width:14px; height:14px; background:var(--surface); border:2px solid var(--sun); box-shadow:0 1px 3px rgba(0,0,0,.3);}
+
+  /* itin-common */
+  .tip + .tip{margin-top:14px;}
+  .campbox{margin:14px 0 4px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--surface-2, var(--surface));}
+  .camp-label{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:8px;}
+  .camp-item{padding:10px 0; border-top:1px solid var(--border);}
+  .camp-item:first-of-type{border-top:0; padding-top:2px;}
+  .camp-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .camp-name{font-weight:600; font-size:14.5px; color:var(--ink);}
+  .camp-rate{font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .camp-rate i{font-style:normal; color:var(--ink-faint);}
+  .amen{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .am{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:2px 8px 2px 6px;}
+  .am-i{font-size:13px; line-height:1;}
+  .amen-none{font-size:12px; color:var(--ink-faint); font-style:italic;}
+  .camp-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .camp-item a.maplink, .camp-item .maplink-plain{display:inline-block; margin-top:6px; font-size:12.5px;}
+  .maplink-plain{color:var(--ink-soft); text-decoration:underline;}
+  .camp-foot{font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5;}
+  .camp-pin{display:flex; align-items:center; justify-content:center; width:20px; height:20px; font-size:13px; line-height:1; background:var(--surface,#fff); border:1.5px solid var(--ink-soft,#666); border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .daybtn{display:inline-block; margin-top:14px; padding:8px 14px; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; box-shadow:var(--shadow, none);}
+  .daybtn:hover{border-color:var(--ink-soft);}
+  .linklist{list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; font-size:13.5px; line-height:1.5;}
+  .linklist span{color:var(--ink-soft);}
+  .tip--links a{font-weight:600; text-decoration:underline;}
+  .map-legend label.lg{cursor:pointer;}
+  .leaflet-control-layers-toggle{background-image:url(https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/layers.png) !important; background-size:26px 26px;}
+
+  /* itin-white */
+  :root, :root[data-theme="light"], :root[data-theme="dark"]{ --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F6F4; --border:#E2E2DE; --ink:#1D1D1F; --ink-soft:#55555A; --ink-faint:#8A8A90; color-scheme:light; }
+  html, body{ background:#FFFFFF; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="backlink" href="index.html">← Zpět na přehled</a>
+  <div class="eyebrow">Baleárské ostrovy · 8 dní · auto</div>
+  <h1>Mallorca</h1>
+  <p>Palma → pohoří Tramuntana a Sóller → soutěska Sa Calobra → mys Formentor → krápníkové jeskyně → tyrkysové zátoky jihovýchodu → ostrov Cabrera. Kamenné vesnice v horách, stezky nad mořem a zátoky, kam se dojde jen pěšky — Mallorca mimo hotelové pláže.</p>
+</header>
+
+<nav class="daynav">
+  <div class="daynav-scroll">
+    <a href="#d1"><b>1</b> Přílet</a>
+    <a href="#d2"><b>2</b> Tramuntana</a>
+    <a href="#d3"><b>3</b> Sa Calobra</a>
+    <a href="#d4"><b>4</b> Formentor</a>
+    <a href="#d5"><b>5</b> Jeskyně</a>
+    <a href="#d6"><b>6</b> Zátoky</a>
+    <a href="#d7"><b>7</b> Cabrera</a>
+    <a href="#d8"><b>8</b> Palma</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="tip">
+    <span class="tip-label">Než vyrazíte</span>
+    <p><strong>📅 Kdy:</strong> nejlíp květen–červen nebo září–říjen — teplé moře, ale bez letních davů a veder. V červenci a srpnu jsou zátoky i parkoviště plné už v 9 ráno.</p>
+    <p><strong>🚗 Auto:</strong> půjčit na letišti v Palmě. Do hor po úzkých serpentinách (sdílené s cyklisty), na Formentor se v sezóně (červen–září, přes den) autem nesmí — jezdí kyvadlový autobus z Port de Pollença.</p>
+    <p><strong>🥾 Tempo:</strong> dvě střední túry (6–10 km) v horách, jinak krátké procházky ke koupání. Pevné boty na kamenité stezky do zátok.</p>
+    <p><strong>🍷 Jídlo:</strong> ensaïmada ke snídani, pa amb oli, sobrassada, tumbet a ryby v přístavech; víno z oblasti Binissalem.</p>
+  </div>
+
+  <div class="must">
+    <b>🎟️ Co rezervovat předem:</b>
+    <ul>
+      <li><b>Coves del Drach:</b> vstupenky na konkrétní čas (s koncertem na podzemním jezeře) — v sezóně vyprodané.</li>
+      <li><b>Loď na ostrov Cabrera:</b> národní park s omezeným počtem návštěvníků, lodě z Colònia de Sant Jordi.</li>
+      <li><b>Vláček Palma–Sóller</b> (pokud ho chcete zkusit) a loď Port de Sóller → Sa Calobra — obojí online.</li>
+    </ul>
+  </div>
+
+  <!-- DAY 1 -->
+  <section class="day day--travel" id="d1">
+    <div class="day-head">
+      <span class="day-date">DEN 01</span>
+      <span class="badge badge--travel">Přílet</span>
+    </div>
+    <h2>Přílet a přes hory do Sóller</h2>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">PRG</span><span class="arrow">✈</span><span class="code">PMI</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+        <div class="pass-note">Přímý let cca 2,5 h. Půjčit auto na letišti.</div>
+      </div>
+      <div class="pass-stub">PŘÍLET</div>
+    </div>
+    <div class="activity">
+      <p>Půl hodiny tunelem nebo serpentinami přes průsmyk Coll de Sóller do údolí pomerančových a citronových sadů. Večer náměstí Plaça de sa Constitució s kostelem a modernistickou bankou, zmrzlina z místních pomerančů.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Placa+de+sa+Constitucio+Soller" target="_blank" rel="noopener" data-lat="39.7663" data-lng="2.7150">Sóller</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🍊</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 1–4)</span>
+        <div class="stay-name">Sóller nebo Port de Sóller</div>
+        <div class="stay-note">Ideální základna pro Tramuntanu — malý penzion nebo finca v sadech za městem.</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Port+de+Soller" target="_blank" rel="noopener" data-lat="39.7960" data-lng="2.6960">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="d2">
+    <div class="day-head">
+      <span class="day-date">DEN 02</span>
+      <span class="badge badge--light">Trek cca 10 km</span>
+    </div>
+    <h2>Tramuntana — Valldemossa, Deià a stezka nad mořem</h2>
+    <div class="activity">
+      <p>Ráno Valldemossa — kamenná vesnice s kartuziánským klášterem, kde zimoval Chopin. Pak Deià, vesnice umělců na kopci nad mořem; koupání v malé skalnaté zátoce Cala Deià.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Valldemossa" target="_blank" rel="noopener" data-lat="39.7106" data-lng="2.6224">Valldemossa</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Cala+Deia" target="_blank" rel="noopener" data-lat="39.7560" data-lng="2.6370">Cala Deià</a>
+    </div>
+    <div class="activity">
+      <p>Odpoledne pěšky z Deià zpět do Sóller po staré mezkařské cestě Camí de Castelló (část dálkové trasy GR 221, cca 10 km, mírně) — olivové terasy, kamenné zídky a výhledy na moře. Zpět pro auto autobusem.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Cami+de+Castello+Deia+Soller" target="_blank" rel="noopener">Camí de Castelló</a>
+      <div class="note">Při západu slunce: vyhlídka Sa Foradada — skála s obří dírou nad mořem, kousek za Deià.</div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mirador+de+Sa+Foradada" target="_blank" rel="noopener" data-lat="39.7500" data-lng="2.6200">Sa Foradada</a>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="d3">
+    <div class="day-head">
+      <span class="day-date">DEN 03</span>
+      <span class="badge badge--water">Loď</span>
+    </div>
+    <h2>Lodí do Sa Calobra a soutěska Torrent de Pareis</h2>
+    <div class="activity">
+      <p>Historickou tramvají z roku 1913 do Port de Sóller a lodí podél kolmých útesů do Sa Calobra (cca 1 h). Krátká stezka tunely ve skále do ústí soutěsky Torrent de Pareis — oblázková pláž mezi 200 m vysokými stěnami, jedno z nejfotogeničtějších míst ostrova.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Tranvia+de+Soller" target="_blank" rel="noopener">Tramvaj Sóller</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Torrent+de+Pareis" target="_blank" rel="noopener" data-lat="39.8530" data-lng="2.8070">Torrent de Pareis</a>
+    </div>
+    <div class="activity">
+      <p>Zpět buď lodí, nebo autobusem po silnici „Nus de sa Corbata“ — serpentina, která se otáčí sama přes sebe jako uzel kravaty. Večer v Port de Sóller ryby na nábřeží.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Nus+de+sa+Corbata" target="_blank" rel="noopener">Nus de sa Corbata</a>
+    </div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day" id="d4">
+    <div class="day-head">
+      <span class="day-date">DEN 04</span>
+    </div>
+    <h2>Mys Formentor a Pollença</h2>
+    <div class="activity">
+      <p>Přes hory a kolem nádrže Cúber na sever. Poloostrov Formentor: vyhlídka Mirador Es Colomer nad útesy a ostrůvkem, cesta po hřebeni k majáku na konci ostrova. Koupání na borovicemi lemované pláži Platja de Formentor.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mirador+Es+Colomer" target="_blank" rel="noopener" data-lat="39.9270" data-lng="3.1240">Mirador Es Colomer</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Far+de+Formentor" target="_blank" rel="noopener" data-lat="39.9620" data-lng="3.2120">Maják Formentor</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Platja+de+Formentor" target="_blank" rel="noopener" data-lat="39.9150" data-lng="3.1360">Platja de Formentor</a>
+    </div>
+    <div class="activity">
+      <p>Cestou zpět Pollença — 365 kamenných schodů na Calvari s výhledem na zátoku a večer na náměstí.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Calvari+Pollenca" target="_blank" rel="noopener" data-lat="39.8790" data-lng="3.0130">Calvari Pollença</a>
+    </div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="d5">
+    <div class="day-head">
+      <span class="day-date">DEN 05</span>
+      <span class="badge badge--travel">Přesun</span>
+    </div>
+    <h2>Krápníkové jeskyně → jihovýchod</h2>
+    <div class="activity">
+      <p>Přejezd na východní pobřeží. Coves del Drach u Porto Cristo — krápníkové síně a jedno z největších podzemních jezer na světě, kde na konci prohlídky hrají smyčcové kvarteto z osvětlených lodiček.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Coves+del+Drach" target="_blank" rel="noopener" data-lat="39.5350" data-lng="3.3300">Coves del Drach</a>
+    </div>
+    <div class="activity">
+      <p>Odpoledne skalní oblouk Es Pontàs vyrůstající z moře a ubytování v Santanyí — městečko z medového pískovce s trhem (středa a sobota).</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Es+Pontas+Mallorca" target="_blank" rel="noopener" data-lat="39.3330" data-lng="3.1630">Es Pontàs</a>
+    </div>
+    <div class="stay">
+      <div class="stay-icon">🏡</div>
+      <div class="stay-body">
+        <span class="stay-label">Ubytování (dny 5–7)</span>
+        <div class="stay-name">Santanyí</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Santanyi" target="_blank" rel="noopener" data-lat="39.3540" data-lng="3.1290">Mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 6 -->
+  <section class="day" id="d6">
+    <div class="day-head">
+      <span class="day-date">DEN 06</span>
+      <span class="badge badge--light">Pobřežní stezka cca 6 km</span>
+    </div>
+    <h2>Tyrkysové zátoky — Caló des Moro a Mondragó</h2>
+    <div class="activity">
+      <p>Brzy ráno (před davy!) do Caló des Moro — malá zátoka s průzračnou vodou mezi borovicemi, kam se jde pěšky z parkoviště. Hned vedle Cala s'Almunia s rybářskými boudami.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Calo+des+Moro" target="_blank" rel="noopener" data-lat="39.3270" data-lng="3.1450">Caló des Moro</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Cala+s+Almunia" target="_blank" rel="noopener">Cala s'Almunia</a>
+    </div>
+    <div class="activity">
+      <p>Odpoledne přírodní park Mondragó: pobřežní stezka mezi zátokami S'Amarador a Cala Mondragó, mokřady a koupání. Večer tapas v Cala Figuera — rybářský přístav s loďkami ve fjordu.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Parc+Natural+de+Mondrago" target="_blank" rel="noopener" data-lat="39.3500" data-lng="3.1880">Mondragó</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Cala+Figuera+Santanyi" target="_blank" rel="noopener" data-lat="39.3310" data-lng="3.1700">Cala Figuera</a>
+    </div>
+  </section>
+
+  <!-- DAY 7 -->
+  <section class="day" id="d7">
+    <div class="day-head">
+      <span class="day-date">DEN 07</span>
+      <span class="badge badge--water">Lodní výlet</span>
+    </div>
+    <h2>Národní park Cabrera a pláž Es Trenc</h2>
+    <div class="activity">
+      <p>Lodí z Colònia de Sant Jordi na neobydlený ostrov Cabrera — mořský národní park. Výšlap ke středověkému hradu nad přístavem, koupání v zátoce a cestou zpět vplutí do Modré jeskyně (Sa Cova Blava), kde voda svítí jako neon.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Colonia+de+Sant+Jordi+port" target="_blank" rel="noopener" data-lat="39.3170" data-lng="2.9920">Colònia de Sant Jordi</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Castell+de+Cabrera" target="_blank" rel="noopener" data-lat="39.1500" data-lng="2.9330">Cabrera</a>
+    </div>
+    <div class="activity">
+      <p>Pozdě odpoledne Es Trenc — dlouhá divoká pláž s bílým pískem a dunami, „Karibik Mallorky“, a solná pole Salines d'Es Trenc s plameňáky.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Platja+des+Trenc" target="_blank" rel="noopener" data-lat="39.3420" data-lng="2.9800">Es Trenc</a>
+    </div>
+  </section>
+
+  <!-- DAY 8 -->
+  <section class="day day--travel" id="d8">
+    <div class="day-head">
+      <span class="day-date">DEN 08</span>
+      <span class="badge badge--travel">Odlet</span>
+    </div>
+    <h2>Palma a odlet</h2>
+    <div class="activity">
+      <p>Pár hodin v Palmě podle času letu: gotická katedrála La Seu nad mořem (uvnitř úpravy od Gaudího a Barcelóa), uličky starého města a tržnice Mercat de l'Olivar. Letiště je 15 minut.</p>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Mallorca" target="_blank" rel="noopener" data-lat="39.5676" data-lng="2.6484">Katedrála La Seu</a>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mercat+de+l+Olivar" target="_blank" rel="noopener">Mercat de l'Olivar</a>
+    </div>
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-route"><span class="code">PMI</span><span class="arrow">✈</span><span class="code">PRG</span></div>
+        <div class="pass-flight">LETENKA — DOPLNIT PO NÁKUPU</div>
+      </div>
+      <div class="pass-stub">ODLET</div>
+    </div>
+  </section>
+
+  <section class="day extras" id="extra" data-extra>
+    <div class="day-head">
+      <span class="day-date">MIMO PLÁN</span>
+      <div class="badges"><span class="badge badge--light">Další varianty</span></div>
+    </div>
+    <h2>Další místa a možné výměny</h2>
+    <p class="lead-text" style="margin-top:8px;">Nejsou součástí hlavního plánu — nápady, co přidat nebo čím nahradit některý den.</p>
+
+    <div class="suggest">
+      <span class="suggest-label">Hory a dobrodružství</span>
+      <ul>
+        <li><b>Puig de Massanella (1 364 m)</b> — nejvyšší hora, na kterou se dá legálně vystoupit; z kláštera Lluc cca 5 h tam i zpět, nahoře výhled na celý ostrov.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Puig+de+Massanella" target="_blank" rel="noopener" data-lat="39.8070" data-lng="2.8770">Puig de Massanella</a></li>
+        <li><b>Celá soutěska Torrent de Pareis</b> — od Escorcy dolů do Sa Calobra (cca 6 h, lezení po balvanech, jen za sucha a nejlépe s průvodcem).<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Escorca+Mallorca" target="_blank" rel="noopener">Escorca</a></li>
+        <li><b>Coasteering nebo kajak u Formentoru</b> — skoky ze skal a jeskyně z vody, organizují agentury v Port de Pollença.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Port+de+Pollenca" target="_blank" rel="noopener" data-lat="39.9050" data-lng="3.0850">Port de Pollença</a></li>
+      </ul>
+    </div>
+
+    <div class="suggest">
+      <span class="suggest-label">Klidnější sever a východ</span>
+      <ul>
+        <li><b>Artà a Cala Torta</b> — městečko s pevností na kopci a divoké zátoky v přírodním parku Llevant bez hotelů.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Torta+Arta" target="_blank" rel="noopener" data-lat="39.7130" data-lng="3.4130">Cala Torta</a></li>
+        <li><b>Klášter Lluc</b> — poutní místo uprostřed hor, dá se v něm i přespat.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Santuari+de+Lluc" target="_blank" rel="noopener" data-lat="39.8230" data-lng="2.8850">Santuari de Lluc</a></li>
+        <li><b>Fornalutx</b> — prý nejhezčí vesnice Španělska, kousek nad Sóllerem.<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fornalutx" target="_blank" rel="noopener" data-lat="39.7820" data-lng="2.7410">Fornalutx</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="map-section">
+    <div class="map-head">
+      <h3>Mapa itineráře</h3>
+      <span class="map-status" id="mapStatus"></span>
+    </div>
+    <div class="map-container" id="mapContainer"></div>
+    <div class="map-legend">
+      <span class="lg"><span class="num-pin">1</span> plán (název po najetí / klepnutí)</span>
+      <span class="lg"><span class="num-pin num-pin--extra"></span> další varianty</span>
+    </div>
+  </div>
+
+  <footer>
+    Návrh 8denní cesty po Mallorce s autem — dvě základny (Sóller v horách a Santanyí u zátok). Ceny, otevírací doby a sezónní omezení (Formentor, Cabrera) ověřte před cestou.
+  </footer>
+
+</div>
+<script>
+(function(){
+  "use strict";
+  // Leaflet's CSS is inlined (not linked), so its default marker icon can't auto-detect where marker-icon.png etc. live
+  // and would look for them relative to this page (404) — point it at the CDN. imagePath must carry the full CDN base.
+  if (window.L) {
+    L.Icon.Default.imagePath = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/';
+  }
+  var COUNTRY_CODE = 'es';
+  var VIEWBOX = '';            // optional: pin the geocoder to a region (lon,lat,lon,lat); '' = none
+  var PERMANENT_LABELS = true;        // always-on labels for plan pins (only sensible with few pins)
+  var ROUTE_LINE = false;              // dashed line through the plan pins in DOM order
+  var ROUTE_COLOR = '#8A6BC4';
+  var GEOCODE_CACHE_KEY = 'geocode-cache-v3';
+  // driving route legs (Google-encoded polylines) baked into the page at build time — the whole route along real roads
+  var ROUTES = [];
+  try { var rEl = document.getElementById('itin-route'); if (rEl) ROUTES = JSON.parse(rEl.textContent); } catch(e){}
+  function decodePoly(str){
+    var i = 0, lat = 0, lng = 0, out = [];
+    while (i < str.length) {
+      var b, shift = 0, res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lat += (res & 1) ? ~(res >> 1) : (res >> 1);
+      shift = 0; res = 0;
+      do { b = str.charCodeAt(i++) - 63; res |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      lng += (res & 1) ? ~(res >> 1) : (res >> 1);
+      out.push([lat / 1e5, lng / 1e5]);
+    }
+    return out;
+  }
+
+  function nameFromMapHref(href){
+    try {
+      var q = new URL(href, location.href).searchParams.get('query');
+      if (!q) return null;
+      return decodeURIComponent(q.replace(/\+/g, ' ')).trim();
+    } catch(e){ return null; }
+  }
+  function extractMapPlaces(){
+    // the href's query param is usually more specific than the short visible link text — geocode with the fuller
+    // string, label with the short one. Links flagged .camp are campgrounds: a separate, switchable pin layer.
+    var links = document.querySelectorAll('a.maplink');
+    var seen = {}, out = [];
+    links.forEach(function(a){
+      var text = (a.textContent || '').trim();
+      var hrefName = nameFromMapHref(a.getAttribute('href') || '');
+      var isGeneric = !text || /^mapa$/i.test(text) || /google/i.test(text);
+      var label = a.getAttribute('data-name') || (isGeneric ? (hrefName || text) : text);
+      var query = hrefName || text;
+      if (!label || !query) return;
+      var key = query.toLowerCase();
+      if (seen[key]) { a._place = seen[key]; return; }
+      // data-lat/data-lng = coordinates already known → pin appears instantly, no Nominatim wait
+      var la = parseFloat(a.getAttribute('data-lat')), ln = parseFloat(a.getAttribute('data-lng'));
+      var p = {
+        label: label, query: query, href: a.getAttribute('href'),
+        coord: (isFinite(la) && isFinite(ln)) ? {lat: la, lng: ln} : null,
+        extra: !!a.closest('[data-extra]'), camp: a.classList.contains('camp'),
+        rating: a.getAttribute('data-rating') || ''
+      };
+      seen[key] = p; a._place = p;
+      out.push(p);
+    });
+    return out;
+  }
+  function loadCache(){ try { return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); } catch(e){ return {}; } }
+  function saveCache(c){ try { localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(c)); } catch(e){} }
+  function geocodeOne(name){
+    // throws on a failed/blocked request (e.g. 429) so the caller can tell that apart from a genuine "no OSM entry"
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(name) + '&countrycodes=' + COUNTRY_CODE + (VIEWBOX ? '&viewbox=' + VIEWBOX + '&bounded=1' : '');
+    return fetch(url).then(function(r){
+      if (!r.ok) { throw new Error('http ' + r.status); }
+      return r.json();
+    }).then(function(rows){
+      if (rows && rows[0]) return {lat: parseFloat(rows[0].lat), lng: parseFloat(rows[0].lon)};
+      return null;
+    });
+  }
+  function fmt(c){ return c.lat.toFixed(5) + ',' + c.lng.toFixed(5); }
+
+  // per-day "open this day's route in Google Maps" button (directions URL — needs no API key; max 9 waypoints)
+  function addDayRouteButtons(){
+    document.querySelectorAll('section.day').forEach(function(sec){
+      if (sec.hasAttribute('data-extra') || sec.querySelector('.daybtn')) return;
+      var pts = [], seenK = {};
+      sec.querySelectorAll('a.maplink').forEach(function(a){
+        var p = a._place; if (!p || p.camp || !p.resolved) return;
+        var k = fmt(p.resolved); if (seenK[k]) return; seenK[k] = 1; pts.push(p.resolved);
+      });
+      if (pts.length < 2) return;
+      if (pts.length > 11) pts = pts.slice(0, 11);
+      var u = 'https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=' + fmt(pts[0]) + '&destination=' + fmt(pts[pts.length-1]);
+      if (pts.length > 2) u += '&waypoints=' + pts.slice(1, -1).map(fmt).join('%7C');
+      var a = document.createElement('a');
+      a.className = 'daybtn'; a.href = u; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🧭 Trasa dne v Google Maps (' + pts.length + ' zastávek)';
+      sec.appendChild(a);
+    });
+  }
+
+  async function renderMap(){
+    var statusEl = document.getElementById('mapStatus');
+    var container = document.getElementById('mapContainer');
+    if (!statusEl || !container) return;
+    if (!window.L){ statusEl.textContent = 'Mapová knihovna se nenačetla.'; return; }
+    var places = extractMapPlaces();
+    if (!places.length){ statusEl.textContent = 'Pro tuhle cestu nejsou na stránce žádná místa.'; return; }
+
+    var cache = loadCache();
+    var cacheKeyPrefix = COUNTRY_CODE + ':';
+    var bounds = [];
+    var mainCount = 0, campCount = 0;
+    var routePts = [], routeLine = null;
+    var map = null, campLayer = null;
+    var resolved = 0;
+    var blocked = false;
+    var toggle = document.getElementById('toggleCamps');
+    if (ROUTES.length) document.querySelectorAll('.map-legend .lg').forEach(function(e){ if (e.textContent.indexOf('┄┄') === 0) e.textContent = '━ trasa po silnicích (auto)'; });
+
+    function ensureMap(){
+      if (map || blocked) return;
+      map = L.map(container, {scrollWheelZoom:true});
+      campLayer = L.layerGroup();
+      if (toggle) toggle.addEventListener('change', function(){
+        if (!map) return;
+        if (toggle.checked) campLayer.addTo(map); else map.removeLayer(campLayer);
+      });
+      // the container may get its final size only after the map was created — re-measure and re-fit on resize
+      if (window.ResizeObserver) {
+        new ResizeObserver(function(){
+          if (!map) return;
+          map.invalidateSize();
+          if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], animate:false});
+        }).observe(container);
+      }
+      var esri = function(svc, maxZ){ return L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/' + svc + '/MapServer/tile/{z}/{y}/{x}', {maxZoom: maxZ, attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors'}); };
+      var layer = esri('World_Street_Map', 17).addTo(map);
+      L.control.layers({
+        'Silniční (Esri)': layer,
+        'Topografická (Esri)': esri('World_Topo_Map', 17),
+        'Světlá (Esri)': esri('Canvas/World_Light_Gray_Base', 16),
+        'OpenStreetMap': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'})
+      }, null, {collapsed: true, position: 'topright'}).addTo(map);
+      ROUTES.forEach(function(p){ L.polyline(decodePoly(p), {color: ROUTE_COLOR, weight: 4, opacity: .85, interactive: false}).addTo(map); });
+      // inside the claude.ai artifact preview external tile images are blocked — show a note, not a gray box
+      layer.on('tileerror', function(){
+        if (blocked) return;
+        blocked = true;
+        map.remove();
+        map = null;
+        container.innerHTML = '';
+        statusEl.textContent = 'Mapa v tomhle zobrazení není dostupná (blokované externí obrázky) — otevřete stránku mimo Claude náhled.';
+      });
+    }
+    function popup(label, href, coord, extraLine){
+      return '<div class="pin-popup"><b>' + label + '</b>' + (extraLine ? '<br>' + extraLine : '') +
+        (href ? '<br><a href="' + href + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+        '<br><a href="https://mapy.cz/zakladni?x=' + coord.lng.toFixed(6) + '&y=' + coord.lat.toFixed(6) + '&z=15&source=coor&id=' + coord.lng.toFixed(6) + ',' + coord.lat.toFixed(6) + '" target="_blank" rel="noopener">Mapy.cz ↗</a></div>';
+    }
+    function addPoint(p, coord){
+      ensureMap();
+      if (blocked || !map) return;
+      var label = p.label, icon, zOffset = 0, m;
+      if (p.camp) {
+        campCount++;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="camp-pin">⛺</span>', iconSize:[20,20], iconAnchor:[10,10]});
+        m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: -500});
+        m.bindTooltip(label + (p.rating ? ' · ★ ' + p.rating : ''), {direction:'top', offset:[0,-8], className:'place-label'});
+        m.bindPopup(popup(label, p.href, coord, p.rating ? '★ ' + p.rating + ' (Google)' : ''));
+        campLayer.addLayer(m);
+        var cnt = document.getElementById('campCnt'); if (cnt) cnt.textContent = campCount;
+        return;
+      }
+      if (p.extra) {
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin num-pin--extra"></span>', iconSize:[14,14], iconAnchor:[7,7]});
+        zOffset = -1000;
+      } else {
+        var order = ++mainCount;
+        label = order + '. ' + p.label;
+        icon = L.divIcon({className:'num-pin-wrap', html:'<span class="num-pin">' + order + '</span>', iconSize:[22,22], iconAnchor:[11,11]});
+      }
+      m = L.marker([coord.lat, coord.lng], {icon: icon, zIndexOffset: zOffset}).addTo(map);
+      m.bindTooltip(label, {permanent: (!p.extra && PERMANENT_LABELS), direction:'top', offset:[0, p.extra ? -6 : -8], className:'place-label'});
+      m.bindPopup(popup(label, p.href, coord, ''));
+      bounds.push([coord.lat, coord.lng]);
+      if (!p.extra && ROUTE_LINE && !ROUTES.length) {
+        routePts.push([coord.lat, coord.lng]);
+        if (routeLine) routeLine.setLatLngs(routePts);
+        else routeLine = L.polyline(routePts, {color: ROUTE_COLOR, weight:2.5, opacity:.6, dashArray:'6 6', interactive:false}).addTo(map);
+      }
+      // animate:false is load-bearing: rapid-fire animated fitBounds calls (cache hits resolve in the same tick)
+      // interrupt each other and the view silently gets stuck on an early, too-small bounding box
+      if (bounds.length === 1) map.setView(bounds[0], 11, {animate:false});
+      else map.fitBounds(bounds, {padding:[28,28], animate:false});
+    }
+
+    for (var i=0; i<places.length; i++){
+      var place = places[i];
+      var cacheKey = cacheKeyPrefix + place.query.toLowerCase();
+      var cached = place.coord || cache[cacheKey];
+      var madeLiveRequest = false;
+      if (cached === undefined){
+        statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě — načítám dál…';
+        try {
+          cached = await geocodeOne(place.query);
+          cache[cacheKey] = cached || 'FAIL';
+          saveCache(cache);
+          madeLiveRequest = true;
+        } catch(e){
+          statusEl.textContent = 'Mapová služba momentálně blokuje požadavky (příliš mnoho dotazů) — zkuste stránku načíst znovu za pár minut.';
+          addDayRouteButtons();
+          return;
+        }
+      }
+      if (cached && cached !== 'FAIL'){ place.resolved = cached; addPoint(place, cached); resolved++; }
+      var done = i + 1;
+      statusEl.textContent = resolved + ' / ' + places.length + ' míst na mapě' + (done < places.length ? ' — načítám dál…' : '');
+      // only the Nominatim usage policy (~1 req/s) requires this pause — cache hits made no request and don't wait
+      if (madeLiveRequest && done < places.length) await new Promise(function(res){ setTimeout(res, 1100); });
+    }
+    if (!resolved) statusEl.textContent = 'Místa se nepodařilo najít na mapě.';
+    addDayRouteButtons();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMap);
+  else renderMap();
+})();
+</script>
+</body>
+</html>
